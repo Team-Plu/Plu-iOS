@@ -10,8 +10,8 @@ import UIKit
 extension UIFont {
     
     public class func suite(_ type: Font.SuiteType) -> UIFont {
-        let font = Font.SuiteFont(name: .suite, weight: type.Wight)
-        return ._font(name: font.name, size: type.Size)
+        let font = Font.SuiteFont(name: .suite, weight: type.weight)
+        return ._font(name: font.name, size: type.size)
     }
     
     private static func _font(name: String, size: CGFloat) -> UIFont {

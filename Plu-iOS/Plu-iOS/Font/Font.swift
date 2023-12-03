@@ -12,7 +12,7 @@ public enum Font {
     public enum SuiteType {
         case head1, head2, head3, subHead1, title1, title2, body1M, body1R, body2M, body2R, body3, body4B, caption
         
-        var Wight: Font.Weight {
+        var weight: Font.Weight {
             switch self {
             case .body4B: return ._700
             case .head1, .head2, .head3, .title1, .title2: return ._600
@@ -21,7 +21,7 @@ public enum Font {
             }
         }
         
-        var Size: CGFloat {
+        var size: CGFloat {
             switch self {
             case .caption: return Font.Size._8.rawValue
             case .body4B: return Font.Size._10.rawValue
@@ -103,7 +103,6 @@ extension Font {
             SuiteFont(name: .suite, weight: ._500),
             SuiteFont(name: .suite, weight: ._600),
             SuiteFont(name: .suite, weight: ._700)
-            
         ]
     }
 
