@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4AA747532B1CEF9C004D0335 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA747522B1CEF9C004D0335 /* UIColor+.swift */; };
+		4AA747552B1CF094004D0335 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA747542B1CF094004D0335 /* Palette.swift */; };
 		C0121A2C2B1347CA00D10EB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A2B2B1347CA00D10EB0 /* AppDelegate.swift */; };
 		C0121A2E2B1347CA00D10EB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A2D2B1347CA00D10EB0 /* SceneDelegate.swift */; };
 		C0121A302B1347CA00D10EB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A2F2B1347CA00D10EB0 /* ViewController.swift */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4AA747522B1CEF9C004D0335 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		4AA747542B1CF094004D0335 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		C0121A282B1347CA00D10EB0 /* Plu-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plu-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0121A2B2B1347CA00D10EB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0121A2D2B1347CA00D10EB0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +90,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4AA747512B1CEF73004D0335 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				4AA747522B1CEF9C004D0335 /* UIColor+.swift */,
+				4AA747542B1CF094004D0335 /* Palette.swift */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
 		C0121A1F2B1347CA00D10EB0 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +122,7 @@
 		C0121A2A2B1347CA00D10EB0 /* Plu-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				4AA747512B1CEF73004D0335 /* Color */,
 				C05E262D2B1C48E700D91BFA /* Font */,
 				C0121A2B2B1347CA00D10EB0 /* AppDelegate.swift */,
 				C0121A2D2B1347CA00D10EB0 /* SceneDelegate.swift */,
@@ -287,8 +301,10 @@
 				C05E262F2B1C48F200D91BFA /* Font.swift in Sources */,
 				C0121A302B1347CA00D10EB0 /* ViewController.swift in Sources */,
 				C05E263F2B1C4E1E00D91BFA /* UIFont+.swift in Sources */,
+				4AA747532B1CEF9C004D0335 /* UIColor+.swift in Sources */,
 				C0121A2C2B1347CA00D10EB0 /* AppDelegate.swift in Sources */,
 				C0121A2E2B1347CA00D10EB0 /* SceneDelegate.swift in Sources */,
+				4AA747552B1CF094004D0335 /* Palette.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
