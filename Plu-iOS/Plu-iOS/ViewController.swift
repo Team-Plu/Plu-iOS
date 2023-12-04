@@ -18,7 +18,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .designSystem(.pluBrown)
         view.addSubview(testLabel)
         testLabel.translatesAutoresizingMaskIntoConstraints = false
         testLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
