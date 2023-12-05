@@ -58,6 +58,8 @@
 		C0A2561F2B1EDC350059AA7E /* MyPageRoundSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A2561E2B1EDC350059AA7E /* MyPageRoundSectionHeaderView.swift */; };
 		C0A256212B1EDD090059AA7E /* MyPageSeperateSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A256202B1EDD090059AA7E /* MyPageSeperateSectionHeaderView.swift */; };
 		C0A256232B1EDD550059AA7E /* MyPageAlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A256222B1EDD550059AA7E /* MyPageAlarmTableViewCell.swift */; };
+		C0A256252B1EE0330059AA7E /* MyPageNavigationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A256242B1EE0330059AA7E /* MyPageNavigationTableViewCell.swift */; };
+		C0A256272B1EE1200059AA7E /* MyPageOtherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A256262B1EE1200059AA7E /* MyPageOtherTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +133,8 @@
 		C0A2561E2B1EDC350059AA7E /* MyPageRoundSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageRoundSectionHeaderView.swift; sourceTree = "<group>"; };
 		C0A256202B1EDD090059AA7E /* MyPageSeperateSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSeperateSectionHeaderView.swift; sourceTree = "<group>"; };
 		C0A256222B1EDD550059AA7E /* MyPageAlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAlarmTableViewCell.swift; sourceTree = "<group>"; };
+		C0A256242B1EE0330059AA7E /* MyPageNavigationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageNavigationTableViewCell.swift; sourceTree = "<group>"; };
+		C0A256262B1EE1200059AA7E /* MyPageOtherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageOtherTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -447,6 +451,8 @@
 				C0A2561E2B1EDC350059AA7E /* MyPageRoundSectionHeaderView.swift */,
 				C0A256202B1EDD090059AA7E /* MyPageSeperateSectionHeaderView.swift */,
 				C0A256222B1EDD550059AA7E /* MyPageAlarmTableViewCell.swift */,
+				C0A256242B1EE0330059AA7E /* MyPageNavigationTableViewCell.swift */,
+				C0A256262B1EE1200059AA7E /* MyPageOtherTableViewCell.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -618,6 +624,8 @@
 				C05E26962B1D9F0600D91BFA /* OnboardingViewController.swift in Sources */,
 				C05E266D2B1D9B7200D91BFA /* UITextField+.swift in Sources */,
 				C05E26902B1D9ED300D91BFA /* TabbarViewController.swift in Sources */,
+				C0A256272B1EE1200059AA7E /* MyPageOtherTableViewCell.swift in Sources */,
+				C0A256252B1EE0330059AA7E /* MyPageNavigationTableViewCell.swift in Sources */,
 				C05E26702B1D9B8C00D91BFA /* UIStackView+.swift in Sources */,
 				C05E26942B1D9EF700D91BFA /* TodayQuestionViewController.swift in Sources */,
 				4AA747532B1CEF9C004D0335 /* UIColor+.swift in Sources */,

@@ -1,16 +1,15 @@
 //
-//  MyPageAlarmTableViewCell.swift
+//  MyPageOtherTableViewCell.swift
 //  Plu-iOS
 //
 //  Created by uiskim on 2023/12/05.
-//  Copyright (c) 2023 MyPageAlarm. All rights reserved.
 //
 
 import UIKit
 
 import SnapKit
 
-final class MyPageAlarmTableViewCell: UITableViewCell, TableViewCellRegisterDequeueProtocol {
+final class MyPageOtherTableViewCell: UITableViewCell, TableViewCellRegisterDequeueProtocol {
     
     private let cellTitle: UILabel = {
         let label = UILabel()
@@ -19,16 +18,11 @@ final class MyPageAlarmTableViewCell: UITableViewCell, TableViewCellRegisterDequ
         return label
     }()
     
-    private let alarmSwitch: UISwitch = {
-        let `switch` = UISwitch()
-        `switch`.onTintColor = .designSystem(.black)
-        return `switch`
-    }()
-    
-    private let rightArrow: UIImageView = {
-        let imageView = UIImageView(image: ImageLiterals.MyPage.arrowRightSmall900)
-        imageView.contentMode = .scaleAspectFit
-        return imageView
+    private let appVersion: UILabel = {
+        let lable = UILabel()
+        lable.font = .suite(.body3)
+        lable.textColor = .designSystem(.gray300)
+        return lable
     }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -54,19 +48,19 @@ final class MyPageAlarmTableViewCell: UITableViewCell, TableViewCellRegisterDequ
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(_ input: MyPageAlarmCellData) {
-        self.alarmSwitch.isOn = input.acceptAlarm
+    func configure(_ input: MypageAppVersionCellData) {
         self.cellTitle.text = input.title
+        self.appVersion.text = input.appVersion
     }
 }
 
-private extension MyPageAlarmTableViewCell {
+private extension MyPageOtherTableViewCell {
     func setUI() {
         self.contentView.backgroundColor = .designSystem(.white)
     }
     
     func setHierarchy() {
-        self.contentView.addSubviews(cellTitle, alarmSwitch)
+        self.contentView.addSubviews(cellTitle, appVersion)
     }
     
     func setLayout() {
@@ -74,8 +68,7 @@ private extension MyPageAlarmTableViewCell {
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview().inset(20)
         }
-        
-        alarmSwitch.snp.makeConstraints { make in
+        appVersion.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.trailing.equalToSuperview().inset(14)
         }
@@ -89,3 +82,4 @@ private extension MyPageAlarmTableViewCell {
         
     }
 }
+
