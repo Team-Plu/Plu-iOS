@@ -38,7 +38,7 @@ final class MyPageRoundSectionHeaderView: UITableViewHeaderFooterView {
 private extension MyPageRoundSectionHeaderView {
     
     func setUI() {
-        backgroundColor = .designSystem(.background)
+        backgroundColor = .designSystem(.pluRed)
     }
     func setHierarchy() {
         addSubview(roundView)

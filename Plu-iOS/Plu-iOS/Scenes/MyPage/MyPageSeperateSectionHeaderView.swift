@@ -27,7 +27,7 @@ final class MyPageSeperateSectionHeaderView: UITableViewHeaderFooterView {
 
 private extension MyPageSeperateSectionHeaderView {
     func setUI() {
-        backgroundColor = .designSystem(.gray300)
+        backgroundColor = .designSystem(.kakaoYellow)
     }
 }
 
