@@ -54,6 +54,10 @@
 		C05E26962B1D9F0600D91BFA /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05E26952B1D9F0600D91BFA /* OnboardingViewController.swift */; };
 		C05E26982B1D9F1000D91BFA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05E26972B1D9F1000D91BFA /* LoginViewController.swift */; };
 		C05E269A2B1D9F1B00D91BFA /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05E26992B1D9F1B00D91BFA /* SplashViewController.swift */; };
+		C0A2561D2B1ED99B0059AA7E /* MyPageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A2561C2B1ED99B0059AA7E /* MyPageHeaderView.swift */; };
+		C0A2561F2B1EDC350059AA7E /* MyPageRoundSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A2561E2B1EDC350059AA7E /* MyPageRoundSectionHeaderView.swift */; };
+		C0A256212B1EDD090059AA7E /* MyPageSeperateSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A256202B1EDD090059AA7E /* MyPageSeperateSectionHeaderView.swift */; };
+		C0A256232B1EDD550059AA7E /* MyPageAlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A256222B1EDD550059AA7E /* MyPageAlarmTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +127,10 @@
 		C05E26952B1D9F0600D91BFA /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		C05E26972B1D9F1000D91BFA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C05E26992B1D9F1B00D91BFA /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		C0A2561C2B1ED99B0059AA7E /* MyPageHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageHeaderView.swift; sourceTree = "<group>"; };
+		C0A2561E2B1EDC350059AA7E /* MyPageRoundSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageRoundSectionHeaderView.swift; sourceTree = "<group>"; };
+		C0A256202B1EDD090059AA7E /* MyPageSeperateSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSeperateSectionHeaderView.swift; sourceTree = "<group>"; };
+		C0A256222B1EDD550059AA7E /* MyPageAlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAlarmTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -435,6 +443,10 @@
 			isa = PBXGroup;
 			children = (
 				C05E26872B1D9EA300D91BFA /* MyPageViewController.swift */,
+				C0A2561C2B1ED99B0059AA7E /* MyPageHeaderView.swift */,
+				C0A2561E2B1EDC350059AA7E /* MyPageRoundSectionHeaderView.swift */,
+				C0A256202B1EDD090059AA7E /* MyPageSeperateSectionHeaderView.swift */,
+				C0A256222B1EDD550059AA7E /* MyPageAlarmTableViewCell.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -593,12 +605,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0A256212B1EDD090059AA7E /* MyPageSeperateSectionHeaderView.swift in Sources */,
 				C05E262F2B1C48F200D91BFA /* Font.swift in Sources */,
 				C05E26672B1D9B0500D91BFA /* UIView+.swift in Sources */,
 				B59FC6E72B1C44C9000996CA /* ImageLiterals.swift in Sources */,
 				C05E26592B1D9A1D00D91BFA /* TableViewCellRegisterDequeueProtocol.swift in Sources */,
 				C05E26722B1D9BCF00D91BFA /* UILabel+.swift in Sources */,
 				C05E26782B1D9D2900D91BFA /* StringConstant.swift in Sources */,
+				C0A2561D2B1ED99B0059AA7E /* MyPageHeaderView.swift in Sources */,
+				C0A2561F2B1EDC350059AA7E /* MyPageRoundSectionHeaderView.swift in Sources */,
 				C05E263F2B1C4E1E00D91BFA /* UIFont+.swift in Sources */,
 				C05E26962B1D9F0600D91BFA /* OnboardingViewController.swift in Sources */,
 				C05E266D2B1D9B7200D91BFA /* UITextField+.swift in Sources */,
@@ -610,6 +625,7 @@
 				C05E268E2B1D9EC800D91BFA /* OthersAnswerViewController.swift in Sources */,
 				C05E26862B1D9E9500D91BFA /* ProfileEditViewController.swift in Sources */,
 				C05E265D2B1D9A5900D91BFA /* CollectionSectionViewRegisterDequeueProtocol.swift in Sources */,
+				C0A256232B1EDD550059AA7E /* MyPageAlarmTableViewCell.swift in Sources */,
 				C05E268C2B1D9EB600D91BFA /* RecordViewController.swift in Sources */,
 				C0121A2C2B1347CA00D10EB0 /* AppDelegate.swift in Sources */,
 				C05E26922B1D9EED00D91BFA /* MyAnswerViewController.swift in Sources */,
