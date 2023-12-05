@@ -32,6 +32,7 @@ enum ImageLiterals {
     
     enum NavigationBar {
         static var profile32: UIImage { .load(named: "ic_profile_32") }
+        static var arrowLeft: UIImage { .load(named: "ic_arrow_left") }
     }
     
     enum TabBar {
@@ -51,12 +52,18 @@ enum ImageLiterals {
         static var fireCharacterSmall: UIImage { .load(named: "ic_fire_small") }
         static var waterCharacterSmall: UIImage { .load(named: "ic_water_small") }
         static var dustCharacterSmall: UIImage { .load(named: "ic_dust_small") }
+        
+        static var arrowDownSmall600: UIImage { .load(named: "ic_arrow_down_small_600") }
+        static var arrowUpSmall600: UIImage { .load(named: "ic_arrow_up_small_600") }
+        static var arrowDownLarge600: UIImage { .load(named: "ic_arrow_down_large_600") }
     }
     
     enum MyPage {
         static var profile60: UIImage { .load(named: "ic_profile_60") }
         static var profile92: UIImage { .load(named: "ic_profile_92") }
         static var farewellCharacter: UIImage { .load(named: "ic_air") }
+        static var arrowRightSmall500: UIImage { .load(named: "ic_arrow_right_small_500") }
+        static var arrowRightSmall900: UIImage { .load(named: "ic_arrow_right_small_900") }
     }
 }
 
