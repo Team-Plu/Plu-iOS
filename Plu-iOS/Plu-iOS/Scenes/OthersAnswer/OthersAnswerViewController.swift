@@ -127,6 +127,6 @@ private extension OthersAnswerViewController {
         self.dateLabel.text = answer.date
         self.questionLabel.text = answer.question
         self.elementImageView.image = answer.elementType.characterSmallImage
-        self.totalAnswerCountLabel.text = "총 \(answer.answersCount)개"
+        self.totalAnswerCountLabel.text = "총 \(answer.answers.count)개"
     }
 }
