@@ -21,14 +21,23 @@ final class OthersAnswerViewController: UIViewController {
     
     private let totalAnswerCountLabel = PLULabel(type: .subHead1, color: .gray600, backgroundColor: .background)
     
-    private let filterButton = AnswerFilterButton(buttonType: .latest)
+    private let filterButton = PLUButton(config: .bordered()) { button in
+        var config = button.configuration
+        config?.image = button.isSelected
+        ? ImageLiterals.Respone.arrowUpSmall600
+        : ImageLiterals.Respone.arrowDownSmall600
+        button.configuration = config
+    }
+        .setImage(image: ImageLiterals.Respone.arrowDownSmall600, placement: .trailing)
+        .setBackForegroundColor(backgroundColor: .background, foregroundColor: .gray500)
+        .setText(text: AnswerFilterButtonType.latest.title, font: .body3)
+        .setLayer(cornerRadius: 15, borderColor: .gray500)
+    
     private let menuView = AnswerFilterMenuView()
         
-    private var datasource: UITableViewDiffableDataSource<OtherAnswersSection, OtherAnswersItem>!
-    
     private let answersTableView = OthersAnswerTableView()
     
-//    private let answerView = AnswerView()
+    private var datasource: UITableViewDiffableDataSource<OtherAnswersSection, OtherAnswersItem>!
     
     public override func viewDidLoad() {
         super.viewDidLoad()
