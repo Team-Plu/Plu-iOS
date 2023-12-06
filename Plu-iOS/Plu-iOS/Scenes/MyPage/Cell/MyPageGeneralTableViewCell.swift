@@ -1,15 +1,16 @@
 //
-//  MyPageOtherTableViewCell.swift
+//  MyPageNavigationTableViewCell.swift
 //  Plu-iOS
 //
 //  Created by uiskim on 2023/12/05.
+//  Copyright (c) 2023 MyPageNavigation. All rights reserved.
 //
 
 import UIKit
 
 import SnapKit
 
-final class MyPageOtherTableViewCell: UITableViewCell, TableViewCellRegisterDequeueProtocol {
+final class MyPageGeneralTableViewCell: UITableViewCell, TableViewCellRegisterDequeueProtocol {
     
     private let cellTitle: UILabel = {
         let label = UILabel()
@@ -18,29 +19,17 @@ final class MyPageOtherTableViewCell: UITableViewCell, TableViewCellRegisterDequ
         return label
     }()
     
-    private let appVersion: UILabel = {
-        let lable = UILabel()
-        lable.font = .suite(.body3)
-        lable.textColor = .designSystem(.gray300)
-        return lable
+    private let rightArrow: UIImageView = {
+        let imageView = UIImageView(image: ImageLiterals.MyPage.arrowRightSmall900)
+        imageView.contentMode = .scaleAspectFit
+        return imageView
     }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        // MARK: - 컴포넌트 설정
         setUI()
-        
-        // MARK: - addsubView
         setHierarchy()
-        
-        // MARK: - autolayout설정
         setLayout()
-        
-        // MARK: - button의 addtarget설정
-        setAddTarget()
-        
-        // MARK: - delegate설정
-        setDelegate()
     }
     
     @available(*, unavailable)
@@ -48,19 +37,18 @@ final class MyPageOtherTableViewCell: UITableViewCell, TableViewCellRegisterDequ
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(_ input: MypageAppVersionCellData) {
+    func configure(_ input: MyPageCell) {
         self.cellTitle.text = input.title
-        self.appVersion.text = input.appVersion
     }
 }
 
-private extension MyPageOtherTableViewCell {
+private extension MyPageGeneralTableViewCell {
     func setUI() {
         self.contentView.backgroundColor = .designSystem(.white)
     }
     
     func setHierarchy() {
-        self.contentView.addSubviews(cellTitle, appVersion)
+        self.contentView.addSubviews(cellTitle, rightArrow)
     }
     
     func setLayout() {
@@ -68,18 +56,11 @@ private extension MyPageOtherTableViewCell {
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview().inset(20)
         }
-        appVersion.snp.makeConstraints { make in
+        
+        rightArrow.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.trailing.equalToSuperview().inset(14)
+            make.size.equalTo(24)
         }
     }
-    
-    func setAddTarget() {
-        
-    }
-    
-    func setDelegate() {
-        
-    }
 }
-

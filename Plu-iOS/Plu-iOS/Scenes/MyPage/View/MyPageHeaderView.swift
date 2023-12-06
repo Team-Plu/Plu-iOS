@@ -31,8 +31,8 @@ final class MyPageHeaderView: UIView {
         return imageView
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init() {
+        super.init(frame: .init(x: 0, y: 0, width: ScreenConstant.Screen.width, height: 100))
         setUI()
         setHierarchy()
         setLayout()

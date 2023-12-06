@@ -56,10 +56,20 @@
 		C05E269A2B1D9F1B00D91BFA /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05E26992B1D9F1B00D91BFA /* SplashViewController.swift */; };
 		C0A2561D2B1ED99B0059AA7E /* MyPageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A2561C2B1ED99B0059AA7E /* MyPageHeaderView.swift */; };
 		C0A2561F2B1EDC350059AA7E /* MyPageRoundSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A2561E2B1EDC350059AA7E /* MyPageRoundSectionHeaderView.swift */; };
-		C0A256212B1EDD090059AA7E /* MyPageSeperateSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A256202B1EDD090059AA7E /* MyPageSeperateSectionHeaderView.swift */; };
 		C0A256232B1EDD550059AA7E /* MyPageAlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A256222B1EDD550059AA7E /* MyPageAlarmTableViewCell.swift */; };
-		C0A256252B1EE0330059AA7E /* MyPageNavigationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A256242B1EE0330059AA7E /* MyPageNavigationTableViewCell.swift */; };
-		C0A256272B1EE1200059AA7E /* MyPageOtherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A256262B1EE1200059AA7E /* MyPageOtherTableViewCell.swift */; };
+		C0A256252B1EE0330059AA7E /* MyPageGeneralTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A256242B1EE0330059AA7E /* MyPageGeneralTableViewCell.swift */; };
+		C0A256272B1EE1200059AA7E /* MyPageAppVersionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A256262B1EE1200059AA7E /* MyPageAppVersionTableViewCell.swift */; };
+		C0E93B402B2035370098A822 /* MyPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B3F2B2035370098A822 /* MyPageCell.swift */; };
+		C0E93B432B2035580098A822 /* MyPageUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B422B2035580098A822 /* MyPageUserData.swift */; };
+		C0E93B452B2035650098A822 /* MyPageAlarmCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B442B2035650098A822 /* MyPageAlarmCellData.swift */; };
+		C0E93B472B20357B0098A822 /* MypageInfomationCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B462B20357B0098A822 /* MypageInfomationCellData.swift */; };
+		C0E93B492B20358A0098A822 /* MypageAppVersionCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B482B20358A0098A822 /* MypageAppVersionCellData.swift */; };
+		C0E93B4B2B20359B0098A822 /* MypageUserExitCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B4A2B20359B0098A822 /* MypageUserExitCellData.swift */; };
+		C0E93B4E2B2036E50098A822 /* MyPageSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B4D2B2036E50098A822 /* MyPageSection.swift */; };
+		C0E93B502B2037C20098A822 /* MyPageCellHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B4F2B2037C20098A822 /* MyPageCellHeight.swift */; };
+		C0E93B522B2046030098A822 /* MyPageSectionHeaderHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B512B2046030098A822 /* MyPageSectionHeaderHeight.swift */; };
+		C0E93B552B2046EE0098A822 /* MyPageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B542B2046EE0098A822 /* MyPageTableView.swift */; };
+		C0E93B5A2B20518B0098A822 /* TableSectionViewRegisterDequeueProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B592B20518B0098A822 /* TableSectionViewRegisterDequeueProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,10 +141,20 @@
 		C05E26992B1D9F1B00D91BFA /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		C0A2561C2B1ED99B0059AA7E /* MyPageHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageHeaderView.swift; sourceTree = "<group>"; };
 		C0A2561E2B1EDC350059AA7E /* MyPageRoundSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageRoundSectionHeaderView.swift; sourceTree = "<group>"; };
-		C0A256202B1EDD090059AA7E /* MyPageSeperateSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSeperateSectionHeaderView.swift; sourceTree = "<group>"; };
 		C0A256222B1EDD550059AA7E /* MyPageAlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAlarmTableViewCell.swift; sourceTree = "<group>"; };
-		C0A256242B1EE0330059AA7E /* MyPageNavigationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageNavigationTableViewCell.swift; sourceTree = "<group>"; };
-		C0A256262B1EE1200059AA7E /* MyPageOtherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageOtherTableViewCell.swift; sourceTree = "<group>"; };
+		C0A256242B1EE0330059AA7E /* MyPageGeneralTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageGeneralTableViewCell.swift; sourceTree = "<group>"; };
+		C0A256262B1EE1200059AA7E /* MyPageAppVersionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAppVersionTableViewCell.swift; sourceTree = "<group>"; };
+		C0E93B3F2B2035370098A822 /* MyPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCell.swift; sourceTree = "<group>"; };
+		C0E93B422B2035580098A822 /* MyPageUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageUserData.swift; sourceTree = "<group>"; };
+		C0E93B442B2035650098A822 /* MyPageAlarmCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAlarmCellData.swift; sourceTree = "<group>"; };
+		C0E93B462B20357B0098A822 /* MypageInfomationCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageInfomationCellData.swift; sourceTree = "<group>"; };
+		C0E93B482B20358A0098A822 /* MypageAppVersionCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageAppVersionCellData.swift; sourceTree = "<group>"; };
+		C0E93B4A2B20359B0098A822 /* MypageUserExitCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageUserExitCellData.swift; sourceTree = "<group>"; };
+		C0E93B4D2B2036E50098A822 /* MyPageSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSection.swift; sourceTree = "<group>"; };
+		C0E93B4F2B2037C20098A822 /* MyPageCellHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCellHeight.swift; sourceTree = "<group>"; };
+		C0E93B512B2046030098A822 /* MyPageSectionHeaderHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSectionHeaderHeight.swift; sourceTree = "<group>"; };
+		C0E93B542B2046EE0098A822 /* MyPageTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableView.swift; sourceTree = "<group>"; };
+		C0E93B592B20518B0098A822 /* TableSectionViewRegisterDequeueProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSectionViewRegisterDequeueProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -367,6 +387,7 @@
 				C05E26582B1D9A1D00D91BFA /* TableViewCellRegisterDequeueProtocol.swift */,
 				C05E265A2B1D9A4300D91BFA /* CollectionViewCellRegisterDequeueProtocol.swift */,
 				C05E265C2B1D9A5900D91BFA /* CollectionSectionViewRegisterDequeueProtocol.swift */,
+				C0E93B592B20518B0098A822 /* TableSectionViewRegisterDequeueProtocol.swift */,
 			);
 			path = Collections;
 			sourceTree = "<group>";
@@ -446,13 +467,13 @@
 		C05E26822B1D9E5B00D91BFA /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
-				C05E26872B1D9EA300D91BFA /* MyPageViewController.swift */,
-				C0A2561C2B1ED99B0059AA7E /* MyPageHeaderView.swift */,
-				C0A2561E2B1EDC350059AA7E /* MyPageRoundSectionHeaderView.swift */,
-				C0A256202B1EDD090059AA7E /* MyPageSeperateSectionHeaderView.swift */,
-				C0A256222B1EDD550059AA7E /* MyPageAlarmTableViewCell.swift */,
-				C0A256242B1EE0330059AA7E /* MyPageNavigationTableViewCell.swift */,
-				C0A256262B1EE1200059AA7E /* MyPageOtherTableViewCell.swift */,
+				C0E93B582B20491C0098A822 /* ViewController */,
+				C0E93B572B20490B0098A822 /* SectionHeader */,
+				C0E93B562B2049010098A822 /* Cell */,
+				C0E93B532B2046E40098A822 /* View */,
+				C0E93B4C2B2036DA0098A822 /* Enum */,
+				C0E93B412B2035450098A822 /* Model */,
+				C0E93B3E2B20352A0098A822 /* MyPageInerface */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -463,6 +484,71 @@
 				C05E26852B1D9E9500D91BFA /* ProfileEditViewController.swift */,
 			);
 			path = ProfileEdit;
+			sourceTree = "<group>";
+		};
+		C0E93B3E2B20352A0098A822 /* MyPageInerface */ = {
+			isa = PBXGroup;
+			children = (
+				C0E93B3F2B2035370098A822 /* MyPageCell.swift */,
+			);
+			path = MyPageInerface;
+			sourceTree = "<group>";
+		};
+		C0E93B412B2035450098A822 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C0E93B422B2035580098A822 /* MyPageUserData.swift */,
+				C0E93B442B2035650098A822 /* MyPageAlarmCellData.swift */,
+				C0E93B462B20357B0098A822 /* MypageInfomationCellData.swift */,
+				C0E93B482B20358A0098A822 /* MypageAppVersionCellData.swift */,
+				C0E93B4A2B20359B0098A822 /* MypageUserExitCellData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C0E93B4C2B2036DA0098A822 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				C0E93B4D2B2036E50098A822 /* MyPageSection.swift */,
+				C0E93B4F2B2037C20098A822 /* MyPageCellHeight.swift */,
+				C0E93B512B2046030098A822 /* MyPageSectionHeaderHeight.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		C0E93B532B2046E40098A822 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C0A2561C2B1ED99B0059AA7E /* MyPageHeaderView.swift */,
+				C0E93B542B2046EE0098A822 /* MyPageTableView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C0E93B562B2049010098A822 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C0A256222B1EDD550059AA7E /* MyPageAlarmTableViewCell.swift */,
+				C0A256242B1EE0330059AA7E /* MyPageGeneralTableViewCell.swift */,
+				C0A256262B1EE1200059AA7E /* MyPageAppVersionTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		C0E93B572B20490B0098A822 /* SectionHeader */ = {
+			isa = PBXGroup;
+			children = (
+				C0A2561E2B1EDC350059AA7E /* MyPageRoundSectionHeaderView.swift */,
+			);
+			path = SectionHeader;
+			sourceTree = "<group>";
+		};
+		C0E93B582B20491C0098A822 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C05E26872B1D9EA300D91BFA /* MyPageViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -611,27 +697,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0A256212B1EDD090059AA7E /* MyPageSeperateSectionHeaderView.swift in Sources */,
 				C05E262F2B1C48F200D91BFA /* Font.swift in Sources */,
 				C05E26672B1D9B0500D91BFA /* UIView+.swift in Sources */,
 				B59FC6E72B1C44C9000996CA /* ImageLiterals.swift in Sources */,
 				C05E26592B1D9A1D00D91BFA /* TableViewCellRegisterDequeueProtocol.swift in Sources */,
 				C05E26722B1D9BCF00D91BFA /* UILabel+.swift in Sources */,
+				C0E93B5A2B20518B0098A822 /* TableSectionViewRegisterDequeueProtocol.swift in Sources */,
 				C05E26782B1D9D2900D91BFA /* StringConstant.swift in Sources */,
 				C0A2561D2B1ED99B0059AA7E /* MyPageHeaderView.swift in Sources */,
+				C0E93B522B2046030098A822 /* MyPageSectionHeaderHeight.swift in Sources */,
+				C0E93B452B2035650098A822 /* MyPageAlarmCellData.swift in Sources */,
 				C0A2561F2B1EDC350059AA7E /* MyPageRoundSectionHeaderView.swift in Sources */,
 				C05E263F2B1C4E1E00D91BFA /* UIFont+.swift in Sources */,
 				C05E26962B1D9F0600D91BFA /* OnboardingViewController.swift in Sources */,
 				C05E266D2B1D9B7200D91BFA /* UITextField+.swift in Sources */,
+				C0E93B4B2B20359B0098A822 /* MypageUserExitCellData.swift in Sources */,
 				C05E26902B1D9ED300D91BFA /* TabbarViewController.swift in Sources */,
-				C0A256272B1EE1200059AA7E /* MyPageOtherTableViewCell.swift in Sources */,
-				C0A256252B1EE0330059AA7E /* MyPageNavigationTableViewCell.swift in Sources */,
+				C0E93B502B2037C20098A822 /* MyPageCellHeight.swift in Sources */,
+				C0A256272B1EE1200059AA7E /* MyPageAppVersionTableViewCell.swift in Sources */,
+				C0A256252B1EE0330059AA7E /* MyPageGeneralTableViewCell.swift in Sources */,
 				C05E26702B1D9B8C00D91BFA /* UIStackView+.swift in Sources */,
 				C05E26942B1D9EF700D91BFA /* TodayQuestionViewController.swift in Sources */,
 				4AA747532B1CEF9C004D0335 /* UIColor+.swift in Sources */,
+				C0E93B552B2046EE0098A822 /* MyPageTableView.swift in Sources */,
 				C05E26982B1D9F1000D91BFA /* LoginViewController.swift in Sources */,
+				C0E93B472B20357B0098A822 /* MypageInfomationCellData.swift in Sources */,
+				C0E93B432B2035580098A822 /* MyPageUserData.swift in Sources */,
 				C05E268E2B1D9EC800D91BFA /* OthersAnswerViewController.swift in Sources */,
+				C0E93B402B2035370098A822 /* MyPageCell.swift in Sources */,
 				C05E26862B1D9E9500D91BFA /* ProfileEditViewController.swift in Sources */,
+				C0E93B4E2B2036E50098A822 /* MyPageSection.swift in Sources */,
 				C05E265D2B1D9A5900D91BFA /* CollectionSectionViewRegisterDequeueProtocol.swift in Sources */,
 				C0A256232B1EDD550059AA7E /* MyPageAlarmTableViewCell.swift in Sources */,
 				C05E268C2B1D9EB600D91BFA /* RecordViewController.swift in Sources */,
@@ -639,6 +734,7 @@
 				C05E26922B1D9EED00D91BFA /* MyAnswerViewController.swift in Sources */,
 				C05E26882B1D9EA300D91BFA /* MyPageViewController.swift in Sources */,
 				4AA747572B1D74A6004D0335 /* CGColor+.swift in Sources */,
+				C0E93B492B20358A0098A822 /* MypageAppVersionCellData.swift in Sources */,
 				C05E266B2B1D9B4C00D91BFA /* UIViewController+.swift in Sources */,
 				C05E26762B1D9CFB00D91BFA /* ScreenConstant.swift in Sources */,
 				C0121A2E2B1347CA00D10EB0 /* SceneDelegate.swift in Sources */,

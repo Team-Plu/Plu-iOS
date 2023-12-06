@@ -9,9 +9,7 @@ import UIKit
 
 import SnapKit
 
-final class MyPageRoundSectionHeaderView: UITableViewHeaderFooterView {
-    
-    static let identifier = "MyPageRoundSectionHeaderView"
+final class MyPageRoundSectionHeaderView: UITableViewHeaderFooterView, TableSectionViewRegisterDequeueProtocol {
     
     private let roundView: UIView = {
         let view = UIView()
@@ -38,7 +36,7 @@ final class MyPageRoundSectionHeaderView: UITableViewHeaderFooterView {
 private extension MyPageRoundSectionHeaderView {
     
     func setUI() {
-        backgroundColor = .designSystem(.pluRed)
+        self.contentView.backgroundColor = .designSystem(.background)
     }
     func setHierarchy() {
         addSubview(roundView)

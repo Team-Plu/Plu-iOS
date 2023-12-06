@@ -19,8 +19,8 @@ extension TableViewCellRegisterDequeueProtocol {
     }
     
     static func dequeueReusableCell(to tableView: UITableView) -> Self {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: self.reuseIdentifier), let returnCell = cell as? Self else { fatalError("Error! \(self.reuseIdentifier)") }
-        return returnCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: self.reuseIdentifier) as? Self else { fatalError("Error! \(self.reuseIdentifier)") }
+        return cell
     }
     
     static var reuseIdentifier: String {
