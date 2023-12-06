@@ -11,11 +11,10 @@ import UIKit
 import SnapKit
 
 final class TabbarViewController: UITabBarController {
-    
 
-    public override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .designSystem(.white)
+        
         setTabBar()
         setTabBarAppearance()
         setTabBarUI()
