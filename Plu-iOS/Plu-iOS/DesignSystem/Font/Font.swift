@@ -10,12 +10,12 @@ import UIKit
 public enum Font {
     
     public enum SuiteType {
-        case head1, head2, head3, subHead1, title1, title2, body1M, body1R, body2M, body2R, body3, body4B, caption
+        case head1, head2, head3, subHead1, title1, title2, body1M, body1R, body2M, body2R, body3, body4B, caption, tabbar
         
         var weight: Font.Weight {
             switch self {
             case .body4B: return ._700
-            case .head1, .head2, .head3, .title1, .title2: return ._600
+            case .head1, .head2, .head3, .title1, .title2, .tabbar: return ._600
             case .subHead1, .body1M, .body2M, .caption: return ._500
             case .body1R, .body2R, .body3: return ._400
             }
@@ -24,7 +24,7 @@ public enum Font {
         var size: CGFloat {
             switch self {
             case .caption: return Font.Size._8.rawValue
-            case .body4B: return Font.Size._10.rawValue
+            case .body4B, .tabbar: return Font.Size._10.rawValue
             case .body3: return Font.Size._12.rawValue
             case .body2R, .body2M, .title2: return Font.Size._14.rawValue
             case .body1R, .body1M, .title1, .subHead1: return Font.Size._16.rawValue
