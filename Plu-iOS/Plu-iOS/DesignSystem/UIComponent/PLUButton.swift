@@ -8,14 +8,10 @@
 import UIKit
 
 final class PLUButton: UIButton {
-    
-    private var updateHandler: UIButton.ConfigurationUpdateHandler?
-    
-    init(config: UIButton.Configuration, updateHandler: UIButton.ConfigurationUpdateHandler?) {
+        
+    init(config: UIButton.Configuration) {
         super.init(frame: .zero)
-        self.updateHandler = updateHandler
         setUpButton(config: config)
-        setHandler()
     }
 
     required init?(coder: NSCoder) {
@@ -25,10 +21,6 @@ final class PLUButton: UIButton {
     private func setUpButton(config: UIButton.Configuration) {
         self.configuration = config
         self.changesSelectionAsPrimaryAction = true
-    }
-    
-    private func setHandler() {
-        self.configurationUpdateHandler = updateHandler
     }
     
     @discardableResult
@@ -66,5 +58,9 @@ final class PLUButton: UIButton {
         self.layer.borderWidth = borderWidth
         self.layer.masksToBounds = true
         return self
+    }
+    
+    func setUpdateHandler(updateHandler: UIButton.ConfigurationUpdateHandler?) {
+        self.configurationUpdateHandler = updateHandler
     }
 }

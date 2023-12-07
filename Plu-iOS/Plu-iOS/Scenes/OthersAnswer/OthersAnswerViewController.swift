@@ -21,13 +21,7 @@ final class OthersAnswerViewController: UIViewController {
     
     private let totalAnswerCountLabel = PLULabel(type: .subHead1, color: .gray600, backgroundColor: .background)
     
-    private let filterButton = PLUButton(config: .bordered()) { button in
-        var config = button.configuration
-        config?.image = button.isSelected
-        ? ImageLiterals.Respone.arrowUpSmall600
-        : ImageLiterals.Respone.arrowDownSmall600
-        button.configuration = config
-    }
+    private let filterButton = PLUButton(config: .bordered())
         .setImage(image: ImageLiterals.Respone.arrowDownSmall600, placement: .trailing)
         .setBackForegroundColor(backgroundColor: .background, foregroundColor: .gray500)
         .setText(text: AnswerFilterButtonType.latest.title, font: .body3)
@@ -47,6 +41,7 @@ final class OthersAnswerViewController: UIViewController {
         setDataSource()
         configUI(answer: OthersAnswer.dummmy())
         applySnapshot(OthersAnswer.dummmy())
+        setButtonHandler()
     }
 }
 
@@ -58,6 +53,16 @@ private extension OthersAnswerViewController {
     func setHierarchy() {
         self.view.addSubviews(dateLabel, questionLabel, elementImageView,
                               totalAnswerCountLabel, answersTableView, filterButton, menuView)
+    }
+    
+    func setButtonHandler() {
+        filterButton.setUpdateHandler(updateHandler: { button in
+            var config = button.configuration
+            config?.image = button.isSelected
+            ? ImageLiterals.Respone.arrowUpSmall600
+            : ImageLiterals.Respone.arrowDownSmall600
+            button.configuration = config
+        })
     }
     
     func setLayout() {
