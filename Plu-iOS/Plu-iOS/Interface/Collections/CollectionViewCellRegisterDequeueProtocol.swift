@@ -20,7 +20,7 @@ extension CollectionViewCellRegisterDequeueProtocol {
     }
     
     static func dequeueReusableCell(to collectionView: UICollectionView, indexPath: IndexPath) -> Self {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuseIdentifier, for: indexPath) as? Self else { fatalError()}
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuseIdentifier, for: indexPath) as? Self else { fatalError() }
         return cell
     }
     
