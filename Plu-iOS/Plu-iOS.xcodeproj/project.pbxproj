@@ -28,6 +28,8 @@
 		C0121A432B1347CB00D10EB0 /* Plu_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A422B1347CB00D10EB0 /* Plu_iOSTests.swift */; };
 		C0121A4D2B1347CB00D10EB0 /* Plu_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A4C2B1347CB00D10EB0 /* Plu_iOSUITests.swift */; };
 		C0121A4F2B1347CB00D10EB0 /* Plu_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A4E2B1347CB00D10EB0 /* Plu_iOSUITestsLaunchTests.swift */; };
+		C02C5DFC2B22D5630011F07C /* PluTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C5DFB2B22D5630011F07C /* PluTextField.swift */; };
+		C02C5DFE2B22E0780011F07C /* UIEdgeInsets+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C5DFD2B22E0780011F07C /* UIEdgeInsets+.swift */; };
 		C05E262F2B1C48F200D91BFA /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05E262E2B1C48F200D91BFA /* Font.swift */; };
 		C05E26372B1C490700D91BFA /* SUITE-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C05E26302B1C490700D91BFA /* SUITE-Medium.ttf */; };
 		C05E26392B1C490700D91BFA /* SUITE-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C05E26322B1C490700D91BFA /* SUITE-Bold.ttf */; };
@@ -125,6 +127,8 @@
 		C0121A482B1347CB00D10EB0 /* Plu-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Plu-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0121A4C2B1347CB00D10EB0 /* Plu_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plu_iOSUITests.swift; sourceTree = "<group>"; };
 		C0121A4E2B1347CB00D10EB0 /* Plu_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plu_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C02C5DFB2B22D5630011F07C /* PluTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluTextField.swift; sourceTree = "<group>"; };
+		C02C5DFD2B22E0780011F07C /* UIEdgeInsets+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+.swift"; sourceTree = "<group>"; };
 		C05E262E2B1C48F200D91BFA /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		C05E26302B1C490700D91BFA /* SUITE-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUITE-Medium.ttf"; sourceTree = "<group>"; };
 		C05E26322B1C490700D91BFA /* SUITE-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUITE-Bold.ttf"; sourceTree = "<group>"; };
@@ -341,6 +345,7 @@
 				C05E266F2B1D9B8C00D91BFA /* UIStackView+.swift */,
 				C05E26712B1D9BCF00D91BFA /* UILabel+.swift */,
 				C05E26732B1D9C6800D91BFA /* Combine+.swift */,
+				C02C5DFD2B22E0780011F07C /* UIEdgeInsets+.swift */,
 			);
 			path = Extention;
 			sourceTree = "<group>";
@@ -435,6 +440,7 @@
 			isa = PBXGroup;
 			children = (
 				C05E26952B1D9F0600D91BFA /* OnboardingViewController.swift */,
+				C02C5DFB2B22D5630011F07C /* PluTextField.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -770,6 +776,7 @@
 				C05E26922B1D9EED00D91BFA /* MyAnswerViewController.swift in Sources */,
 				C05E26882B1D9EA300D91BFA /* MyPageViewController.swift in Sources */,
 				4AA747572B1D74A6004D0335 /* CGColor+.swift in Sources */,
+				C02C5DFC2B22D5630011F07C /* PluTextField.swift in Sources */,
 				C0E93B492B20358A0098A822 /* MypageAppVersionCellData.swift in Sources */,
 				C05E266B2B1D9B4C00D91BFA /* UIViewController+.swift in Sources */,
 				C05E26762B1D9CFB00D91BFA /* ScreenConstant.swift in Sources */,
@@ -785,6 +792,7 @@
 				B5ACF6CB2B1EE3EC006D7641 /* Dummy.swift in Sources */,
 				B5ACF6CF2B1EECD0006D7641 /* OthersAnswerTableView.swift in Sources */,
 				C05E269A2B1D9F1B00D91BFA /* SplashViewController.swift in Sources */,
+				C02C5DFE2B22E0780011F07C /* UIEdgeInsets+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
