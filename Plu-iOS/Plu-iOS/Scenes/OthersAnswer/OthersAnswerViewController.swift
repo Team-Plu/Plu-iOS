@@ -11,11 +11,8 @@ import UIKit
 import SnapKit
 
 final class OthersAnswerViewController: UIViewController {
-    
-    private let dateLabel = PLULabel(type: .body2R, color: .gray500, backgroundColor: .background)
-    private let questionLabel = PLULabel(type: .head1, color: .gray800,
-                                         backgroundColor: .background,
-                                         alignment: .center, lines: 2)
+        
+    private let everydayAnswerView = EverydayAnswerView()
     
     private let elementImageView = UIImageView()
     
@@ -51,7 +48,7 @@ private extension OthersAnswerViewController {
     }
     
     func setHierarchy() {
-        self.view.addSubviews(dateLabel, questionLabel, elementImageView,
+        self.view.addSubviews(everydayAnswerView, elementImageView,
                               totalAnswerCountLabel, answersTableView, filterButton, menuView)
     }
     
@@ -66,19 +63,14 @@ private extension OthersAnswerViewController {
     }
     
     func setLayout() {
-        dateLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(24)
-            make.centerX.equalToSuperview()
-        }
-        
-        questionLabel.snp.makeConstraints { make in
-            make.top.equalTo(dateLabel.snp.bottom).offset(8)
-            make.centerX.equalTo(dateLabel)
+        everydayAnswerView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.leading.trailing.equalToSuperview()
         }
         
         elementImageView.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(21)
-            make.top.equalTo(questionLabel.snp.bottom).offset(28)
+            make.top.equalTo(everydayAnswerView.snp.bottom).offset(28)
         }
         
         totalAnswerCountLabel.snp.makeConstraints { make in
@@ -129,8 +121,7 @@ private extension OthersAnswerViewController {
     }
     
     func configUI(answer: OthersAnswer) {
-        self.dateLabel.text = answer.date
-        self.questionLabel.text = answer.question
+        self.everydayAnswerView.configureUI(answer: answer)
         self.elementImageView.image = answer.elementType.characterSmallImage
         self.totalAnswerCountLabel.text = "총 \(answer.answers.count)개"
     }
