@@ -21,6 +21,8 @@
 		B5ACF6D62B2078B2006D7641 /* AnswerFilterMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF6D52B2078B2006D7641 /* AnswerFilterMenuView.swift */; };
 		B5ACF6D82B2086A9006D7641 /* PLUButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF6D72B2086A9006D7641 /* PLUButton.swift */; };
 		B5ACF6DA2B208B8A006D7641 /* AnswerFilterButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF6D92B208B8A006D7641 /* AnswerFilterButtonType.swift */; };
+		B5ACF6F52B22DA42006D7641 /* RecordDiffableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF6F42B22DA42006D7641 /* RecordDiffableModel.swift */; };
+		B5ACF6F72B22DA61006D7641 /* RecordDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF6F62B22DA61006D7641 /* RecordDummy.swift */; };
 		C0121A2C2B1347CA00D10EB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A2B2B1347CA00D10EB0 /* AppDelegate.swift */; };
 		C0121A2E2B1347CA00D10EB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A2D2B1347CA00D10EB0 /* SceneDelegate.swift */; };
 		C0121A352B1347CB00D10EB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0121A342B1347CB00D10EB0 /* Assets.xcassets */; };
@@ -114,6 +116,8 @@
 		B5ACF6D52B2078B2006D7641 /* AnswerFilterMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerFilterMenuView.swift; sourceTree = "<group>"; };
 		B5ACF6D72B2086A9006D7641 /* PLUButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLUButton.swift; sourceTree = "<group>"; };
 		B5ACF6D92B208B8A006D7641 /* AnswerFilterButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerFilterButtonType.swift; sourceTree = "<group>"; };
+		B5ACF6F42B22DA42006D7641 /* RecordDiffableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDiffableModel.swift; sourceTree = "<group>"; };
+		B5ACF6F62B22DA61006D7641 /* RecordDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDummy.swift; sourceTree = "<group>"; };
 		C0121A282B1347CA00D10EB0 /* Plu-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plu-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0121A2B2B1347CA00D10EB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0121A2D2B1347CA00D10EB0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -775,6 +779,7 @@
 				C05E26762B1D9CFB00D91BFA /* ScreenConstant.swift in Sources */,
 				C0121A2E2B1347CA00D10EB0 /* SceneDelegate.swift in Sources */,
 				4AA747552B1CF094004D0335 /* Palette.swift in Sources */,
+				B5ACF6F52B22DA42006D7641 /* RecordDiffableModel.swift in Sources */,
 				C05E265B2B1D9A4300D91BFA /* CollectionViewCellRegisterDequeueProtocol.swift in Sources */,
 				B5ACF6D82B2086A9006D7641 /* PLUButton.swift in Sources */,
 				C05E268A2B1D9EAE00D91BFA /* ResignViewController.swift in Sources */,
@@ -785,6 +790,7 @@
 				B5ACF6CB2B1EE3EC006D7641 /* Dummy.swift in Sources */,
 				B5ACF6CF2B1EECD0006D7641 /* OthersAnswerTableView.swift in Sources */,
 				C05E269A2B1D9F1B00D91BFA /* SplashViewController.swift in Sources */,
+				B5ACF6F72B22DA61006D7641 /* RecordDummy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
