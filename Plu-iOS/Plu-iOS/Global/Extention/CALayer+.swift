@@ -9,11 +9,11 @@ import UIKit
 
 extension CALayer {
     func applyShadow(
-        color: UIColor = .black,
-        alpha: Float = 0.5,
+        color: UIColor = UIColor(red: 0.851, green: 0.851, blue: 0.851, alpha: 1),
+        alpha: Float = 1,
         x: CGFloat = 0,
-        y: CGFloat = 2,
-        blur: CGFloat = 4,
+        y: CGFloat = -4,
+        blur: CGFloat = 16,
         spread: CGFloat = 0) {
             
             masksToBounds = false
