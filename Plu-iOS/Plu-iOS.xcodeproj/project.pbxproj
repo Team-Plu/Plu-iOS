@@ -21,6 +21,8 @@
 		B5ACF6D62B2078B2006D7641 /* AnswerFilterMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF6D52B2078B2006D7641 /* AnswerFilterMenuView.swift */; };
 		B5ACF6D82B2086A9006D7641 /* PLUButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF6D72B2086A9006D7641 /* PLUButton.swift */; };
 		B5ACF6DA2B208B8A006D7641 /* AnswerFilterButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF6D92B208B8A006D7641 /* AnswerFilterButtonType.swift */; };
+		B5ACF6F12B22D116006D7641 /* RecordQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF6F02B22D116006D7641 /* RecordQuestionTableViewCell.swift */; };
+		B5ACF6F32B22D2F2006D7641 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF6F22B22D2F2006D7641 /* QuestionView.swift */; };
 		B5ACF6F52B22DA42006D7641 /* RecordDiffableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF6F42B22DA42006D7641 /* RecordDiffableModel.swift */; };
 		B5ACF6F72B22DA61006D7641 /* RecordDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF6F62B22DA61006D7641 /* RecordDummy.swift */; };
 		C0121A2C2B1347CA00D10EB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A2B2B1347CA00D10EB0 /* AppDelegate.swift */; };
@@ -116,6 +118,8 @@
 		B5ACF6D52B2078B2006D7641 /* AnswerFilterMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerFilterMenuView.swift; sourceTree = "<group>"; };
 		B5ACF6D72B2086A9006D7641 /* PLUButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLUButton.swift; sourceTree = "<group>"; };
 		B5ACF6D92B208B8A006D7641 /* AnswerFilterButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerFilterButtonType.swift; sourceTree = "<group>"; };
+		B5ACF6F02B22D116006D7641 /* RecordQuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordQuestionTableViewCell.swift; sourceTree = "<group>"; };
+		B5ACF6F22B22D2F2006D7641 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		B5ACF6F42B22DA42006D7641 /* RecordDiffableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDiffableModel.swift; sourceTree = "<group>"; };
 		B5ACF6F62B22DA61006D7641 /* RecordDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDummy.swift; sourceTree = "<group>"; };
 		C0121A282B1347CA00D10EB0 /* Plu-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plu-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,6 +212,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B5ACF6F82B22E020006D7641 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				B5ACF6F02B22D116006D7641 /* RecordQuestionTableViewCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		B5ACF6F92B22E035006D7641 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B5ACF6F42B22DA42006D7641 /* RecordDiffableModel.swift */,
+				B5ACF6F62B22DA61006D7641 /* RecordDummy.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B5ACF6FA2B22E044006D7641 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B5ACF6F22B22D2F2006D7641 /* QuestionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C0121A1F2B1347CA00D10EB0 = {
 			isa = PBXGroup;
 			children = (
@@ -485,6 +514,9 @@
 		C05E26802B1D9E4C00D91BFA /* Record */ = {
 			isa = PBXGroup;
 			children = (
+				B5ACF6FA2B22E044006D7641 /* View */,
+				B5ACF6F92B22E035006D7641 /* Model */,
+				B5ACF6F82B22E020006D7641 /* TableViewCell */,
 				C05E268B2B1D9EB600D91BFA /* RecordViewController.swift */,
 			);
 			path = Record;
@@ -760,6 +792,7 @@
 				C05E26982B1D9F1000D91BFA /* LoginViewController.swift in Sources */,
 				B5ACF6DA2B208B8A006D7641 /* AnswerFilterButtonType.swift in Sources */,
 				C05E268E2B1D9EC800D91BFA /* OthersAnswerViewController.swift in Sources */,
+				B5ACF6F12B22D116006D7641 /* RecordQuestionTableViewCell.swift in Sources */,
 				B5ACF6CD2B1EE735006D7641 /* AnswerView.swift in Sources */,
 				B5ACF6D12B1EEECB006D7641 /* OtherAnswersDiffableModel.swift in Sources */,
 				C0E93B472B20357B0098A822 /* MypageInfomationCellData.swift in Sources */,
@@ -768,6 +801,7 @@
 				C05E26862B1D9E9500D91BFA /* ProfileEditViewController.swift in Sources */,
 				C0E93B4E2B2036E50098A822 /* MyPageSection.swift in Sources */,
 				C05E265D2B1D9A5900D91BFA /* CollectionSectionViewRegisterDequeueProtocol.swift in Sources */,
+				B5ACF6F32B22D2F2006D7641 /* QuestionView.swift in Sources */,
 				C0A256232B1EDD550059AA7E /* MyPageAlarmTableViewCell.swift in Sources */,
 				C05E268C2B1D9EB600D91BFA /* RecordViewController.swift in Sources */,
 				C0121A2C2B1347CA00D10EB0 /* AppDelegate.swift in Sources */,
