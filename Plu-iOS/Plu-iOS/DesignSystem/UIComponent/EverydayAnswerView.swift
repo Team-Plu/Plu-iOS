@@ -17,14 +17,14 @@
 import UIKit
 
 final class EverydayAnswerView: UIView {
-    private let dateLabel = PLULabel(type: .body2R, color: .gray500, backgroundColor: .background)
+    private let dateLabel = PLULabel(type: .body2R, color: .gray500)
     private let questionLabel = PLULabel(type: .head1, color: .gray800,
-                                         backgroundColor: .background,
                                          alignment: .center, lines: 2)
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
         
+        setUI()
         setHierarchy()
         setLayout()
     }
@@ -41,6 +41,10 @@ final class EverydayAnswerView: UIView {
 }
 
 private extension EverydayAnswerView {
+    func setUI() {
+        backgroundColor = .white
+    }
+    
     func setHierarchy() {
         addSubviews(dateLabel, questionLabel)
     }
