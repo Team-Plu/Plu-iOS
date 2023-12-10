@@ -10,6 +10,8 @@
 		4AA747532B1CEF9C004D0335 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA747522B1CEF9C004D0335 /* UIColor+.swift */; };
 		4AA747552B1CF094004D0335 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA747542B1CF094004D0335 /* Palette.swift */; };
 		4AA747572B1D74A6004D0335 /* CGColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA747562B1D74A6004D0335 /* CGColor+.swift */; };
+		4AA747652B25B8C8004D0335 /* PLUExplanationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA747642B25B8C8004D0335 /* PLUExplanationView.swift */; };
+		4AA747672B25E6FD004D0335 /* ImageDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA747662B25E6FD004D0335 /* ImageDummy.swift */; };
 		B59FC6E72B1C44C9000996CA /* ImageLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59FC6E62B1C44C9000996CA /* ImageLiterals.swift */; };
 		B5ACF6C52B1EDFF3006D7641 /* PLULabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF6C42B1EDFF3006D7641 /* PLULabel.swift */; };
 		B5ACF6C72B1EE1B9006D7641 /* AnswerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF6C62B1EE1B9006D7641 /* AnswerTableViewCell.swift */; };
@@ -109,6 +111,8 @@
 		4AA747522B1CEF9C004D0335 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		4AA747542B1CF094004D0335 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		4AA747562B1D74A6004D0335 /* CGColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGColor+.swift"; sourceTree = "<group>"; };
+		4AA747642B25B8C8004D0335 /* PLUExplanationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLUExplanationView.swift; sourceTree = "<group>"; };
+		4AA747662B25E6FD004D0335 /* ImageDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDummy.swift; sourceTree = "<group>"; };
 		B59FC6E62B1C44C9000996CA /* ImageLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLiterals.swift; sourceTree = "<group>"; };
 		B5ACF6C42B1EDFF3006D7641 /* PLULabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLULabel.swift; sourceTree = "<group>"; };
 		B5ACF6C62B1EE1B9006D7641 /* AnswerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerTableViewCell.swift; sourceTree = "<group>"; };
@@ -414,6 +418,7 @@
 				B5ACF6C42B1EDFF3006D7641 /* PLULabel.swift */,
 				B5ACF6D72B2086A9006D7641 /* PLUButton.swift */,
 				C0682A812B25857200AD4DB4 /* PluTextField.swift */,
+				4AA747642B25B8C8004D0335 /* PLUExplanationView.swift */,
 			);
 			path = UIComponent;
 			sourceTree = "<group>";
@@ -461,6 +466,7 @@
 			isa = PBXGroup;
 			children = (
 				C05E26932B1D9EF700D91BFA /* TodayQuestionViewController.swift */,
+				4AA747662B25E6FD004D0335 /* ImageDummy.swift */,
 			);
 			path = TodayQuestion;
 			sourceTree = "<group>";
@@ -805,6 +811,7 @@
 				4AA747532B1CEF9C004D0335 /* UIColor+.swift in Sources */,
 				C0E93B552B2046EE0098A822 /* MyPageTableView.swift in Sources */,
 				C00113DA2B25359100B2C799 /* OnboardingViewModel.swift in Sources */,
+				4AA747652B25B8C8004D0335 /* PLUExplanationView.swift in Sources */,
 				C05E26982B1D9F1000D91BFA /* LoginViewController.swift in Sources */,
 				B5ACF6DA2B208B8A006D7641 /* AnswerFilterButtonType.swift in Sources */,
 				C05E268E2B1D9EC800D91BFA /* OthersAnswerViewController.swift in Sources */,
@@ -826,6 +833,7 @@
 				C0E93B492B20358A0098A822 /* MypageAppVersionCellData.swift in Sources */,
 				C05E266B2B1D9B4C00D91BFA /* UIViewController+.swift in Sources */,
 				C05E26762B1D9CFB00D91BFA /* ScreenConstant.swift in Sources */,
+				4AA747672B25E6FD004D0335 /* ImageDummy.swift in Sources */,
 				C0121A2E2B1347CA00D10EB0 /* SceneDelegate.swift in Sources */,
 				4AA747552B1CF094004D0335 /* Palette.swift in Sources */,
 				C05E265B2B1D9A4300D91BFA /* CollectionViewCellRegisterDequeueProtocol.swift in Sources */,
