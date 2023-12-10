@@ -13,13 +13,12 @@ import SnapKit
 final class MyAnswerViewController: UIViewController {
     
     private let everyDayAnswerView = EverydayAnswerView()
-    private let answerTextView = PLUTextView()
+    private lazy var answerTextView = PLUTextView(text: StringConstant.MyAnswer.placeholder.text, textColor: .gray300, font: .body1R)
     private let answerCautionView = AnswerCautionView()
     private let bottomView = UIView()
     private let underLine = PLUUnserLine(color: .gray100)
     private let bottomTextLabel = PLULabel(type: .body1R, color: .gray700, text: StringConstant.MyAnswer.bottomView.text)
     private let answerStateSwitch = UISwitch()
-    
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +39,26 @@ final class MyAnswerViewController: UIViewController {
         
         everyDayAnswerView.configureUI(answer: OthersAnswer.dummmy())
 
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+}
+
+extension MyAnswerViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == .designSystem(.gray300) {
+            textView.text = nil
+            textView.textColor = .designSystem(.black)
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.textColor = .designSystem(.gray300)
+            textView.text = StringConstant.MyAnswer.placeholder.text
+        }
     }
 }
 
@@ -62,7 +81,7 @@ private extension MyAnswerViewController {
         answerTextView.snp.makeConstraints { make in
             make.top.equalTo(everyDayAnswerView.snp.bottom)
             make.leading.trailing.equalToSuperview()
-            make.height.equalTo(336)
+            make.height.equalTo(310)
         }
         
         answerCautionView.snp.makeConstraints { make in
@@ -98,6 +117,6 @@ private extension MyAnswerViewController {
     }
     
     func setDelegate() {
-        
+        answerTextView.delegate = self
     }
 }

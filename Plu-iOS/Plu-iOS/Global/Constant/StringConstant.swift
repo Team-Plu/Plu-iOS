@@ -26,21 +26,12 @@ enum StringConstant {
         }
     }
     
-    enum PlaceHolder {
-        case textView
-        
-        var text: String {
-            switch self {
-            case .textView: return "나만의 답을 적어보세요."
-            }
-        }
-    }
-    
     enum MyAnswer {
-        case titleCaution, cautionPoint, firstCaution, secondCaution, bottomView
+        case placeholder, titleCaution, cautionPoint, firstCaution, secondCaution, bottomView
         
         var text: String {
             switch self {
+            case .placeholder: return "나만의 답을 적어보세요."
             case .titleCaution: return "주의 사항"
             case .cautionPoint: return " •  "
             case .firstCaution: return "답변 전체 공개 시 Plu를 이용하는 모든 유저에게 답변이 공개됩니다."
