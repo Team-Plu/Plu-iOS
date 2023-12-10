@@ -27,6 +27,10 @@ final class PluTextField: UITextField {
         static var textPadding: UIEdgeInsets {
             return .init(side: self.textViewPadding.rawValue)
         }
+        
+        static var clearPadding: UIEdgeInsets {
+            return .init(offset: self.clearButtonPadding.rawValue)
+        }
     }
     
     init() {
@@ -63,7 +67,7 @@ final class PluTextField: UITextField {
     
     override func clearButtonRect(forBounds bounds: CGRect) -> CGRect {
         let rect = super.clearButtonRect(forBounds: bounds)
-        return rect.inset(by: .init(top: 0, left: -16, bottom: 0, right: 16))
+        return rect.inset(by: TextFieldConstant.clearPadding)
     }
 
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
