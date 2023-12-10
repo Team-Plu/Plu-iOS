@@ -8,5 +8,5 @@
 import Foundation
 
 protocol NicknameManager {
-    func judgeInputNicknameVaild(input: String) async throws -> Bool
+    func inputNicknameIsVaild(input: String) async throws -> Bool
 }
