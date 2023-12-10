@@ -25,6 +25,7 @@ final class PluTempButton: UIButton {
 private extension PluTempButton {
     func setButton(isActive: Bool) {
         self.setTitle("가입 완료", for: .normal)
+        self.titleLabel?.font = .suite(.title1)
         self.setTitleColor(.designSystem(isActive ? .white : .gray300), for: .normal)
         self.backgroundColor = .designSystem(isActive ? .gray600 : .gray50)
         self.isUserInteractionEnabled = isActive
