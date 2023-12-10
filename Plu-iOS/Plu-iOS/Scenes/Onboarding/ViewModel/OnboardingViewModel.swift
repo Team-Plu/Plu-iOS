@@ -8,23 +8,14 @@
 import Foundation
 import Combine
 
-struct NicknameState {
-    let errorDescription: String?
-    let nextProcessButtonIsActive: Bool
-}
 
-extension NicknameState {
-    init(_ type: StringConstant.Onboarding) {
-        self.init(errorDescription: type.description, nextProcessButtonIsActive: type == .nickNameValid ? true : false)
-    }
-}
 
 typealias textFieldInput = PassthroughSubject<String, Never>
 typealias textFieldOutput = AnyPublisher<NicknameState, Never>
 typealias textFieldVaildChecker = PassthroughSubject<String?, Never>
 
-protocol NickNameCheck {
-    var manager: NicknameManager { get set }
+protocol NicknameCheck {
+    var nickNameManager: NicknameManager { get set }
     var vaildNicknameSubject: textFieldVaildChecker { get }
     func makeNicknameResultPublisher(input: textFieldInput, checker: textFieldVaildChecker, manager: NicknameManager) -> textFieldOutput
     func getNicknameState(from input: String, to subject: textFieldVaildChecker) -> NicknameState
@@ -33,7 +24,7 @@ protocol NickNameCheck {
     func getNicknameVaildPublisher(from checker: textFieldVaildChecker, with manager: NicknameManager) -> textFieldOutput
 }
 
-extension NickNameCheck where Self: AnyObject {
+extension NicknameCheck where Self: AnyObject {
     func makeNicknameResultPublisher(input: textFieldInput, checker: textFieldVaildChecker, manager: NicknameManager) -> textFieldOutput {
         let stateFromNicknamePublisher = self.getNicknameStatePublisher(from: input, to: checker)
         let nickNameValidPublisher = self.getNicknameVaildPublisher(from: checker, with: manager)
@@ -91,13 +82,13 @@ extension NickNameCheck where Self: AnyObject {
     
 }
 
-final class OnboardingViewModel: NickNameCheck {
+final class OnboardingViewModel: NicknameCheck {
 
-    var manager: NicknameManager
+    var nickNameManager: NicknameManager
     var vaildNicknameSubject = textFieldVaildChecker()
     
     init(manager: NicknameManager) {
-        self.manager = manager
+        self.nickNameManager = manager
     }
     
     struct OnboardingInput {
@@ -111,7 +102,7 @@ final class OnboardingViewModel: NickNameCheck {
     func transform(input: OnboardingInput) -> OnboardingOutput {
         let nicknameInput = input.textFieldSubject
         let checker = self.vaildNicknameSubject
-        let nickNameResultPublisher = self.makeNicknameResultPublisher(input: nicknameInput, checker: checker, manager: manager)
+        let nickNameResultPublisher = self.makeNicknameResultPublisher(input: nicknameInput, checker: checker, manager: nickNameManager)
         return OnboardingOutput(nickNameResultPublisher: nickNameResultPublisher)
     }
 }

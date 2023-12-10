@@ -26,11 +26,19 @@ enum StringConstant {
     }
     
     enum Onboarding {
-        case title, subTitle, placeHolder, textFieldEmpty, textFieldOver, textFieldError, nickNameNonValid, nickNameValid, none
+        case title, subTitle
         var description: String? {
             switch self {
             case .title: return "닉네임을 입력해주세요"
             case .subTitle: return "닉네임을 입력하면 가입이 완료됩니다."
+            }
+        }
+    }
+    
+    enum Nickname {
+        case placeHolder, textFieldEmpty, textFieldOver, textFieldError, nickNameNonValid, nickNameValid, none
+        var description: String? {
+            switch self {
             case .placeHolder: return "닉네임"
             case .textFieldEmpty: return "입력된 내용이 없습니다."
             case .textFieldOver: return "8자 이내로 입력해주세요."

@@ -54,7 +54,7 @@ final class PluTextField: UITextField {
     }
     
     private func setPlaceHolder() {
-        guard let placeholder = StringConstant.Onboarding.placeHolder.description else { return }
+        guard let placeholder = StringConstant.Nickname.placeHolder.description else { return }
         self.setPlaceholder(placeholder: placeholder, fontColor: .designSystem(.gray300), font: .suite(.body1M))
     }
     

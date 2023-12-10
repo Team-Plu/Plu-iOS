@@ -77,6 +77,7 @@
 		C0A256232B1EDD550059AA7E /* MyPageAlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A256222B1EDD550059AA7E /* MyPageAlarmTableViewCell.swift */; };
 		C0A256252B1EE0330059AA7E /* MyPageGeneralTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A256242B1EE0330059AA7E /* MyPageGeneralTableViewCell.swift */; };
 		C0A256272B1EE1200059AA7E /* MyPageAppVersionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A256262B1EE1200059AA7E /* MyPageAppVersionTableViewCell.swift */; };
+		C0CEF3DE2B267A4B00682D1B /* NicknameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CEF3DD2B267A4B00682D1B /* NicknameState.swift */; };
 		C0E93B402B2035370098A822 /* MyPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B3F2B2035370098A822 /* MyPageCell.swift */; };
 		C0E93B432B2035580098A822 /* MyPageUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B422B2035580098A822 /* MyPageUserData.swift */; };
 		C0E93B452B2035650098A822 /* MyPageAlarmCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B442B2035650098A822 /* MyPageAlarmCellData.swift */; };
@@ -180,6 +181,7 @@
 		C0A256222B1EDD550059AA7E /* MyPageAlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAlarmTableViewCell.swift; sourceTree = "<group>"; };
 		C0A256242B1EE0330059AA7E /* MyPageGeneralTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageGeneralTableViewCell.swift; sourceTree = "<group>"; };
 		C0A256262B1EE1200059AA7E /* MyPageAppVersionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAppVersionTableViewCell.swift; sourceTree = "<group>"; };
+		C0CEF3DD2B267A4B00682D1B /* NicknameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameState.swift; sourceTree = "<group>"; };
 		C0E93B3F2B2035370098A822 /* MyPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCell.swift; sourceTree = "<group>"; };
 		C0E93B422B2035580098A822 /* MyPageUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageUserData.swift; sourceTree = "<group>"; };
 		C0E93B442B2035650098A822 /* MyPageAlarmCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAlarmCellData.swift; sourceTree = "<group>"; };
@@ -453,6 +455,7 @@
 		C05E267B2B1D9E1E00D91BFA /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				C0CEF3DC2B267A3E00682D1B /* Model */,
 				C0682A8A2B25868900AD4DB4 /* ViewController */,
 				C0682A892B25867700AD4DB4 /* MangerImpl */,
 				C0682A862B25861900AD4DB4 /* ViewModel */,
@@ -570,6 +573,14 @@
 				C05E26952B1D9F0600D91BFA /* OnboardingViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C0CEF3DC2B267A3E00682D1B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C0CEF3DD2B267A4B00682D1B /* NicknameState.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C0E93B3E2B20352A0098A822 /* MyPageInerface */ = {
@@ -801,6 +812,7 @@
 				C05E266D2B1D9B7200D91BFA /* UITextField+.swift in Sources */,
 				C0E93B4B2B20359B0098A822 /* MypageUserExitCellData.swift in Sources */,
 				C05E26902B1D9ED300D91BFA /* TabbarViewController.swift in Sources */,
+				C0CEF3DE2B267A4B00682D1B /* NicknameState.swift in Sources */,
 				C0682A882B25862200AD4DB4 /* OnboardingManagerStub.swift in Sources */,
 				C0E93B502B2037C20098A822 /* MyPageCellHeight.swift in Sources */,
 				C0A256272B1EE1200059AA7E /* MyPageAppVersionTableViewCell.swift in Sources */,
