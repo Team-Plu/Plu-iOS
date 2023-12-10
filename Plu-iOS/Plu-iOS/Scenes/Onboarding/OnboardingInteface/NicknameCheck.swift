@@ -28,7 +28,7 @@ protocol NicknameCheck {
 }
 
 extension NicknameCheck where Self: AnyObject {
-    func makeNicknameResultPublisher(input: textFieldInput, checker: textFieldVaildChecker, manager: NicknameManager) -> textFieldOutput {
+    func makeNicknameResultPublisher(from input: textFieldInput, to checker: textFieldVaildChecker, with manager: NicknameManager) -> textFieldOutput {
         let stateFromNicknamePublisher = self.getNicknameStatePublisher(from: input, to: checker)
         let nickNameValidPublisher = self.getNicknameVaildPublisher(from: checker, with: manager)
         return stateFromNicknamePublisher.merge(with: nickNameValidPublisher).eraseToAnyPublisher()

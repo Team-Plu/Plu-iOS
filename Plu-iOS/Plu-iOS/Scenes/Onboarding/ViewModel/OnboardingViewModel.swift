@@ -28,7 +28,7 @@ final class OnboardingViewModel: NicknameCheck {
     func transform(input: OnboardingInput) -> OnboardingOutput {
         let nicknameInput = input.textFieldSubject
         let checker = self.vaildNicknameSubject
-        let nickNameResultPublisher = self.makeNicknameResultPublisher(input: nicknameInput, checker: checker, manager: nickNameManager)
+        let nickNameResultPublisher = self.makeNicknameResultPublisher(from: nicknameInput, to: checker, with: nickNameManager)
         return OnboardingOutput(nickNameResultPublisher: nickNameResultPublisher)
     }
 }
