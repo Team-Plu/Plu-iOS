@@ -40,4 +40,16 @@ enum StringConstant {
             }
         }
     }
+    
+    enum TodayQuestion {
+        case myAnswer, everyAnswer, explanation
+        
+        var text: String {
+            switch self {
+            case .myAnswer: return "나의 답변 작성하기"
+            case .everyAnswer: return "모두의 답변 보러 가기"
+            case .explanation: return "모두의 답변은 나의 답변을 작성한 후에 확인할 수 있어요"
+            }
+        }
+    }
 }
