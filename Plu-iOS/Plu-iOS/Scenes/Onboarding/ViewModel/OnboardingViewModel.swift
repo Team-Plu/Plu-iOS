@@ -8,81 +8,40 @@
 import Foundation
 import Combine
 
-final class OnboardingViewModel {
-    
-    struct OnboardingState {
-        let errorDescription: String?
-        let nextButtonActive: Bool
-    }
-    
-    let vaildNicknameSubject = PassthroughSubject<String?, Never>()
-    let manager: OnboardingManager
-    
-    init(manager: OnboardingManager) {
-        self.manager = manager
-    }
-    
-    struct OnboardingInput {
-        let textFieldSubject: PassthroughSubject<String, Never>
-    }
-    
-    struct OnboardingOutput {
-        let nickNameResultPublisher: AnyPublisher<OnboardingState, Never>
-    }
-    
-    func transform(input: OnboardingInput) -> OnboardingOutput {
-        let nickNameRangeVaildPublisher = input.textFieldSubject
-            .map { input -> OnboardingState in
-                self.processNickname(from: input, to: self.vaildNicknameSubject)
-            }
-            .eraseToAnyPublisher()
-        
-        let nickNameValidPublisher = self.vaildNicknameSubject
-            .debounce(for: 0.3, scheduler: DispatchQueue.main)
-            .compactMap { $0 }
-            .flatMap { input -> AnyPublisher<OnboardingState, Never> in
-                return Future<OnboardingState, Error> { promoise in
-                    Task {
-                        do {
-                            
-                            /// 추후에 삭제할 출력문 및 sleep
-                            print("✨✨✨✨✨✨닉네임중복결과✨✨✨✨✨✨")
-                            try await Task.sleep(nanoseconds: 100000000)
-                            
-                            
-                            let isValid = try await self.manager.judgeInputNicknameVaild(input: input)
-                            promoise(.success(.init(isValid ? .nickNameValid : .nickNameNonValid)))
-                            
-                            /// 추후에 삭제할 출력문
-                            if isValid {
-                                print("입력하신 닉네임 \(input)은(는) 사용할수있는 닉네임입니다")
-                            } else  {
-                                print("입력하신 닉네임 \(input)은(는) 사용할수없는 닉네임입니다")
-                            }
-                            print("임시로 넣어 놓은 닉네임 목록 : 의성, 민재, 찬미")
-                    
-                            
-                        } catch {
-                            promoise(.failure(error))
-                        }
-                    }
-                }
-                .catch { error in
-                    Just(.init(.textFieldError))
-                }
-                .eraseToAnyPublisher()
-            }
-            .eraseToAnyPublisher()
+struct NicknameState {
+    let errorDescription: String?
+    let nextProcessButtonIsActive: Bool
+}
 
-        let nickNameResultPublisher = nickNameRangeVaildPublisher.merge(with: nickNameValidPublisher)
-            .eraseToAnyPublisher()
-        
-        return OnboardingOutput(nickNameResultPublisher: nickNameResultPublisher)
+extension NicknameState {
+    init(_ type: StringConstant.Onboarding) {
+        self.init(errorDescription: type.description, nextProcessButtonIsActive: type == .nickNameValid ? true : false)
     }
 }
 
-private extension OnboardingViewModel {
-    func processNickname(from input: String, to subject: PassthroughSubject<String?, Never>) -> OnboardingState {
+typealias textFieldInput = PassthroughSubject<String, Never>
+typealias textFieldOutput = AnyPublisher<NicknameState, Never>
+typealias textFieldVaildChecker = PassthroughSubject<String?, Never>
+
+protocol NickNameCheck {
+    var manager: NicknameManager { get set }
+    var vaildNicknameSubject: textFieldVaildChecker { get }
+    func makeNicknameResultPublisher(input: textFieldInput, checker: textFieldVaildChecker, manager: NicknameManager) -> textFieldOutput
+    func getNicknameState(from input: String, to subject: textFieldVaildChecker) -> NicknameState
+    func checkNicknamgLength(from input: String, _ length: Int) -> Bool
+    func getNicknameStatePublisher(from input: textFieldInput, to checker: textFieldVaildChecker) -> textFieldOutput
+    func getNicknameVaildPublisher(from checker: textFieldVaildChecker, with manager: NicknameManager) -> textFieldOutput
+}
+
+extension NickNameCheck where Self: AnyObject {
+    func makeNicknameResultPublisher(input: textFieldInput, checker: textFieldVaildChecker, manager: NicknameManager) -> textFieldOutput {
+        let stateFromNicknamePublisher = self.getNicknameStatePublisher(from: input, to: checker)
+        let nickNameValidPublisher = self.getNicknameVaildPublisher(from: checker, with: manager)
+        return stateFromNicknamePublisher.merge(with: nickNameValidPublisher).eraseToAnyPublisher()
+    }
+    
+    
+    func getNicknameState(from input: String, to subject: textFieldVaildChecker) -> NicknameState {
         if input.isEmpty {
             subject.send(nil)
             return .init(.textFieldEmpty)
@@ -98,10 +57,63 @@ private extension OnboardingViewModel {
     func checkNicknamgLength(from input: String, _ length: Int) -> Bool {
         return input.count > length
     }
+    
+    func getNicknameVaildPublisher(from checker: textFieldVaildChecker, with manager: NicknameManager) -> textFieldOutput {
+        return checker
+            .debounce(for: 0.3, scheduler: DispatchQueue.main)
+            .compactMap { $0 }
+            .flatMap { input -> AnyPublisher<NicknameState, Never> in
+                return Future<NicknameState, Error> { promoise in
+                    Task {
+                        do {
+                            let isValid = try await manager.judgeInputNicknameVaild(input: input)
+                            promoise(.success(.init(isValid ? .nickNameValid : .nickNameNonValid)))
+                        } catch {
+                            promoise(.failure(error))
+                        }
+                    }
+                }
+                .catch { error in
+                    Just(.init(.textFieldError))
+                }
+                .eraseToAnyPublisher()
+            }
+            .eraseToAnyPublisher()
+    }
+    
+    func getNicknameStatePublisher(from input: textFieldInput, to checker: textFieldVaildChecker) -> textFieldOutput {
+        return input
+            .map { input -> NicknameState in
+                self.getNicknameState(from: input, to: checker)
+            }
+            .eraseToAnyPublisher()
+    }
+    
 }
 
-extension OnboardingViewModel.OnboardingState {
-    init(_ type: StringConstant.Onboarding) {
-        self.init(errorDescription: type.description, nextButtonActive: type == .nickNameValid ? true : false)
+final class OnboardingViewModel: NickNameCheck {
+
+    var manager: NicknameManager
+    var vaildNicknameSubject = textFieldVaildChecker()
+    
+    init(manager: NicknameManager) {
+        self.manager = manager
+    }
+    
+    struct OnboardingInput {
+        let textFieldSubject: PassthroughSubject<String, Never>
+    }
+    
+    struct OnboardingOutput {
+        let nickNameResultPublisher: AnyPublisher<NicknameState, Never>
+    }
+    
+    func transform(input: OnboardingInput) -> OnboardingOutput {
+        let nicknameInput = input.textFieldSubject
+        let checker = self.vaildNicknameSubject
+        let nickNameResultPublisher = self.makeNicknameResultPublisher(input: nicknameInput, checker: checker, manager: manager)
+        return OnboardingOutput(nickNameResultPublisher: nickNameResultPublisher)
     }
 }
+
+

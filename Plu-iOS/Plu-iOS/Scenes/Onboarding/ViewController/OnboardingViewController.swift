@@ -42,7 +42,7 @@ private extension OnboardingViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] in
                 self?.errorLabel.text = $0.errorDescription
-                self?.signInButton.setButtonState(isActice: $0.nextButtonActive)
+                self?.signInButton.setButtonState(isActice: $0.nextProcessButtonIsActive)
             }
             .store(in: &cancelBag)
     }

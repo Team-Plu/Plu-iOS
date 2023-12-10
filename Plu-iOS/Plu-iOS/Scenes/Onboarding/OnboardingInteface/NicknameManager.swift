@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol OnboardingManager {
+protocol NicknameManager {
     func judgeInputNicknameVaild(input: String) async throws -> Bool
 }
