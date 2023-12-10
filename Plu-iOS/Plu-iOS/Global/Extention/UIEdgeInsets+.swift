@@ -8,11 +8,11 @@
 import UIKit
 
 extension UIEdgeInsets {
-    static func sideEdge(padding: CGFloat) -> Self {
-        return .init(top: 0, left: padding, bottom: 0, right: padding)
+    init(side sidePadding: CGFloat) {
+        self.init(top: 0, left: sidePadding, bottom: 0, right: sidePadding)
     }
     
-    static func sideEdge(leftPadding: CGFloat, rightPadding: CGFloat) -> Self {
-        return .init(top: 0, left: leftPadding, bottom: 0, right: rightPadding)
+    init(right rightSide: CGFloat, left leftSide: CGFloat) {
+        self.init(top: 0, left: leftSide, bottom: 0, right: rightSide)
     }
 }

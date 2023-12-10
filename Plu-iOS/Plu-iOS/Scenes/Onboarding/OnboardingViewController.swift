@@ -11,29 +11,6 @@ import Combine
 
 import SnapKit
 
-final class OnboardingViewModel {
-    struct OnboardingInput {
-        let textFieldSubject: CurrentValueSubject<String, Never>
-    }
-    
-    struct OnboardingOutput {
-        let textFieldPublisher: AnyPublisher<UITextField.ViewMode, Never>
-    }
-    
-    func transform(input: OnboardingInput) -> OnboardingOutput {
-        let textfield = input.textFieldSubject
-            .map { input -> UITextField.ViewMode in
-                if input.isEmpty {
-                    return .never
-                } else {
-                    return .always
-                }
-            }
-            .eraseToAnyPublisher()
-        return OnboardingOutput(textFieldPublisher: textfield)
-    }
-}
-
 final class OnboardingViewController: UIViewController {
     
     private let viewModel = OnboardingViewModel()
@@ -42,7 +19,6 @@ final class OnboardingViewController: UIViewController {
     private var cancelBag = Set<AnyCancellable>()
     private let titleLabel = PLULabel(type: .head1, color: .gray700, text: StringConstant.Onboarding.title.title)
     private let subTitleLabel = PLULabel(type: .body2R, color: .gray500, text: StringConstant.Onboarding.subTitle.title)
-    
     private let nickNameTextField = PluTextField()
     
 
@@ -51,10 +27,13 @@ final class OnboardingViewController: UIViewController {
         setUI()
         setHierarchy()
         setLayout()
-        setAddTarget()
-        setDelegate()
-        self.nickNameTextField.becomeFirstResponder()
+        setKeyboard()
+        bindInput()
         bind()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }
 
@@ -62,7 +41,7 @@ private extension OnboardingViewController {
     func bind() {
         let input = OnboardingViewModel.OnboardingInput(textFieldSubject: textFieldSubject)
         let output = self.viewModel.transform(input: input)
-        output.textFieldPublisher
+        output.clearButtonTypePublisher
             .sink { mode in
                 self.nickNameTextField.showClearButton = mode
             }
@@ -95,14 +74,16 @@ private extension OnboardingViewController {
         }
     }
     
-    func setAddTarget() {
+    func bindInput() {
         self.nickNameTextField.textPublisher
             .sink { [weak self] in
                 self?.textFieldSubject.send($0) }
             .store(in: &cancelBag)
     }
     
-    func setDelegate() {
-        
+
+    func setKeyboard() {
+        self.nickNameTextField.becomeFirstResponder()
+//        self.hideKeyboardWhenTapAround()
     }
 }

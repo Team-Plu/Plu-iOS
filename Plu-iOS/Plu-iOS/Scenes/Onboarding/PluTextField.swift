@@ -9,18 +9,29 @@ import UIKit
 
 final class PluTextField: UITextField {
     
+    enum ClearButtonType {
+        case hide, show
+        
+        var action: UITextField.ViewMode {
+            switch self {
+            case .hide: return .never
+            case .show: return .always
+            }
+        }
+    }
+    
     enum TextFieldConstant: CGFloat {
         case clearButtonPadding = 16
         case textViewPadding = 20
             
         static var textPadding: UIEdgeInsets {
-            return .sideEdge(padding: self.textViewPadding.rawValue)
+            return .init(side: self.textViewPadding.rawValue)
         }
     }
     
-    var showClearButton: UITextField.ViewMode = .always {
+    var showClearButton: ClearButtonType = .show {
         didSet {
-            self.rightViewMode = showClearButton
+            self.rightViewMode = showClearButton.action
         }
     }
     
@@ -48,7 +59,7 @@ final class PluTextField: UITextField {
         self.backgroundColor = .clear
         self.font = .suite(.body1M)
         self.textColor = .designSystem(.gray700)
-        self.tintColor = .designSystem(.error)
+        self.tintColor = .designSystem(.gray400)
 
     }
     
@@ -71,7 +82,7 @@ final class PluTextField: UITextField {
     
     @objc func clearButtonTapped() {
         self.text = ""
-        self.showClearButton = .never
+        self.showClearButton = .hide
     }
     
     override func rightViewRect(forBounds bounds: CGRect) -> CGRect {
@@ -82,6 +93,11 @@ final class PluTextField: UITextField {
 
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
         let rect = super.editingRect(forBounds: bounds)
+        return rect.inset(by: TextFieldConstant.textPadding)
+    }
+    
+    override func textRect(forBounds bounds: CGRect) -> CGRect {
+        let rect = super.textRect(forBounds: bounds)
         return rect.inset(by: TextFieldConstant.textPadding)
     }
 }
