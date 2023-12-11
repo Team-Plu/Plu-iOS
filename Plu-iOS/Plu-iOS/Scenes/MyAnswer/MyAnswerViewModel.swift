@@ -31,8 +31,6 @@ final class MyAnswerViewModel {
             .map { false }
             .eraseToAnyPublisher()
         
-//        let mergedPublisher = Publishers.Merge(keyboardWillShowSubject, keyboardWillHideSubject)
-//            .eraseToAnyPublisher()
         let mergePublisher = keyboardWillShowSubject.merge(with: keyboardWillHideSubject).eraseToAnyPublisher()
         
         return MyAnswerOutput(keyboardStatePublisher: mergePublisher)
