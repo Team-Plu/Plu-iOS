@@ -29,6 +29,7 @@
 		B5ACF6F72B22DA61006D7641 /* RecordDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF6F62B22DA61006D7641 /* RecordDummy.swift */; };
 		B5ACF7022B24A4B3006D7641 /* ResignDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF7012B24A4B3006D7641 /* ResignDescriptionView.swift */; };
 		B5ACF7042B26C807006D7641 /* RecordDiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF7032B26C807006D7641 /* RecordDiffableDataSource.swift */; };
+		B5ACF70C2B26EC48006D7641 /* se+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF70B2B26EC48006D7641 /* se+.swift */; };
 		C00113DA2B25359100B2C799 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00113D92B25359100B2C799 /* OnboardingViewModel.swift */; };
 		C00113DC2B2546DB00B2C799 /* PluTempButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00113DB2B2546DB00B2C799 /* PluTempButton.swift */; };
 		C0121A2C2B1347CA00D10EB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A2B2B1347CA00D10EB0 /* AppDelegate.swift */; };
@@ -138,6 +139,7 @@
 		B5ACF6F62B22DA61006D7641 /* RecordDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDummy.swift; sourceTree = "<group>"; };
 		B5ACF7012B24A4B3006D7641 /* ResignDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignDescriptionView.swift; sourceTree = "<group>"; };
 		B5ACF7032B26C807006D7641 /* RecordDiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDiffableDataSource.swift; sourceTree = "<group>"; };
+		B5ACF70B2B26EC48006D7641 /* se+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "se+.swift"; sourceTree = "<group>"; };
 		C00113D92B25359100B2C799 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		C00113DB2B2546DB00B2C799 /* PluTempButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluTempButton.swift; sourceTree = "<group>"; };
 		C0121A282B1347CA00D10EB0 /* Plu-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plu-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -434,6 +436,7 @@
 				C05E26712B1D9BCF00D91BFA /* UILabel+.swift */,
 				C05E26732B1D9C6800D91BFA /* Combine+.swift */,
 				C02C5DFD2B22E0780011F07C /* UIEdgeInsets+.swift */,
+				B5ACF70B2B26EC48006D7641 /* se+.swift */,
 			);
 			path = Extention;
 			sourceTree = "<group>";
@@ -945,6 +948,7 @@
 				C05E269A2B1D9F1B00D91BFA /* SplashViewController.swift in Sources */,
 				B5ACF6F72B22DA61006D7641 /* RecordDummy.swift in Sources */,
 				C02C5DFE2B22E0780011F07C /* UIEdgeInsets+.swift in Sources */,
+				B5ACF70C2B26EC48006D7641 /* se+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
