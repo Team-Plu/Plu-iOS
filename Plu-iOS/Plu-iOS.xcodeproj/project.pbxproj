@@ -25,6 +25,7 @@
 		B5ACF6F32B22D2F2006D7641 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF6F22B22D2F2006D7641 /* QuestionView.swift */; };
 		B5ACF6F52B22DA42006D7641 /* RecordDiffableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF6F42B22DA42006D7641 /* RecordDiffableModel.swift */; };
 		B5ACF6F72B22DA61006D7641 /* RecordDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF6F62B22DA61006D7641 /* RecordDummy.swift */; };
+		B5ACF7022B24A4B3006D7641 /* ResignDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF7012B24A4B3006D7641 /* ResignDescriptionView.swift */; };
 		C0121A2C2B1347CA00D10EB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A2B2B1347CA00D10EB0 /* AppDelegate.swift */; };
 		C0121A2E2B1347CA00D10EB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A2D2B1347CA00D10EB0 /* SceneDelegate.swift */; };
 		C0121A352B1347CB00D10EB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0121A342B1347CB00D10EB0 /* Assets.xcassets */; };
@@ -122,6 +123,7 @@
 		B5ACF6F22B22D2F2006D7641 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		B5ACF6F42B22DA42006D7641 /* RecordDiffableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDiffableModel.swift; sourceTree = "<group>"; };
 		B5ACF6F62B22DA61006D7641 /* RecordDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDummy.swift; sourceTree = "<group>"; };
+		B5ACF7012B24A4B3006D7641 /* ResignDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignDescriptionView.swift; sourceTree = "<group>"; };
 		C0121A282B1347CA00D10EB0 /* Plu-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plu-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0121A2B2B1347CA00D10EB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0121A2D2B1347CA00D10EB0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -558,6 +560,7 @@
 			isa = PBXGroup;
 			children = (
 				C05E26892B1D9EAE00D91BFA /* ResignViewController.swift */,
+				B5ACF7012B24A4B3006D7641 /* ResignDescriptionView.swift */,
 			);
 			path = Resign;
 			sourceTree = "<group>";
@@ -853,6 +856,7 @@
 				C05E26742B1D9C6800D91BFA /* Combine+.swift in Sources */,
 				C05E26692B1D9B2F00D91BFA /* CALayer+.swift in Sources */,
 				C05E26652B1D9AEA00D91BFA /* Encodable+.swift in Sources */,
+				B5ACF7022B24A4B3006D7641 /* ResignDescriptionView.swift in Sources */,
 				B5ACF6CB2B1EE3EC006D7641 /* Dummy.swift in Sources */,
 				B5ACF6CF2B1EECD0006D7641 /* OthersAnswerTableView.swift in Sources */,
 				C05E269A2B1D9F1B00D91BFA /* SplashViewController.swift in Sources */,

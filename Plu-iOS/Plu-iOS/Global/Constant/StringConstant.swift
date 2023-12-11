@@ -25,4 +25,11 @@ enum StringConstant {
             }
         }
     }
+    
+    enum Resign {
+        static let resignDescriptionText = "회원 탈퇴 시 기존에 등록한 게시글, 공감 등\n모든 활동 정보가 삭제되며 복구가 불가능합니다.\n정말 탈퇴하실 건가요?"
+        static let resignTitleText = "Plu님과 이별인가요?\n너무 아쉬워요."
+        static let reuseText = "다시 사용하기"
+        static let resignText = "탈퇴하기"
+    }
 }
