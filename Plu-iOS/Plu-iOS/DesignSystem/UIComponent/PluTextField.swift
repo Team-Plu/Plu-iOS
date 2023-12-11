@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class PluTextField: UITextField {
+final class PLUTextField: UITextField {
     
     enum ClearButtonType {
         case hide, show
@@ -80,6 +80,10 @@ final class PluTextField: UITextField {
             clearButton.setImage(ImageLiterals.Onboarding.eraseButton, for: .normal)
         }
         self.clearButtonMode = UITextField.ViewMode.whileEditing
+    }
+    
+    func setTextfieldDefaultInput(input: String) {
+        self.text = input
     }
 }
 
