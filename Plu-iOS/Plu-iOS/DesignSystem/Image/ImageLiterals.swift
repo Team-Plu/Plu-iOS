@@ -14,6 +14,9 @@ enum ImageLiterals {
     
     enum Tutorial {
         static var characterSet: UIImage { .load(named: "ic_character_set") }
+        static var screenshot1: UIImage { .load(named: "screenshot1") }
+        static var screenshot2: UIImage { .load(named: "screenshot2") }
+        static var screenshot3: UIImage { .load(named: "screenshot3") }
         static var kakaoLogo: UIImage { .load(named: "ic_kakao") }
         static var AppleLogo: UIImage { .load(named: "ic_apple") }
     }
