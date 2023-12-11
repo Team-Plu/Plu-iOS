@@ -54,6 +54,7 @@ extension NicknameCheck where Self: AnyObject {
     func getNicknameVaildPublisher(from checker: textFieldVaildChecker, with manager: NicknameManager) -> textFieldOutput {
         return checker
             .debounce(for: 0.3, scheduler: DispatchQueue.main)
+            .removeDuplicates()
             .compactMap { $0 }
             .flatMap { input -> AnyPublisher<NicknameState, Never> in
                 return Future<NicknameState, Error> { promoise in
