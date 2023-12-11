@@ -10,16 +10,27 @@ import UIKit
 enum ImageLiterals {
     enum Splash {
         static var pluWordmarkLarge: UIImage { .load(named: "plu_wordmark_large") }
+        static var dustEye: UIImage { .load(named: "ic_eyes_dust") }
+        static var fireEye: UIImage { .load(named: "ic_eyes_fire") }
+        static var waterEye: UIImage { .load(named: "ic_eyes_water") }
+        static var airEye: UIImage { .load(named: "ic_eyes_air") }
     }
     
     enum Tutorial {
         static var characterSet: UIImage { .load(named: "ic_character_set") }
+        static var screenshot1: UIImage { .load(named: "screenshot1") }
+        static var screenshot2: UIImage { .load(named: "screenshot2") }
+        static var screenshot3: UIImage { .load(named: "screenshot3") }
         static var kakaoLogo: UIImage { .load(named: "ic_kakao") }
         static var AppleLogo: UIImage { .load(named: "ic_apple") }
     }
     
     enum OnboardingCompleted {
         static var alarm: UIImage { .load(named: "ic_alarm") }
+    }
+    
+    enum Onboarding {
+        static var eraseButton: UIImage { .load(named: "btn_erase") }
     }
     
     enum Main {
