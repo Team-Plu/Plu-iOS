@@ -8,7 +8,12 @@
 import Foundation
 
 enum StringConstant {
-    enum Login {}
+    enum Login {
+        static let page1Title = "매일 오후 10시 전달되는\n오늘의 질문을 확인해 보세요"
+        static let page2Title = "나의 답변을 작성하면\n모두의 답변을 볼 수 있어요"
+        static let page3Title = "꾸준히 작성한 일기는\n기록 탭에서 모아볼 수 있어요"
+    }
+    
     enum MyPage {
         case alarm, faq, openSource, privacy, appVersion, logOut, resign
         
