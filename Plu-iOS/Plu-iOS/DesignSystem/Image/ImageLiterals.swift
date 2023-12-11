@@ -10,6 +10,10 @@ import UIKit
 enum ImageLiterals {
     enum Splash {
         static var pluWordmarkLarge: UIImage { .load(named: "plu_wordmark_large") }
+        static var dustEye: UIImage { .load(named: "ic_eyes_dust") }
+        static var fireEye: UIImage { .load(named: "ic_eyes_fire") }
+        static var waterEye: UIImage { .load(named: "ic_eyes_water") }
+        static var airEye: UIImage { .load(named: "ic_eyes_air") }
     }
     
     enum Tutorial {
