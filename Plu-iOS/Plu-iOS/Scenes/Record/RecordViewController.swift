@@ -21,14 +21,13 @@ final class RecordViewController: UIViewController {
     
     private let questionTableView = OthersAnswerTableView(tableViewType: .recordQuestions)
     
-    private var datasource: UITableViewDiffableDataSource<RecordSection, RecordItem>!
+    private lazy var datasource = RecordDiffableDataSource(tableView: self.questionTableView)
 
     public override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
         setHierarchy()
         setLayout()
-        setDataSource()
         applySnapshot(.dummy())
         configureUI(record: .dummy())
     }
@@ -65,19 +64,6 @@ private extension RecordViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
         
-    }
-    
-    func setDataSource() {
-        self.datasource = .init(tableView: questionTableView, cellProvider: { tableView, indexPath, itemIdentifier in
-            
-            switch itemIdentifier {
-            case .question(let question):
-                let cell = RecordQuestionTableViewCell.dequeueReusableCell(to: self.questionTableView)
-                
-                cell.configureView(question)
-                return cell
-            }
-        })
     }
     
     func applySnapshot(_ records: Record) {
