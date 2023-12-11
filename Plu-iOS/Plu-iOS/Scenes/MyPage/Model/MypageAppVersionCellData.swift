@@ -12,7 +12,7 @@ struct MypageAppVersionCellData: MyPageCell {
     let appVersion: String?
     
     init(_ type: StringConstant.MyPage, appVersion: String?) {
-        self.title = type.title
+        self.title = type.description
         self.appVersion = appVersion
     }
 }

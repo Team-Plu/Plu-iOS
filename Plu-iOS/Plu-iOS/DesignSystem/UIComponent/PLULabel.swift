@@ -12,7 +12,7 @@ final class PLULabel: UILabel {
     
     init(type: Font.SuiteType,
          color: Palette,
-         backgroundColor: Palette = .white,
+         backgroundColor: Palette = .background,
          alignment: NSTextAlignment = .left,
          lines: Int = 1,
          text: String? = nil) {
