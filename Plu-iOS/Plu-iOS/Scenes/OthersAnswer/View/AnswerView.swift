@@ -19,6 +19,7 @@ final class AnswerView: UIView {
         super.init(frame: frame)
         setUI()
         setHierachy()
+        setLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -33,6 +34,10 @@ final class AnswerView: UIView {
     
     private func setHierachy() {
         self.addSubviews(answerLabel, elementImageView, empathyCountLabel)
+        
+    }
+    
+    private func setLayout() {
         
         answerLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(32).priority(.high)

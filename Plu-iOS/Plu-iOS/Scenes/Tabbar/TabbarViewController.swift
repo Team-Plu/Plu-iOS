@@ -55,8 +55,7 @@ private extension TabbarViewController {
         let tabBarAppearance = UITabBarAppearance()
         tabBarAppearance.stackedLayoutAppearance.normal.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -4)
         tabBarAppearance.stackedLayoutAppearance.selected.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -4)
-        
-        let tabbarItemAppearance = self.setTabBarItemAppearnce()        
+        let _ = self.setTabBarItemAppearnce()
         self.tabBar.standardAppearance = tabBarAppearance
     }
     

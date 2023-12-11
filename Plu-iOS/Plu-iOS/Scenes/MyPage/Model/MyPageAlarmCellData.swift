@@ -12,7 +12,7 @@ struct MyPageAlarmCellData: MyPageCell {
     let acceptAlarm: Bool
     
     init(_ type: StringConstant.MyPage, acceptAlarm: Bool) {
-        self.title = type.title
+        self.title = type.description
         self.acceptAlarm = acceptAlarm
     }
 }

@@ -26,7 +26,7 @@ final class OthersAnswerViewController: UIViewController {
     
     private let menuView = AnswerFilterMenuView()
         
-    private let answersTableView = OthersAnswerTableView()
+    private let answersTableView = OthersAnswerTableView(tableViewType: .othersAnswers)
     
     private var datasource: UITableViewDiffableDataSource<OtherAnswersSection, OtherAnswersItem>!
     

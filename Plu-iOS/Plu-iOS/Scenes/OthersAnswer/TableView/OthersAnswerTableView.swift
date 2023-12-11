@@ -7,15 +7,23 @@
 
 import UIKit
 
-final class OthersAnswerTableView: UITableView {
+enum QATableViewType {
+    case othersAnswers
+    case recordQuestions
+}
 
-    override init(frame: CGRect, style: UITableView.Style) {
-        super.init(frame: frame, style: style)
+final class OthersAnswerTableView: UITableView {
+    
+    private let type: QATableViewType
+    
+    init(tableViewType: QATableViewType) {
+        self.type = tableViewType
+        super.init(frame: .zero, style: .plain)
         setUI()
         setTableView()
         registerCell()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -32,6 +40,10 @@ final class OthersAnswerTableView: UITableView {
     }
     
     private func registerCell() {
-        AnswerTableViewCell.register(to: self)
+        if type == .othersAnswers {
+            AnswerTableViewCell.register(to: self)
+        } else {
+            RecordQuestionTableViewCell.register(to: self)
+        }
     }
 }

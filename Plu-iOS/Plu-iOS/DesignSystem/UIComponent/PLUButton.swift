@@ -34,10 +34,11 @@ final class PLUButton: UIButton {
     }
     
     @discardableResult
-    func setImage(image: UIImage, placement: NSDirectionalRectEdge) -> Self {
+    func setImage(image: UIImage, placement: NSDirectionalRectEdge, padding: CGFloat = 8) -> Self {
         var config = self.configuration
         config?.image = image
         config?.imagePlacement = placement
+        config?.imagePadding = padding
         self.configuration = config
         return self
     }

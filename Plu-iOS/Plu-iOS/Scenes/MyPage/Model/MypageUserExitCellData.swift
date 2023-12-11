@@ -11,6 +11,6 @@ struct MypageUserExitCellData: MyPageCell {
     var title: String
     
     init(_ type: StringConstant.MyPage) {
-        self.title = type.title
+        self.title = type.description
     }
 }
