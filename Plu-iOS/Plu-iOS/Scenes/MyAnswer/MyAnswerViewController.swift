@@ -9,8 +9,14 @@
 import UIKit
 
 import SnapKit
+import Combine
 
 final class MyAnswerViewController: UIViewController {
+    
+    private var cancelBag = Set<AnyCancellable>()
+    private let viewModel = MyAnswerViewModel()
+    private let keyboardWillShow = PassthroughSubject<Void, Never>()
+    private let keyboardWillHide = PassthroughSubject<Void, Never>()
     
     private let everyDayAnswerView = EverydayAnswerView()
     private lazy var answerTextView = PLUTextView(text: StringConstant.MyAnswer.placeholder.text, textColor: .gray300, font: .body1R)
@@ -22,30 +28,66 @@ final class MyAnswerViewController: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        // MARK: - 컴포넌트 설정
+        
         setUI()
-        
-        // MARK: - addsubView
         setHierarchy()
-        
-        // MARK: - autolayout설정
         setLayout()
-        
-        // MARK: - button의 addtarget설정
-        setAddTarget()
-        
-        // MARK: - delegate설정
         setDelegate()
-        
         everyDayAnswerView.configureUI(answer: OthersAnswer.dummmy())
-
+        addKeyboardObserver()
+        bindInput()
+        answerTextView.becomeFirstResponder()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+    
+    private func bindInput() {
+        let input = MyAnswerViewModel.MyAnswerInput(keyboardWillShowSubject: keyboardWillShow,
+                                                    keyboardWillHideSubject: keyboardWillHide)
+        let output = viewModel.transform(input: input)
+        
+        output.keyboardStatePublisher
+            .receive(on: RunLoop.main)
+            .sink { [weak self] state in
+                self?.updateTextViewLayout(keyboardState: state)
+            }
+            .store(in: &cancelBag)
+    }
+            
+    private func addKeyboardObserver() {
+        NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification, object: nil)
+            .sink { [weak self] _ in
+                self?.keyboardWillShow.send(())
+            }
+            .store(in: &cancelBag)
+        
+        NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification, object: nil)
+            .sink { [weak self] _ in
+                self?.keyboardWillHide.send(())
+            }
+            .store(in: &cancelBag)
+    }
+    
+    private func updateTextViewLayout(keyboardState: Bool) {
+        if keyboardState {
+            answerTextView.snp.remakeConstraints { make in
+                make.top.equalTo(everyDayAnswerView.snp.bottom)
+                make.leading.trailing.equalToSuperview()
+                make.bottom.equalTo(bottomView.snp.top)
+            }
+        } else {
+            answerTextView.snp.remakeConstraints { make in
+                make.top.equalTo(everyDayAnswerView.snp.bottom)
+                make.leading.trailing.equalToSuperview()
+                make.bottom.equalTo(answerCautionView.snp.top)
+            }
+        }
+    }
 }
 
+// MARK: - UITextViewDelegate
 extension MyAnswerViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == .designSystem(.gray300) {
@@ -81,12 +123,13 @@ private extension MyAnswerViewController {
         answerTextView.snp.makeConstraints { make in
             make.top.equalTo(everyDayAnswerView.snp.bottom)
             make.leading.trailing.equalToSuperview()
-            make.height.equalTo(310)
+            make.bottom.equalTo(bottomView.snp.top)
         }
         
         answerCautionView.snp.makeConstraints { make in
-            make.top.equalTo(answerTextView.snp.bottom)
             make.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-56)
+            make.height.equalTo(160)
         }
         
         bottomView.snp.makeConstraints { make in
@@ -110,10 +153,6 @@ private extension MyAnswerViewController {
             make.trailing.equalToSuperview().inset(20)
             make.centerY.equalToSuperview()
         }
-    }
-    
-    func setAddTarget() {
-        
     }
     
     func setDelegate() {
