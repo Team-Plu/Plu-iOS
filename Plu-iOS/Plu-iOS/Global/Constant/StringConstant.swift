@@ -51,7 +51,9 @@ enum StringConstant {
             case .textFieldOver: return "8자 이내로 입력해주세요."
             case .textFieldError: return "다시 시도해주세요."
             case .nickNameNonValid: return "이미 사용 중인 닉네임입니다."
-            case .nickNameValid, .none: return nil
+            /// 추후 삭제될 description입니다
+            case .nickNameValid: return "사용 가능한 닉네임입니다."
+            case .none: return nil
             }
         }
     }

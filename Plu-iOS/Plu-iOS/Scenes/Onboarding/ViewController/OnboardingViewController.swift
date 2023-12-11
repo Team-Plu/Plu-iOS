@@ -13,14 +13,16 @@ import SnapKit
 
 final class OnboardingViewController: UIViewController {
     
-    private let viewModel = OnboardingViewModel(manager: OnboardingManagerStub())
     private let textFieldSubject = PassthroughSubject<String, Never>()
     private var cancelBag = Set<AnyCancellable>()
+    
     private let titleLabel = PLULabel(type: .head1, color: .gray700, text: StringConstant.Onboarding.title.description)
     private let subTitleLabel = PLULabel(type: .body2R, color: .gray500, text: StringConstant.Onboarding.subTitle.description)
-    private let nickNameTextField = PluTextField()
+    private let nickNameTextField = PLUTextField()
     private let errorLabel = PLULabel(type: .body3, color: .error)
     private var signInButton = PluTempButton()
+    
+    private let viewModel = OnboardingViewModel(manager: NicknameManagerStub())
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +43,9 @@ private extension OnboardingViewController {
         output.nickNameResultPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] in
-                self?.errorLabel.text = $0.errorDescription
-                self?.signInButton.setButtonState(isActice: $0.nextProcessButtonIsActive)
+                guard let isActice = $0.nextProcessButtonIsActive, let description = $0.errorDescription else { return }
+                self?.errorLabel.text = description
+                self?.signInButton.setButtonState(isActice: isActice)
             }
             .store(in: &cancelBag)
     }

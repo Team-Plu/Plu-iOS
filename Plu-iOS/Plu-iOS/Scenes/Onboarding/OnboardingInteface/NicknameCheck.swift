@@ -37,13 +37,13 @@ extension NicknameCheck where Self: AnyObject {
     func getNicknameState(from input: String, to subject: textFieldVaildChecker) -> NicknameState {
         if input.isEmpty {
             subject.send(nil)
-            return .init(.textFieldEmpty)
+            return .textFieldEmpty()
         } else if self.checkNicknamgLength(from: input, 8) {
             subject.send(nil)
-            return .init(.textFieldOver)
+            return .textFieldOver()
         } else {
             subject.send(input)
-            return .init(.none)
+            return .none()
         }
     }
     
@@ -53,7 +53,7 @@ extension NicknameCheck where Self: AnyObject {
     
     func getNicknameVaildPublisher(from checker: textFieldVaildChecker, with manager: NicknameManager) -> textFieldOutput {
         return checker
-            .debounce(for: 0.3, scheduler: DispatchQueue.main)
+            .debounce(for: 0.4, scheduler: DispatchQueue.main)
             .removeDuplicates()
             .compactMap { $0 }
             .flatMap { input -> AnyPublisher<NicknameState, Never> in
@@ -61,14 +61,21 @@ extension NicknameCheck where Self: AnyObject {
                     Task {
                         do {
                             let isValid = try await manager.inputNicknameIsVaild(input: input)
-                            promoise(.success(.init(isValid ? .nickNameValid : .nickNameNonValid)))
+                            print("✨✨✨닉네임중복처리 결과✨✨✨")
+                            print("입력한 닉네임 : \(input)")
+                            if isValid {
+                                print("결과 : 사용가능")
+                            } else {
+                                print("결과 : 사용불가능")
+                            }
+                            promoise(.success(isValid ? .nickNameValid() : .nickNameNonValid()))
                         } catch {
                             promoise(.failure(error))
                         }
                     }
                 }
                 .catch { error in
-                    Just(.init(.textFieldError))
+                    Just(.textFieldError())
                 }
                 .eraseToAnyPublisher()
             }

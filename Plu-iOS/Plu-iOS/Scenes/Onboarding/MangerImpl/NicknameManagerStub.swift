@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class OnboardingManagerStub: NicknameManager {
+final class NicknameManagerStub: NicknameManager {
     private let storedNicNames = ["의성", "민재", "찬미"]
     
     func inputNicknameIsVaild(input: String) async throws -> Bool {
