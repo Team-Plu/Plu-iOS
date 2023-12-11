@@ -29,6 +29,7 @@
 		B5ACF6F72B22DA61006D7641 /* RecordDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF6F62B22DA61006D7641 /* RecordDummy.swift */; };
 		B5ACF7022B24A4B3006D7641 /* ResignDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF7012B24A4B3006D7641 /* ResignDescriptionView.swift */; };
 		B5ACF7042B26C807006D7641 /* RecordDiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF7032B26C807006D7641 /* RecordDiffableDataSource.swift */; };
+		B5ACF70A2B26DEB1006D7641 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF7092B26DEB1006D7641 /* LoginModel.swift */; };
 		B5ACF70C2B26EC48006D7641 /* se+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF70B2B26EC48006D7641 /* se+.swift */; };
 		C00113DA2B25359100B2C799 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00113D92B25359100B2C799 /* OnboardingViewModel.swift */; };
 		C00113DC2B2546DB00B2C799 /* PluTempButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00113DB2B2546DB00B2C799 /* PluTempButton.swift */; };
@@ -139,6 +140,7 @@
 		B5ACF6F62B22DA61006D7641 /* RecordDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDummy.swift; sourceTree = "<group>"; };
 		B5ACF7012B24A4B3006D7641 /* ResignDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignDescriptionView.swift; sourceTree = "<group>"; };
 		B5ACF7032B26C807006D7641 /* RecordDiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDiffableDataSource.swift; sourceTree = "<group>"; };
+		B5ACF7092B26DEB1006D7641 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		B5ACF70B2B26EC48006D7641 /* se+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "se+.swift"; sourceTree = "<group>"; };
 		C00113D92B25359100B2C799 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		C00113DB2B2546DB00B2C799 /* PluTempButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluTempButton.swift; sourceTree = "<group>"; };
@@ -525,6 +527,7 @@
 			isa = PBXGroup;
 			children = (
 				C05E26972B1D9F1000D91BFA /* LoginViewController.swift */,
+				B5ACF7092B26DEB1006D7641 /* LoginModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -931,6 +934,7 @@
 				C05E26762B1D9CFB00D91BFA /* ScreenConstant.swift in Sources */,
 				4AA747672B25E6FD004D0335 /* ImageDummy.swift in Sources */,
 				C0121A2E2B1347CA00D10EB0 /* SceneDelegate.swift in Sources */,
+				B5ACF70A2B26DEB1006D7641 /* LoginModel.swift in Sources */,
 				4AA747552B1CF094004D0335 /* Palette.swift in Sources */,
 				B5ACF6F52B22DA42006D7641 /* RecordDiffableModel.swift in Sources */,
 				C05E265B2B1D9A4300D91BFA /* CollectionViewCellRegisterDequeueProtocol.swift in Sources */,
