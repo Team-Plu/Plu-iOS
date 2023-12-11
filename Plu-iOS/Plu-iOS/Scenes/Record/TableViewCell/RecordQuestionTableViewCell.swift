@@ -42,8 +42,8 @@ class RecordQuestionTableViewCell: UITableViewCell, TableViewCellRegisterDequeue
         }
     }
     
-    func configureView(_ question: Question) {
-        self.questionView.configureView(question)
+    func configureCell(_ question: Question) {
+        self.questionView.configureUI(question)
     }
 
 }

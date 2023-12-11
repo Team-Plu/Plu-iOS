@@ -55,7 +55,7 @@ final class QuestionView: UIView {
         }
     }
     
-    func configureView(_ question: Question) {
+    func configureUI(_ question: Question) {
         dateLabel.text = question.date
         questionLabel.text = question.question
         self.backgroundColor = .designSystem(question.element.color) 
