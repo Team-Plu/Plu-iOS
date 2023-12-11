@@ -22,6 +22,10 @@ enum ImageLiterals {
         static var alarm: UIImage { .load(named: "ic_alarm") }
     }
     
+    enum Onboarding {
+        static var eraseButton: UIImage { .load(named: "btn_erase") }
+    }
+    
     enum Main {
         static var waterTodayQuestion: UIImage { .load(named: "ic_today_question_water") }
         static var dustTodayQuestion: UIImage { .load(named: "ic_today_question_dust") }
