@@ -8,7 +8,7 @@
 import UIKit
 
 @frozen
-enum Elements {
+enum Elements: CaseIterable {
     case water
     case air
     case dust
@@ -50,6 +50,19 @@ enum Elements {
             return ImageLiterals.Respone.dustCharacterSmall
         case .fire:
             return ImageLiterals.Respone.fireCharacterSmall
+        }
+    }
+    
+    var eyeImage: UIImage {
+        switch self {
+        case .water:
+            return ImageLiterals.Splash.waterEye
+        case .air:
+            return ImageLiterals.Splash.airEye
+        case .dust:
+            return ImageLiterals.Splash.dustEye
+        case .fire:
+            return ImageLiterals.Splash.fireEye
         }
     }
 }

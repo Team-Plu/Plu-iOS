@@ -12,45 +12,54 @@ import SnapKit
 
 final class SplashViewController: UIViewController {
     
+    private let eyeImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    private let wordMarkView: UIImageView = {
+        let imageView = UIImageView(image: ImageLiterals.Splash.pluWordmarkLarge)
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
 
     public override func viewDidLoad() {
         super.viewDidLoad()
-        // MARK: - 컴포넌트 설정
-        setUI()
-        
-        // MARK: - addsubView
+        selectRandomElement()
         setHierarchy()
-        
-        // MARK: - autolayout설정
         setLayout()
-        
-        // MARK: - button의 addtarget설정
-        setAddTarget()
-        
-        // MARK: - delegate설정
-        setDelegate()
-
     }
 }
 
 private extension SplashViewController {
-    func setUI() {
-        
+    func selectRandomElement() {
+        let randomElement = Elements.allCases.randomElement()!
+        setUI(from: randomElement)
+    }
+    
+    func setUI(from element: Elements) {
+        self.view.backgroundColor = .designSystem(element.color)
+        self.eyeImageView.image = element.eyeImage
     }
     
     func setHierarchy() {
-        
+        view.addSubviews(eyeImageView, wordMarkView)
     }
     
     func setLayout() {
+        eyeImageView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview().multipliedBy(0.77)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(view.snp.width).multipliedBy(0.25)
+            make.height.equalTo(eyeImageView.snp.width).multipliedBy(0.5)
+        }
         
-    }
-    
-    func setAddTarget() {
-        
-    }
-    
-    func setDelegate() {
-        
+        wordMarkView.snp.makeConstraints { make in
+            make.top.equalTo(eyeImageView.snp.bottom).offset(5)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(view.snp.width).multipliedBy(0.20)
+            make.height.equalTo(wordMarkView.snp.width).multipliedBy(0.74)
+        }
     }
 }
