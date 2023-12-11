@@ -22,7 +22,7 @@ final class OnboardingViewController: UIViewController {
     private let errorLabel = PLULabel(type: .body3, color: .error)
     private var signInButton = PluTempButton()
     
-    private let viewModel = OnboardingViewModel(manager: OnboardingManagerStub())
+    private let viewModel = OnboardingViewModel(manager: NicknameManagerStub())
     
     public override func viewDidLoad() {
         super.viewDidLoad()

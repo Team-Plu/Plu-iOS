@@ -22,7 +22,7 @@ final class NicknameEditViewController: UIViewController {
     private let tempButton = PluTempButton(isActive: false)
     private let nicknameLabel = PLULabel(type: .body3, color: .gray600, text: "닉네임")
     
-    private let viewModel = NicknameEditViewModel(nickNameManager: OnboardingManagerStub())
+    private let viewModel = NicknameEditViewModel(nickNameManager: NicknameManagerStub())
     
     public override func viewDidLoad() {
         super.viewDidLoad()
