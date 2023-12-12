@@ -7,12 +7,25 @@
 
 import UIKit
 
-protocol PopUpDelegate: AnyObject {
+protocol SelectMonthDelegate: AnyObject {
     func passYearAndMonth(_ input: String)
 }
 
+protocol AlarmDelegate: AnyObject {
+    func alarmAccept(_ input: Bool)
+}
+
+protocol RegisterDelegate: AnyObject {
+    func register(_ input: Bool)
+}
+
 final class PopUpCoordinatorImpl: PopUpCoordinator {
-    weak var delegate: PopUpDelegate?
+
+    
+    weak var selectMonthDelegate: SelectMonthDelegate?
+    weak var alarmDelegate: AlarmDelegate?
+    weak var registerDelgate: RegisterDelegate?
+    
     var parentCoordinator: Coordinator?
     
     var children: [Coordinator] = []
@@ -23,22 +36,38 @@ final class PopUpCoordinatorImpl: PopUpCoordinator {
         self.navigationController = navigationController
     }
     
-    func accept(type: PopUpType) {
+    
+    func show(type: PopUpType) {
         switch type {
         case .alarm:
-            let alarmPopUpViewController = 
+            let alarmPopUpViewController = AlarmPopUpViewController(coordinator: self)
+            self.navigationController.present(alarmPopUpViewController, animated: true)
         case .register:
-            <#code#>
-        case .selecMonth:
-            <#code#>
+            let registerPopUpViewController = RegisterPopUpViewController()
+            self.navigationController.present(registerPopUpViewController, animated: true)
+        case .selectMonth:
+            let selectMonthPopUpViewController = SelectMonthPopUpViewController()
+            self.navigationController.present(selectMonthPopUpViewController, animated: true)
         }
     }
     
-    func dismiss(yearAndMonth: String?) {
+    
+    func accept(type: PopUpType) {
+        switch type {
+        case .alarm:
+            self.alarmDelegate?.alarmAccept(true)
+        case .register:
+            self.registerDelgate?.register(true)
+        case .selectMonth:
+            self.selectMonthDelegate?.passYearAndMonth("날짜가입력되었습니다")
+        }
         self.navigationController.dismiss(animated: true) {
-            if let yearAndMonth = yearAndMonth {
-                self.delegate?.passYearAndMonth(yearAndMonth)
-            }
+            self.parentCoordinator?.childDidFinish(self)
+        }
+    }
+    
+    func dismiss() {
+        self.navigationController.dismiss(animated: true) {
             self.parentCoordinator?.childDidFinish(self)
         }
     }

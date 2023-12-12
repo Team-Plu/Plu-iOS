@@ -20,7 +20,7 @@ final class TodayQuestionCoordinatorImpl: TodayQuestionCoordinator {
     }
     
     func showTodayQuestionViewController() {
-        let todayQuestionViewController = TodayQuestionViewController()
+        let todayQuestionViewController = TodayQuestionViewController(coordinator: self)
         self.navigationController.pushViewController(todayQuestionViewController, animated: true)
     }
     
@@ -29,7 +29,9 @@ final class TodayQuestionCoordinatorImpl: TodayQuestionCoordinator {
     }
     
     func showMyAnswerViewController() {
-        print("✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅")
+        let myAnswerCoordinator = MyAnswerCoordinatorImpl(navigationController: self.navigationController)
+        myAnswerCoordinator.showMyAnswerViewController()
+        children.append(myAnswerCoordinator)
     }
     
     func showOtherAnswersViewController() {
@@ -37,7 +39,15 @@ final class TodayQuestionCoordinatorImpl: TodayQuestionCoordinator {
     }
     
     func presentAlarmPopUpViewController() {
-        
-        print("✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅")
+        let popUpCoordinator = PopUpCoordinatorImpl(navigationController: self.navigationController)
+        popUpCoordinator.alarmDelegate = self
+        popUpCoordinator.show(type: .alarm)
+        children.append(popUpCoordinator)
+    }
+}
+
+extension TodayQuestionCoordinatorImpl: AlarmDelegate {
+    func alarmAccept(_ input: Bool) {
+        print("알람 확인 버튼이 늘렸습니다")
     }
 }

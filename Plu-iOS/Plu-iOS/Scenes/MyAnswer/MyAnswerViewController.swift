@@ -12,6 +12,9 @@ import SnapKit
 import Combine
 
 final class MyAnswerViewController: UIViewController {
+    
+    let coordinator: MyAnswerCoordinator
+    
     private var cancelBag = Set<AnyCancellable>()
     private let viewModel = MyAnswerViewModel()
     private let keyboardStatyeType = PassthroughSubject<KeyboardType, Never>()
@@ -23,6 +26,23 @@ final class MyAnswerViewController: UIViewController {
     private let underLine = PLUUnserLine(color: .gray100)
     private let bottomTextLabel = PLULabel(type: .body1R, color: .gray700, text: StringConstant.MyAnswer.bottomView.text)
     private let answerStateSwitch = UISwitch()
+    
+    private lazy var tempCompleteButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("임시완료버튼입니다", for: .normal)
+        button.backgroundColor = .designSystem(.error)
+        button.addTarget(self, action: #selector(completButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    init(coordinator: MyAnswerCoordinator) {
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,6 +96,10 @@ final class MyAnswerViewController: UIViewController {
             make.bottom.equalTo(components.snp.top)
         }
     }
+    
+    @objc func completButtonTapped() {
+        self.coordinator.presentRegisterPopUpViewController()
+    }
 }
 
 // MARK: - UITextViewDelegate
@@ -103,6 +127,8 @@ private extension MyAnswerViewController {
     func setHierarchy() {
         view.addSubviews(everyDayAnswerView, answerTextView, answerCautionView, bottomView)
         bottomView.addSubviews(underLine, bottomTextLabel, answerStateSwitch)
+        /// 나중에 삭제
+        view.addSubview(tempCompleteButton)
     }
     
     func setLayout() {
@@ -143,6 +169,11 @@ private extension MyAnswerViewController {
         answerStateSwitch.snp.makeConstraints { make in
             make.trailing.equalToSuperview().inset(20)
             make.centerY.equalToSuperview()
+        }
+        
+        tempCompleteButton.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.size.equalTo(150)
         }
     }
     

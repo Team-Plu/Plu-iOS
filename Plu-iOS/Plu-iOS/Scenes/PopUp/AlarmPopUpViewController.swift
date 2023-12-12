@@ -12,6 +12,8 @@ import SnapKit
 
 final class AlarmPopUpViewController: PopUpDimmedViewController {
     
+    let coordinator: PopUpCoordinator
+    
     private let popUpBackgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = .designSystem(.white)
@@ -43,10 +45,12 @@ final class AlarmPopUpViewController: PopUpDimmedViewController {
         return button
     }()
     
-    override init() {
+    init(coordinator: PopUpCoordinator) {
+        self.coordinator = coordinator
         super.init()
         setUp()
     }
+
     
     required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -54,10 +58,12 @@ final class AlarmPopUpViewController: PopUpDimmedViewController {
     
     @objc func agreeButtonTapped() {
         print("확인버튼 눌림")
+        self.coordinator.accept(type: .alarm)
     }
     
     @objc func disAgreeButtonTapped() {
         print("취소버튼 눌림")
+        self.coordinator.dismiss()
     }
     
 }

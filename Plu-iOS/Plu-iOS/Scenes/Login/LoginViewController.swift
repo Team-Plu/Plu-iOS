@@ -35,7 +35,7 @@ final class LoginViewController: UIViewController {
         return collectionView
     }()
     
-    private var kakaoLoginButton = PLUButton(config: .filled())
+    private let kakaoLoginButton = PLUButton(config: .filled())
         .setText(text: "카카오로 시작하기", font: .title1)
         .setBackForegroundColor(backgroundColor: .kakaoYellow, foregroundColor: .black)
         .setImage(image: ImageLiterals.Tutorial.kakaoLogo, placement: .leading)
@@ -62,6 +62,7 @@ final class LoginViewController: UIViewController {
         setHierarchy()
         setLayout()
         setDataSource()
+        kakaoLoginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
     }
 }
 
@@ -108,6 +109,10 @@ private extension LoginViewController {
     func setDataSource() {
         self.tutorialCollectionView.dataSource = self
         self.tutorialCollectionView.delegate = self
+    }
+    
+    @objc func loginButtonTapped() {
+        self.coordinator.showOnboardingController()
     }
 }
 

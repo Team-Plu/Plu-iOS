@@ -24,11 +24,12 @@ import Foundation
 enum PopUpType {
     case alarm
     case register
-    case selecMonth
+    case selectMonth
 }
 
 protocol PopUpCoordinator: Coordinator {
+    func show(type: PopUpType)
     func accept(type: PopUpType)
-    func dismiss(yearAndMonth: String?)
+    func dismiss()
 }
 
