@@ -29,6 +29,6 @@ enum PopUpType {
 
 protocol PopUpCoordinator: Coordinator {
     func accept(type: PopUpType)
-    func dismiss()
+    func dismiss(yearAndMonth: String?)
 }
 
