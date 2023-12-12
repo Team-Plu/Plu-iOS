@@ -12,7 +12,7 @@ import SnapKit
 
 final class OthersAnswerViewController: UIViewController {
         
-    private let everydayAnswerView = EverydayAnswerView()
+    private let everydayAnswerView = PLUEverydayAnswerView()
     
     private let elementImageView = UIImageView()
     
