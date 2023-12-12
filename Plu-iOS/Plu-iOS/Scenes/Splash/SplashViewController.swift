@@ -12,6 +12,17 @@ import SnapKit
 
 final class SplashViewController: UIViewController {
     
+    let coordinator: SplashCoordinator
+    
+    init(coordinator: SplashCoordinator) {
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private let eyeImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -23,12 +34,23 @@ final class SplashViewController: UIViewController {
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
+    
+    lazy var button: UIButton = {
+        let button = UIButton()
+        button.setTitle("sofjisofjsoi", for: .normal)
+        button.addTarget(self, action: #selector(tap), for: .touchUpInside)
+        return button
+    }()
 
     public override func viewDidLoad() {
         super.viewDidLoad()
         selectRandomElement()
         setHierarchy()
         setLayout()
+    }
+    
+    @objc func tap() {
+        self.coordinator.showTabbarViewContoller()
     }
 }
 
@@ -44,7 +66,7 @@ private extension SplashViewController {
     }
     
     func setHierarchy() {
-        view.addSubviews(eyeImageView, wordMarkView)
+        view.addSubviews(eyeImageView, wordMarkView, button)
     }
     
     func setLayout() {
@@ -60,6 +82,10 @@ private extension SplashViewController {
             make.centerX.equalToSuperview()
             make.width.equalTo(view.snp.width).multipliedBy(0.20)
             make.height.equalTo(wordMarkView.snp.width).multipliedBy(0.74)
+        }
+        button.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.size.equalTo(100)
         }
     }
 }

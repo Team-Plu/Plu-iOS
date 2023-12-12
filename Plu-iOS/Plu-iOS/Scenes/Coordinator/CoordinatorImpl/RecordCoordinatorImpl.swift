@@ -21,18 +21,18 @@ final class RecordCoordinatorImpl: RecordCoordinator {
     
     func showRecordViewController() {
         let recordViewController = RecordViewController()
-        self.navigationController?.pushViewController(recordViewController, animated: true)
+        self.navigationController.pushViewController(recordViewController, animated: true)
     }
     
     func showMyPageViewController() {
-        <#code#>
+        print("✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅")
     }
     
     func presentSelectMonthPopUpViewController() {
-        <#code#>
+        print("✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅")
     }
     
     func showAnswerDetailViewController() {
-        <#code#>
+        print("✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅")
     }
 }

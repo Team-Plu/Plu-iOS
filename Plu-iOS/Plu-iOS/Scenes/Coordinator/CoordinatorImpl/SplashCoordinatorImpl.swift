@@ -21,7 +21,7 @@ final class SplashCoordinatorImpl: SplashCoordinator {
     }
     
     func showSplashViewController() {
-        let splashViewController = SplashViewController()
+        let splashViewController = SplashViewController(coordinator: self)
         self.navigationController.pushViewController(splashViewController, animated: true)
     }
     
@@ -29,7 +29,7 @@ final class SplashCoordinatorImpl: SplashCoordinator {
         let tabbarCoordinator = TabBarCoordinatorImpl(navigationController: navigationController)
         children.removeAll()
         tabbarCoordinator.parentCoordinator = self
-        //TODO: - methods
+        tabbarCoordinator.showTabbarController()
     }
     
     func showLoginViewController() {
