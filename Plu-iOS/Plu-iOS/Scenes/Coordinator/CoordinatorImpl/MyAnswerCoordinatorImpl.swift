@@ -30,10 +30,12 @@ final class MyAnswerCoordinatorImpl: MyAnswerCoordinator {
         popUpCoordinator.registerDelgate = self
         popUpCoordinator.show(type: .register)
         children.append(popUpCoordinator)
+        popUpCoordinator.parentCoordinator = self
     }
     
     func pop() {
         self.navigationController.popViewController(animated: true)
+        self.parentCoordinator?.childDidFinish(self)
     }
     
 }

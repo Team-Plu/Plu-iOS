@@ -106,6 +106,7 @@ private extension TodayQuestionViewController {
     
     func setAddTarget() {
         myAnswerButton.addTarget(self, action: #selector(writeButtonTapped), for: .touchUpInside)
+        everyAnswerButtom.addTarget(self, action: #selector(everyAnswerTapped), for: .touchUpInside)
     }
     
     func setDelegate() {
@@ -129,5 +130,9 @@ private extension TodayQuestionViewController {
     
     @objc func writeButtonTapped() {
         self.coordinator.showMyAnswerViewController()
+    }
+    
+    @objc func everyAnswerTapped() {
+        self.coordinator.showOtherAnswersViewController()
     }
 }

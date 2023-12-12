@@ -55,6 +55,9 @@
 		B5ACF7272B281928006D7641 /* SplashCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF7262B281928006D7641 /* SplashCoordinatorImpl.swift */; };
 		B5ACF7292B28196C006D7641 /* TabBarCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF7282B28196C006D7641 /* TabBarCoordinatorImpl.swift */; };
 		B5ACF72B2B281A19006D7641 /* AuthCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF72A2B281A19006D7641 /* AuthCoordinatorImpl.swift */; };
+		B5ACF72D2B283CD8006D7641 /* OtherAnswerCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF72C2B283CD8006D7641 /* OtherAnswerCoordinatorImpl.swift */; };
+		B5ACF72F2B283D23006D7641 /* AnswerDetailCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF72E2B283D23006D7641 /* AnswerDetailCoordinatorImpl.swift */; };
+		B5ACF7312B284296006D7641 /* MyPageCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF7302B284296006D7641 /* MyPageCoordinatorImpl.swift */; };
 		C00113DA2B25359100B2C799 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00113D92B25359100B2C799 /* OnboardingViewModel.swift */; };
 		C00113DC2B2546DB00B2C799 /* PluTempButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00113DB2B2546DB00B2C799 /* PluTempButton.swift */; };
 		C0121A2C2B1347CA00D10EB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A2B2B1347CA00D10EB0 /* AppDelegate.swift */; };
@@ -199,6 +202,9 @@
 		B5ACF7262B281928006D7641 /* SplashCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashCoordinatorImpl.swift; sourceTree = "<group>"; };
 		B5ACF7282B28196C006D7641 /* TabBarCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinatorImpl.swift; sourceTree = "<group>"; };
 		B5ACF72A2B281A19006D7641 /* AuthCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinatorImpl.swift; sourceTree = "<group>"; };
+		B5ACF72C2B283CD8006D7641 /* OtherAnswerCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherAnswerCoordinatorImpl.swift; sourceTree = "<group>"; };
+		B5ACF72E2B283D23006D7641 /* AnswerDetailCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerDetailCoordinatorImpl.swift; sourceTree = "<group>"; };
+		B5ACF7302B284296006D7641 /* MyPageCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCoordinatorImpl.swift; sourceTree = "<group>"; };
 		C00113D92B25359100B2C799 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		C00113DB2B2546DB00B2C799 /* PluTempButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluTempButton.swift; sourceTree = "<group>"; };
 		C0121A282B1347CA00D10EB0 /* Plu-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plu-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -412,6 +418,9 @@
 				4A44666B2B28208D002D5BF7 /* RecordCoordinatorImpl.swift */,
 				C07AB7282B282E2D00C2E02C /* PopUpCoordinatorImpl.swift */,
 				C07AB72A2B28380200C2E02C /* MyAnswerCoordinatorImpl.swift */,
+				B5ACF72C2B283CD8006D7641 /* OtherAnswerCoordinatorImpl.swift */,
+				B5ACF72E2B283D23006D7641 /* AnswerDetailCoordinatorImpl.swift */,
+				B5ACF7302B284296006D7641 /* MyPageCoordinatorImpl.swift */,
 			);
 			path = CoordinatorImpl;
 			sourceTree = "<group>";
@@ -1027,6 +1036,7 @@
 				C05E26722B1D9BCF00D91BFA /* UILabel+.swift in Sources */,
 				B5ACF7222B2816C6006D7641 /* PopUpCoordinator.swift in Sources */,
 				B5ACF6C92B1EE26C006D7641 /* ElementColor.swift in Sources */,
+				B5ACF72F2B283D23006D7641 /* AnswerDetailCoordinatorImpl.swift in Sources */,
 				C0E93B5A2B20518B0098A822 /* TableSectionViewRegisterDequeueProtocol.swift in Sources */,
 				C05E26782B1D9D2900D91BFA /* StringConstant.swift in Sources */,
 				C0A2561D2B1ED99B0059AA7E /* MyPageHeaderView.swift in Sources */,
@@ -1094,6 +1104,7 @@
 				4AA747572B1D74A6004D0335 /* CGColor+.swift in Sources */,
 				C0E93B492B20358A0098A822 /* MypageAppVersionCellData.swift in Sources */,
 				C05E266B2B1D9B4C00D91BFA /* UIViewController+.swift in Sources */,
+				B5ACF7312B284296006D7641 /* MyPageCoordinatorImpl.swift in Sources */,
 				C05E26762B1D9CFB00D91BFA /* ScreenConstant.swift in Sources */,
 				4AA747672B25E6FD004D0335 /* ImageDummy.swift in Sources */,
 				C0121A2E2B1347CA00D10EB0 /* SceneDelegate.swift in Sources */,
@@ -1115,6 +1126,7 @@
 				C05E26652B1D9AEA00D91BFA /* Encodable+.swift in Sources */,
 				B5ACF7022B24A4B3006D7641 /* ResignDescriptionView.swift in Sources */,
 				B5ACF7202B281622006D7641 /* MyPageCoordinator.swift in Sources */,
+				B5ACF72D2B283CD8006D7641 /* OtherAnswerCoordinatorImpl.swift in Sources */,
 				B5ACF6CB2B1EE3EC006D7641 /* Dummy.swift in Sources */,
 				B5ACF6CF2B1EECD0006D7641 /* OthersAnswerTableView.swift in Sources */,
 				C0682A822B25857200AD4DB4 /* PLUTextField.swift in Sources */,

@@ -32,10 +32,14 @@ final class TodayQuestionCoordinatorImpl: TodayQuestionCoordinator {
         let myAnswerCoordinator = MyAnswerCoordinatorImpl(navigationController: self.navigationController)
         myAnswerCoordinator.showMyAnswerViewController()
         children.append(myAnswerCoordinator)
+        myAnswerCoordinator.parentCoordinator = self
     }
     
     func showOtherAnswersViewController() {
-        print("✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅")
+        let otherAnswerCoordinator = OtherAnswerCoordinatorImpl(navigationController: navigationController)
+        children.append(otherAnswerCoordinator)
+        otherAnswerCoordinator.parentCoordinator = self
+        otherAnswerCoordinator.showOtherAnswersViewController()
     }
     
     func presentAlarmPopUpViewController() {

@@ -43,25 +43,26 @@ final class PopUpCoordinatorImpl: PopUpCoordinator {
             let alarmPopUpViewController = AlarmPopUpViewController(coordinator: self)
             self.navigationController.present(alarmPopUpViewController, animated: true)
         case .register:
-            let registerPopUpViewController = RegisterPopUpViewController()
+            let registerPopUpViewController = RegisterPopUpViewController(coordinator: self)
             self.navigationController.present(registerPopUpViewController, animated: true)
         case .selectMonth:
-            let selectMonthPopUpViewController = SelectMonthPopUpViewController()
+            let selectMonthPopUpViewController = SelectMonthPopUpViewController(coordinator: self)
             self.navigationController.present(selectMonthPopUpViewController, animated: true)
         }
     }
     
     
     func accept(type: PopUpType) {
-        switch type {
-        case .alarm:
-            self.alarmDelegate?.alarmAccept(true)
-        case .register:
-            self.registerDelgate?.register(true)
-        case .selectMonth:
-            self.selectMonthDelegate?.passYearAndMonth("날짜가입력되었습니다")
-        }
+        
         self.navigationController.dismiss(animated: true) {
+            switch type {
+            case .alarm:
+                self.alarmDelegate?.alarmAccept(true)
+            case .register:
+                self.registerDelgate?.register(true)
+            case .selectMonth:
+                self.selectMonthDelegate?.passYearAndMonth("날짜가 입력되었습니다")
+            }
             self.parentCoordinator?.childDidFinish(self)
         }
     }

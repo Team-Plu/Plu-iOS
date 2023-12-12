@@ -12,6 +12,8 @@ import SnapKit
 
 final class RecordViewController: UIViewController {
     
+    var coordinator: RecordCoordinator
+    
     private let totalCountLabel = PLULabel(type: .subHead1, color: .gray600, backgroundColor: .background)
     
     private let dateFilterButton = PLUButton(config: .bordered())
@@ -22,12 +24,23 @@ final class RecordViewController: UIViewController {
     private let questionTableView = OthersAnswerTableView(tableViewType: .recordQuestions)
     
     private lazy var datasource = RecordDiffableDataSource(tableView: self.questionTableView)
-
+    
+    init(coordinator: RecordCoordinator) {
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
         setHierarchy()
         setLayout()
+        setDelegate()
+        setAction()
         applySnapshot(.dummy())
         configureUI(record: .dummy())
     }
@@ -39,6 +52,17 @@ final class RecordViewController: UIViewController {
 }
 
 private extension RecordViewController {
+    func setDelegate() {
+        self.questionTableView.delegate = self
+    }
+    
+    func setAction() {
+        let action = UIAction { action in
+            self.coordinator.presentSelectMonthPopUpViewController()
+        }
+        dateFilterButton.addAction(action, for: .touchUpInside)
+    }
+    
     func setUI() {
         view.backgroundColor = .designSystem(.background)
     }
@@ -78,3 +102,10 @@ private extension RecordViewController {
         self.datasource.apply(snapshot)
     }
 }
+
+extension RecordViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.coordinator.showAnswerDetailViewController()
+    }
+}
+

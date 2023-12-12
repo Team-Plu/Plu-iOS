@@ -20,7 +20,7 @@ final class RecordCoordinatorImpl: RecordCoordinator {
     }
     
     func showRecordViewController() {
-        let recordViewController = RecordViewController()
+        let recordViewController = RecordViewController(coordinator: self)
         self.navigationController.pushViewController(recordViewController, animated: true)
     }
     
@@ -29,10 +29,25 @@ final class RecordCoordinatorImpl: RecordCoordinator {
     }
     
     func presentSelectMonthPopUpViewController() {
-        print("✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅")
+        let popUpCoordinator = PopUpCoordinatorImpl(navigationController: navigationController)
+        popUpCoordinator.selectMonthDelegate = self
+        popUpCoordinator.parentCoordinator = self
+        children.append(popUpCoordinator)
+        
+        popUpCoordinator.show(type: .selectMonth)
     }
     
     func showAnswerDetailViewController() {
-        print("✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅")
+        let answerDetailCoordinator = AnswerDetailCoordinatorImpl(navigationController: navigationController)
+        answerDetailCoordinator.showAnswerDetailViewController()
+        children.append(answerDetailCoordinator)
+        answerDetailCoordinator.parentCoordinator = self
     }
+}
+
+extension RecordCoordinatorImpl: SelectMonthDelegate {
+    func passYearAndMonth(_ input: String) {
+        print("필터 입력완료: \(input)")
+    }
+    
 }
