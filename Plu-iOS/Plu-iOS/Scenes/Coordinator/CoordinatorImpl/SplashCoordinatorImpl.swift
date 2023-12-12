@@ -22,7 +22,7 @@ final class SplashCoordinatorImpl: SplashCoordinator {
     
     func showSplashViewController() {
         let splashViewController = SplashViewController(coordinator: self)
-        self.navigationController.pushViewController(splashViewController, animated: true)
+        self.navigationController.pushViewController(splashViewController, animated: false)
     }
     
     func showTabbarViewContoller() {

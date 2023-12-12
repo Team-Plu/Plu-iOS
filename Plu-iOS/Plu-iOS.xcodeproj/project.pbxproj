@@ -103,6 +103,7 @@
 		C0682A822B25857200AD4DB4 /* PLUTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0682A812B25857200AD4DB4 /* PLUTextField.swift */; };
 		C0682A852B25860D00AD4DB4 /* NicknameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0682A842B25860D00AD4DB4 /* NicknameManager.swift */; };
 		C0682A882B25862200AD4DB4 /* NicknameManagerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0682A872B25862200AD4DB4 /* NicknameManagerStub.swift */; };
+		C07AB7272B2828A600C2E02C /* TabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07AB7262B2828A600C2E02C /* TabbarCoordinator.swift */; };
 		C0A2561D2B1ED99B0059AA7E /* MyPageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A2561C2B1ED99B0059AA7E /* MyPageHeaderView.swift */; };
 		C0A2561F2B1EDC350059AA7E /* MyPageRoundSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A2561E2B1EDC350059AA7E /* MyPageRoundSectionHeaderView.swift */; };
 		C0A256232B1EDD550059AA7E /* MyPageAlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A256222B1EDD550059AA7E /* MyPageAlarmTableViewCell.swift */; };
@@ -242,6 +243,7 @@
 		C0682A812B25857200AD4DB4 /* PLUTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLUTextField.swift; sourceTree = "<group>"; };
 		C0682A842B25860D00AD4DB4 /* NicknameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameManager.swift; sourceTree = "<group>"; };
 		C0682A872B25862200AD4DB4 /* NicknameManagerStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameManagerStub.swift; sourceTree = "<group>"; };
+		C07AB7262B2828A600C2E02C /* TabbarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarCoordinator.swift; sourceTree = "<group>"; };
 		C0A2561C2B1ED99B0059AA7E /* MyPageHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageHeaderView.swift; sourceTree = "<group>"; };
 		C0A2561E2B1EDC350059AA7E /* MyPageRoundSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageRoundSectionHeaderView.swift; sourceTree = "<group>"; };
 		C0A256222B1EDD550059AA7E /* MyPageAlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAlarmTableViewCell.swift; sourceTree = "<group>"; };
@@ -382,6 +384,7 @@
 				B5ACF71D2B2815EA006D7641 /* RecordCoordinator.swift */,
 				B5ACF71F2B281622006D7641 /* MyPageCoordinator.swift */,
 				B5ACF7212B2816C6006D7641 /* PopUpCoordinator.swift */,
+				C07AB7262B2828A600C2E02C /* TabbarCoordinator.swift */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -1085,6 +1088,7 @@
 				B5ACF6CF2B1EECD0006D7641 /* OthersAnswerTableView.swift in Sources */,
 				C0682A822B25857200AD4DB4 /* PLUTextField.swift in Sources */,
 				C05E269A2B1D9F1B00D91BFA /* SplashViewController.swift in Sources */,
+				C07AB7272B2828A600C2E02C /* TabbarCoordinator.swift in Sources */,
 				B5ACF6F72B22DA61006D7641 /* RecordDummy.swift in Sources */,
 				C02C5DFE2B22E0780011F07C /* UIEdgeInsets+.swift in Sources */,
 				4A44666A2B281F52002D5BF7 /* TodayQuestionCoordinatorImpl.swift in Sources */,

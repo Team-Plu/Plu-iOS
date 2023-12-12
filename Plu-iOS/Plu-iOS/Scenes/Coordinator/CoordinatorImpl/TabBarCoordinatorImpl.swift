@@ -7,13 +7,9 @@
 
 import UIKit
 
-protocol TabbarCoordinator: Coordinator {
-    func showTabbarController()
-}
+final class TabBarCoordinatorImpl: TabbarCoordinator {
 
-final class TabBarCoordinatorImpl: Coordinator {
-
-    var parentCoordinator: Coordinator?
+    weak var parentCoordinator: Coordinator?
     
     var children: [Coordinator] = []
     
@@ -33,7 +29,7 @@ final class TabBarCoordinatorImpl: Coordinator {
         tabbarController.viewControllers = [todayQuestionNavigationController, recordNavigationController]
         
         navigationController.viewControllers.removeAll()
-        navigationController.pushViewController(tabbarController, animated: true)
+        navigationController.pushViewController(tabbarController, animated: false)
         navigationController.isNavigationBarHidden = true
     }
 }
