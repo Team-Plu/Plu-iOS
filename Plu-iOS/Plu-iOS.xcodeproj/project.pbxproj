@@ -939,6 +939,7 @@
 				B5ACF7042B26C807006D7641 /* RecordDiffableDataSource.swift in Sources */,
 				C0E93B4B2B20359B0098A822 /* MypageUserExitCellData.swift in Sources */,
 				C05E26902B1D9ED300D91BFA /* TabbarViewController.swift in Sources */,
+				4AA747592B22D0D8004D0335 /* EverydayAnswerView.swift in Sources */,
 				C0CEF3DE2B267A4B00682D1B /* NicknameState.swift in Sources */,
 				C0682A882B25862200AD4DB4 /* NicknameManagerStub.swift in Sources */,
 				C0E93B502B2037C20098A822 /* MyPageCellHeight.swift in Sources */,
