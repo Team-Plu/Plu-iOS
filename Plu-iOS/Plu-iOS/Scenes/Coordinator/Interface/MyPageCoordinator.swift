@@ -5,7 +5,7 @@
 //  Created by 김민재 on 12/12/23.
 //
 
-import Foundation
+import UIKit
 
 
 protocol MyPageCoordinator: Coordinator {
@@ -13,5 +13,5 @@ protocol MyPageCoordinator: Coordinator {
     func presentAlarmPopUpViewController()
     func showProfileEditViewController()
     func showResignViewController()
-    func pop()
+    func pop<T: UIViewController>(taype: T.Type)
 }

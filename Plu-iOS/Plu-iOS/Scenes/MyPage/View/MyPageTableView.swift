@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol MyPageHeaderDelgate: AnyObject {
+    func headerDidTapped()
+}
+
 final class MyPageTableView: UITableView {
+    
+    weak var myPageHeaderDelgate: MyPageHeaderDelgate?
     
     private let headerView = MyPageHeaderView()
 
@@ -17,6 +23,8 @@ final class MyPageTableView: UITableView {
         registerCell()
         registerSectionHeader()
         setHeader()
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
+        headerView.addGestureRecognizer(gesture)
     }
     
     required init?(coder: NSCoder) {
@@ -25,6 +33,10 @@ final class MyPageTableView: UITableView {
     
     func setTableHeader(nickName: String) {
         self.headerView.configure(nickName)
+    }
+    
+    @objc func viewTapped() {
+        self.myPageHeaderDelgate?.headerDidTapped()
     }
 }
 

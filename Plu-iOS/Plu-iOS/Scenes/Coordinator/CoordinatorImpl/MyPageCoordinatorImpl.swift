@@ -5,41 +5,49 @@
 //  Created by 김민재 on 12/12/23.
 //
 
-import Foundation
 import UIKit
 
 final class MyPageCoordinatorImpl: MyPageCoordinator {
     func showMyPageViewController() {
-        <#code#>
+        let mypageViewController = MyPageViewController(coordinator: self)
+        self.navigationController.pushViewController(mypageViewController, animated: true)
     }
     
     func presentAlarmPopUpViewController() {
-        <#code#>
+        let popUpCoordinator = PopUpCoordinatorImpl(navigationController: self.navigationController)
+        popUpCoordinator.show(type: .alarm)
+        children.append(popUpCoordinator)
+        popUpCoordinator.parentCoordinator = self
     }
     
     func showProfileEditViewController() {
-        <#code#>
+        let profileEditViewController = NicknameEditViewController()
+        self.navigationController.pushViewController(profileEditViewController, animated: true)
     }
     
     func showResignViewController() {
-        <#code#>
+        let resignViewController = ResignViewController()
+        self.navigationController.pushViewController(resignViewController, animated: true)
     }
     
     
-    func pop<T: UIViewController>(type: T.Type) {
+    func pop<T: UIViewController>(taype: T.Type) {
         self.navigationController.popViewController(animated: true)
-        let rootType = type(of: navigationController.viewControllers.first)
-        if rootType == type {
-            // 첫번째
+        if type(of: self.navigationController.viewControllers.first!) == taype {
             parentCoordinator?.childDidFinish(self)
+            
         }
     }
     
     var parentCoordinator: Coordinator?
     
-    var children: [Coordinator]
+    var children: [Coordinator] = []
     
     var navigationController: UINavigationController
+    
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
     
     
 }

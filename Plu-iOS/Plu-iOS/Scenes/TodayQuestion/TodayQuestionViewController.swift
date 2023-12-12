@@ -29,6 +29,14 @@ final class TodayQuestionViewController: UIViewController {
         .setBackForegroundColor(backgroundColor: .gray600, foregroundColor: .gray50)
     private let explanationLabel = PLULabel(type: .caption, color: .gray300, text: StringConstant.TodayQuestion.explanation.text)
     
+    lazy var tempMyPageButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("마이페이지", for: .normal)
+        button.backgroundColor = .designSystem(.error)
+        button.addTarget(self, action: #selector(mypageButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
     init(coordinator: TodayQuestionCoordinator) {
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
@@ -49,9 +57,13 @@ final class TodayQuestionViewController: UIViewController {
         setButtonHandler()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         self.coordinator.presentAlarmPopUpViewController()
+    }
+    
+    @objc func mypageButtonTapped() {
+        self.coordinator.showMyPageViewController()
     }
 }
 
@@ -62,6 +74,7 @@ private extension TodayQuestionViewController {
     
     func setHierarchy() {
         view.addSubviews(questionCharcterImage, questionLabel, explanationView, seeYouTommorowImage, myAnswerButton, everyAnswerButtom, explanationLabel)
+        view.addSubview(tempMyPageButton)
     }
     
     func setLayout() {
@@ -101,6 +114,11 @@ private extension TodayQuestionViewController {
         explanationLabel.snp.makeConstraints { make in
             make.bottom.equalToSuperview().inset(124)
             make.centerX.equalToSuperview()
+        }
+        
+        tempMyPageButton.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.size.equalTo(100)
         }
     }
     

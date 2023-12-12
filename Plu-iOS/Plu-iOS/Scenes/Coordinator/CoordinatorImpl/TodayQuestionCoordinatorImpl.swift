@@ -25,7 +25,10 @@ final class TodayQuestionCoordinatorImpl: TodayQuestionCoordinator {
     }
     
     func showMyPageViewController() {
-        
+        let mypageCoordinator = MyPageCoordinatorImpl(navigationController: self.navigationController)
+        mypageCoordinator.showMyPageViewController()
+        children.append(mypageCoordinator)
+        mypageCoordinator.parentCoordinator = self
     }
     
     func showMyAnswerViewController() {
