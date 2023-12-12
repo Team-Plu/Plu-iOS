@@ -16,7 +16,7 @@ final class MyAnswerViewController: UIViewController {
     private let viewModel = MyAnswerViewModel()
     private let keyboardStatyeType = PassthroughSubject<KeyboardType, Never>()
     
-    private let everyDayAnswerView = EverydayAnswerView()
+    private let everyDayAnswerView = PLUEverydayAnswerView()
     private lazy var answerTextView = PLUTextView(text: StringConstant.MyAnswer.placeholder.text, textColor: .gray300, font: .body1R)
     private let answerCautionView = AnswerCautionView()
     private let bottomView = UIView()
