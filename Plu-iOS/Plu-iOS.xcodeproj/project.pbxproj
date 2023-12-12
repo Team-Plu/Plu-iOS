@@ -103,6 +103,10 @@
 		C0682A822B25857200AD4DB4 /* PLUTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0682A812B25857200AD4DB4 /* PLUTextField.swift */; };
 		C0682A852B25860D00AD4DB4 /* NicknameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0682A842B25860D00AD4DB4 /* NicknameManager.swift */; };
 		C0682A882B25862200AD4DB4 /* NicknameManagerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0682A872B25862200AD4DB4 /* NicknameManagerStub.swift */; };
+		C083F6262B27EDBA00808AE6 /* PopUpDimmedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C083F6252B27EDBA00808AE6 /* PopUpDimmedViewController.swift */; };
+		C083F62A2B27EE4400808AE6 /* AlarmPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C083F6292B27EE4400808AE6 /* AlarmPopUpViewController.swift */; };
+		C083F62C2B27F20500808AE6 /* RegisterPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C083F62B2B27F20500808AE6 /* RegisterPopUpViewController.swift */; };
+		C083F6302B27F30200808AE6 /* SelectMonthPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C083F62F2B27F30200808AE6 /* SelectMonthPopUpViewController.swift */; };
 		C07AB7272B2828A600C2E02C /* TabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07AB7262B2828A600C2E02C /* TabbarCoordinator.swift */; };
 		C07AB7292B282E2D00C2E02C /* PopUpCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07AB7282B282E2D00C2E02C /* PopUpCoordinatorImpl.swift */; };
 		C0A2561D2B1ED99B0059AA7E /* MyPageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A2561C2B1ED99B0059AA7E /* MyPageHeaderView.swift */; };
@@ -246,6 +250,10 @@
 		C0682A872B25862200AD4DB4 /* NicknameManagerStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameManagerStub.swift; sourceTree = "<group>"; };
 		C07AB7262B2828A600C2E02C /* TabbarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarCoordinator.swift; sourceTree = "<group>"; };
 		C07AB7282B282E2D00C2E02C /* PopUpCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpCoordinatorImpl.swift; sourceTree = "<group>"; };
+		C083F6252B27EDBA00808AE6 /* PopUpDimmedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpDimmedViewController.swift; sourceTree = "<group>"; };
+		C083F6292B27EE4400808AE6 /* AlarmPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmPopUpViewController.swift; sourceTree = "<group>"; };
+		C083F62B2B27F20500808AE6 /* RegisterPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPopUpViewController.swift; sourceTree = "<group>"; };
+		C083F62F2B27F30200808AE6 /* SelectMonthPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMonthPopUpViewController.swift; sourceTree = "<group>"; };
 		C0A2561C2B1ED99B0059AA7E /* MyPageHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageHeaderView.swift; sourceTree = "<group>"; };
 		C0A2561E2B1EDC350059AA7E /* MyPageRoundSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageRoundSectionHeaderView.swift; sourceTree = "<group>"; };
 		C0A256222B1EDD550059AA7E /* MyPageAlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAlarmTableViewCell.swift; sourceTree = "<group>"; };
@@ -471,6 +479,7 @@
 			isa = PBXGroup;
 			children = (
 				B5ACF70D2B27F180006D7641 /* Coordinator */,
+				C083F6242B27ED9B00808AE6 /* PopUp */,
 				4AA7476C2B261181004D0335 /* AnswerDetail */,
 				C0E0D4F52B26C7C500840C0B /* NicknameEdit */,
 				C05E26822B1D9E5B00D91BFA /* MyPage */,
@@ -765,6 +774,17 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		C083F6242B27ED9B00808AE6 /* PopUp */ = {
+			isa = PBXGroup;
+			children = (
+				C083F6252B27EDBA00808AE6 /* PopUpDimmedViewController.swift */,
+				C083F6292B27EE4400808AE6 /* AlarmPopUpViewController.swift */,
+				C083F62B2B27F20500808AE6 /* RegisterPopUpViewController.swift */,
+				C083F62F2B27F30200808AE6 /* SelectMonthPopUpViewController.swift */,
+			);
+			path = PopUp;
+			sourceTree = "<group>";
+		};
 		C0CEF3DC2B267A3E00682D1B /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1016,6 +1036,7 @@
 				C0A2561F2B1EDC350059AA7E /* MyPageRoundSectionHeaderView.swift in Sources */,
 				4ABEEDBE2B27E7310020DA86 /* KeyboardType.swift in Sources */,
 				C05E263F2B1C4E1E00D91BFA /* UIFont+.swift in Sources */,
+				C083F6302B27F30200808AE6 /* SelectMonthPopUpViewController.swift in Sources */,
 				C05E26962B1D9F0600D91BFA /* OnboardingViewController.swift in Sources */,
 				C05E266D2B1D9B7200D91BFA /* UITextField+.swift in Sources */,
 				B5ACF7042B26C807006D7641 /* RecordDiffableDataSource.swift in Sources */,
@@ -1038,6 +1059,7 @@
 				C0E93B552B2046EE0098A822 /* MyPageTableView.swift in Sources */,
 				C00113DA2B25359100B2C799 /* OnboardingViewModel.swift in Sources */,
 				4AA747652B25B8C8004D0335 /* PLUExplanationView.swift in Sources */,
+				C083F62C2B27F20500808AE6 /* RegisterPopUpViewController.swift in Sources */,
 				C05E26982B1D9F1000D91BFA /* LoginViewController.swift in Sources */,
 				B5ACF6DA2B208B8A006D7641 /* AnswerFilterButtonType.swift in Sources */,
 				C05E268E2B1D9EC800D91BFA /* OthersAnswerViewController.swift in Sources */,
@@ -1056,11 +1078,13 @@
 				C0E93B4E2B2036E50098A822 /* MyPageSection.swift in Sources */,
 				C0E0D4F72B26C7FC00840C0B /* NicknameEditViewController.swift in Sources */,
 				C05E265D2B1D9A5900D91BFA /* CollectionSectionViewRegisterDequeueProtocol.swift in Sources */,
+				C083F62A2B27EE4400808AE6 /* AlarmPopUpViewController.swift in Sources */,
 				B5ACF6F32B22D2F2006D7641 /* QuestionView.swift in Sources */,
 				C0A256232B1EDD550059AA7E /* MyPageAlarmTableViewCell.swift in Sources */,
 				C05E268C2B1D9EB600D91BFA /* RecordViewController.swift in Sources */,
 				C0121A2C2B1347CA00D10EB0 /* AppDelegate.swift in Sources */,
 				C00113DC2B2546DB00B2C799 /* PluTempButton.swift in Sources */,
+				C083F6262B27EDBA00808AE6 /* PopUpDimmedViewController.swift in Sources */,
 				C05E26922B1D9EED00D91BFA /* MyAnswerViewController.swift in Sources */,
 				C05E26882B1D9EA300D91BFA /* MyPageViewController.swift in Sources */,
 				B5ACF7162B2814CE006D7641 /* TodayQuestionCoordinator.swift in Sources */,
