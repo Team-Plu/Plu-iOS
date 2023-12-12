@@ -21,19 +21,19 @@ final class AuthCoordinatorImpl: AuthCoordinator {
     }
     
     func showLoginViewController() {
-        <#code#>
+        print("ㅇㄹㄴㅇ")
     }
     
     func showTabbarController() {
-        <#code#>
+        print("ㅇㄹㄴㅇ")
     }
     
     func showOnboardingController() {
-        <#code#>
+        print("ㅇㄹㄴㅇ")
     }
     
     func pop() {
-        <#code#>
+        print("ㅇㄹㄴㅇ")
     }
     
 }

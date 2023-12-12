@@ -1,5 +1,5 @@
 //
-//  AppCoordinator.swift
+//  AppCoordinatorImpl.swift
 //  Plu-iOS
 //
 //  Created by 김민재 on 12/12/23.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class AppCoordinator: Coordinator {
+final class AppCoordinatorImpl: Coordinator {
     var parentCoordinator: Coordinator?
     
     var children: [Coordinator] = []

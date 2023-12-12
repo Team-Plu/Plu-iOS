@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A44666A2B281F52002D5BF7 /* TodayQuestionCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4466692B281F52002D5BF7 /* TodayQuestionCoordinatorImpl.swift */; };
+		4A44666C2B28208D002D5BF7 /* RecordCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A44666B2B28208D002D5BF7 /* RecordCoordinatorImpl.swift */; };
 		4AA747532B1CEF9C004D0335 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA747522B1CEF9C004D0335 /* UIColor+.swift */; };
 		4AA747552B1CF094004D0335 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA747542B1CF094004D0335 /* Palette.swift */; };
 		4AA747572B1D74A6004D0335 /* CGColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA747562B1D74A6004D0335 /* CGColor+.swift */; };
@@ -49,7 +51,7 @@
 		B5ACF71E2B2815EA006D7641 /* RecordCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF71D2B2815EA006D7641 /* RecordCoordinator.swift */; };
 		B5ACF7202B281622006D7641 /* MyPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF71F2B281622006D7641 /* MyPageCoordinator.swift */; };
 		B5ACF7222B2816C6006D7641 /* PopUpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF7212B2816C6006D7641 /* PopUpCoordinator.swift */; };
-		B5ACF7252B2818D5006D7641 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF7242B2818D5006D7641 /* AppCoordinator.swift */; };
+		B5ACF7252B2818D5006D7641 /* AppCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF7242B2818D5006D7641 /* AppCoordinatorImpl.swift */; };
 		B5ACF7272B281928006D7641 /* SplashCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF7262B281928006D7641 /* SplashCoordinatorImpl.swift */; };
 		B5ACF7292B28196C006D7641 /* TabBarCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF7282B28196C006D7641 /* TabBarCoordinatorImpl.swift */; };
 		B5ACF72B2B281A19006D7641 /* AuthCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF72A2B281A19006D7641 /* AuthCoordinatorImpl.swift */; };
@@ -142,6 +144,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A4466692B281F52002D5BF7 /* TodayQuestionCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayQuestionCoordinatorImpl.swift; sourceTree = "<group>"; };
+		4A44666B2B28208D002D5BF7 /* RecordCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCoordinatorImpl.swift; sourceTree = "<group>"; };
 		4AA747522B1CEF9C004D0335 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		4AA747542B1CF094004D0335 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		4AA747562B1D74A6004D0335 /* CGColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGColor+.swift"; sourceTree = "<group>"; };
@@ -184,7 +188,7 @@
 		B5ACF71D2B2815EA006D7641 /* RecordCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCoordinator.swift; sourceTree = "<group>"; };
 		B5ACF71F2B281622006D7641 /* MyPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCoordinator.swift; sourceTree = "<group>"; };
 		B5ACF7212B2816C6006D7641 /* PopUpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpCoordinator.swift; sourceTree = "<group>"; };
-		B5ACF7242B2818D5006D7641 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		B5ACF7242B2818D5006D7641 /* AppCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorImpl.swift; sourceTree = "<group>"; };
 		B5ACF7262B281928006D7641 /* SplashCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashCoordinatorImpl.swift; sourceTree = "<group>"; };
 		B5ACF7282B28196C006D7641 /* TabBarCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinatorImpl.swift; sourceTree = "<group>"; };
 		B5ACF72A2B281A19006D7641 /* AuthCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinatorImpl.swift; sourceTree = "<group>"; };
@@ -385,10 +389,12 @@
 		B5ACF7232B2818C3006D7641 /* CoordinatorImpl */ = {
 			isa = PBXGroup;
 			children = (
-				B5ACF7242B2818D5006D7641 /* AppCoordinator.swift */,
+				B5ACF7242B2818D5006D7641 /* AppCoordinatorImpl.swift */,
 				B5ACF7262B281928006D7641 /* SplashCoordinatorImpl.swift */,
 				B5ACF7282B28196C006D7641 /* TabBarCoordinatorImpl.swift */,
 				B5ACF72A2B281A19006D7641 /* AuthCoordinatorImpl.swift */,
+				4A4466692B281F52002D5BF7 /* TodayQuestionCoordinatorImpl.swift */,
+				4A44666B2B28208D002D5BF7 /* RecordCoordinatorImpl.swift */,
 			);
 			path = CoordinatorImpl;
 			sourceTree = "<group>";
@@ -1040,7 +1046,7 @@
 				B5ACF7122B2812E2006D7641 /* SplashCoordinator.swift in Sources */,
 				C0E93B402B2035370098A822 /* MyPageCell.swift in Sources */,
 				B5ACF71A2B28158E006D7641 /* OtherAnswersCoordinator.swift in Sources */,
-				B5ACF7252B2818D5006D7641 /* AppCoordinator.swift in Sources */,
+				B5ACF7252B2818D5006D7641 /* AppCoordinatorImpl.swift in Sources */,
 				C0E93B4E2B2036E50098A822 /* MyPageSection.swift in Sources */,
 				C0E0D4F72B26C7FC00840C0B /* NicknameEditViewController.swift in Sources */,
 				C05E265D2B1D9A5900D91BFA /* CollectionSectionViewRegisterDequeueProtocol.swift in Sources */,
@@ -1066,6 +1072,7 @@
 				C0682A852B25860D00AD4DB4 /* NicknameManager.swift in Sources */,
 				B5ACF6D82B2086A9006D7641 /* PLUButton.swift in Sources */,
 				C05E268A2B1D9EAE00D91BFA /* ResignViewController.swift in Sources */,
+				4A44666C2B28208D002D5BF7 /* RecordCoordinatorImpl.swift in Sources */,
 				B5ACF7062B26D47C006D7641 /* TutorialCollectionViewCell.swift in Sources */,
 				B5ACF71E2B2815EA006D7641 /* RecordCoordinator.swift in Sources */,
 				B5ACF6C72B1EE1B9006D7641 /* AnswerTableViewCell.swift in Sources */,
@@ -1080,6 +1087,7 @@
 				C05E269A2B1D9F1B00D91BFA /* SplashViewController.swift in Sources */,
 				B5ACF6F72B22DA61006D7641 /* RecordDummy.swift in Sources */,
 				C02C5DFE2B22E0780011F07C /* UIEdgeInsets+.swift in Sources */,
+				4A44666A2B281F52002D5BF7 /* TodayQuestionCoordinatorImpl.swift in Sources */,
 				B5ACF70C2B26EC48006D7641 /* se+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
