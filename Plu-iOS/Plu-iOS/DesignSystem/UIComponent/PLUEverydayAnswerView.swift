@@ -40,7 +40,7 @@ final class PLUEverydayAnswerView: UIView {
     }
 }
 
-private extension EverydayAnswerView {
+private extension PLUEverydayAnswerView {
     func setUI() {
         backgroundColor = .designSystem(.background)
     }

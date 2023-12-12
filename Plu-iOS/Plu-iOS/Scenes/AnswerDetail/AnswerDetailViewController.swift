@@ -11,7 +11,7 @@ import SnapKit
 
 final class AnswerDetailViewController: UIViewController {
 
-    private let everyAnswerView = EverydayAnswerView()
+    private let everyAnswerView = PLUEverydayAnswerView()
     private let contentView = UIView()
     private let answerScrollerView = UIScrollView()
     private let answerDetailLabel = PLULabel(type: .body1R, color: .gray700, backgroundColor: .background, lines: 0, text: "진정한 행복이란 추석 연휴에 엽떡을 먹는 것 엽떡은 정말 맛있기 때문입니다 엽떡 만세진정한 행복이란 추석 연휴에 엽떡을 먹는 것 엽떡은 정말 맛있기 때문입니다")
