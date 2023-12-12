@@ -16,7 +16,7 @@
 
 import UIKit
 
-final class EverydayAnswerView: UIView {
+final class PLUEverydayAnswerView: UIView {
     private let dateLabel = PLULabel(type: .body2R, color: .gray500, backgroundColor: .background)
     private let questionLabel = PLULabel(type: .head1, color: .gray800, backgroundColor: .background,
                                          alignment: .center, lines: 2)
