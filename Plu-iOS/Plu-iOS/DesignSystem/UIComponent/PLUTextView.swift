@@ -13,6 +13,7 @@ final class PLUTextView: UITextView {
         
         self.font = .suite(font)
         self.textContainerInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        self.backgroundColor = .designSystem(.background)
         self.text = text
         self.textColor = .designSystem(textColor)
     }

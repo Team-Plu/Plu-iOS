@@ -42,7 +42,7 @@ final class EverydayAnswerView: UIView {
 
 private extension EverydayAnswerView {
     func setUI() {
-        backgroundColor = .white
+        backgroundColor = .designSystem(.background)
     }
     
     func setHierarchy() {

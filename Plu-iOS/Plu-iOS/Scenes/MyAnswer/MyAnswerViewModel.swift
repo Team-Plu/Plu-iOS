@@ -14,8 +14,7 @@ final class MyAnswerViewModel {
     private var cancelBag = Set<AnyCancellable>()
     
     struct MyAnswerInput {
-        let keyboardWillShowSubject: PassthroughSubject<Void, Never>
-        let keyboardWillHideSubject: PassthroughSubject<Void, Never>
+        let keyboardStateSubject: PassthroughSubject<KeyboardType, Never>
     }
     
     struct MyAnswerOutput {
@@ -23,17 +22,18 @@ final class MyAnswerViewModel {
     }
     
     func transform(input: MyAnswerInput) -> MyAnswerOutput {
-        let keyboardWillShowSubject = input.keyboardWillShowSubject
-            .map { true }
+        let keyboardTypeSubject = input.keyboardStateSubject
+            .map { type -> Bool in
+                switch type {
+                case .show:
+                    return true
+                case .hide:
+                    return false
+                }
+            }
             .eraseToAnyPublisher()
         
-        let keyboardWillHideSubject = input.keyboardWillHideSubject
-            .map { false }
-            .eraseToAnyPublisher()
-        
-        let mergePublisher = keyboardWillShowSubject.merge(with: keyboardWillHideSubject).eraseToAnyPublisher()
-        
-        return MyAnswerOutput(keyboardStatePublisher: mergePublisher)
+        return MyAnswerOutput(keyboardStatePublisher: keyboardTypeSubject)
     }
     
     

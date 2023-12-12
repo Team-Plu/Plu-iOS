@@ -12,11 +12,9 @@ import SnapKit
 import Combine
 
 final class MyAnswerViewController: UIViewController {
-    
     private var cancelBag = Set<AnyCancellable>()
     private let viewModel = MyAnswerViewModel()
-    private let keyboardWillShow = PassthroughSubject<Void, Never>()
-    private let keyboardWillHide = PassthroughSubject<Void, Never>()
+    private let keyboardStatyeType = PassthroughSubject<KeyboardType, Never>()
     
     private let everyDayAnswerView = EverydayAnswerView()
     private lazy var answerTextView = PLUTextView(text: StringConstant.MyAnswer.placeholder.text, textColor: .gray300, font: .body1R)
@@ -34,7 +32,7 @@ final class MyAnswerViewController: UIViewController {
         setLayout()
         setDelegate()
         everyDayAnswerView.configureUI(answer: OthersAnswer.dummmy())
-        addKeyboardObserver()
+        bind()
         bindInput()
         answerTextView.becomeFirstResponder()
     }
@@ -44,28 +42,27 @@ final class MyAnswerViewController: UIViewController {
     }
     
     private func bindInput() {
-        let input = MyAnswerViewModel.MyAnswerInput(keyboardWillShowSubject: keyboardWillShow,
-                                                    keyboardWillHideSubject: keyboardWillHide)
+        NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification, object: nil)
+            .sink { [weak self] _ in
+                self?.keyboardStatyeType.send((.show))
+            }
+            .store(in: &cancelBag)
+        
+        NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification, object: nil)
+            .sink { [weak self] _ in
+                self?.keyboardStatyeType.send((.hide))
+            }
+            .store(in: &cancelBag)
+    }
+    
+    private func bind() {
+        let input = MyAnswerViewModel.MyAnswerInput(keyboardStateSubject: keyboardStatyeType)
         let output = viewModel.transform(input: input)
         
         output.keyboardStatePublisher
             .receive(on: RunLoop.main)
             .sink { [weak self] state in
                 self?.updateTextViewLayout(keyboardState: state)
-            }
-            .store(in: &cancelBag)
-    }
-            
-    private func addKeyboardObserver() {
-        NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification, object: nil)
-            .sink { [weak self] _ in
-                self?.keyboardWillShow.send(())
-            }
-            .store(in: &cancelBag)
-        
-        NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification, object: nil)
-            .sink { [weak self] _ in
-                self?.keyboardWillHide.send(())
             }
             .store(in: &cancelBag)
     }
@@ -106,7 +103,7 @@ extension MyAnswerViewController: UITextViewDelegate {
 
 private extension MyAnswerViewController {
     func setUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = .designSystem(.background)
     }
     
     func setHierarchy() {

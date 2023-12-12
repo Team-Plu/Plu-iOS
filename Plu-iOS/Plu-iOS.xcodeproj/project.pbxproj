@@ -10,13 +10,14 @@
 		4AA747532B1CEF9C004D0335 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA747522B1CEF9C004D0335 /* UIColor+.swift */; };
 		4AA747552B1CF094004D0335 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA747542B1CF094004D0335 /* Palette.swift */; };
 		4AA747572B1D74A6004D0335 /* CGColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA747562B1D74A6004D0335 /* CGColor+.swift */; };
-		4AA747652B25B8C8004D0335 /* PLUExplanationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA747642B25B8C8004D0335 /* PLUExplanationView.swift */; };
-		4AA747672B25E6FD004D0335 /* ImageDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA747662B25E6FD004D0335 /* ImageDummy.swift */; };
 		4AA747592B22D0D8004D0335 /* EverydayAnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA747582B22D0D8004D0335 /* EverydayAnswerView.swift */; };
 		4AA7475B2B22DA38004D0335 /* PLUTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7475A2B22DA38004D0335 /* PLUTextView.swift */; };
 		4AA7475D2B22E28F004D0335 /* PLUUnderLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7475C2B22E28F004D0335 /* PLUUnderLine.swift */; };
 		4AA747612B24B495004D0335 /* AnswerCautionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA747602B24B495004D0335 /* AnswerCautionView.swift */; };
+		4AA747652B25B8C8004D0335 /* PLUExplanationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA747642B25B8C8004D0335 /* PLUExplanationView.swift */; };
+		4AA747672B25E6FD004D0335 /* ImageDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA747662B25E6FD004D0335 /* ImageDummy.swift */; };
 		4ABEEDBC2B2733A60020DA86 /* MyAnswerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABEEDBB2B2733A60020DA86 /* MyAnswerViewModel.swift */; };
+		4ABEEDBE2B27E7310020DA86 /* KeyboardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABEEDBD2B27E7310020DA86 /* KeyboardType.swift */; };
 		B59FC6E72B1C44C9000996CA /* ImageLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59FC6E62B1C44C9000996CA /* ImageLiterals.swift */; };
 		B5ACF6C52B1EDFF3006D7641 /* PLULabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF6C42B1EDFF3006D7641 /* PLULabel.swift */; };
 		B5ACF6C72B1EE1B9006D7641 /* AnswerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF6C62B1EE1B9006D7641 /* AnswerTableViewCell.swift */; };
@@ -133,9 +134,10 @@
 		4AA7475A2B22DA38004D0335 /* PLUTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLUTextView.swift; sourceTree = "<group>"; };
 		4AA7475C2B22E28F004D0335 /* PLUUnderLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLUUnderLine.swift; sourceTree = "<group>"; };
 		4AA747602B24B495004D0335 /* AnswerCautionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerCautionView.swift; sourceTree = "<group>"; };
-		4ABEEDBB2B2733A60020DA86 /* MyAnswerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnswerViewModel.swift; sourceTree = "<group>"; };
 		4AA747642B25B8C8004D0335 /* PLUExplanationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLUExplanationView.swift; sourceTree = "<group>"; };
 		4AA747662B25E6FD004D0335 /* ImageDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDummy.swift; sourceTree = "<group>"; };
+		4ABEEDBB2B2733A60020DA86 /* MyAnswerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnswerViewModel.swift; sourceTree = "<group>"; };
+		4ABEEDBD2B27E7310020DA86 /* KeyboardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardType.swift; sourceTree = "<group>"; };
 		B59FC6E62B1C44C9000996CA /* ImageLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLiterals.swift; sourceTree = "<group>"; };
 		B5ACF6C42B1EDFF3006D7641 /* PLULabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLULabel.swift; sourceTree = "<group>"; };
 		B5ACF6C62B1EE1B9006D7641 /* AnswerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerTableViewCell.swift; sourceTree = "<group>"; };
@@ -581,6 +583,7 @@
 				C05E26912B1D9EED00D91BFA /* MyAnswerViewController.swift */,
 				4AA747602B24B495004D0335 /* AnswerCautionView.swift */,
 				4ABEEDBB2B2733A60020DA86 /* MyAnswerViewModel.swift */,
+				4ABEEDBD2B27E7310020DA86 /* KeyboardType.swift */,
 			);
 			path = MyAnswer;
 			sourceTree = "<group>";
@@ -917,6 +920,7 @@
 				C0E93B522B2046030098A822 /* MyPageSectionHeaderHeight.swift in Sources */,
 				C0E93B452B2035650098A822 /* MyPageAlarmCellData.swift in Sources */,
 				C0A2561F2B1EDC350059AA7E /* MyPageRoundSectionHeaderView.swift in Sources */,
+				4ABEEDBE2B27E7310020DA86 /* KeyboardType.swift in Sources */,
 				C05E263F2B1C4E1E00D91BFA /* UIFont+.swift in Sources */,
 				C05E26962B1D9F0600D91BFA /* OnboardingViewController.swift in Sources */,
 				C05E266D2B1D9B7200D91BFA /* UITextField+.swift in Sources */,
