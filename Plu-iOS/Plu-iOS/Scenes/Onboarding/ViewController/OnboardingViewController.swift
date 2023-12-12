@@ -13,6 +13,8 @@ import SnapKit
 
 final class OnboardingViewController: UIViewController {
     
+    var coordinator: AuthCoordinator
+    
     private let textFieldSubject = PassthroughSubject<String, Never>()
     private var cancelBag = Set<AnyCancellable>()
     
@@ -23,6 +25,15 @@ final class OnboardingViewController: UIViewController {
     private var signInButton = PluTempButton()
     
     private let viewModel = OnboardingViewModel(manager: NicknameManagerStub())
+    
+    init(coordinator: AuthCoordinator) {
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,7 +115,8 @@ private extension OnboardingViewController {
         self.signInButton.addTarget(self, action: #selector(signInButtonTapped), for: .touchUpInside)
     }
     
-    @objc func signInButtonTapped() {
-        print("버튼이 눌렸습니다")
+    @objc
+    func signInButtonTapped() {
+        self.coordinator.showTabbarController()
     }
 }

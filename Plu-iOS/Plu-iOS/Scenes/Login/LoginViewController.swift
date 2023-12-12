@@ -12,6 +12,8 @@ import SnapKit
 
 final class LoginViewController: UIViewController {
     
+    var coordinator: AuthCoordinator
+    
     private let pageControl: UIPageControl = {
         let pageControl = UIPageControl()
         pageControl.numberOfPages = 3
@@ -33,17 +35,27 @@ final class LoginViewController: UIViewController {
         return collectionView
     }()
     
-    private let kakaoLoginButton = PLUButton(config: .filled())
+    private var kakaoLoginButton = PLUButton(config: .filled())
         .setText(text: "카카오로 시작하기", font: .title1)
         .setBackForegroundColor(backgroundColor: .kakaoYellow, foregroundColor: .black)
         .setImage(image: ImageLiterals.Tutorial.kakaoLogo, placement: .leading)
+    
     
     
     private let appleLoginButton = PLUButton(config: .filled())
         .setText(text: "Apple로 시작하기", font: .title1)
         .setBackForegroundColor(backgroundColor: .black, foregroundColor: .white)
         .setImage(image: ImageLiterals.Tutorial.AppleLogo, placement: .leading)
-
+    
+    init(coordinator: AuthCoordinator) {
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
@@ -54,6 +66,7 @@ final class LoginViewController: UIViewController {
 }
 
 private extension LoginViewController {
+    
     func setUI() {
         self.view.backgroundColor = .designSystem(.background)
     }

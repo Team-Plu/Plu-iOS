@@ -50,7 +50,7 @@ final class SplashViewController: UIViewController {
     }
     
     @objc func tap() {
-        self.coordinator.showTabbarViewContoller()
+        self.coordinator.showLoginViewController()
     }
 }
 

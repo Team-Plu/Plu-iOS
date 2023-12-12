@@ -25,7 +25,7 @@ final class TodayQuestionCoordinatorImpl: TodayQuestionCoordinator {
     }
     
     func showMyPageViewController() {
-        print("✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅")
+        
     }
     
     func showMyAnswerViewController() {

@@ -21,20 +21,21 @@ final class AuthCoordinatorImpl: AuthCoordinator {
     }
     
     func showLoginViewController() {
-        let loginViewController = LoginViewController()
+        let loginViewController = LoginViewController(coordinator: self)
         self.navigationController.pushViewController(loginViewController, animated: true)
     }
     
     func showTabbarController() {
-        print("ㅇㄹㄴㅇ")
+        let splashCoordinator = parentCoordinator as? SplashCoordinatorImpl
+        splashCoordinator?.showTabbarViewContoller()
     }
     
     func showOnboardingController() {
-        print("ㅇㄹㄴㅇ")
+        let onboardingViewController = OnboardingViewController(coordinator: self)
+        self.navigationController.pushViewController(onboardingViewController, animated: true)
     }
     
     func pop() {
-        print("ㅇㄹㄴㅇ")
+        self.navigationController.popViewController(animated: true)
     }
-    
 }
