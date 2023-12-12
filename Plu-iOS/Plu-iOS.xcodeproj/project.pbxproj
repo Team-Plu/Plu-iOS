@@ -49,6 +49,10 @@
 		B5ACF71E2B2815EA006D7641 /* RecordCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF71D2B2815EA006D7641 /* RecordCoordinator.swift */; };
 		B5ACF7202B281622006D7641 /* MyPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF71F2B281622006D7641 /* MyPageCoordinator.swift */; };
 		B5ACF7222B2816C6006D7641 /* PopUpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF7212B2816C6006D7641 /* PopUpCoordinator.swift */; };
+		B5ACF7252B2818D5006D7641 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF7242B2818D5006D7641 /* AppCoordinator.swift */; };
+		B5ACF7272B281928006D7641 /* SplashCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF7262B281928006D7641 /* SplashCoordinatorImpl.swift */; };
+		B5ACF7292B28196C006D7641 /* TabBarCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF7282B28196C006D7641 /* TabBarCoordinatorImpl.swift */; };
+		B5ACF72B2B281A19006D7641 /* AuthCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF72A2B281A19006D7641 /* AuthCoordinatorImpl.swift */; };
 		C00113DA2B25359100B2C799 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00113D92B25359100B2C799 /* OnboardingViewModel.swift */; };
 		C00113DC2B2546DB00B2C799 /* PluTempButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00113DB2B2546DB00B2C799 /* PluTempButton.swift */; };
 		C0121A2C2B1347CA00D10EB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A2B2B1347CA00D10EB0 /* AppDelegate.swift */; };
@@ -180,6 +184,10 @@
 		B5ACF71D2B2815EA006D7641 /* RecordCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCoordinator.swift; sourceTree = "<group>"; };
 		B5ACF71F2B281622006D7641 /* MyPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCoordinator.swift; sourceTree = "<group>"; };
 		B5ACF7212B2816C6006D7641 /* PopUpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpCoordinator.swift; sourceTree = "<group>"; };
+		B5ACF7242B2818D5006D7641 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		B5ACF7262B281928006D7641 /* SplashCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashCoordinatorImpl.swift; sourceTree = "<group>"; };
+		B5ACF7282B28196C006D7641 /* TabBarCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinatorImpl.swift; sourceTree = "<group>"; };
+		B5ACF72A2B281A19006D7641 /* AuthCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinatorImpl.swift; sourceTree = "<group>"; };
 		C00113D92B25359100B2C799 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		C00113DB2B2546DB00B2C799 /* PluTempButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluTempButton.swift; sourceTree = "<group>"; };
 		C0121A282B1347CA00D10EB0 /* Plu-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plu-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -351,6 +359,7 @@
 		B5ACF70D2B27F180006D7641 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				B5ACF7232B2818C3006D7641 /* CoordinatorImpl */,
 				B5ACF70E2B27F18B006D7641 /* Interface */,
 			);
 			path = Coordinator;
@@ -371,6 +380,17 @@
 				B5ACF7212B2816C6006D7641 /* PopUpCoordinator.swift */,
 			);
 			path = Interface;
+			sourceTree = "<group>";
+		};
+		B5ACF7232B2818C3006D7641 /* CoordinatorImpl */ = {
+			isa = PBXGroup;
+			children = (
+				B5ACF7242B2818D5006D7641 /* AppCoordinator.swift */,
+				B5ACF7262B281928006D7641 /* SplashCoordinatorImpl.swift */,
+				B5ACF7282B28196C006D7641 /* TabBarCoordinatorImpl.swift */,
+				B5ACF72A2B281A19006D7641 /* AuthCoordinatorImpl.swift */,
+			);
+			path = CoordinatorImpl;
 			sourceTree = "<group>";
 		};
 		C0121A1F2B1347CA00D10EB0 = {
@@ -976,6 +996,7 @@
 				C05E26782B1D9D2900D91BFA /* StringConstant.swift in Sources */,
 				C0A2561D2B1ED99B0059AA7E /* MyPageHeaderView.swift in Sources */,
 				4AA747702B261221004D0335 /* PLUEverydayAnswerView.swift in Sources */,
+				B5ACF7272B281928006D7641 /* SplashCoordinatorImpl.swift in Sources */,
 				4AA747612B24B495004D0335 /* AnswerCautionView.swift in Sources */,
 				C0E93B522B2046030098A822 /* MyPageSectionHeaderHeight.swift in Sources */,
 				B5ACF7142B28133E006D7641 /* AuthCoordinator.swift in Sources */,
@@ -1010,13 +1031,16 @@
 				C05E268E2B1D9EC800D91BFA /* OthersAnswerViewController.swift in Sources */,
 				B5ACF6F12B22D116006D7641 /* RecordQuestionTableViewCell.swift in Sources */,
 				B5ACF6CD2B1EE735006D7641 /* AnswerView.swift in Sources */,
+				B5ACF7292B28196C006D7641 /* TabBarCoordinatorImpl.swift in Sources */,
 				B5ACF6D12B1EEECB006D7641 /* OtherAnswersDiffableModel.swift in Sources */,
+				B5ACF72B2B281A19006D7641 /* AuthCoordinatorImpl.swift in Sources */,
 				C0E93B472B20357B0098A822 /* MypageInfomationCellData.swift in Sources */,
 				B5ACF7102B27F193006D7641 /* Coordinator.swift in Sources */,
 				C0E93B432B2035580098A822 /* MyPageUserData.swift in Sources */,
 				B5ACF7122B2812E2006D7641 /* SplashCoordinator.swift in Sources */,
 				C0E93B402B2035370098A822 /* MyPageCell.swift in Sources */,
 				B5ACF71A2B28158E006D7641 /* OtherAnswersCoordinator.swift in Sources */,
+				B5ACF7252B2818D5006D7641 /* AppCoordinator.swift in Sources */,
 				C0E93B4E2B2036E50098A822 /* MyPageSection.swift in Sources */,
 				C0E0D4F72B26C7FC00840C0B /* NicknameEditViewController.swift in Sources */,
 				C05E265D2B1D9A5900D91BFA /* CollectionSectionViewRegisterDequeueProtocol.swift in Sources */,
