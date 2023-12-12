@@ -68,18 +68,12 @@ final class MyAnswerViewController: UIViewController {
     }
     
     private func updateTextViewLayout(keyboardState: Bool) {
-        if keyboardState {
-            answerTextView.snp.remakeConstraints { make in
-                make.top.equalTo(everyDayAnswerView.snp.bottom)
-                make.leading.trailing.equalToSuperview()
-                make.bottom.equalTo(bottomView.snp.top)
-            }
-        } else {
-            answerTextView.snp.remakeConstraints { make in
-                make.top.equalTo(everyDayAnswerView.snp.bottom)
-                make.leading.trailing.equalToSuperview()
-                make.bottom.equalTo(answerCautionView.snp.top)
-            }
+        let components = keyboardState ? bottomView : answerCautionView
+        
+        answerTextView.snp.remakeConstraints { make in
+            make.top.equalTo(everyDayAnswerView.snp.bottom)
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(components.snp.top)
         }
     }
 }
