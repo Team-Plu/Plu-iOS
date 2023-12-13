@@ -11,6 +11,8 @@ import SnapKit
 
 final class SelectMonthPopUpViewController: PopUpDimmedViewController {
     
+    var coordinator: PopUpCoordinator
+    
     private let popUpBackgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = .designSystem(.white)
@@ -38,7 +40,8 @@ final class SelectMonthPopUpViewController: PopUpDimmedViewController {
         return button
     }()
     
-    override init() {
+    init(coordinator: PopUpCoordinator) {
+        self.coordinator = coordinator
         super.init()
         setUp()
     }
@@ -48,7 +51,7 @@ final class SelectMonthPopUpViewController: PopUpDimmedViewController {
     }
     
     @objc func agreeButtonTapped() {
-        print("확인버튼 눌림")
+        self.coordinator.accept(type: .selectMonth)
     }
     
     @objc func dateChange(_ datePicker: UIDatePicker) {

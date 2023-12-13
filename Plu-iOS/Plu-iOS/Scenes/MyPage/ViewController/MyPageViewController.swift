@@ -14,8 +14,20 @@ final class MyPageViewController: UIViewController {
     
     var tableData: [[MyPageSection]] = []
     
+    let coordinator: MyPageCoordinator
+    
     private let myPageTableView = MyPageTableView()
 
+    
+    init(coordinator: MyPageCoordinator) {
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
@@ -44,6 +56,7 @@ private extension MyPageViewController {
     func setDelegate() {
         myPageTableView.dataSource = self
         myPageTableView.delegate = self
+        myPageTableView.myPageHeaderDelgate = self
     }
     
     func setMyPageFromUserData(input: MyPageUserData) {
@@ -97,7 +110,11 @@ extension MyPageViewController: UITableViewDataSource {
     }
 }
 
-extension MyPageViewController: UITableViewDelegate {
+extension MyPageViewController: UITableViewDelegate, MyPageHeaderDelgate {
+    func headerDidTapped() {
+        self.coordinator.showProfileEditViewController()
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let section = tableData[section].first else { return UIView() }
         if case .alarm = section {
@@ -118,5 +135,13 @@ extension MyPageViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("\(indexPath.section+1)번째 section의 \(indexPath.row+1)번째 cell이 눌렸습니다")
+        switch tableData[indexPath.section][indexPath.row] {
+        case .exit(let data):
+            if data.title == "탈퇴하기" {
+                self.coordinator.showResignViewController()
+            }
+        default:
+            print("딴거")
+        }
     }
 }

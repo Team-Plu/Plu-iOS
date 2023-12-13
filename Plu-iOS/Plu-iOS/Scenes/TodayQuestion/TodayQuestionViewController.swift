@@ -12,6 +12,8 @@ import SnapKit
 
 final class TodayQuestionViewController: UIViewController {
     
+    let coordinator: TodayQuestionCoordinator
+    
     private lazy var questionCharcterImage = UIImageView(image: self.setRandomImage())
     private let questionLabel = PLULabel(type: .head1,
                                          color: .gray700,
@@ -26,7 +28,24 @@ final class TodayQuestionViewController: UIViewController {
         .setText(text: StringConstant.TodayQuestion.everyAnswer.text, font: .title1)
         .setBackForegroundColor(backgroundColor: .gray600, foregroundColor: .gray50)
     private let explanationLabel = PLULabel(type: .caption, color: .gray300, text: StringConstant.TodayQuestion.explanation.text)
-
+    
+    lazy var tempMyPageButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("마이페이지", for: .normal)
+        button.backgroundColor = .designSystem(.error)
+        button.addTarget(self, action: #selector(mypageButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    init(coordinator: TodayQuestionCoordinator) {
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,6 +56,15 @@ final class TodayQuestionViewController: UIViewController {
         setDelegate()
         setButtonHandler()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.coordinator.presentAlarmPopUpViewController()
+    }
+    
+    @objc func mypageButtonTapped() {
+        self.coordinator.showMyPageViewController()
+    }
 }
 
 private extension TodayQuestionViewController {
@@ -46,6 +74,7 @@ private extension TodayQuestionViewController {
     
     func setHierarchy() {
         view.addSubviews(questionCharcterImage, questionLabel, explanationView, seeYouTommorowImage, myAnswerButton, everyAnswerButtom, explanationLabel)
+        view.addSubview(tempMyPageButton)
     }
     
     func setLayout() {
@@ -86,10 +115,16 @@ private extension TodayQuestionViewController {
             make.bottom.equalToSuperview().inset(124)
             make.centerX.equalToSuperview()
         }
+        
+        tempMyPageButton.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.size.equalTo(100)
+        }
     }
     
     func setAddTarget() {
-        
+        myAnswerButton.addTarget(self, action: #selector(writeButtonTapped), for: .touchUpInside)
+        everyAnswerButtom.addTarget(self, action: #selector(everyAnswerTapped), for: .touchUpInside)
     }
     
     func setDelegate() {
@@ -109,5 +144,13 @@ private extension TodayQuestionViewController {
     func setRandomImage() -> UIImage {
         let randomIndex = Int(arc4random_uniform(UInt32(ImageDummy.imageList.count)))
         return ImageDummy.imageList[randomIndex]
+    }
+    
+    @objc func writeButtonTapped() {
+        self.coordinator.showMyAnswerViewController()
+    }
+    
+    @objc func everyAnswerTapped() {
+        self.coordinator.showOtherAnswersViewController()
     }
 }

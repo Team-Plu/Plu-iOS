@@ -11,6 +11,8 @@ import SnapKit
 
 final class RegisterPopUpViewController: PopUpDimmedViewController {
     
+    var coordinator: PopUpCoordinator
+    
     private let popUpBackgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = .designSystem(.white)
@@ -42,7 +44,8 @@ final class RegisterPopUpViewController: PopUpDimmedViewController {
         return button
     }()
     
-    override init() {
+    init(coordinator: PopUpCoordinator) {
+        self.coordinator = coordinator
         super.init()
         setUp()
     }
@@ -52,11 +55,11 @@ final class RegisterPopUpViewController: PopUpDimmedViewController {
     }
     
     @objc func agreeButtonTapped() {
-        print("확인버튼 눌림")
+        self.coordinator.accept(type: .register)
     }
     
     @objc func disAgreeButtonTapped() {
-        print("취소버튼 눌림")
+        self.coordinator.dismiss()
     }
     
 }

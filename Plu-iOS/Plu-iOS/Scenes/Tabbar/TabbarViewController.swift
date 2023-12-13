@@ -11,11 +11,9 @@ import UIKit
 import SnapKit
 
 final class TabbarViewController: UITabBarController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setTabBar()
         setTabBarAppearance()
         setTabBarUI()
     }
@@ -28,23 +26,6 @@ final class TabbarViewController: UITabBarController {
 }
 
 private extension TabbarViewController {
-    func setTabBar() {
-        let todayQuestion = makeTabBar(viewController: TodayQuestionViewController(),
-                                       title: "오늘의 질문",
-                                       tabBarImg: ImageLiterals.TabBar.homeInActivated,
-                                       tabBarSelectedImg: ImageLiterals.TabBar.homeActivated,
-                                       renderingMode: .alwaysOriginal)
-        
-        let myAnswer = makeTabBar(viewController: MyAnswerViewController(),
-                                  title: "일기 기록",
-                                  tabBarImg: ImageLiterals.TabBar.recordInActivated,
-                                  tabBarSelectedImg: ImageLiterals.TabBar.recordActivated,
-                                  renderingMode: .alwaysOriginal)
-        
-        let tabs = [todayQuestion, myAnswer]
-        
-        self.setViewControllers(tabs, animated: false)
-    }
     
     func setTabBarHeight() {
         tabBar.frame.size.height = 100
@@ -75,18 +56,19 @@ private extension TabbarViewController {
     }
 }
 
-private extension TabbarViewController {
-    func makeTabBar(viewController: UIViewController,
-                                title: String,
-                                tabBarImg: UIImage,
-                                tabBarSelectedImg: UIImage,
-                                renderingMode: UIImage.RenderingMode) -> UIViewController {
-            
-            let tab = UINavigationController(rootViewController: viewController)
-            tab.isNavigationBarHidden = true
-            tab.tabBarItem = UITabBarItem(title: title,
-                                          image: tabBarImg.withRenderingMode(renderingMode),
-                                          selectedImage: tabBarSelectedImg.withRenderingMode(renderingMode))
-            return tab
-        }
+extension UINavigationController {
+    func makeTabBar(title: String,
+                    tabBarImg: UIImage,
+                    tabBarSelectedImg: UIImage,
+                    renderingMode: UIImage.RenderingMode) {
+        
+        self.isNavigationBarHidden = true
+        self.tabBarItem = UITabBarItem(title: title,
+                                       image: tabBarImg.withRenderingMode(renderingMode),
+                                       selectedImage: tabBarSelectedImg.withRenderingMode(renderingMode))
+    }
+    
+    
 }
+
+

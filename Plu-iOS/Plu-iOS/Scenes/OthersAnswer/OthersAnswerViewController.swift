@@ -11,6 +11,8 @@ import UIKit
 import SnapKit
 
 final class OthersAnswerViewController: UIViewController {
+    
+    var coordinator: OtherAnswersCoordinator
         
     private let everydayAnswerView = PLUEverydayAnswerView()
     
@@ -30,6 +32,15 @@ final class OthersAnswerViewController: UIViewController {
     
     private var datasource: UITableViewDiffableDataSource<OtherAnswersSection, OtherAnswersItem>!
     
+    init(coordinator: OtherAnswersCoordinator) {
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
@@ -39,6 +50,7 @@ final class OthersAnswerViewController: UIViewController {
         configUI(answer: OthersAnswer.dummmy())
         applySnapshot(OthersAnswer.dummmy())
         setButtonHandler()
+        setDelegate()
     }
 }
 
@@ -60,6 +72,10 @@ private extension OthersAnswerViewController {
             : ImageLiterals.Respone.arrowDownSmall600
             button.configuration = config
         })
+    }
+    
+    func setDelegate() {
+        self.answersTableView.delegate = self
     }
     
     func setLayout() {
@@ -124,5 +140,11 @@ private extension OthersAnswerViewController {
         self.everydayAnswerView.configureUI(answer: answer)
         self.elementImageView.image = answer.elementType.characterSmallImage
         self.totalAnswerCountLabel.text = "총 \(answer.answers.count)개"
+    }
+}
+
+extension OthersAnswerViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.coordinator.showAnswerDetailViewController()
     }
 }

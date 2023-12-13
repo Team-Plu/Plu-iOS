@@ -21,7 +21,7 @@ extension MyPageSection {
                  .info(.init(.openSource)),
                  .info(.init(.privacy))],
                 [.appVersion(.init(.appVersion, appVersion: appVersion))],
-                [.info(.init(.logOut)),
-                 .info(.init(.resign))]]
+                [.exit(.init(.logOut)),
+                 .exit(.init(.resign))]]
     }
 }
