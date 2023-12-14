@@ -9,39 +9,29 @@ import UIKit
 
 final class TodayQuestionCoordinatorImpl: TodayQuestionCoordinator {
     
-    var parentCoordinator: Coordinator?
+    weak var navigationController: UINavigationController?
     
-    var children: [Coordinator] = []
-    
-    var navigationController: UINavigationController
-    
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController?) {
         self.navigationController = navigationController
     }
     
     func showTodayQuestionViewController() {
         let todayQuestionViewController = TodayQuestionViewController(coordinator: self)
-        self.navigationController.pushViewController(todayQuestionViewController, animated: true)
+        self.navigationController?.pushViewController(todayQuestionViewController, animated: true)
     }
     
     func showMyPageViewController() {
         let mypageCoordinator = MyPageCoordinatorImpl(navigationController: self.navigationController)
         mypageCoordinator.showMyPageViewController()
-        children.append(mypageCoordinator)
-        mypageCoordinator.parentCoordinator = self
     }
     
     func showMyAnswerViewController() {
         let myAnswerCoordinator = MyAnswerCoordinatorImpl(navigationController: self.navigationController)
         myAnswerCoordinator.showMyAnswerViewController()
-        children.append(myAnswerCoordinator)
-        myAnswerCoordinator.parentCoordinator = self
     }
     
     func showOtherAnswersViewController() {
-        let otherAnswerCoordinator = OtherAnswerCoordinatorImpl(navigationController: navigationController)
-        children.append(otherAnswerCoordinator)
-        otherAnswerCoordinator.parentCoordinator = self
+        let otherAnswerCoordinator = OtherAnswerCoordinatorImpl(navigationController: self.navigationController)
         otherAnswerCoordinator.showOtherAnswersViewController()
     }
     
@@ -49,7 +39,6 @@ final class TodayQuestionCoordinatorImpl: TodayQuestionCoordinator {
         let popUpCoordinator = PopUpCoordinatorImpl(navigationController: self.navigationController)
         popUpCoordinator.alarmDelegate = self
         popUpCoordinator.show(type: .alarm)
-        children.append(popUpCoordinator)
     }
 }
 

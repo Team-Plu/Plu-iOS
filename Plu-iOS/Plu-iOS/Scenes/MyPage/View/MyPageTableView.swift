@@ -32,7 +32,7 @@ final class MyPageTableView: UITableView {
     }
     
     func setTableHeader(nickName: String) {
-        self.headerView.configure(nickName)
+        self.headerView.configureUI(nickName)
     }
     
     @objc func viewTapped() {

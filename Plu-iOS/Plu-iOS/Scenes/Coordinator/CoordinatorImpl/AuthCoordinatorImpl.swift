@@ -10,32 +10,28 @@ import UIKit
 
 final class AuthCoordinatorImpl: AuthCoordinator {
     
-    var parentCoordinator: Coordinator?
+    weak var navigationController: UINavigationController?
     
-    var children: [Coordinator] = []
-    
-    var navigationController: UINavigationController
-    
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController?) {
         self.navigationController = navigationController
     }
     
     func showLoginViewController() {
         let loginViewController = LoginViewController(coordinator: self)
-        self.navigationController.pushViewController(loginViewController, animated: true)
+        self.navigationController?.pushViewController(loginViewController, animated: true)
     }
     
     func showTabbarController() {
-        let splashCoordinator = parentCoordinator as? SplashCoordinatorImpl
-        splashCoordinator?.showTabbarViewContoller()
+        let tabbarCoordinator = TabBarCoordinatorImpl(navigationController: self.navigationController)
+        tabbarCoordinator.showTabbarController()
     }
     
     func showOnboardingController() {
         let onboardingViewController = OnboardingViewController(coordinator: self)
-        self.navigationController.pushViewController(onboardingViewController, animated: true)
+        self.navigationController?.pushViewController(onboardingViewController, animated: true)
     }
     
     func pop() {
-        self.navigationController.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
 }

@@ -52,7 +52,7 @@ final class TutorialCollectionViewCell: UICollectionViewCell, CollectionViewCell
         }
     }
     
-    func configureCell(image: UIImage, text: String) {
+    func configureUI(image: UIImage, text: String) {
         self.screenshotImageView.image = image
         self.tutorialLabel.text = text
     }

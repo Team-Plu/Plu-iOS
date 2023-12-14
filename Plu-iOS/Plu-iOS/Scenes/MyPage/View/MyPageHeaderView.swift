@@ -43,7 +43,7 @@ final class MyPageHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(_ input: String) {
+    func configureUI(_ input: String) {
         self.nickNameLabel.text = input
     }
 

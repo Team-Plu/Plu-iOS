@@ -119,7 +119,7 @@ private extension OthersAnswerViewController {
             case .answer(let answer, let element):
                 let cell = AnswerTableViewCell.dequeueReusableCell(to: self.answersTableView)
                 
-                cell.configureView(answer, element: element)
+                cell.configureUI(answer, element: element)
                 return cell
             }
         })

@@ -37,7 +37,7 @@ final class MyPageAppVersionTableViewCell: UITableViewCell, TableViewCellRegiste
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(_ input: MypageAppVersionCellData) {
+    func configureUI(_ input: MypageAppVersionCellData) {
         self.cellTitle.text = input.title
         self.appVersion.text = input.appVersion
     }

@@ -8,14 +8,10 @@
 import UIKit
 
 final class TabBarCoordinatorImpl: TabbarCoordinator {
-
-    weak var parentCoordinator: Coordinator?
     
-    var children: [Coordinator] = []
+    weak var navigationController: UINavigationController?
     
-    var navigationController: UINavigationController
-    
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController?) {
         self.navigationController = navigationController
     }
     
@@ -23,31 +19,27 @@ final class TabBarCoordinatorImpl: TabbarCoordinator {
         let tabbarController = TabbarViewController()
         let todayQuestionNavigationController = UINavigationController()
         let recordNavigationController = UINavigationController()
-        startRecordCoordinator(recordNavigationController, from: parentCoordinator)
-        startTodayQuestionCoordinator(todayQuestionNavigationController, from: parentCoordinator)
+        startRecordCoordinator(recordNavigationController)
+        startTodayQuestionCoordinator(todayQuestionNavigationController)
         
         tabbarController.viewControllers = [todayQuestionNavigationController, recordNavigationController]
         
-        navigationController.viewControllers.removeAll()
-        navigationController.pushViewController(tabbarController, animated: false)
-        navigationController.isNavigationBarHidden = true
+        navigationController?.viewControllers.removeAll()
+        navigationController?.pushViewController(tabbarController, animated: false)
+        navigationController?.isNavigationBarHidden = true
     }
 }
 
 private extension TabBarCoordinatorImpl {
-    func startTodayQuestionCoordinator(_ navi: UINavigationController, from parent: Coordinator?) {
+    func startTodayQuestionCoordinator(_ navi: UINavigationController) {
         let todayQuestionCoordinator = TodayQuestionCoordinatorImpl(navigationController: navi)
-        todayQuestionCoordinator.parentCoordinator = parent
         navi.makeTabBar(title: "오늘의 질문", tabBarImg: ImageLiterals.TabBar.homeInActivated, tabBarSelectedImg: ImageLiterals.TabBar.homeActivated, renderingMode: .alwaysOriginal)
-        parent?.children.append(todayQuestionCoordinator)
         todayQuestionCoordinator.showTodayQuestionViewController()
     }
     
-    func startRecordCoordinator(_ navi: UINavigationController, from parent: Coordinator?) {
+    func startRecordCoordinator(_ navi: UINavigationController) {
         let recordCoordinator = RecordCoordinatorImpl(navigationController: navi)
-        recordCoordinator.parentCoordinator = parent
         navi.makeTabBar(title: "일기 기록", tabBarImg: ImageLiterals.TabBar.recordInActivated, tabBarSelectedImg: ImageLiterals.TabBar.recordActivated, renderingMode: .alwaysOriginal)
-        parent?.children.append(recordCoordinator)
         recordCoordinator.showRecordViewController()
     }
 }

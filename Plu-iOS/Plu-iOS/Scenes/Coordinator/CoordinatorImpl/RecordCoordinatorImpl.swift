@@ -9,39 +9,32 @@ import UIKit
 
 final class RecordCoordinatorImpl: RecordCoordinator {
     
-    var parentCoordinator: Coordinator?
+    weak var navigationController: UINavigationController?
     
-    var children: [Coordinator] = []
-    
-    var navigationController: UINavigationController
-    
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController?) {
         self.navigationController = navigationController
     }
     
     func showRecordViewController() {
         let recordViewController = RecordViewController(coordinator: self)
-        self.navigationController.pushViewController(recordViewController, animated: true)
+        self.navigationController?.pushViewController(recordViewController, animated: true)
     }
     
     func showMyPageViewController() {
-        print("✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅")
+        let myPageCoordinator = MyPageCoordinatorImpl(navigationController: self.navigationController)
+        myPageCoordinator.showMyPageViewController()
     }
     
     func presentSelectMonthPopUpViewController() {
-        let popUpCoordinator = PopUpCoordinatorImpl(navigationController: navigationController)
+        let popUpCoordinator = PopUpCoordinatorImpl(navigationController: self.navigationController)
         popUpCoordinator.selectMonthDelegate = self
-        popUpCoordinator.parentCoordinator = self
-        children.append(popUpCoordinator)
         
         popUpCoordinator.show(type: .selectMonth)
     }
     
     func showAnswerDetailViewController() {
-        let answerDetailCoordinator = AnswerDetailCoordinatorImpl(navigationController: navigationController)
+        let answerDetailCoordinator = AnswerDetailCoordinatorImpl(navigationController: self.navigationController)
         answerDetailCoordinator.showAnswerDetailViewController()
-        children.append(answerDetailCoordinator)
-        answerDetailCoordinator.parentCoordinator = self
     }
 }
 
@@ -49,5 +42,4 @@ extension RecordCoordinatorImpl: SelectMonthDelegate {
     func passYearAndMonth(_ input: String) {
         print("필터 입력완료: \(input)")
     }
-    
 }
