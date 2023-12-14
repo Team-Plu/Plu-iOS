@@ -8,34 +8,26 @@
 import UIKit
 
 final class MyAnswerCoordinatorImpl: MyAnswerCoordinator {
-
     
-    var parentCoordinator: Coordinator?
+    weak var navigationController: UINavigationController?
     
-    var children: [Coordinator] = []
-    
-    var navigationController: UINavigationController
-    
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController?) {
         self.navigationController = navigationController
     }
     
     func showMyAnswerViewController() {
         let myAnswerViewController = MyAnswerViewController(coordinator: self)
-        self.navigationController.pushViewController(myAnswerViewController, animated: true)
+        self.navigationController?.pushViewController(myAnswerViewController, animated: true)
     }
     
     func presentRegisterPopUpViewController() {
         let popUpCoordinator = PopUpCoordinatorImpl(navigationController: self.navigationController)
         popUpCoordinator.registerDelgate = self
         popUpCoordinator.show(type: .register)
-        children.append(popUpCoordinator)
-        popUpCoordinator.parentCoordinator = self
     }
     
     func pop() {
-        self.navigationController.popViewController(animated: true)
-        self.parentCoordinator?.childDidFinish(self)
+        self.navigationController?.popViewController(animated: true)
     }
     
 }

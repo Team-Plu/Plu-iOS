@@ -26,13 +26,9 @@ final class PopUpCoordinatorImpl: PopUpCoordinator {
     weak var alarmDelegate: AlarmDelegate?
     weak var registerDelgate: RegisterDelegate?
     
-    var parentCoordinator: Coordinator?
+    weak var navigationController: UINavigationController?
     
-    var children: [Coordinator] = []
-    
-    var navigationController: UINavigationController
-    
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController?) {
         self.navigationController = navigationController
     }
     
@@ -41,20 +37,20 @@ final class PopUpCoordinatorImpl: PopUpCoordinator {
         switch type {
         case .alarm:
             let alarmPopUpViewController = AlarmPopUpViewController(coordinator: self)
-            self.navigationController.present(alarmPopUpViewController, animated: true)
+            self.navigationController?.present(alarmPopUpViewController, animated: true)
         case .register:
             let registerPopUpViewController = RegisterPopUpViewController(coordinator: self)
-            self.navigationController.present(registerPopUpViewController, animated: true)
+            self.navigationController?.present(registerPopUpViewController, animated: true)
         case .selectMonth:
             let selectMonthPopUpViewController = SelectMonthPopUpViewController(coordinator: self)
-            self.navigationController.present(selectMonthPopUpViewController, animated: true)
+            self.navigationController?.present(selectMonthPopUpViewController, animated: true)
         }
     }
     
     
     func accept(type: PopUpType) {
         
-        self.navigationController.dismiss(animated: true) {
+        self.navigationController?.dismiss(animated: true) {
             switch type {
             case .alarm:
                 self.alarmDelegate?.alarmAccept(true)
@@ -63,13 +59,10 @@ final class PopUpCoordinatorImpl: PopUpCoordinator {
             case .selectMonth:
                 self.selectMonthDelegate?.passYearAndMonth("날짜가 입력되었습니다")
             }
-            self.parentCoordinator?.childDidFinish(self)
         }
     }
     
     func dismiss() {
-        self.navigationController.dismiss(animated: true) {
-            self.parentCoordinator?.childDidFinish(self)
-        }
+        self.navigationController?.dismiss(animated: true)
     }
 }

@@ -10,24 +10,19 @@ import UIKit
 
 final class AnswerDetailCoordinatorImpl: AnswerDetailCoordinator {
     
-    var parentCoordinator: Coordinator?
+    weak var navigationController: UINavigationController?
     
-    var children: [Coordinator] = []
-    
-    var navigationController: UINavigationController
-    
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController?) {
         self.navigationController = navigationController
     }
     
     func showAnswerDetailViewController() {
         let answerDetailViewController = AnswerDetailViewController()
-        self.navigationController.pushViewController(answerDetailViewController, animated: true)
+        self.navigationController?.pushViewController(answerDetailViewController, animated: true)
     }
     
     func pop() {
-        self.navigationController.popViewController(animated: true)
-        self.parentCoordinator?.childDidFinish(self)
+        self.navigationController?.popViewController(animated: true)
     }
     
 }

@@ -9,21 +9,14 @@
 import UIKit
 
 final class AppCoordinatorImpl: Coordinator {
-    var parentCoordinator: Coordinator?
+    weak var navigationController: UINavigationController?
     
-    var children: [Coordinator] = []
-    
-    var navigationController: UINavigationController
-    
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController?) {
         self.navigationController = navigationController
     }
     
     func startSplashCoordinator() {
-        let splashCoordinator = SplashCoordinatorImpl(navigationController: navigationController)
-        children.removeAll()
-        splashCoordinator.parentCoordinator = self
-        children.append(splashCoordinator)
+        let splashCoordinator = SplashCoordinatorImpl(navigationController: self.navigationController)
         splashCoordinator.showSplashViewController()
     }
 }

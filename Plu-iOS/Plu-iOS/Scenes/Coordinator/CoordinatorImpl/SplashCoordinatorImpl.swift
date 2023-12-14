@@ -9,34 +9,25 @@ import UIKit
 
 
 final class SplashCoordinatorImpl: SplashCoordinator {
+
+    weak var navigationController: UINavigationController?
     
-    var parentCoordinator: Coordinator?
-    
-    var children: [Coordinator] = []
-    
-    var navigationController: UINavigationController
-    
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController?) {
         self.navigationController = navigationController
     }
     
     func showSplashViewController() {
         let splashViewController = SplashViewController(coordinator: self)
-        self.navigationController.pushViewController(splashViewController, animated: false)
+        self.navigationController?.pushViewController(splashViewController, animated: false)
     }
     
     func showTabbarViewContoller() {
-        let tabbarCoordinator = TabBarCoordinatorImpl(navigationController: navigationController)
-        children.removeAll()
-        tabbarCoordinator.parentCoordinator = self
+        let tabbarCoordinator = TabBarCoordinatorImpl(navigationController: self.navigationController)
         tabbarCoordinator.showTabbarController()
     }
     
     func showLoginViewController() {
         let authCoordinator = AuthCoordinatorImpl(navigationController: navigationController)
-        children.removeAll()
-        authCoordinator.parentCoordinator = self
-        children.append(authCoordinator)
         authCoordinator.showLoginViewController()
     }
 }

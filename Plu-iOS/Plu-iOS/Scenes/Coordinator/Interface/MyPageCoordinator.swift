@@ -13,5 +13,5 @@ protocol MyPageCoordinator: Coordinator {
     func presentAlarmPopUpViewController()
     func showProfileEditViewController()
     func showResignViewController()
-    func pop<T: UIViewController>(taype: T.Type)
+    func pop()
 }
