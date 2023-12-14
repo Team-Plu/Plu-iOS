@@ -42,7 +42,8 @@ final class PopUpCoordinatorImpl: PopUpCoordinator {
             let registerPopUpViewController = RegisterPopUpViewController(coordinator: self)
             self.navigationController?.present(registerPopUpViewController, animated: true)
         case .selectMonth:
-            let selectMonthPopUpViewController = SelectMonthPopUpViewController(coordinator: self)
+            let viewModel: SelectMonthPopUpViewModel = SelectMonthPopUpViewModelImpl(coordinator: self)
+            let selectMonthPopUpViewController = SelectMonthPopUpViewController(viewModel: viewModel)
             self.navigationController?.present(selectMonthPopUpViewController, animated: true)
         }
     }

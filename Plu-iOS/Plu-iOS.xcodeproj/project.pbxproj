@@ -68,6 +68,7 @@
 		C0121A4D2B1347CB00D10EB0 /* Plu_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A4C2B1347CB00D10EB0 /* Plu_iOSUITests.swift */; };
 		C0121A4F2B1347CB00D10EB0 /* Plu_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A4E2B1347CB00D10EB0 /* Plu_iOSUITestsLaunchTests.swift */; };
 		C02C5DFE2B22E0780011F07C /* UIEdgeInsets+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C5DFD2B22E0780011F07C /* UIEdgeInsets+.swift */; };
+		C04E4CF42B2A8DCF00ABDFAA /* SelectMonthPopUpViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04E4CF32B2A8DCF00ABDFAA /* SelectMonthPopUpViewModelImpl.swift */; };
 		C05E262F2B1C48F200D91BFA /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05E262E2B1C48F200D91BFA /* Font.swift */; };
 		C05E26372B1C490700D91BFA /* SUITE-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C05E26302B1C490700D91BFA /* SUITE-Medium.ttf */; };
 		C05E26392B1C490700D91BFA /* SUITE-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C05E26322B1C490700D91BFA /* SUITE-Bold.ttf */; };
@@ -219,6 +220,7 @@
 		C0121A4C2B1347CB00D10EB0 /* Plu_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plu_iOSUITests.swift; sourceTree = "<group>"; };
 		C0121A4E2B1347CB00D10EB0 /* Plu_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plu_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C02C5DFD2B22E0780011F07C /* UIEdgeInsets+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+.swift"; sourceTree = "<group>"; };
+		C04E4CF32B2A8DCF00ABDFAA /* SelectMonthPopUpViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMonthPopUpViewModelImpl.swift; sourceTree = "<group>"; };
 		C05E262E2B1C48F200D91BFA /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		C05E26302B1C490700D91BFA /* SUITE-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUITE-Medium.ttf"; sourceTree = "<group>"; };
 		C05E26322B1C490700D91BFA /* SUITE-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUITE-Bold.ttf"; sourceTree = "<group>"; };
@@ -474,6 +476,14 @@
 				C0121A4E2B1347CB00D10EB0 /* Plu_iOSUITestsLaunchTests.swift */,
 			);
 			path = "Plu-iOSUITests";
+			sourceTree = "<group>";
+		};
+		C04E4CF22B2A8DC500ABDFAA /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C04E4CF32B2A8DCF00ABDFAA /* SelectMonthPopUpViewModelImpl.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		C05E26462B1D976700D91BFA /* Application */ = {
@@ -789,6 +799,7 @@
 		C083F6242B27ED9B00808AE6 /* PopUp */ = {
 			isa = PBXGroup;
 			children = (
+				C04E4CF22B2A8DC500ABDFAA /* ViewModels */,
 				C083F6252B27EDBA00808AE6 /* PopUpDimmedViewController.swift */,
 				C083F6292B27EE4400808AE6 /* AlarmPopUpViewController.swift */,
 				C083F62B2B27F20500808AE6 /* RegisterPopUpViewController.swift */,
@@ -1053,6 +1064,7 @@
 				C05E26962B1D9F0600D91BFA /* OnboardingViewController.swift in Sources */,
 				C05E266D2B1D9B7200D91BFA /* UITextField+.swift in Sources */,
 				B5ACF7042B26C807006D7641 /* RecordDiffableDataSource.swift in Sources */,
+				C04E4CF42B2A8DCF00ABDFAA /* SelectMonthPopUpViewModelImpl.swift in Sources */,
 				C0E93B4B2B20359B0098A822 /* MypageUserExitCellData.swift in Sources */,
 				C05E26902B1D9ED300D91BFA /* TabbarViewController.swift in Sources */,
 				C0CEF3DE2B267A4B00682D1B /* NicknameState.swift in Sources */,
