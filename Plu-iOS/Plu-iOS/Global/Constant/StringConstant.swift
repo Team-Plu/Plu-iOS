@@ -89,4 +89,10 @@ enum StringConstant {
             }
         }
     }
+    
+    enum PopUp {
+        enum YearAndMonth {
+            static let chekButtonTitle = "확인"
+        }
+    }
 }

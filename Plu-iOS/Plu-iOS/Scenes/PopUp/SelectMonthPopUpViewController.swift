@@ -10,7 +10,7 @@ import Combine
 
 import SnapKit
 
-enum PickerComponentType {
+enum PickerComponentType: CaseIterable {
     case year, month
 }
 
@@ -25,17 +25,8 @@ final class SelectMonthPopUpViewController: PopUpDimmedViewController {
     private let popUpBackgroundView = PLUPopUpContainerView()
     private let yearMonthPicker = UIPickerView()
     
-//    private lazy var agreeButton: UIButton = {
-//        let button = UIButton()
-//        button.setTitle("등록하기", for: .normal)
-//        button.backgroundColor = .designSystem(.gray600)
-//        button.setTitleColor(.designSystem(.white), for: .normal)
-//        button.titleLabel?.font = .suite(.title1)
-//        return button
-//    }()
-    
     private lazy var agreeButton = PLUButton(config: .bordered())
-        .setText(text: "등록하기", font: .title1)
+        .setText(text: StringConstant.PopUp.YearAndMonth.chekButtonTitle, font: .title1)
         .setBackForegroundColor(backgroundColor: .gray600, foregroundColor: .white)
         .setLayer(cornerRadius: 8, borderColor: .gray600)
     
@@ -45,7 +36,8 @@ final class SelectMonthPopUpViewController: PopUpDimmedViewController {
     }
     
     override func viewDidLoad() {
-        setUp()
+        setHierarchy()
+        setLayout()
         setDelegate()
         bindInput()
         bind()
@@ -62,15 +54,18 @@ final class SelectMonthPopUpViewController: PopUpDimmedViewController {
 }
 
 private extension SelectMonthPopUpViewController {
-    func setUp() {
+    
+    func setHierarchy() {
         view.addSubview(popUpBackgroundView)
+        popUpBackgroundView.addSubviews(yearMonthPicker, agreeButton)
+    }
+    
+    func setLayout() {
         popUpBackgroundView.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(0.83)
             make.height.equalToSuperview().multipliedBy(0.35)
         }
-        
-        popUpBackgroundView.addSubviews(yearMonthPicker, agreeButton)
         
         agreeButton.snp.makeConstraints { make in
             make.height.equalTo(44)
@@ -83,7 +78,6 @@ private extension SelectMonthPopUpViewController {
             make.leading.trailing.equalToSuperview().inset(16)
             make.bottom.equalTo(agreeButton.snp.top).offset(-20)
         }
-
     }
     
     func setDelegate() {
@@ -121,7 +115,7 @@ private extension SelectMonthPopUpViewController {
 
 extension SelectMonthPopUpViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 2
+        return PickerComponentType.allCases.count
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
