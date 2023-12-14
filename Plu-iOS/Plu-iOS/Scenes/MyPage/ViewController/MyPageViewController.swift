@@ -84,19 +84,19 @@ extension MyPageViewController: UITableViewDataSource {
         switch tableData[indexPath.section][indexPath.row] {
         case .alarm(let data):
             let cell = MyPageAlarmTableViewCell.dequeueReusableCell(to: tableView)
-            cell.configure(data)
+            cell.configureUI(data)
             return cell
         case .info(let data):
             let cell = MyPageGeneralTableViewCell.dequeueReusableCell(to: tableView)
-            cell.configure(data)
+            cell.configureUI(data)
             return cell
         case .appVersion(let data):
             let cell = MyPageAppVersionTableViewCell.dequeueReusableCell(to: tableView)
-            cell.configure(data)
+            cell.configureUI(data)
             return cell
         case .exit(let data):
             let cell = MyPageGeneralTableViewCell.dequeueReusableCell(to: tableView)
-            cell.configure(data)
+            cell.configureUI(data)
             return cell
         }
     }

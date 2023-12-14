@@ -145,7 +145,7 @@ extension LoginViewController: UICollectionViewDataSource {
         let title = Login.allCases[indexPath.item].title
         let image = Login.allCases[indexPath.item].image
         
-        cell.configureCell(image: image, text: title)
+        cell.configureUI(image: image, text: title)
         return cell
     }
 }

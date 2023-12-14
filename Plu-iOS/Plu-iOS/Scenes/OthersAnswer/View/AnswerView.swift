@@ -56,7 +56,7 @@ final class AnswerView: UIView {
         }
     }
     
-    func configureView(_ answer: Answer, element: Elements) {
+    func configureUI(_ answer: Answer, element: Elements) {
         let empathyCount = answer.empathyCount > 999 ? "999+" : answer.empathyCount.description
         
         answerLabel.text = answer.answerText

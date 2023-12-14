@@ -54,7 +54,7 @@ final class MyPageAlarmTableViewCell: UITableViewCell, TableViewCellRegisterDequ
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(_ input: MyPageAlarmCellData) {
+    func configureUI(_ input: MyPageAlarmCellData) {
         self.alarmSwitch.isOn = input.acceptAlarm
         self.cellTitle.text = input.title
     }

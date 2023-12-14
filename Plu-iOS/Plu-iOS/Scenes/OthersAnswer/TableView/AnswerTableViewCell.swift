@@ -42,7 +42,7 @@ final class AnswerTableViewCell: UITableViewCell, TableViewCellRegisterDequeuePr
         }
     }
     
-    func configureView(_ answer: Answer, element: Elements) {
-        self.answerView.configureView(answer, element: element)
+    func configureUI(_ answer: Answer, element: Elements) {
+        self.answerView.configureUI(answer, element: element)
     }
 }

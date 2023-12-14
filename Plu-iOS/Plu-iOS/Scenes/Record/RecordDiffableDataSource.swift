@@ -15,7 +15,7 @@ final class RecordDiffableDataSource: UITableViewDiffableDataSource<RecordSectio
             switch itemIdentifier {
             case .question(let question):
                 let cell = RecordQuestionTableViewCell.dequeueReusableCell(to: tableView)
-                cell.configureCell(question)
+                cell.configureUI(question)
                 return cell
             }
         }

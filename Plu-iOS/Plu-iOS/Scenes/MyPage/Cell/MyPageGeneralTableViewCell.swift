@@ -37,7 +37,7 @@ final class MyPageGeneralTableViewCell: UITableViewCell, TableViewCellRegisterDe
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(_ input: MyPageCell) {
+    func configureUI(_ input: MyPageCell) {
         self.cellTitle.text = input.title
     }
 }
