@@ -69,6 +69,7 @@
 		C0121A4F2B1347CB00D10EB0 /* Plu_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A4E2B1347CB00D10EB0 /* Plu_iOSUITestsLaunchTests.swift */; };
 		C02C5DFE2B22E0780011F07C /* UIEdgeInsets+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C5DFD2B22E0780011F07C /* UIEdgeInsets+.swift */; };
 		C04E4CF42B2A8DCF00ABDFAA /* SelectMonthPopUpViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04E4CF32B2A8DCF00ABDFAA /* SelectMonthPopUpViewModelImpl.swift */; };
+		C04E4CF62B2AAE0B00ABDFAA /* PLUPopUpContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04E4CF52B2AAE0A00ABDFAA /* PLUPopUpContainerView.swift */; };
 		C05E262F2B1C48F200D91BFA /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05E262E2B1C48F200D91BFA /* Font.swift */; };
 		C05E26372B1C490700D91BFA /* SUITE-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C05E26302B1C490700D91BFA /* SUITE-Medium.ttf */; };
 		C05E26392B1C490700D91BFA /* SUITE-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C05E26322B1C490700D91BFA /* SUITE-Bold.ttf */; };
@@ -221,6 +222,7 @@
 		C0121A4E2B1347CB00D10EB0 /* Plu_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plu_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C02C5DFD2B22E0780011F07C /* UIEdgeInsets+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+.swift"; sourceTree = "<group>"; };
 		C04E4CF32B2A8DCF00ABDFAA /* SelectMonthPopUpViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMonthPopUpViewModelImpl.swift; sourceTree = "<group>"; };
+		C04E4CF52B2AAE0A00ABDFAA /* PLUPopUpContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLUPopUpContainerView.swift; sourceTree = "<group>"; };
 		C05E262E2B1C48F200D91BFA /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		C05E26302B1C490700D91BFA /* SUITE-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUITE-Medium.ttf"; sourceTree = "<group>"; };
 		C05E26322B1C490700D91BFA /* SUITE-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUITE-Bold.ttf"; sourceTree = "<group>"; };
@@ -804,6 +806,7 @@
 				C083F6292B27EE4400808AE6 /* AlarmPopUpViewController.swift */,
 				C083F62B2B27F20500808AE6 /* RegisterPopUpViewController.swift */,
 				C083F62F2B27F30200808AE6 /* SelectMonthPopUpViewController.swift */,
+				C04E4CF52B2AAE0A00ABDFAA /* PLUPopUpContainerView.swift */,
 			);
 			path = PopUp;
 			sourceTree = "<group>";
@@ -1145,6 +1148,7 @@
 				C05E269A2B1D9F1B00D91BFA /* SplashViewController.swift in Sources */,
 				C07AB7272B2828A600C2E02C /* TabbarCoordinator.swift in Sources */,
 				B5ACF6F72B22DA61006D7641 /* RecordDummy.swift in Sources */,
+				C04E4CF62B2AAE0B00ABDFAA /* PLUPopUpContainerView.swift in Sources */,
 				C02C5DFE2B22E0780011F07C /* UIEdgeInsets+.swift in Sources */,
 				4A44666A2B281F52002D5BF7 /* TodayQuestionCoordinatorImpl.swift in Sources */,
 				B5ACF70C2B26EC48006D7641 /* se+.swift in Sources */,

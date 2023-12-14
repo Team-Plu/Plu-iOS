@@ -13,13 +13,7 @@ final class RegisterPopUpViewController: PopUpDimmedViewController {
     
     var coordinator: PopUpCoordinator
     
-    private let popUpBackgroundView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .designSystem(.white)
-        view.clipsToBounds = false
-        view.layer.cornerRadius = 10
-        return view
-    }()
+    private let popUpBackgroundView = PLUPopUpContainerView()
     
     private let popUpTitle = PLULabel(type: .head2, color: .gray700, text: "이대로 글을 등록할까요?")
     

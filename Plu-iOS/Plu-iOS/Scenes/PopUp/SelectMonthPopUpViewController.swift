@@ -22,24 +22,22 @@ final class SelectMonthPopUpViewController: PopUpDimmedViewController {
     let registerButtonTapSubject = PassthroughSubject<Void, Never>()
     var cancelBag = Set<AnyCancellable>()
     
-    private let popUpBackgroundView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .designSystem(.white)
-        view.clipsToBounds = false
-        view.layer.cornerRadius = 10
-        return view
-    }()
-    
+    private let popUpBackgroundView = PLUPopUpContainerView()
     private let yearMonthPicker = UIPickerView()
     
-    private lazy var agreeButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("등록하기", for: .normal)
-        button.backgroundColor = .designSystem(.gray600)
-        button.setTitleColor(.designSystem(.white), for: .normal)
-        button.titleLabel?.font = .suite(.title1)
-        return button
-    }()
+//    private lazy var agreeButton: UIButton = {
+//        let button = UIButton()
+//        button.setTitle("등록하기", for: .normal)
+//        button.backgroundColor = .designSystem(.gray600)
+//        button.setTitleColor(.designSystem(.white), for: .normal)
+//        button.titleLabel?.font = .suite(.title1)
+//        return button
+//    }()
+    
+    private lazy var agreeButton = PLUButton(config: .bordered())
+        .setText(text: "등록하기", font: .title1)
+        .setBackForegroundColor(backgroundColor: .gray600, foregroundColor: .white)
+        .setLayer(cornerRadius: 8, borderColor: .gray600)
     
     init(viewModel: SelectMonthPopUpViewModel) {
         self.viewModel = viewModel
@@ -67,22 +65,25 @@ private extension SelectMonthPopUpViewController {
     func setUp() {
         view.addSubview(popUpBackgroundView)
         popUpBackgroundView.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview().inset(310)
-            make.leading.trailing.equalToSuperview().inset(20)
+            make.center.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.83)
+            make.height.equalToSuperview().multipliedBy(0.35)
         }
         
         popUpBackgroundView.addSubviews(yearMonthPicker, agreeButton)
-        yearMonthPicker.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-            make.width.equalTo(250)
-            make.height.equalTo(100)
-        }
+        
         agreeButton.snp.makeConstraints { make in
-            make.top.equalTo(yearMonthPicker.snp.bottom).offset(10)
-            make.centerX.equalToSuperview()
-            make.height.equalTo(50)
+            make.height.equalTo(44)
+            make.bottom.equalToSuperview().inset(24)
             make.leading.trailing.equalToSuperview().inset(20)
         }
+        
+        yearMonthPicker.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(20)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.bottom.equalTo(agreeButton.snp.top).offset(-20)
+        }
+
     }
     
     func setDelegate() {
@@ -99,14 +100,22 @@ private extension SelectMonthPopUpViewController {
     }
     
     func bind() {
-        let input = SelectMonthPopUpInput(viewWillAppearSubject: viewWillAppearSubject, selectYearAndMonthSubject: selectYearAndMonthSubject, registerButtonTapSubject: registerButtonTapSubject)
+        let input = SelectMonthPopUpInput(viewWillAppearSubject: viewWillAppearSubject,
+                                          selectYearAndMonthSubject: selectYearAndMonthSubject,
+                                          registerButtonTapSubject: registerButtonTapSubject)
+        
         let output = viewModel.transform(input: input)
         output.viewDidLoadPublisher
             .sink { [weak self] in
-                self?.yearMonthPicker.selectRow($0.monthRow, inComponent: 1, animated: false)
-                self?.yearMonthPicker.selectRow($0.yearRow, inComponent: 0, animated: false)
+                self?.setPicker(to: self?.yearMonthPicker, monthRow: $0.monthRow, yearRow: $0.yearRow)
             }
             .store(in: &cancelBag)
+    }
+    
+    func setPicker(to target: UIPickerView?, monthRow: Int, yearRow: Int) {
+        guard let target else { return }
+        target.selectRow(monthRow, inComponent: 1, animated: false)
+        target.selectRow(yearRow, inComponent: 0, animated: false)
     }
 }
 

@@ -14,13 +14,7 @@ final class AlarmPopUpViewController: PopUpDimmedViewController {
     
     let coordinator: PopUpCoordinator
     
-    private let popUpBackgroundView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .designSystem(.white)
-        view.clipsToBounds = false
-        view.layer.cornerRadius = 10
-        return view
-    }()
+    private let popUpBackgroundView = PLUPopUpContainerView()
     
     private let popUpTitle = PLULabel(type: .head2, color: .gray700, lines: 2, text: "매일 저녁 10시\n알림을 드려도 될까요?")
     
