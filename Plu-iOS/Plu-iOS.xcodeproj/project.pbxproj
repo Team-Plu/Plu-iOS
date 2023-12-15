@@ -58,6 +58,7 @@
 		B5ACF72D2B283CD8006D7641 /* OtherAnswerCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF72C2B283CD8006D7641 /* OtherAnswerCoordinatorImpl.swift */; };
 		B5ACF72F2B283D23006D7641 /* AnswerDetailCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF72E2B283D23006D7641 /* AnswerDetailCoordinatorImpl.swift */; };
 		B5ACF7312B284296006D7641 /* MyPageCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF7302B284296006D7641 /* MyPageCoordinatorImpl.swift */; };
+		B5ACF7392B2A8ADC006D7641 /* PLUNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF7382B2A8ADC006D7641 /* PLUNavigationBarView.swift */; };
 		C00113DA2B25359100B2C799 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00113D92B25359100B2C799 /* OnboardingViewModel.swift */; };
 		C00113DC2B2546DB00B2C799 /* PluTempButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00113DB2B2546DB00B2C799 /* PluTempButton.swift */; };
 		C0121A2C2B1347CA00D10EB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A2B2B1347CA00D10EB0 /* AppDelegate.swift */; };
@@ -205,6 +206,7 @@
 		B5ACF72C2B283CD8006D7641 /* OtherAnswerCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherAnswerCoordinatorImpl.swift; sourceTree = "<group>"; };
 		B5ACF72E2B283D23006D7641 /* AnswerDetailCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerDetailCoordinatorImpl.swift; sourceTree = "<group>"; };
 		B5ACF7302B284296006D7641 /* MyPageCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCoordinatorImpl.swift; sourceTree = "<group>"; };
+		B5ACF7382B2A8ADC006D7641 /* PLUNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLUNavigationBarView.swift; sourceTree = "<group>"; };
 		C00113D92B25359100B2C799 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		C00113DB2B2546DB00B2C799 /* PluTempButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluTempButton.swift; sourceTree = "<group>"; };
 		C0121A282B1347CA00D10EB0 /* Plu-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plu-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -504,6 +506,7 @@
 				C05E267B2B1D9E1E00D91BFA /* Onboarding */,
 				C05E267A2B1D9E1900D91BFA /* Login */,
 				C05E26792B1D9E1000D91BFA /* Splash */,
+				B5ACF7382B2A8ADC006D7641 /* PLUNavigationBarView.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -1136,6 +1139,7 @@
 				C02C5DFE2B22E0780011F07C /* UIEdgeInsets+.swift in Sources */,
 				4A44666A2B281F52002D5BF7 /* TodayQuestionCoordinatorImpl.swift in Sources */,
 				B5ACF70C2B26EC48006D7641 /* se+.swift in Sources */,
+				B5ACF7392B2A8ADC006D7641 /* PLUNavigationBarView.swift in Sources */,
 				C07AB7292B282E2D00C2E02C /* PopUpCoordinatorImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1305,7 +1309,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Z225784MRD;
+				DEVELOPMENT_TEAM = AXN37CP9B9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Plu-iOS/Application/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1335,7 +1339,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Z225784MRD;
+				DEVELOPMENT_TEAM = AXN37CP9B9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Plu-iOS/Application/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
