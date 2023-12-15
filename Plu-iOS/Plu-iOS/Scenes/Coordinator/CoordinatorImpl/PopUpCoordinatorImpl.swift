@@ -36,7 +36,8 @@ final class PopUpCoordinatorImpl: PopUpCoordinator {
     func show(type: PopUpType) {
         switch type {
         case .alarm:
-            let alarmPopUpViewController = AlarmPopUpViewController(coordinator: self)
+            let viewModel = AlarmPopUpViewModelImpl(coordinator: self)
+            let alarmPopUpViewController = AlarmPopUpViewController(viewModel: viewModel)
             self.navigationController?.present(alarmPopUpViewController, animated: true)
         case .register:
             let viewModel = RegisterPopUpViewModelImpl(coordinator: self)

@@ -101,5 +101,12 @@ enum StringConstant {
             static let registerButtonTitle = "등록하기"
             static let checkButtonTitle = "다시 확인하기"
         }
+        
+        enum Alarm {
+            static let title = "매일 저녁 10시\n알림을 드려도 될까요?"
+            static let subTitle = "오늘의 질문을 놓치지 않을 수 있어요.\n필요 없는 알림은 보내지 않을게요!"
+            static let acceptButtonTitle = "알림을 받을래요"
+            static let rejectButtonTitle = "괜찮아요"
+        }
     }
 }

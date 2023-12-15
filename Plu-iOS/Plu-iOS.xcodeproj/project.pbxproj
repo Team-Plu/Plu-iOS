@@ -112,6 +112,8 @@
 		C07AB7292B282E2D00C2E02C /* PopUpCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07AB7282B282E2D00C2E02C /* PopUpCoordinatorImpl.swift */; };
 		C07AB72B2B28380200C2E02C /* MyAnswerCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07AB72A2B28380200C2E02C /* MyAnswerCoordinatorImpl.swift */; };
 		C07CD88D2B2BCDAC0091DAAF /* RegisterPopUpViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07CD88C2B2BCDAC0091DAAF /* RegisterPopUpViewModelImpl.swift */; };
+		C07CD88F2B2BD4C90091DAAF /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07CD88E2B2BD4C80091DAAF /* UIButton+.swift */; };
+		C07CD8912B2BD9E20091DAAF /* AlarmPopUpViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07CD8902B2BD9E20091DAAF /* AlarmPopUpViewModelImpl.swift */; };
 		C083F6262B27EDBA00808AE6 /* PopUpDimmedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C083F6252B27EDBA00808AE6 /* PopUpDimmedViewController.swift */; };
 		C083F62A2B27EE4400808AE6 /* AlarmPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C083F6292B27EE4400808AE6 /* AlarmPopUpViewController.swift */; };
 		C083F62C2B27F20500808AE6 /* RegisterPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C083F62B2B27F20500808AE6 /* RegisterPopUpViewController.swift */; };
@@ -264,6 +266,8 @@
 		C07AB7282B282E2D00C2E02C /* PopUpCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpCoordinatorImpl.swift; sourceTree = "<group>"; };
 		C07AB72A2B28380200C2E02C /* MyAnswerCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnswerCoordinatorImpl.swift; sourceTree = "<group>"; };
 		C07CD88C2B2BCDAC0091DAAF /* RegisterPopUpViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPopUpViewModelImpl.swift; sourceTree = "<group>"; };
+		C07CD88E2B2BD4C80091DAAF /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
+		C07CD8902B2BD9E20091DAAF /* AlarmPopUpViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmPopUpViewModelImpl.swift; sourceTree = "<group>"; };
 		C083F6252B27EDBA00808AE6 /* PopUpDimmedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpDimmedViewController.swift; sourceTree = "<group>"; };
 		C083F6292B27EE4400808AE6 /* AlarmPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmPopUpViewController.swift; sourceTree = "<group>"; };
 		C083F62B2B27F20500808AE6 /* RegisterPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPopUpViewController.swift; sourceTree = "<group>"; };
@@ -573,6 +577,7 @@
 				C05E26732B1D9C6800D91BFA /* Combine+.swift */,
 				C02C5DFD2B22E0780011F07C /* UIEdgeInsets+.swift */,
 				B5ACF70B2B26EC48006D7641 /* se+.swift */,
+				C07CD88E2B2BD4C80091DAAF /* UIButton+.swift */,
 			);
 			path = Extention;
 			sourceTree = "<group>";
@@ -817,6 +822,7 @@
 			isa = PBXGroup;
 			children = (
 				C083F6292B27EE4400808AE6 /* AlarmPopUpViewController.swift */,
+				C07CD8902B2BD9E20091DAAF /* AlarmPopUpViewModelImpl.swift */,
 			);
 			path = AlarmPopUp;
 			sourceTree = "<group>";
@@ -1133,7 +1139,9 @@
 				C00113DC2B2546DB00B2C799 /* PluTempButton.swift in Sources */,
 				C083F6262B27EDBA00808AE6 /* PopUpDimmedViewController.swift in Sources */,
 				C05E26922B1D9EED00D91BFA /* MyAnswerViewController.swift in Sources */,
+				C07CD88F2B2BD4C90091DAAF /* UIButton+.swift in Sources */,
 				C05E26882B1D9EA300D91BFA /* MyPageViewController.swift in Sources */,
+				C07CD8912B2BD9E20091DAAF /* AlarmPopUpViewModelImpl.swift in Sources */,
 				B5ACF7162B2814CE006D7641 /* TodayQuestionCoordinator.swift in Sources */,
 				4AA747572B1D74A6004D0335 /* CGColor+.swift in Sources */,
 				C0E93B492B20358A0098A822 /* MypageAppVersionCellData.swift in Sources */,
