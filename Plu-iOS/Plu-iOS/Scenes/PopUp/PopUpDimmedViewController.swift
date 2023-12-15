@@ -24,7 +24,7 @@ class PopUpDimmedViewController: UIViewController {
         super.viewWillAppear(animated)
         
         guard let presentingViewController else { return }
-        dimmedView.backgroundColor = .designSystem(.black)
+        dimmedView.backgroundColor = .designSystem(.bgDimmed)
         dimmedView.alpha = 0
         presentingViewController.view.addSubview(dimmedView)
         
@@ -32,8 +32,8 @@ class PopUpDimmedViewController: UIViewController {
             $0.edges.equalToSuperview()
         }
         
-        UIView.animate(withDuration: 0.3) {
-            self.dimmedView.alpha = 0.25
+        UIView.animate(withDuration: 0.2) {
+            self.dimmedView.alpha = 0.2
         }
     }
     

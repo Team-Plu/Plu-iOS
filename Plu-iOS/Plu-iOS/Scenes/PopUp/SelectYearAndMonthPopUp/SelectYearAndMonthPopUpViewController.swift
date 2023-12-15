@@ -14,7 +14,7 @@ enum PickerComponentType: CaseIterable {
     case year, month
 }
 
-final class SelectMonthPopUpViewController: PopUpDimmedViewController {
+final class SelectYearAndMonthPopUpViewController: PopUpDimmedViewController {
     
     let viewModel: SelectMonthPopUpViewModel
     let viewWillAppearSubject = PassthroughSubject<Void, Never>()
@@ -26,7 +26,7 @@ final class SelectMonthPopUpViewController: PopUpDimmedViewController {
     private let yearMonthPicker = UIPickerView()
     
     private lazy var agreeButton = PLUButton(config: .bordered())
-        .setText(text: StringConstant.PopUp.YearAndMonth.chekButtonTitle, font: .title1)
+        .setText(text: StringConstant.PopUp.YearAndMonth.checkButtonTitle, font: .title1)
         .setBackForegroundColor(backgroundColor: .gray600, foregroundColor: .white)
         .setLayer(cornerRadius: 8, borderColor: .gray600)
     
@@ -53,7 +53,7 @@ final class SelectMonthPopUpViewController: PopUpDimmedViewController {
     }
 }
 
-private extension SelectMonthPopUpViewController {
+private extension SelectYearAndMonthPopUpViewController {
     
     func setHierarchy() {
         view.addSubview(popUpBackgroundView)
@@ -113,7 +113,7 @@ private extension SelectMonthPopUpViewController {
     }
 }
 
-extension SelectMonthPopUpViewController: UIPickerViewDataSource {
+extension SelectYearAndMonthPopUpViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return PickerComponentType.allCases.count
     }
@@ -123,7 +123,7 @@ extension SelectMonthPopUpViewController: UIPickerViewDataSource {
     }
 }
 
-extension SelectMonthPopUpViewController: UIPickerViewDelegate {
+extension SelectYearAndMonthPopUpViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return viewModel.titleForRow(component: component, row: row)
     }

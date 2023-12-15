@@ -54,6 +54,11 @@ final class MyAnswerViewController: UIViewController {
         everyDayAnswerView.configureUI(answer: OthersAnswer.dummmy())
         bind()
         bindInput()
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         answerTextView.becomeFirstResponder()
     }
     

@@ -16,9 +16,9 @@ final class AlarmPopUpViewController: PopUpDimmedViewController {
     
     private let popUpBackgroundView = PLUPopUpContainerView()
     
-    private let popUpTitle = PLULabel(type: .head2, color: .gray700, lines: 2, text: "매일 저녁 10시\n알림을 드려도 될까요?")
+    private let popUpTitle = PLULabel(type: .head2, color: .gray700, backgroundColor: .background, lines: 2, text: "매일 저녁 10시\n알림을 드려도 될까요?")
     
-    private let popUpSubTitle = PLULabel(type: .body2M, color: .gray500, lines: 2, text: "오늘의 질문을 놓치지 않을 수 있어요\n필요없는 알림은 보내지 않을게요!")
+    private let popUpSubTitle = PLULabel(type: .body2M, color: .gray500, backgroundColor: .background, lines: 2, text: "오늘의 질문을 놓치지 않을 수 있어요\n필요없는 알림은 보내지 않을게요!")
     
     private lazy var agreeButton: UIButton = {
         let button = UIButton()

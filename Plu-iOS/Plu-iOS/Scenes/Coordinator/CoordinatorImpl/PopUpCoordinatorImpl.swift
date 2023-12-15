@@ -39,11 +39,12 @@ final class PopUpCoordinatorImpl: PopUpCoordinator {
             let alarmPopUpViewController = AlarmPopUpViewController(coordinator: self)
             self.navigationController?.present(alarmPopUpViewController, animated: true)
         case .register:
-            let registerPopUpViewController = RegisterPopUpViewController(coordinator: self)
+            let viewModel = RegisterPopUpViewModelImpl(coordinator: self)
+            let registerPopUpViewController = RegisterPopUpViewController(viewModel: viewModel)
             self.navigationController?.present(registerPopUpViewController, animated: true)
         case .selectMonth:
-            let viewModel: SelectMonthPopUpViewModel = SelectMonthPopUpViewModelImpl(coordinator: self)
-            let selectMonthPopUpViewController = SelectMonthPopUpViewController(viewModel: viewModel)
+            let viewModel = SelectMonthPopUpViewModelImpl(coordinator: self)
+            let selectMonthPopUpViewController = SelectYearAndMonthPopUpViewController(viewModel: viewModel)
             self.navigationController?.present(selectMonthPopUpViewController, animated: true)
         }
     }

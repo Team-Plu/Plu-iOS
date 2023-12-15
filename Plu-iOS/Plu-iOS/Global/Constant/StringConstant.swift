@@ -92,7 +92,14 @@ enum StringConstant {
     
     enum PopUp {
         enum YearAndMonth {
-            static let chekButtonTitle = "확인"
+            static let checkButtonTitle = "확인"
+        }
+        
+        enum Register {
+            static let title = "이대로 글을 등록할까요?"
+            static let subTitle = "한번 글을 등록하고 나면\n글의 내용과 공개여부 수정이 불가능해요."
+            static let registerButtonTitle = "등록하기"
+            static let checkButtonTitle = "다시 확인하기"
         }
     }
 }
