@@ -16,7 +16,7 @@ final class NicknameEditViewController: UIViewController {
     private let navigationBar = PLUNavigationBarView()
         .setTitle(text: "프로필 수정")
         .setLeftButton(type: .back)
-        .setRightButton(type: .logo)
+        .setRightButton(type: .text("완료"))
     
     private let textFieldSubject = PassthroughSubject<String, Never>()
     private var cancelBag = Set<AnyCancellable>()
@@ -33,7 +33,6 @@ final class NicknameEditViewController: UIViewController {
         setUI()
         setHierarchy()
         setLayout()
-        setAddTarget()
         bindInput()
         bind()
         setKeyboard()
@@ -56,7 +55,7 @@ private extension NicknameEditViewController {
             .sink { [weak self] in
                 guard let isActice = $0.nextProcessButtonIsActive, let description = $0.errorDescription else { return }
                 self?.errorLabel.text = description
-                self?.tempButton.setButtonState(isActice: isActice)
+                self?.navigationBar.setRightButtonState(isEnabled: isActice)
             }
             .store(in: &cancelBag)
         
@@ -114,10 +113,6 @@ private extension NicknameEditViewController {
     
     func setKeyboard() {
         self.nickNameTextField.becomeFirstResponder()
-    }
-    
-    func setAddTarget() {
-        self.tempButton.addTarget(self, action: #selector(tempButtonTapped), for: .touchUpInside)
     }
     
     func bindInput() {

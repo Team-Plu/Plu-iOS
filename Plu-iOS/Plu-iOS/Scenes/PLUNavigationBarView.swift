@@ -97,6 +97,10 @@ final class PLUNavigationBarView: UIView {
         }
         return self
     }
+    
+    func setRightButtonState(isEnabled: Bool) {
+        rightButton.isEnabled = isEnabled
+    }
 }
 
 extension PLUNavigationBarView {
