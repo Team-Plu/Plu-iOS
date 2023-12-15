@@ -69,6 +69,8 @@
 		C0121A4D2B1347CB00D10EB0 /* Plu_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A4C2B1347CB00D10EB0 /* Plu_iOSUITests.swift */; };
 		C0121A4F2B1347CB00D10EB0 /* Plu_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A4E2B1347CB00D10EB0 /* Plu_iOSUITestsLaunchTests.swift */; };
 		C02C5DFE2B22E0780011F07C /* UIEdgeInsets+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C5DFD2B22E0780011F07C /* UIEdgeInsets+.swift */; };
+		C04E4CF42B2A8DCF00ABDFAA /* SelectMonthPopUpViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04E4CF32B2A8DCF00ABDFAA /* SelectMonthPopUpViewModelImpl.swift */; };
+		C04E4CF62B2AAE0B00ABDFAA /* PLUPopUpContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04E4CF52B2AAE0A00ABDFAA /* PLUPopUpContainerView.swift */; };
 		C05E262F2B1C48F200D91BFA /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05E262E2B1C48F200D91BFA /* Font.swift */; };
 		C05E26372B1C490700D91BFA /* SUITE-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C05E26302B1C490700D91BFA /* SUITE-Medium.ttf */; };
 		C05E26392B1C490700D91BFA /* SUITE-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C05E26322B1C490700D91BFA /* SUITE-Bold.ttf */; };
@@ -110,10 +112,13 @@
 		C07AB7272B2828A600C2E02C /* TabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07AB7262B2828A600C2E02C /* TabbarCoordinator.swift */; };
 		C07AB7292B282E2D00C2E02C /* PopUpCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07AB7282B282E2D00C2E02C /* PopUpCoordinatorImpl.swift */; };
 		C07AB72B2B28380200C2E02C /* MyAnswerCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07AB72A2B28380200C2E02C /* MyAnswerCoordinatorImpl.swift */; };
+		C07CD88D2B2BCDAC0091DAAF /* RegisterPopUpViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07CD88C2B2BCDAC0091DAAF /* RegisterPopUpViewModelImpl.swift */; };
+		C07CD88F2B2BD4C90091DAAF /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07CD88E2B2BD4C80091DAAF /* UIButton+.swift */; };
+		C07CD8912B2BD9E20091DAAF /* AlarmPopUpViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07CD8902B2BD9E20091DAAF /* AlarmPopUpViewModelImpl.swift */; };
 		C083F6262B27EDBA00808AE6 /* PopUpDimmedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C083F6252B27EDBA00808AE6 /* PopUpDimmedViewController.swift */; };
 		C083F62A2B27EE4400808AE6 /* AlarmPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C083F6292B27EE4400808AE6 /* AlarmPopUpViewController.swift */; };
 		C083F62C2B27F20500808AE6 /* RegisterPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C083F62B2B27F20500808AE6 /* RegisterPopUpViewController.swift */; };
-		C083F6302B27F30200808AE6 /* SelectMonthPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C083F62F2B27F30200808AE6 /* SelectMonthPopUpViewController.swift */; };
+		C083F6302B27F30200808AE6 /* SelectYearAndMonthPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C083F62F2B27F30200808AE6 /* SelectYearAndMonthPopUpViewController.swift */; };
 		C0A2561D2B1ED99B0059AA7E /* MyPageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A2561C2B1ED99B0059AA7E /* MyPageHeaderView.swift */; };
 		C0A2561F2B1EDC350059AA7E /* MyPageRoundSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A2561E2B1EDC350059AA7E /* MyPageRoundSectionHeaderView.swift */; };
 		C0A256232B1EDD550059AA7E /* MyPageAlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A256222B1EDD550059AA7E /* MyPageAlarmTableViewCell.swift */; };
@@ -221,6 +226,8 @@
 		C0121A4C2B1347CB00D10EB0 /* Plu_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plu_iOSUITests.swift; sourceTree = "<group>"; };
 		C0121A4E2B1347CB00D10EB0 /* Plu_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plu_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C02C5DFD2B22E0780011F07C /* UIEdgeInsets+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+.swift"; sourceTree = "<group>"; };
+		C04E4CF32B2A8DCF00ABDFAA /* SelectMonthPopUpViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMonthPopUpViewModelImpl.swift; sourceTree = "<group>"; };
+		C04E4CF52B2AAE0A00ABDFAA /* PLUPopUpContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLUPopUpContainerView.swift; sourceTree = "<group>"; };
 		C05E262E2B1C48F200D91BFA /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		C05E26302B1C490700D91BFA /* SUITE-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUITE-Medium.ttf"; sourceTree = "<group>"; };
 		C05E26322B1C490700D91BFA /* SUITE-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUITE-Bold.ttf"; sourceTree = "<group>"; };
@@ -260,10 +267,13 @@
 		C07AB7262B2828A600C2E02C /* TabbarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarCoordinator.swift; sourceTree = "<group>"; };
 		C07AB7282B282E2D00C2E02C /* PopUpCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpCoordinatorImpl.swift; sourceTree = "<group>"; };
 		C07AB72A2B28380200C2E02C /* MyAnswerCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnswerCoordinatorImpl.swift; sourceTree = "<group>"; };
+		C07CD88C2B2BCDAC0091DAAF /* RegisterPopUpViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPopUpViewModelImpl.swift; sourceTree = "<group>"; };
+		C07CD88E2B2BD4C80091DAAF /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
+		C07CD8902B2BD9E20091DAAF /* AlarmPopUpViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmPopUpViewModelImpl.swift; sourceTree = "<group>"; };
 		C083F6252B27EDBA00808AE6 /* PopUpDimmedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpDimmedViewController.swift; sourceTree = "<group>"; };
 		C083F6292B27EE4400808AE6 /* AlarmPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmPopUpViewController.swift; sourceTree = "<group>"; };
 		C083F62B2B27F20500808AE6 /* RegisterPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPopUpViewController.swift; sourceTree = "<group>"; };
-		C083F62F2B27F30200808AE6 /* SelectMonthPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMonthPopUpViewController.swift; sourceTree = "<group>"; };
+		C083F62F2B27F30200808AE6 /* SelectYearAndMonthPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectYearAndMonthPopUpViewController.swift; sourceTree = "<group>"; };
 		C0A2561C2B1ED99B0059AA7E /* MyPageHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageHeaderView.swift; sourceTree = "<group>"; };
 		C0A2561E2B1EDC350059AA7E /* MyPageRoundSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageRoundSectionHeaderView.swift; sourceTree = "<group>"; };
 		C0A256222B1EDD550059AA7E /* MyPageAlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAlarmTableViewCell.swift; sourceTree = "<group>"; };
@@ -570,6 +580,7 @@
 				C05E26732B1D9C6800D91BFA /* Combine+.swift */,
 				C02C5DFD2B22E0780011F07C /* UIEdgeInsets+.swift */,
 				B5ACF70B2B26EC48006D7641 /* se+.swift */,
+				C07CD88E2B2BD4C80091DAAF /* UIButton+.swift */,
 			);
 			path = Extention;
 			sourceTree = "<group>";
@@ -793,11 +804,39 @@
 			isa = PBXGroup;
 			children = (
 				C083F6252B27EDBA00808AE6 /* PopUpDimmedViewController.swift */,
-				C083F6292B27EE4400808AE6 /* AlarmPopUpViewController.swift */,
-				C083F62B2B27F20500808AE6 /* RegisterPopUpViewController.swift */,
-				C083F62F2B27F30200808AE6 /* SelectMonthPopUpViewController.swift */,
+				C04E4CF52B2AAE0A00ABDFAA /* PLUPopUpContainerView.swift */,
+				C0ABCA6B2B2BC01A00D05079 /* RegisterPopUp */,
+				C0ABCA6A2B2BBFEF00D05079 /* AlarmPopUp */,
+				C0ABCA692B2BBFB900D05079 /* SelectYearAndMonthPopUp */,
 			);
 			path = PopUp;
+			sourceTree = "<group>";
+		};
+		C0ABCA692B2BBFB900D05079 /* SelectYearAndMonthPopUp */ = {
+			isa = PBXGroup;
+			children = (
+				C083F62F2B27F30200808AE6 /* SelectYearAndMonthPopUpViewController.swift */,
+				C04E4CF32B2A8DCF00ABDFAA /* SelectMonthPopUpViewModelImpl.swift */,
+			);
+			path = SelectYearAndMonthPopUp;
+			sourceTree = "<group>";
+		};
+		C0ABCA6A2B2BBFEF00D05079 /* AlarmPopUp */ = {
+			isa = PBXGroup;
+			children = (
+				C083F6292B27EE4400808AE6 /* AlarmPopUpViewController.swift */,
+				C07CD8902B2BD9E20091DAAF /* AlarmPopUpViewModelImpl.swift */,
+			);
+			path = AlarmPopUp;
+			sourceTree = "<group>";
+		};
+		C0ABCA6B2B2BC01A00D05079 /* RegisterPopUp */ = {
+			isa = PBXGroup;
+			children = (
+				C083F62B2B27F20500808AE6 /* RegisterPopUpViewController.swift */,
+				C07CD88C2B2BCDAC0091DAAF /* RegisterPopUpViewModelImpl.swift */,
+			);
+			path = RegisterPopUp;
 			sourceTree = "<group>";
 		};
 		C0CEF3DC2B267A3E00682D1B /* Model */ = {
@@ -1052,10 +1091,11 @@
 				C0A2561F2B1EDC350059AA7E /* MyPageRoundSectionHeaderView.swift in Sources */,
 				4ABEEDBE2B27E7310020DA86 /* KeyboardType.swift in Sources */,
 				C05E263F2B1C4E1E00D91BFA /* UIFont+.swift in Sources */,
-				C083F6302B27F30200808AE6 /* SelectMonthPopUpViewController.swift in Sources */,
+				C083F6302B27F30200808AE6 /* SelectYearAndMonthPopUpViewController.swift in Sources */,
 				C05E26962B1D9F0600D91BFA /* OnboardingViewController.swift in Sources */,
 				C05E266D2B1D9B7200D91BFA /* UITextField+.swift in Sources */,
 				B5ACF7042B26C807006D7641 /* RecordDiffableDataSource.swift in Sources */,
+				C04E4CF42B2A8DCF00ABDFAA /* SelectMonthPopUpViewModelImpl.swift in Sources */,
 				C0E93B4B2B20359B0098A822 /* MypageUserExitCellData.swift in Sources */,
 				C05E26902B1D9ED300D91BFA /* TabbarViewController.swift in Sources */,
 				C0CEF3DE2B267A4B00682D1B /* NicknameState.swift in Sources */,
@@ -1102,7 +1142,9 @@
 				C00113DC2B2546DB00B2C799 /* PluTempButton.swift in Sources */,
 				C083F6262B27EDBA00808AE6 /* PopUpDimmedViewController.swift in Sources */,
 				C05E26922B1D9EED00D91BFA /* MyAnswerViewController.swift in Sources */,
+				C07CD88F2B2BD4C90091DAAF /* UIButton+.swift in Sources */,
 				C05E26882B1D9EA300D91BFA /* MyPageViewController.swift in Sources */,
+				C07CD8912B2BD9E20091DAAF /* AlarmPopUpViewModelImpl.swift in Sources */,
 				B5ACF7162B2814CE006D7641 /* TodayQuestionCoordinator.swift in Sources */,
 				4AA747572B1D74A6004D0335 /* CGColor+.swift in Sources */,
 				C0E93B492B20358A0098A822 /* MypageAppVersionCellData.swift in Sources */,
@@ -1120,6 +1162,7 @@
 				B5ACF6D82B2086A9006D7641 /* PLUButton.swift in Sources */,
 				C05E268A2B1D9EAE00D91BFA /* ResignViewController.swift in Sources */,
 				C07AB72B2B28380200C2E02C /* MyAnswerCoordinatorImpl.swift in Sources */,
+				C07CD88D2B2BCDAC0091DAAF /* RegisterPopUpViewModelImpl.swift in Sources */,
 				4A44666C2B28208D002D5BF7 /* RecordCoordinatorImpl.swift in Sources */,
 				B5ACF7062B26D47C006D7641 /* TutorialCollectionViewCell.swift in Sources */,
 				B5ACF71E2B2815EA006D7641 /* RecordCoordinator.swift in Sources */,
@@ -1136,6 +1179,7 @@
 				C05E269A2B1D9F1B00D91BFA /* SplashViewController.swift in Sources */,
 				C07AB7272B2828A600C2E02C /* TabbarCoordinator.swift in Sources */,
 				B5ACF6F72B22DA61006D7641 /* RecordDummy.swift in Sources */,
+				C04E4CF62B2AAE0B00ABDFAA /* PLUPopUpContainerView.swift in Sources */,
 				C02C5DFE2B22E0780011F07C /* UIEdgeInsets+.swift in Sources */,
 				4A44666A2B281F52002D5BF7 /* TodayQuestionCoordinatorImpl.swift in Sources */,
 				B5ACF70C2B26EC48006D7641 /* se+.swift in Sources */,
