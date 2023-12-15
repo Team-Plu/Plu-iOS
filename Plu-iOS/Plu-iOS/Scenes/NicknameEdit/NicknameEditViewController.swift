@@ -13,13 +13,17 @@ import SnapKit
 
 final class NicknameEditViewController: UIViewController {
     
+    private let navigationBar = PLUNavigationBarView()
+        .setTitle(text: "프로필 수정")
+        .setLeftButton(type: .back)
+        .setRightButton(type: .logo)
+    
     private let textFieldSubject = PassthroughSubject<String, Never>()
     private var cancelBag = Set<AnyCancellable>()
     
     private let defaultProfileImage = PLUImageView(ImageLiterals.MyPage.profile92)
     private let nickNameTextField = PLUTextField()
     private let errorLabel = PLULabel(type: .body3, color: .error)
-    private let tempButton = PluTempButton(isActive: false)
     private let nicknameLabel = PLULabel(type: .body3, color: .gray600, text: "닉네임")
     
     private let viewModel = NicknameEditViewModel(nickNameManager: NicknameManagerStub())
@@ -55,6 +59,18 @@ private extension NicknameEditViewController {
                 self?.tempButton.setButtonState(isActice: isActice)
             }
             .store(in: &cancelBag)
+        
+        navigationBar.leftButtonTapSubject
+            .sink { _ in
+                print("왼쪽 버튼 tap")
+            }
+            .store(in: &cancelBag)
+        
+        navigationBar.rightButtonTapSubject
+            .sink { _ in
+                print("오른쪽 버튼")
+            }
+            .store(in: &cancelBag)
     }
 }
 
@@ -64,19 +80,17 @@ private extension NicknameEditViewController {
     }
     
     func setHierarchy() {
-        view.addSubviews(nicknameLabel, defaultProfileImage, nickNameTextField, errorLabel)
-        view.addSubview(tempButton)
+        view.addSubviews(nicknameLabel, defaultProfileImage, nickNameTextField, errorLabel, navigationBar)
     }
     
     func setLayout() {
-        tempButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(80)
-            make.trailing.equalToSuperview().inset(20)
-            make.size.equalTo(30)
+        navigationBar.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.leading.trailing.equalToSuperview()
         }
         
         defaultProfileImage.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(36)
+            make.top.equalTo(navigationBar.snp.bottom).offset(36)
             make.centerX.equalToSuperview()
             make.size.equalTo(92)
         }
@@ -104,10 +118,6 @@ private extension NicknameEditViewController {
     
     func setAddTarget() {
         self.tempButton.addTarget(self, action: #selector(tempButtonTapped), for: .touchUpInside)
-    }
-    
-    @objc func tempButtonTapped() {
-        print("버튼이 눌렸습니다")
     }
     
     func bindInput() {
