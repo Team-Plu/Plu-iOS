@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import Combine
 
 import SnapKit
 
 final class TodayQuestionViewController: UIViewController {
     
     let coordinator: TodayQuestionCoordinator
+    private let viewModel = TodayQuestionViewModel()
+    private let isShownAlarmPopUpSubject = PassthroughSubject<Void, Never>()
+    private var cancelBag = Set<AnyCancellable>()
     
     private lazy var questionCharcterImage = UIImageView(image: self.setRandomImage())
     private let questionLabel = PLULabel(type: .head1,
@@ -55,15 +59,28 @@ final class TodayQuestionViewController: UIViewController {
         setAddTarget()
         setDelegate()
         setButtonHandler()
+        bind()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.coordinator.presentAlarmPopUpViewController()
+        self.isShownAlarmPopUpSubject.send(())
     }
     
     @objc func mypageButtonTapped() {
         self.coordinator.showMyPageViewController()
+    }
+    
+    private func bind() {
+        let input = TodayQuestionViewModel.TodayQuestionViewModelInput(isShownAlarmPopupSubject: isShownAlarmPopUpSubject)
+        
+        let output = viewModel.transform(input: input)
+        
+        output.isShownAlarmPopupSubject
+            .sink { [weak self] popUp in
+                self?.coordinator.presentAlarmPopUpViewController()
+            }
+            .store(in: &cancelBag)
     }
 }
 

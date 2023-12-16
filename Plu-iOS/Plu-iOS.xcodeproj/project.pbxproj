@@ -11,6 +11,7 @@
 		4A44666C2B28208D002D5BF7 /* RecordCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A44666B2B28208D002D5BF7 /* RecordCoordinatorImpl.swift */; };
 		4A44666F2B2B2035002D5BF7 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A44666E2B2B2035002D5BF7 /* UserDefaultsManager.swift */; };
 		4A4466712B2D8DB1002D5BF7 /* UserDefaultKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4466702B2D8DB1002D5BF7 /* UserDefaultKey.swift */; };
+		4A4466732B2D8EBE002D5BF7 /* TodayQuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4466722B2D8EBE002D5BF7 /* TodayQuestionViewModel.swift */; };
 		4AA747532B1CEF9C004D0335 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA747522B1CEF9C004D0335 /* UIColor+.swift */; };
 		4AA747552B1CF094004D0335 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA747542B1CF094004D0335 /* Palette.swift */; };
 		4AA747572B1D74A6004D0335 /* CGColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA747562B1D74A6004D0335 /* CGColor+.swift */; };
@@ -166,6 +167,7 @@
 		4A44666B2B28208D002D5BF7 /* RecordCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCoordinatorImpl.swift; sourceTree = "<group>"; };
 		4A44666E2B2B2035002D5BF7 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		4A4466702B2D8DB1002D5BF7 /* UserDefaultKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKey.swift; sourceTree = "<group>"; };
+		4A4466722B2D8EBE002D5BF7 /* TodayQuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayQuestionViewModel.swift; sourceTree = "<group>"; };
 		4AA747522B1CEF9C004D0335 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		4AA747542B1CF094004D0335 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		4AA747562B1D74A6004D0335 /* CGColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGColor+.swift"; sourceTree = "<group>"; };
@@ -711,6 +713,7 @@
 			children = (
 				C05E26932B1D9EF700D91BFA /* TodayQuestionViewController.swift */,
 				4AA747662B25E6FD004D0335 /* ImageDummy.swift */,
+				4A4466722B2D8EBE002D5BF7 /* TodayQuestionViewModel.swift */,
 			);
 			path = TodayQuestion;
 			sourceTree = "<group>";
@@ -1195,6 +1198,7 @@
 				C05E269A2B1D9F1B00D91BFA /* SplashViewController.swift in Sources */,
 				C07AB7272B2828A600C2E02C /* TabbarCoordinator.swift in Sources */,
 				B5ACF6F72B22DA61006D7641 /* RecordDummy.swift in Sources */,
+				4A4466732B2D8EBE002D5BF7 /* TodayQuestionViewModel.swift in Sources */,
 				C04E4CF62B2AAE0B00ABDFAA /* PLUPopUpContainerView.swift in Sources */,
 				C02C5DFE2B22E0780011F07C /* UIEdgeInsets+.swift in Sources */,
 				4A44666A2B281F52002D5BF7 /* TodayQuestionCoordinatorImpl.swift in Sources */,
