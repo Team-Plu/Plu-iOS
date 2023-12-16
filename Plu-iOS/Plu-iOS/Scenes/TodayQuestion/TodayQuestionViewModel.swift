@@ -14,6 +14,7 @@ final class TodayQuestionViewModel {
         let isShownAlarmPopupSubject: PassthroughSubject<Void, Never>
     }
     
+    // TODO: 화면 전환 책임 ViewModel로 옮길시, 해당 Output VC로 보낼 필요 없음.
     struct TodayQuestionViewModelOutput {
         let isShownAlarmPopupSubject: AnyPublisher<Bool, Never>
     }

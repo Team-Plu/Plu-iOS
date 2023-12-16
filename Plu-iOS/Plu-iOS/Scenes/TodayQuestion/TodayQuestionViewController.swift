@@ -76,6 +76,7 @@ final class TodayQuestionViewController: UIViewController {
         
         let output = viewModel.transform(input: input)
         
+        // TODO: 화면 전환 책임 ViewModel로 옮길시, 해당 Output VC로 받을 필요 없음.
         output.isShownAlarmPopupSubject
             .sink { [weak self] popUp in
                 self?.coordinator.presentAlarmPopUpViewController()
