@@ -8,6 +8,11 @@
 import UIKit
 
 enum ImageLiterals {
+    
+    enum PopUp {
+        static var alarm: UIImage { .load(named: "ic_alarm") }
+    }
+    
     enum Splash {
         static var pluWordmarkLarge: UIImage { .load(named: "plu_wordmark_large") }
         static var dustEye: UIImage { .load(named: "ic_eyes_dust") }
@@ -23,10 +28,6 @@ enum ImageLiterals {
         static var screenshot3: UIImage { .load(named: "screenshot3") }
         static var kakaoLogo: UIImage { .load(named: "ic_kakao") }
         static var AppleLogo: UIImage { .load(named: "ic_apple") }
-    }
-    
-    enum OnboardingCompleted {
-        static var alarm: UIImage { .load(named: "ic_alarm") }
     }
     
     enum Onboarding {

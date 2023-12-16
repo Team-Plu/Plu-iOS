@@ -36,13 +36,16 @@ final class PopUpCoordinatorImpl: PopUpCoordinator {
     func show(type: PopUpType) {
         switch type {
         case .alarm:
-            let alarmPopUpViewController = AlarmPopUpViewController(coordinator: self)
+            let viewModel = AlarmPopUpViewModelImpl(coordinator: self)
+            let alarmPopUpViewController = AlarmPopUpViewController(viewModel: viewModel)
             self.navigationController?.present(alarmPopUpViewController, animated: true)
         case .register:
-            let registerPopUpViewController = RegisterPopUpViewController(coordinator: self)
+            let viewModel = RegisterPopUpViewModelImpl(coordinator: self)
+            let registerPopUpViewController = RegisterPopUpViewController(viewModel: viewModel)
             self.navigationController?.present(registerPopUpViewController, animated: true)
         case .selectMonth:
-            let selectMonthPopUpViewController = SelectMonthPopUpViewController(coordinator: self)
+            let viewModel = SelectMonthPopUpViewModelImpl(coordinator: self)
+            let selectMonthPopUpViewController = SelectYearAndMonthPopUpViewController(viewModel: viewModel)
             self.navigationController?.present(selectMonthPopUpViewController, animated: true)
         }
     }

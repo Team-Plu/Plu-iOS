@@ -64,4 +64,9 @@ final class PLUButton: UIButton {
     func setUpdateHandler(updateHandler: UIButton.ConfigurationUpdateHandler?) {
         self.configurationUpdateHandler = updateHandler
     }
+    
+    func underLine(title: String?) -> Self {
+        self.setUnderline(title: title)
+        return self
+    }
 }
