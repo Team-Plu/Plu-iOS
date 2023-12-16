@@ -14,7 +14,7 @@ import SnapKit
 final class TodayQuestionViewController: UIViewController {
     
     let coordinator: TodayQuestionCoordinator
-    private let viewModel = TodayQuestionViewModel()
+    private let viewModel: TodayQuestionViewModel
     private let isShownAlarmPopUpSubject = PassthroughSubject<Void, Never>()
     private var cancelBag = Set<AnyCancellable>()
     
@@ -41,8 +41,9 @@ final class TodayQuestionViewController: UIViewController {
         return button
     }()
     
-    init(coordinator: TodayQuestionCoordinator) {
+    init(coordinator: TodayQuestionCoordinator, viewModel: TodayQuestionViewModel) {
         self.coordinator = coordinator
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
