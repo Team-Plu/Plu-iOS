@@ -19,6 +19,8 @@ final class NicknameEditViewController: UIViewController {
         .setRightButton(type: .text("완료"))
     
     private let textFieldSubject = PassthroughSubject<String, Never>()
+    private let navigationLeftButtonTapped = PassthroughSubject<Void, Never>()
+    private let navigationRightButtonTapped = PassthroughSubject<String?, Never>()
     private var cancelBag = Set<AnyCancellable>()
     
     private let defaultProfileImage = PLUImageView(ImageLiterals.MyPage.profile92)
@@ -26,7 +28,17 @@ final class NicknameEditViewController: UIViewController {
     private let errorLabel = PLULabel(type: .body3, color: .error)
     private let nicknameLabel = PLULabel(type: .body3, color: .gray600, text: "닉네임")
     
-    private let viewModel = NicknameEditViewModel(nickNameManager: NicknameManagerStub())
+    private lazy var activityIndicator = PLUIndicator(parent: self)
+    private let viewModel: NicknameEditViewModel
+    
+    init(viewModel: NicknameEditViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,10 +47,14 @@ final class NicknameEditViewController: UIViewController {
         setLayout()
         bindInput()
         bind()
-        setKeyboard()
-        
+
         /// 임시로 넣어놨습니다
         nickNameTextField.setTextfieldDefaultInput(input: "의성")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setKeyboard()
     }
     
     func setNickname(input: String) {
@@ -48,7 +64,7 @@ final class NicknameEditViewController: UIViewController {
 
 private extension NicknameEditViewController {
     func bind() {
-        let input = NicknameEditViewModel.NicknameEditInput(textFieldSubject: textFieldSubject)
+        let input = NicknameEditInput(textFieldSubject: textFieldSubject, naviagtionLeftButtonTapped: navigationLeftButtonTapped, naviagtionRightButtonTapped: navigationRightButtonTapped)
         let output = self.viewModel.transform(input: input)
         output.nickNameResultPublisher
             .receive(on: DispatchQueue.main)
@@ -59,17 +75,37 @@ private extension NicknameEditViewController {
             }
             .store(in: &cancelBag)
         
+        output.loadingViewSubject
+            .receive(on: DispatchQueue.main)
+            .sink { loadingViewState in
+                switch loadingViewState {
+                case .end:
+                    self.activityIndicator.isHidden = true
+                    self.activityIndicator.stopAnimating()
+                case .start:
+                    self.activityIndicator.isHidden = false
+                    self.activityIndicator.startAnimating()
+                case .error:
+                    fatalError("error발생")
+                }
+            }
+            .store(in: &cancelBag)
+        
         navigationBar.leftButtonTapSubject
-            .sink { _ in
-                print("왼쪽 버튼 tap")
+            .sink { [weak self] in
+                self?.navigationLeftButtonTapped.send(())
             }
             .store(in: &cancelBag)
         
         navigationBar.rightButtonTapSubject
-            .sink { _ in
-                print("오른쪽 버튼")
+            .sink { [weak self] in
+                self?.activityIndicator.isHidden = false
+                self?.activityIndicator.startAnimating()
+                self?.navigationRightButtonTapped.send(self?.nickNameTextField.text)
             }
             .store(in: &cancelBag)
+        
+        
     }
 }
 
@@ -80,6 +116,7 @@ private extension NicknameEditViewController {
     
     func setHierarchy() {
         view.addSubviews(nicknameLabel, defaultProfileImage, nickNameTextField, errorLabel, navigationBar)
+        view.addSubview(activityIndicator)
     }
     
     func setLayout() {

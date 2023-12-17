@@ -26,7 +26,9 @@ final class MyPageCoordinatorImpl: MyPageCoordinator {
     }
     
     func showProfileEditViewController() {
-        let profileEditViewController = NicknameEditViewController()
+        let manager = NicknameManagerStub()
+        let viewModel = NicknameEditViewModelImpl(nickNameManager: manager, coordinator: self)
+        let profileEditViewController = NicknameEditViewController(viewModel: viewModel)
         self.navigationController?.pushViewController(profileEditViewController, animated: true)
     }
     
@@ -39,6 +41,4 @@ final class MyPageCoordinatorImpl: MyPageCoordinator {
     func pop() {
         self.navigationController?.popViewController(animated: true)
     }
-    
-    
 }

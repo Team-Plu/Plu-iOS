@@ -100,6 +100,9 @@ final class PLUNavigationBarView: UIView {
     
     func setRightButtonState(isEnabled: Bool) {
         rightButton.isEnabled = isEnabled
+        var config = rightButton.configuration
+        config?.baseForegroundColor = .designSystem(isEnabled ? .gray600 : .gray200)
+        rightButton.configuration = config
     }
 }
 

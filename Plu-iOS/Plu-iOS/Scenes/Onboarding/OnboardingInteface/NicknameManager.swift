@@ -9,4 +9,5 @@ import Foundation
 
 protocol NicknameManager {
     func inputNicknameIsVaild(input: String) async throws -> Bool
+    func changeNickName(newNickname: String?) async throws
 }

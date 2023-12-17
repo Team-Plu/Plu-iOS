@@ -71,6 +71,7 @@
 		C0121A432B1347CB00D10EB0 /* Plu_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A422B1347CB00D10EB0 /* Plu_iOSTests.swift */; };
 		C0121A4D2B1347CB00D10EB0 /* Plu_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A4C2B1347CB00D10EB0 /* Plu_iOSUITests.swift */; };
 		C0121A4F2B1347CB00D10EB0 /* Plu_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A4E2B1347CB00D10EB0 /* Plu_iOSUITestsLaunchTests.swift */; };
+		C012FFF62B2F06FA00433211 /* PLUIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C012FFF52B2F06FA00433211 /* PLUIndicator.swift */; };
 		C02C5DFE2B22E0780011F07C /* UIEdgeInsets+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C5DFD2B22E0780011F07C /* UIEdgeInsets+.swift */; };
 		C04E4CF42B2A8DCF00ABDFAA /* SelectMonthPopUpViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04E4CF32B2A8DCF00ABDFAA /* SelectMonthPopUpViewModelImpl.swift */; };
 		C04E4CF62B2AAE0B00ABDFAA /* PLUPopUpContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04E4CF52B2AAE0A00ABDFAA /* PLUPopUpContainerView.swift */; };
@@ -231,6 +232,7 @@
 		C0121A482B1347CB00D10EB0 /* Plu-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Plu-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0121A4C2B1347CB00D10EB0 /* Plu_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plu_iOSUITests.swift; sourceTree = "<group>"; };
 		C0121A4E2B1347CB00D10EB0 /* Plu_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plu_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C012FFF52B2F06FA00433211 /* PLUIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLUIndicator.swift; sourceTree = "<group>"; };
 		C02C5DFD2B22E0780011F07C /* UIEdgeInsets+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+.swift"; sourceTree = "<group>"; };
 		C04E4CF32B2A8DCF00ABDFAA /* SelectMonthPopUpViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMonthPopUpViewModelImpl.swift; sourceTree = "<group>"; };
 		C04E4CF52B2AAE0A00ABDFAA /* PLUPopUpContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLUPopUpContainerView.swift; sourceTree = "<group>"; };
@@ -662,6 +664,7 @@
 				4AA747642B25B8C8004D0335 /* PLUExplanationView.swift */,
 				C0E0D4FA2B26CC4C00840C0B /* PLUImageView.swift */,
 				4AA7476F2B261221004D0335 /* PLUEverydayAnswerView.swift */,
+				C012FFF52B2F06FA00433211 /* PLUIndicator.swift */,
 			);
 			path = UIComponent;
 			sourceTree = "<group>";
@@ -1097,6 +1100,7 @@
 				B5ACF6C92B1EE26C006D7641 /* ElementColor.swift in Sources */,
 				B5ACF72F2B283D23006D7641 /* AnswerDetailCoordinatorImpl.swift in Sources */,
 				C0E93B5A2B20518B0098A822 /* TableSectionViewRegisterDequeueProtocol.swift in Sources */,
+				C012FFF62B2F06FA00433211 /* PLUIndicator.swift in Sources */,
 				C05E26782B1D9D2900D91BFA /* StringConstant.swift in Sources */,
 				C0A2561D2B1ED99B0059AA7E /* MyPageHeaderView.swift in Sources */,
 				4AA747702B261221004D0335 /* PLUEverydayAnswerView.swift in Sources */,
@@ -1373,7 +1377,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = AXN37CP9B9;
+				DEVELOPMENT_TEAM = Z225784MRD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Plu-iOS/Application/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1403,7 +1407,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = AXN37CP9B9;
+				DEVELOPMENT_TEAM = Z225784MRD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Plu-iOS/Application/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

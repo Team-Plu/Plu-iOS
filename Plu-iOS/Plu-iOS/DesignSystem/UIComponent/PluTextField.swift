@@ -74,6 +74,11 @@ final class PLUTextField: UITextField {
         let rect = super.editingRect(forBounds: bounds)
         return rect.inset(by: TextFieldConstant.textPadding)
     }
+    
+    override func textRect(forBounds bounds: CGRect) -> CGRect {
+        let rect = super.textRect(forBounds: bounds)
+        return rect.inset(by: TextFieldConstant.textPadding)
+    }
 
     func setClearButton() {
         if let clearButton = self.value(forKeyPath: "_clearButton") as? UIButton {

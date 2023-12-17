@@ -54,9 +54,13 @@ final class OnboardingViewController: UIViewController {
         setUI()
         setHierarchy()
         setLayout()
-        setKeyboard()
         bindInput()
         bind()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setKeyboard()
     }
     
     override func viewWillAppear(_ animated: Bool) {
