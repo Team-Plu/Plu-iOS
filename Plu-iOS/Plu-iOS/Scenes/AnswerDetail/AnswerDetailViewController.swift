@@ -6,11 +6,16 @@
 //
 
 import UIKit
+import Combine
 
 import SnapKit
 
 final class AnswerDetailViewController: UIViewController {
 
+    private var cancleBag = Set<AnyCancellable>()
+    private let coordinator: AnswerDetailCoordinator
+    private let navigationBar = PLUNavigationBarView()
+        .setLeftButton(type: .back)
     private let everyAnswerView = PLUEverydayAnswerView()
     private let contentView = UIView()
     private let answerScrollerView = UIScrollView()
@@ -31,6 +36,24 @@ final class AnswerDetailViewController: UIViewController {
         setDelegate()
         setButtonHandler()
         everyAnswerView.configureUI(answer: OthersAnswer.dummmy())
+        bindInput()
+    }
+    
+    init(coordinator: AnswerDetailCoordinator) {
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func bindInput() {
+        navigationBar.leftButtonTapSubject
+            .sink { [weak self] in
+                self?.coordinator.pop()
+            }
+            .store(in: &cancleBag)
     }
 }
 
@@ -40,14 +63,19 @@ private extension AnswerDetailViewController {
     }
     
     func setHierarchy() {
-        view.addSubviews(everyAnswerView, answerScrollerView)
+        view.addSubviews(navigationBar, everyAnswerView, answerScrollerView)
         answerScrollerView.addSubview(contentView)
         contentView.addSubviews(answerDetailLabel, sympathyButton)
     }
     
     func setLayout() {
-        everyAnswerView.snp.makeConstraints { make in
+        navigationBar.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.leading.trailing.equalToSuperview()
+        }
+        
+        everyAnswerView.snp.makeConstraints { make in
+            make.top.equalTo(navigationBar.snp.bottom)
             make.leading.trailing.equalToSuperview()
             make.centerX.equalToSuperview()
         }

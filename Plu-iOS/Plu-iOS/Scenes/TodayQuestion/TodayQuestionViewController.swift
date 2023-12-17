@@ -18,6 +18,9 @@ final class TodayQuestionViewController: UIViewController {
     private let isShownAlarmPopUpSubject = PassthroughSubject<Void, Never>()
     private var cancelBag = Set<AnyCancellable>()
     
+    private let navigationBar = PLUNavigationBarView()
+        .setRightButton(type: .logo)
+        .setLeftButton(type: .textLogo)
     private lazy var questionCharcterImage = UIImageView(image: self.setRandomImage())
     private let questionLabel = PLULabel(type: .head1,
                                          color: .gray700,
@@ -61,6 +64,7 @@ final class TodayQuestionViewController: UIViewController {
         setDelegate()
         setButtonHandler()
         bind()
+        bindInput()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -70,6 +74,14 @@ final class TodayQuestionViewController: UIViewController {
     
     @objc func mypageButtonTapped() {
         self.coordinator.showMyPageViewController()
+    }
+    
+    private func bindInput() {
+        navigationBar.rightButtonTapSubject
+            .sink { [weak self] in
+                self?.coordinator.showMyPageViewController()
+            }
+            .store(in: &cancelBag)
     }
     
     private func bind() {
@@ -93,13 +105,18 @@ private extension TodayQuestionViewController {
     }
     
     func setHierarchy() {
-        view.addSubviews(questionCharcterImage, questionLabel, explanationView, seeYouTommorowImage, myAnswerButton, everyAnswerButtom, explanationLabel)
+        view.addSubviews(navigationBar, questionCharcterImage, questionLabel, explanationView, seeYouTommorowImage, myAnswerButton, everyAnswerButtom, explanationLabel)
         view.addSubview(tempMyPageButton)
     }
     
     func setLayout() {
+        navigationBar.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.leading.trailing.equalToSuperview()
+        }
+        
         questionCharcterImage.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(42)
+            make.top.equalTo(navigationBar.snp.bottom).offset(42)
             make.leading.equalToSuperview().inset(103)
         }
         

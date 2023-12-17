@@ -15,12 +15,14 @@ final class PLUNavigationBarView: UIView {
     
     enum LeftButtonType {
         case logo
+        case textLogo
         case back
         
         var image: UIImage {
             switch self {
             case .back: return ImageLiterals.NavigationBar.arrowLeft
             case .logo: return ImageLiterals.NavigationBar.profile32
+            case .textLogo: return ImageLiterals.NavigationBar.pluSmallLogo
             }
         }
     }

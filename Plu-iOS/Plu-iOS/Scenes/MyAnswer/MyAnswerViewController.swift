@@ -20,6 +20,10 @@ final class MyAnswerViewController: UIViewController {
     private let keyboardStatyeType = PassthroughSubject<KeyboardType, Never>()
     private let textViewTextCountSubject = PassthroughSubject<String, Never>()
     
+    private let navigationBar = PLUNavigationBarView()
+        .setTitle(text: StringConstant.Navibar.title.myAnswer)
+        .setRightButton(type: .text(StringConstant.Navibar.rightButton.complete))
+        .setLeftButton(type: .back)
     private let everyDayAnswerView = PLUEverydayAnswerView()
     private lazy var answerTextView = PLUTextView()
     private let answerCautionView = AnswerCautionView()
@@ -79,6 +83,18 @@ final class MyAnswerViewController: UIViewController {
                 self?.keyboardStatyeType.send((.hide))
             }
             .store(in: &cancelBag)
+        
+        navigationBar.leftButtonTapSubject
+            .sink { [weak self] in
+                self?.coordinator.pop()
+            }
+            .store(in: &cancelBag)
+        
+        navigationBar.rightButtonTapSubject
+            .sink { [weak self] in
+                self?.coordinator.presentRegisterPopUpViewController()
+            }
+            .store(in: &cancelBag)
     }
     
     private func bind() {
@@ -130,15 +146,20 @@ private extension MyAnswerViewController {
     }
     
     func setHierarchy() {
-        view.addSubviews(everyDayAnswerView, answerTextView, answerCautionView, bottomView)
+        view.addSubviews(navigationBar, everyDayAnswerView, answerTextView, answerCautionView, bottomView)
         bottomView.addSubviews(underLine, bottomTextLabel, answerStateSwitch)
         /// 나중에 삭제
         view.addSubview(tempCompleteButton)
     }
     
     func setLayout() {
+        navigationBar.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.leading.trailing.equalToSuperview()
+        }
+        
         everyDayAnswerView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalTo(navigationBar.snp.bottom)
             make.leading.trailing.equalToSuperview()
         }
         

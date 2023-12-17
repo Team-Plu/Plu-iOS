@@ -109,4 +109,14 @@ enum StringConstant {
             static let rejectButtonTitle = "괜찮아요"
         }
     }
+    
+    enum Navibar {
+        enum title {
+            static let myAnswer = "나의 답변"
+        }
+        
+        enum rightButton {
+            static let complete = "완료"
+        }
+    }
 }

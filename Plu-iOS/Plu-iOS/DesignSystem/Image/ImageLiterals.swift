@@ -45,6 +45,7 @@ enum ImageLiterals {
     enum NavigationBar {
         static var profile32: UIImage { .load(named: "ic_profile_32") }
         static var arrowLeft: UIImage { .load(named: "ic_arrow_left") }
+        static var pluSmallLogo: UIImage { .load(named: "plu_wordmark_small")}
     }
     
     enum TabBar {
