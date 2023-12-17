@@ -32,14 +32,6 @@ final class MyAnswerViewController: UIViewController {
     private let bottomTextLabel = PLULabel(type: .body1R, color: .gray700, text: StringConstant.MyAnswer.bottomView.text)
     private let answerStateSwitch = UISwitch()
     
-    private lazy var tempCompleteButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("임시완료버튼입니다", for: .normal)
-        button.backgroundColor = .designSystem(.error)
-        button.addTarget(self, action: #selector(completButtonTapped), for: .touchUpInside)
-        return button
-    }()
-    
     init(coordinator: MyAnswerCoordinator) {
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
@@ -153,8 +145,6 @@ private extension MyAnswerViewController {
     func setHierarchy() {
         view.addSubviews(navigationBar, everyDayAnswerView, answerTextView, answerCautionView, bottomView)
         bottomView.addSubviews(underLine, bottomTextLabel, answerStateSwitch)
-        /// 나중에 삭제
-        view.addSubview(tempCompleteButton)
     }
     
     func setLayout() {
@@ -200,11 +190,6 @@ private extension MyAnswerViewController {
         answerStateSwitch.snp.makeConstraints { make in
             make.trailing.equalToSuperview().inset(20)
             make.centerY.equalToSuperview()
-        }
-        
-        tempCompleteButton.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-            make.size.equalTo(150)
         }
     }
     
