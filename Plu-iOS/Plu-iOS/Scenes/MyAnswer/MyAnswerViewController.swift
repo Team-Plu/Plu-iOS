@@ -18,9 +18,10 @@ final class MyAnswerViewController: UIViewController {
     private var cancelBag = Set<AnyCancellable>()
     private let viewModel = MyAnswerViewModel()
     private let keyboardStatyeType = PassthroughSubject<KeyboardType, Never>()
+    private let textViewTextCountSubject = PassthroughSubject<String, Never>()
     
     private let everyDayAnswerView = PLUEverydayAnswerView()
-    private lazy var answerTextView = PLUTextView(text: StringConstant.MyAnswer.placeholder.text, textColor: .gray300, font: .body1R)
+    private lazy var answerTextView = PLUTextView()
     private let answerCautionView = AnswerCautionView()
     private let bottomView = UIView()
     private let underLine = PLUUnserLine(color: .gray100)
@@ -81,13 +82,21 @@ final class MyAnswerViewController: UIViewController {
     }
     
     private func bind() {
-        let input = MyAnswerViewModel.MyAnswerInput(keyboardStateSubject: keyboardStatyeType)
+        let input = MyAnswerViewModel.MyAnswerInput(keyboardStateSubject: keyboardStatyeType,
+                                                    textViewTextCountSubject: textViewTextCountSubject)
         let output = viewModel.transform(input: input)
         
         output.keyboardStatePublisher
             .receive(on: RunLoop.main)
             .sink { [weak self] state in
                 self?.updateTextViewLayout(keyboardState: state)
+            }
+            .store(in: &cancelBag)
+        
+        output.textViewTextCountPublisher
+            .receive(on: RunLoop.main)
+            .sink { [weak self] state in
+                self?.answerTextView.placeHolderLabel.isHidden = state
             }
             .store(in: &cancelBag)
     }
@@ -109,18 +118,8 @@ final class MyAnswerViewController: UIViewController {
 
 // MARK: - UITextViewDelegate
 extension MyAnswerViewController: UITextViewDelegate {
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == .designSystem(.gray300) {
-            textView.text = nil
-            textView.textColor = .designSystem(.black)
-        }
-    }
-    
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
-            textView.textColor = .designSystem(.gray300)
-            textView.text = StringConstant.MyAnswer.placeholder.text
-        }
+    func textViewDidChange(_ textView: UITextView) {
+        textViewTextCountSubject.send(textView.text)
     }
 }
 
