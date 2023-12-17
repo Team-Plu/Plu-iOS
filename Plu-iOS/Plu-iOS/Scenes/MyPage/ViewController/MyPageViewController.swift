@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import Combine
 
 import SnapKit
+
+enum MypageNavigationType {
+    case back, nicknameEdit, resign, logout
+}
 
 final class MyPageViewController: UIViewController {
     
@@ -16,8 +21,14 @@ final class MyPageViewController: UIViewController {
     
     let coordinator: MyPageCoordinator
     
+    let navigationSubject = PassthroughSubject<MypageNavigationType, Never>()
+    var cancelBag = Set<AnyCancellable>()
+    
+    private let navigationBar = PLUNavigationBarView()
+        .setTitle(text: "마이페이지")
+        .setLeftButton(type: .back)
+    
     private let myPageTableView = MyPageTableView()
-
     
     init(coordinator: MyPageCoordinator) {
         self.coordinator = coordinator
@@ -34,7 +45,27 @@ final class MyPageViewController: UIViewController {
         setHierarchy()
         setLayout()
         setDelegate()
+        bindInput()
         setMyPageFromUserData(input: .dummyData)
+        navigationSubject
+            .sink { type in
+                switch type {
+                case .back:
+                    self.coordinator.pop()
+                case .nicknameEdit:
+                    self.coordinator.showProfileEditViewController()
+                case .resign:
+                    self.coordinator.showResignViewController()
+                case .logout:
+                    print("✅✅✅✅✅✅✅✅✅✅✅✅✅")
+                }
+            }
+            .store(in: &cancelBag)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
     }
 }
 
@@ -44,12 +75,19 @@ private extension MyPageViewController {
     }
     
     func setHierarchy() {
-        view.addSubview(myPageTableView)
+        view.addSubviews(navigationBar, myPageTableView)
     }
     
     func setLayout() {
+        
+        navigationBar.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.leading.trailing.equalToSuperview()
+        }
+        
         myPageTableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.equalTo(navigationBar.snp.bottom)
+            make.leading.trailing.bottom.equalToSuperview()
         }
     }
     
@@ -69,6 +107,13 @@ private extension MyPageViewController {
         return MyPageSection.makeMypageData(alarmAccept, appVersion)
     }
     
+    func bindInput() {
+        self.navigationBar.leftButtonTapSubject
+            .sink { [weak self] in
+                self?.navigationSubject.send(.back)
+            }
+            .store(in: &cancelBag)
+    }
 }
 
 extension MyPageViewController: UITableViewDataSource {
@@ -138,7 +183,7 @@ extension MyPageViewController: UITableViewDelegate, MyPageHeaderDelgate {
         switch tableData[indexPath.section][indexPath.row] {
         case .exit(let data):
             if data.title == "탈퇴하기" {
-                self.coordinator.showResignViewController()
+                self.navigationSubject.send(.resign)
             }
         default:
             print("딴거")
