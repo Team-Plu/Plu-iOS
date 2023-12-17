@@ -11,23 +11,37 @@ import Combine
 
 import SnapKit
 
+enum OnboardingNavigationType {
+    case backButtonTapped, signInButtonTapped
+}
+
 final class OnboardingViewController: UIViewController {
     
-    var coordinator: AuthCoordinator
-    
     private let textFieldSubject = PassthroughSubject<String, Never>()
+    private let navigationSubject = PassthroughSubject<OnboardingNavigationType, Never>()
     private var cancelBag = Set<AnyCancellable>()
     
+    private let navigationBar = PLUNavigationBarView()
+        .setTitle(text: "회원가입")
+        .setLeftButton(type: .back)
+    
     private let titleLabel = PLULabel(type: .head1, color: .gray700, text: StringConstant.Onboarding.title.description)
+    
     private let subTitleLabel = PLULabel(type: .body2R, color: .gray500, text: StringConstant.Onboarding.subTitle.description)
+    
     private let nickNameTextField = PLUTextField()
+    
     private let errorLabel = PLULabel(type: .body3, color: .error)
-    private var signInButton = PluTempButton()
     
-    private let viewModel = OnboardingViewModel(manager: NicknameManagerStub())
+    private var signInButton = PLUButton(config: .bordered())
+        .setText(text: "가입 완료", font: .title1)
+        .setLayer(cornerRadius: 8)
     
-    init(coordinator: AuthCoordinator) {
-        self.coordinator = coordinator
+    
+    private let viewModel: OnboardingViewModel
+    
+    init(viewModel: OnboardingViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -41,22 +55,26 @@ final class OnboardingViewController: UIViewController {
         setHierarchy()
         setLayout()
         setKeyboard()
-        setAddTarget()
         bindInput()
         bind()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
     }
 }
 
 private extension OnboardingViewController {
     func bind() {
-        let input = OnboardingViewModel.OnboardingInput(textFieldSubject: textFieldSubject)
+        let input = OnboardingInput(textFieldSubject: textFieldSubject, navigationSubject: navigationSubject)
         let output = self.viewModel.transform(input: input)
         output.nickNameResultPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] in
-                guard let isActice = $0.nextProcessButtonIsActive, let description = $0.errorDescription else { return }
+                guard let isActive = $0.nextProcessButtonIsActive, let description = $0.errorDescription else { return }
                 self?.errorLabel.text = description
-                self?.signInButton.setButtonState(isActice: isActice)
+                self?.signInButton.isActive(state: isActive)
             }
             .store(in: &cancelBag)
     }
@@ -65,22 +83,42 @@ private extension OnboardingViewController {
         self.nickNameTextField.textPublisher
             .sink { [weak self] in self?.textFieldSubject.send($0) }
             .store(in: &cancelBag)
+        
+        self.navigationBar.leftButtonTapSubject
+            .sink { [weak self] in
+                self?.navigationSubject.send(.backButtonTapped)
+            }
+            .store(in: &cancelBag)
+        
+        self.signInButton.tapPublisher
+            .sink { [weak self] in
+                self?.navigationSubject.send(.signInButtonTapped)
+                self?.signInButton.isUserInteractionEnabled = false
+            }
+            .store(in: &cancelBag)
     }
 }
 
 private extension OnboardingViewController {
 
     func setUI() {
+        self.signInButton.isActive(state: false)
         self.view.backgroundColor = .designSystem(.background)
     }
     
     func setHierarchy() {
-        view.addSubviews(titleLabel, subTitleLabel, nickNameTextField, errorLabel, signInButton)
+        view.addSubviews(navigationBar, titleLabel, subTitleLabel, nickNameTextField, errorLabel, signInButton)
     }
     
     func setLayout() {
+        navigationBar.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.leading.trailing.equalToSuperview()
+        }
+        
+        
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(42)
+            make.top.equalTo(navigationBar.snp.bottom).offset(42)
             make.leading.equalToSuperview().inset(20)
         }
         
@@ -109,14 +147,5 @@ private extension OnboardingViewController {
 
     func setKeyboard() {
         self.nickNameTextField.becomeFirstResponder()
-    }
-    
-    func setAddTarget() {
-        self.signInButton.addTarget(self, action: #selector(signInButtonTapped), for: .touchUpInside)
-    }
-    
-    @objc
-    func signInButtonTapped() {
-        self.coordinator.showTabbarController()
     }
 }

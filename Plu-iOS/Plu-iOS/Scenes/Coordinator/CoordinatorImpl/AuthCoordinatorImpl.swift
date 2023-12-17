@@ -27,7 +27,9 @@ final class AuthCoordinatorImpl: AuthCoordinator {
     }
     
     func showOnboardingController() {
-        let onboardingViewController = OnboardingViewController(coordinator: self)
+        let manger = NicknameManagerStub()
+        let viewModel = OnboardingViewModelImpl(manager: manger, coordinator: self)
+        let onboardingViewController = OnboardingViewController(viewModel: viewModel)
         self.navigationController?.pushViewController(onboardingViewController, animated: true)
     }
     
