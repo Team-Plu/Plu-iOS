@@ -37,11 +37,16 @@ final class AnswerDetailViewController: UIViewController {
         setButtonHandler()
         everyAnswerView.configureUI(answer: OthersAnswer.dummmy())
         bindInput()
+        setTabBar()
     }
     
     init(coordinator: AnswerDetailCoordinator) {
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     required init?(coder: NSCoder) {
@@ -122,5 +127,9 @@ private extension AnswerDetailViewController {
             : .designSystem(.pluRed)
             button.configuration = config
         })
+    }
+    
+    func setTabBar() {
+        self.tabBarController?.tabBar.isHidden = true
     }
 }

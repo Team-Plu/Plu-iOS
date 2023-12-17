@@ -45,6 +45,10 @@ final class MyAnswerViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -52,6 +56,7 @@ final class MyAnswerViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tabBarController?.tabBar.isHidden = true
         setUI()
         setHierarchy()
         setLayout()
@@ -59,7 +64,7 @@ final class MyAnswerViewController: UIViewController {
         everyDayAnswerView.configureUI(answer: OthersAnswer.dummmy())
         bind()
         bindInput()
-
+        setTabBar()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -205,5 +210,9 @@ private extension MyAnswerViewController {
     
     func setDelegate() {
         answerTextView.delegate = self
+    }
+    
+    func setTabBar() {
+        self.tabBarController?.tabBar.isHidden = true
     }
 }
