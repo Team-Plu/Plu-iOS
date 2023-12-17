@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import Combine
 
 import SnapKit
 
 final class TodayQuestionViewController: UIViewController {
     
     let coordinator: TodayQuestionCoordinator
+    private let viewModel: TodayQuestionViewModel
+    private let isShownAlarmPopUpSubject = PassthroughSubject<Void, Never>()
+    private var cancelBag = Set<AnyCancellable>()
     
     private lazy var questionCharcterImage = UIImageView(image: self.setRandomImage())
     private let questionLabel = PLULabel(type: .head1,
@@ -37,8 +41,9 @@ final class TodayQuestionViewController: UIViewController {
         return button
     }()
     
-    init(coordinator: TodayQuestionCoordinator) {
+    init(coordinator: TodayQuestionCoordinator, viewModel: TodayQuestionViewModel) {
         self.coordinator = coordinator
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -55,15 +60,30 @@ final class TodayQuestionViewController: UIViewController {
         setAddTarget()
         setDelegate()
         setButtonHandler()
+        bind()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.coordinator.presentAlarmPopUpViewController()
+        self.isShownAlarmPopUpSubject.send(())
     }
     
     @objc func mypageButtonTapped() {
         self.coordinator.showMyPageViewController()
+    }
+    
+    private func bind() {
+        // TODO: ViewModel Protocol 주입시 변경
+        let input = TodayQuestionViewModel.TodayQuestionViewModelInput(isShownAlarmPopupSubject: isShownAlarmPopUpSubject)
+        
+        let output = viewModel.transform(input: input)
+        
+        // TODO: 화면 전환 책임 ViewModel로 옮길시, 해당 Output VC로 받을 필요 없음.
+        output.isShownAlarmPopupSubject
+            .sink { [weak self] popUp in
+                self?.coordinator.presentAlarmPopUpViewController()
+            }
+            .store(in: &cancelBag)
     }
 }
 
