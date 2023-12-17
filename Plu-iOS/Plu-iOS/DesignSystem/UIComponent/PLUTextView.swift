@@ -9,8 +9,8 @@ import UIKit
 
 final class PLUTextView: UITextView {
     let placeHolderLabel = PLULabel(type: .body1R,
-                                       color: .gray300,
-                                       text: StringConstant.MyAnswer.placeholder.text)
+                                    color: .gray300,
+                                    text: StringConstant.MyAnswer.placeholder.text)
     
     init() {
         super.init(frame: .zero, textContainer: .none)
@@ -19,11 +19,14 @@ final class PLUTextView: UITextView {
         self.textColor = .designSystem(.gray700)
         self.backgroundColor = .designSystem(.background)
         self.textContainerInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        self.tintColor = .designSystem(.gray700)
+        
+        self.placeHolderLabel.backgroundColor = .clear
         
         addSubview(placeHolderLabel)
         placeHolderLabel.translatesAutoresizingMaskIntoConstraints = false
-        placeHolderLabel.topAnchor.constraint(equalTo: super.topAnchor, constant: 0).isActive = true
-        placeHolderLabel.leadingAnchor.constraint(equalTo: super.leadingAnchor, constant: 22).isActive = true
+        placeHolderLabel.topAnchor.constraint(equalTo: super.topAnchor).isActive = true
+        placeHolderLabel.leadingAnchor.constraint(equalTo: super.leadingAnchor, constant: 26).isActive = true
     }
     
     required init?(coder: NSCoder) {
