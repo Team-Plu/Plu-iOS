@@ -23,10 +23,6 @@ struct NicknameEditOutput {
     let loadingViewSubject: AnyPublisher<NicknameLoadingState, Never>
 }
 
-enum NicknameEditNavigationType {
-    case backButtonTapped, completeButtonTapped
-}
-
 enum NicknameLoadingState {
     case start, end, error
 }
@@ -36,7 +32,7 @@ final class NicknameEditViewModelImpl: NicknameEditViewModel, NicknameCheck {
     var coordinator: MyPageCoordinator
     
     var vaildNicknameSubject = textFieldVaildChecker()
-    let navigationSubject = PassthroughSubject<NicknameEditNavigationType, Never>()
+    let navigationSubject = PassthroughSubject<Void, Never>()
     var cancelBag = Set<AnyCancellable>()
     
     init(nickNameManager: NicknameManager, coordinator: MyPageCoordinator) {
@@ -53,7 +49,7 @@ final class NicknameEditViewModelImpl: NicknameEditViewModel, NicknameCheck {
                         do {
                             try await Task.sleep(nanoseconds: 1000000000)
                             try await self.nickNameManager.changeNickName(newNickname: newNickname)
-                            self.navigationSubject.send(.completeButtonTapped)
+                            self.navigationSubject.send(())
                             promise(.success(.end))
                         } catch {
                             promise(.failure(error))
@@ -70,7 +66,7 @@ final class NicknameEditViewModelImpl: NicknameEditViewModel, NicknameCheck {
         
         input.naviagtionLeftButtonTapped
             .sink { [weak self] in
-                self?.navigationSubject.send(.backButtonTapped)
+                self?.navigationSubject.send(())
             }
             .store(in: &cancelBag)
         
