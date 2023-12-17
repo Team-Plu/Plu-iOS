@@ -73,6 +73,7 @@ final class TodayQuestionViewController: UIViewController {
     }
     
     private func bind() {
+        // TODO: ViewModel Protocol 주입시 변경
         let input = TodayQuestionViewModel.TodayQuestionViewModelInput(isShownAlarmPopupSubject: isShownAlarmPopUpSubject)
         
         let output = viewModel.transform(input: input)
