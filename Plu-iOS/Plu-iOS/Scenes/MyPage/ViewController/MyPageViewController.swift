@@ -142,7 +142,9 @@ extension MyPageViewController: UITableViewDataSource {
                     case .alarmAccept:
                         self?.navigationSubject.send(.popUp)
                     case .moveSetting:
-                        self?.goToSettingPage()
+                        self?.goToSettingPage { _ in 
+                            cell.alarmSwitch.setOn(false, animated: false)
+                        }
                     }
                 }
                 .store(in: &cell.cancelBag)

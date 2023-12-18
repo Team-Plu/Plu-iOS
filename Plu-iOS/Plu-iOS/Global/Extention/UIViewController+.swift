@@ -36,7 +36,7 @@ extension UIViewController {
 }
 
 extension UIViewController {
-    func goToSettingPage() {
+    func goToSettingPage(handler: ((UIAlertAction) -> Void)?) {
         let alertController = UIAlertController(title: "알림을 설정하시겠어요?",
                                                 message: "설정에서 알림을 허용해주세요",
                                                 preferredStyle: .alert)
@@ -48,7 +48,7 @@ extension UIViewController {
             }
         }
         alertController.addAction(goToSettings)
-        alertController.addAction(UIAlertAction(title: "취소", style: .default))
+        alertController.addAction(UIAlertAction(title: "취소", style: .default, handler: handler))
         self.present(alertController, animated: true)
     }
 }

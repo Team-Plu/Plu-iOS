@@ -20,6 +20,7 @@ final class MyPageAlarmTableViewCell: UITableViewCell, TableViewCellRegisterDequ
     let alarmSwitchTypeSubject = PassthroughSubject<MypageAlarmSwitchType, Never>()
     var cancelBag = Set<AnyCancellable>()
     
+    
     private let cellTitle: UILabel = {
         let label = UILabel()
         label.font = .suite(.body1M)
@@ -53,7 +54,7 @@ final class MyPageAlarmTableViewCell: UITableViewCell, TableViewCellRegisterDequ
     }
     
     func configureUI(_ input: MyPageAlarmData) {
-        self.alarmSwitch.setOn(input.acceptAlarm, animated: false)
+        self.alarmSwitch.isOn = input.acceptAlarm
         self.cellTitle.text = input.title
     }
     
@@ -89,15 +90,17 @@ private extension MyPageAlarmTableViewCell {
     }
     
     @objc func onClickSwitch() {
-        if !self.alarmSwitch.isOn {
-            self.alarmSwitchTypeSubject.send(.alarmAccept)
-        } else {
-            let notificationCenter = UNUserNotificationCenter.current()
-            notificationCenter.getNotificationSettings { settings in
-                DispatchQueue.main.async {
-                    if settings.authorizationStatus != .authorized {
-                        self.alarmSwitchTypeSubject.send(.moveSetting)
-                    }
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.getNotificationSettings { settings in
+            DispatchQueue.main.async {
+                if settings.authorizationStatus != .authorized {
+                    self.alarmSwitch.setOn(self.alarmSwitch.isOn, animated: false)
+                    self.alarmSwitchTypeSubject.send(.moveSetting)
+                    return
+                }
+                
+                if !self.alarmSwitch.isOn {
+                    self.alarmSwitchTypeSubject.send(.alarmAccept)
                 }
             }
         }
