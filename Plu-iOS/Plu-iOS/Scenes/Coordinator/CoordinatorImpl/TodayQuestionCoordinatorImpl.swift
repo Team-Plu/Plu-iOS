@@ -38,12 +38,12 @@ final class TodayQuestionCoordinatorImpl: TodayQuestionCoordinator {
     func presentAlarmPopUpViewController() {
         let popUpCoordinator = PopUpCoordinatorImpl(navigationController: self.navigationController)
         popUpCoordinator.alarmDelegate = self
-        popUpCoordinator.show(type: .alarm)
+        popUpCoordinator.show(type: .alarm(.todayQuestion))
     }
 }
 
 extension TodayQuestionCoordinatorImpl: AlarmDelegate {
-    func alarmAccept(_ input: Bool) {
+    func isAccept() {
         print("알람 확인 버튼이 늘렸습니다")
     }
 }
