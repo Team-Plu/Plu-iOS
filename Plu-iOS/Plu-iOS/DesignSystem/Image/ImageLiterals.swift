@@ -79,7 +79,7 @@ enum ImageLiterals {
         static var arrowRightSmall900: UIImage { .load(named: "ic_arrow_right_small_900") }
     }
     
-    enum MyAnswerDetail {
+    enum AnswerDetail {
         static var airEmpathyLargeActivated: UIImage { .load(named: "ic_empathy_large_air_activated") }
         static var fireEmpathyLargeActivated: UIImage { .load(named: "ic_empathy_large_fire_activated") }
         static var waterEmpathyLargeActivated: UIImage { .load(named: "ic_empathy_large_water_activated") }

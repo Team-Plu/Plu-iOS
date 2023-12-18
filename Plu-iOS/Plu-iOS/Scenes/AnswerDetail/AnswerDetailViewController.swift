@@ -21,9 +21,9 @@ final class AnswerDetailViewController: UIViewController {
     private let answerScrollerView = UIScrollView()
     private let answerDetailLabel = PLULabel(type: .body1R, color: .gray700, backgroundColor: .background, lines: 0, text: "진정한 행복이란 추석 연휴에 엽떡을 먹는 것 엽떡은 정말 맛있기 때문입니다 엽떡 만세진정한 행복이란 추석 연휴에 엽떡을 먹는 것 엽떡은 정말 맛있기 때문입니다")
     private let sympathyButton = PLUButton(config: .bordered())
-        .setImage(image: ImageLiterals.Respone.fireEmpathySmall, placement: .leading)
-        .setBackForegroundColor(backgroundColor: .white, foregroundColor: .pluRed)
-        .setText(text: " 공감 999", font: .body2M)
+        .setImage(image: ImageLiterals.AnswerDetail.airEmpathyLargeActivated, placement: .leading, padding: 4)
+        .setBackForegroundColor(backgroundColor: .background, foregroundColor: .pluRed)
+        .setText(text: "공감 999", font: .body2M)
         .setLayer(cornerRadius: 15, borderColor: .pluRed)
     
     public override func viewDidLoad() {
@@ -120,11 +120,15 @@ private extension AnswerDetailViewController {
             var config = button.configuration
             config?.background.backgroundColor = button.isSelected
             ? .designSystem(.pluRed)
-            : .designSystem(.white)
+            : .designSystem(.background)
             
             config?.baseForegroundColor = button.isSelected
             ? .designSystem(.white)
             : .designSystem(.pluRed)
+            
+            config?.image = button.isSelected
+            ? ImageLiterals.AnswerDetail.fireEmpathyLargeInactivated
+            : ImageLiterals.AnswerDetail.fireEmpathyLargeActivated
             button.configuration = config
         })
     }
