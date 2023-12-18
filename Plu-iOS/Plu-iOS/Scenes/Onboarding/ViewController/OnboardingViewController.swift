@@ -78,6 +78,7 @@ private extension OnboardingViewController {
             .sink { [weak self] in
                 guard let isActive = $0.nextProcessButtonIsActive, let description = $0.errorDescription else { return }
                 self?.errorLabel.text = description
+                self?.signInButton.isEnabled = isActive
                 self?.signInButton.isActive(state: isActive)
             }
             .store(in: &cancelBag)

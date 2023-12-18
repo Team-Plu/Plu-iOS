@@ -83,5 +83,16 @@ private extension ResignViewController {
     }
     
     func setUpdateHandler() {
+        resignButton.addTarget(self, action: #selector(resignButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func resignButtonTapped() {
+        guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else { return }
+        let navigationController = UINavigationController()
+        sceneDelegate.appCoordinator = AppCoordinatorImpl(navigationController: navigationController)
+        sceneDelegate.appCoordinator?.startSplashCoordinator()
+        sceneDelegate.window?.rootViewController = navigationController
+        sceneDelegate.window?.makeKeyAndVisible()
     }
 }
+

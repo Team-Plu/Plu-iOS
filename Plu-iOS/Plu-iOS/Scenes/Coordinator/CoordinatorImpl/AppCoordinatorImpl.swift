@@ -19,4 +19,9 @@ final class AppCoordinatorImpl: Coordinator {
         let splashCoordinator = SplashCoordinatorImpl(navigationController: self.navigationController)
         splashCoordinator.showSplashViewController()
     }
+    
+    func startAuthCoordinator() {
+        let authCoordinator = AuthCoordinatorImpl(navigationController: self.navigationController)
+        authCoordinator.showLoginViewController()
+    }
 }

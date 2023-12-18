@@ -130,6 +130,7 @@
 		C0A256272B1EE1200059AA7E /* MyPageAppVersionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A256262B1EE1200059AA7E /* MyPageAppVersionTableViewCell.swift */; };
 		C0CEF3DE2B267A4B00682D1B /* NicknameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CEF3DD2B267A4B00682D1B /* NicknameState.swift */; };
 		C0CEF3E02B267B3600682D1B /* NicknameCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CEF3DF2B267B3600682D1B /* NicknameCheck.swift */; };
+		C0DBFB362B300EFF002F71A4 /* ExitUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DBFB352B300EFF002F71A4 /* ExitUser.swift */; };
 		C0E0D4F72B26C7FC00840C0B /* NicknameEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E0D4F62B26C7FC00840C0B /* NicknameEditViewController.swift */; };
 		C0E0D4F92B26C81700840C0B /* NicknameEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E0D4F82B26C81700840C0B /* NicknameEditViewModel.swift */; };
 		C0E0D4FB2B26CC4C00840C0B /* PLUImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E0D4FA2B26CC4C00840C0B /* PLUImageView.swift */; };
@@ -289,6 +290,7 @@
 		C0A256262B1EE1200059AA7E /* MyPageAppVersionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAppVersionTableViewCell.swift; sourceTree = "<group>"; };
 		C0CEF3DD2B267A4B00682D1B /* NicknameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameState.swift; sourceTree = "<group>"; };
 		C0CEF3DF2B267B3600682D1B /* NicknameCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameCheck.swift; sourceTree = "<group>"; };
+		C0DBFB352B300EFF002F71A4 /* ExitUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitUser.swift; sourceTree = "<group>"; };
 		C0E0D4F62B26C7FC00840C0B /* NicknameEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameEditViewController.swift; sourceTree = "<group>"; };
 		C0E0D4F82B26C81700840C0B /* NicknameEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameEditViewModel.swift; sourceTree = "<group>"; };
 		C0E0D4FA2B26CC4C00840C0B /* PLUImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLUImageView.swift; sourceTree = "<group>"; };
@@ -431,6 +433,7 @@
 				B5ACF71F2B281622006D7641 /* MyPageCoordinator.swift */,
 				B5ACF7212B2816C6006D7641 /* PopUpCoordinator.swift */,
 				C07AB7262B2828A600C2E02C /* TabbarCoordinator.swift */,
+				C0DBFB352B300EFF002F71A4 /* ExitUser.swift */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -1205,6 +1208,7 @@
 				4A4466732B2D8EBE002D5BF7 /* TodayQuestionViewModel.swift in Sources */,
 				C04E4CF62B2AAE0B00ABDFAA /* PLUPopUpContainerView.swift in Sources */,
 				C02C5DFE2B22E0780011F07C /* UIEdgeInsets+.swift in Sources */,
+				C0DBFB362B300EFF002F71A4 /* ExitUser.swift in Sources */,
 				4A44666A2B281F52002D5BF7 /* TodayQuestionCoordinatorImpl.swift in Sources */,
 				B5ACF70C2B26EC48006D7641 /* se+.swift in Sources */,
 				B5ACF7392B2A8ADC006D7641 /* PLUNavigationBarView.swift in Sources */,
