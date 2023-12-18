@@ -1,0 +1,16 @@
+<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M24.1037 16.983C24.1037 24.3519 19.5897 26.6316 14.0207 26.6316C8.45173 26.6316 3.93774 24.3519 3.93774 16.983C3.93774 12.2449 8.10508 6.55705 11.0813 3.09908C12.6293 1.30031 15.4114 1.30031 16.9594 3.09908C19.9356 6.55705 24.103 12.2455 24.103 16.983H24.1037Z" fill="#7C9AFC"/>
+<circle cx="15.8906" cy="16.2121" r="2.00044" fill="white"/>
+<circle cx="12.1689" cy="16.2121" r="2.00044" fill="white"/>
+<circle cx="12.2358" cy="16.2105" r="1.19869" fill="#3C3D45"/>
+<circle cx="15.8905" cy="16.2105" r="1.19869" fill="#3C3D45"/>
+<path d="M12.9602 18.9409C13.3118 19.2685 14.2116 19.7272 14.9979 18.9409" stroke="#3C3D45" stroke-width="0.66724" stroke-linecap="round"/>
+<path d="M9.62085 15.674L10.2495 15.8116" stroke="#3C3D45" stroke-width="0.667222" stroke-linecap="round"/>
+<path d="M10.0713 14.5796L10.603 14.942" stroke="#3C3D45" stroke-width="0.667222" stroke-linecap="round"/>
+<circle cx="12.1661" cy="16.2563" r="2.04147" fill="white"/>
+<circle cx="12.1663" cy="16.2546" r="1.22327" fill="#3C3D45"/>
+<path d="M18.4181 15.6739L17.7895 15.8115" stroke="#3C3D45" stroke-width="0.667222" stroke-linecap="round"/>
+<path d="M17.9679 14.5796L17.4362 14.942" stroke="#3C3D45" stroke-width="0.667222" stroke-linecap="round"/>
+<circle cx="2.04147" cy="2.04147" r="2.04147" transform="matrix(-1 0 0 1 17.9146 14.2147)" fill="white"/>
+<circle cx="1.22327" cy="1.22327" r="1.22327" transform="matrix(-1 0 0 1 17.0964 15.0313)" fill="#3C3D45"/>
+</svg>
