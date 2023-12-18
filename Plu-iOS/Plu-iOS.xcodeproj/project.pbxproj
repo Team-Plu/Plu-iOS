@@ -135,9 +135,9 @@
 		C0E0D4FB2B26CC4C00840C0B /* PLUImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E0D4FA2B26CC4C00840C0B /* PLUImageView.swift */; };
 		C0E93B402B2035370098A822 /* MyPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B3F2B2035370098A822 /* MyPageCell.swift */; };
 		C0E93B432B2035580098A822 /* MyPageUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B422B2035580098A822 /* MyPageUserData.swift */; };
-		C0E93B452B2035650098A822 /* MyPageAlarmCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B442B2035650098A822 /* MyPageAlarmCellData.swift */; };
+		C0E93B452B2035650098A822 /* MyPageAlarmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B442B2035650098A822 /* MyPageAlarmData.swift */; };
 		C0E93B472B20357B0098A822 /* MyPageInfomaitonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B462B20357B0098A822 /* MyPageInfomaitonType.swift */; };
-		C0E93B492B20358A0098A822 /* MypageAppVersionCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B482B20358A0098A822 /* MypageAppVersionCellData.swift */; };
+		C0E93B492B20358A0098A822 /* MypageAppVersionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B482B20358A0098A822 /* MypageAppVersionData.swift */; };
 		C0E93B4B2B20359B0098A822 /* MyPageUserExitType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B4A2B20359B0098A822 /* MyPageUserExitType.swift */; };
 		C0E93B4E2B2036E50098A822 /* MyPageSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B4D2B2036E50098A822 /* MyPageSection.swift */; };
 		C0E93B502B2037C20098A822 /* MyPageCellHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B4F2B2037C20098A822 /* MyPageCellHeight.swift */; };
@@ -294,9 +294,9 @@
 		C0E0D4FA2B26CC4C00840C0B /* PLUImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLUImageView.swift; sourceTree = "<group>"; };
 		C0E93B3F2B2035370098A822 /* MyPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCell.swift; sourceTree = "<group>"; };
 		C0E93B422B2035580098A822 /* MyPageUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageUserData.swift; sourceTree = "<group>"; };
-		C0E93B442B2035650098A822 /* MyPageAlarmCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAlarmCellData.swift; sourceTree = "<group>"; };
+		C0E93B442B2035650098A822 /* MyPageAlarmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAlarmData.swift; sourceTree = "<group>"; };
 		C0E93B462B20357B0098A822 /* MyPageInfomaitonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageInfomaitonType.swift; sourceTree = "<group>"; };
-		C0E93B482B20358A0098A822 /* MypageAppVersionCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageAppVersionCellData.swift; sourceTree = "<group>"; };
+		C0E93B482B20358A0098A822 /* MypageAppVersionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageAppVersionData.swift; sourceTree = "<group>"; };
 		C0E93B4A2B20359B0098A822 /* MyPageUserExitType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageUserExitType.swift; sourceTree = "<group>"; };
 		C0E93B4D2B2036E50098A822 /* MyPageSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSection.swift; sourceTree = "<group>"; };
 		C0E93B4F2B2037C20098A822 /* MyPageCellHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCellHeight.swift; sourceTree = "<group>"; };
@@ -888,8 +888,8 @@
 			isa = PBXGroup;
 			children = (
 				C0E93B422B2035580098A822 /* MyPageUserData.swift */,
-				C0E93B442B2035650098A822 /* MyPageAlarmCellData.swift */,
-				C0E93B482B20358A0098A822 /* MypageAppVersionCellData.swift */,
+				C0E93B442B2035650098A822 /* MyPageAlarmData.swift */,
+				C0E93B482B20358A0098A822 /* MypageAppVersionData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1108,7 +1108,7 @@
 				4AA747612B24B495004D0335 /* AnswerCautionView.swift in Sources */,
 				C0E93B522B2046030098A822 /* MyPageSectionHeaderHeight.swift in Sources */,
 				B5ACF7142B28133E006D7641 /* AuthCoordinator.swift in Sources */,
-				C0E93B452B2035650098A822 /* MyPageAlarmCellData.swift in Sources */,
+				C0E93B452B2035650098A822 /* MyPageAlarmData.swift in Sources */,
 				C0A2561F2B1EDC350059AA7E /* MyPageRoundSectionHeaderView.swift in Sources */,
 				4ABEEDBE2B27E7310020DA86 /* KeyboardType.swift in Sources */,
 				C05E263F2B1C4E1E00D91BFA /* UIFont+.swift in Sources */,
@@ -1170,7 +1170,7 @@
 				C07CD8912B2BD9E20091DAAF /* AlarmPopUpViewModelImpl.swift in Sources */,
 				B5ACF7162B2814CE006D7641 /* TodayQuestionCoordinator.swift in Sources */,
 				4AA747572B1D74A6004D0335 /* CGColor+.swift in Sources */,
-				C0E93B492B20358A0098A822 /* MypageAppVersionCellData.swift in Sources */,
+				C0E93B492B20358A0098A822 /* MypageAppVersionData.swift in Sources */,
 				C05E266B2B1D9B4C00D91BFA /* UIViewController+.swift in Sources */,
 				B5ACF7312B284296006D7641 /* MyPageCoordinatorImpl.swift in Sources */,
 				C05E26762B1D9CFB00D91BFA /* ScreenConstant.swift in Sources */,

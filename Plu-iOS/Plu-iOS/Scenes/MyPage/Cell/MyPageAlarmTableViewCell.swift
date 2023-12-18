@@ -20,7 +20,6 @@ final class MyPageAlarmTableViewCell: UITableViewCell, TableViewCellRegisterDequ
     let alarmSwitchTypeSubject = PassthroughSubject<MypageAlarmSwitchType, Never>()
     var cancelBag = Set<AnyCancellable>()
     
-    
     private let cellTitle: UILabel = {
         let label = UILabel()
         label.font = .suite(.body1M)
@@ -53,7 +52,7 @@ final class MyPageAlarmTableViewCell: UITableViewCell, TableViewCellRegisterDequ
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureUI(_ input: MyPageAlarmCellData) {
+    func configureUI(_ input: MyPageAlarmData) {
         self.alarmSwitch.setOn(input.acceptAlarm, animated: false)
         self.cellTitle.text = input.title
     }

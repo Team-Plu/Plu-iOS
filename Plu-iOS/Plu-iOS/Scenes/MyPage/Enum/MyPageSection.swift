@@ -8,9 +8,9 @@
 import Foundation
 
 enum MyPageSection {
-    case alarm(MyPageAlarmCellData)
+    case alarm(MyPageAlarmData)
     case info(MyPageInfomaitonType)
-    case appVersion(MypageAppVersionCellData)
+    case appVersion(MypageAppVersionData)
     case exit(MyPageUserExitType)
 }
 
