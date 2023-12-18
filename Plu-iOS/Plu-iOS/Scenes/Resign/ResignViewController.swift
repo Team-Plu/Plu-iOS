@@ -83,12 +83,5 @@ private extension ResignViewController {
     }
     
     func setUpdateHandler() {
-        reuseButton.setUpdateHandler { button in
-            print("reuse button tapped : \(button.isSelected)")
-        }
-        
-        resignButton.setUpdateHandler { button in
-            print("reuse button tapped : \(button.isSelected)")
-        }
     }
 }

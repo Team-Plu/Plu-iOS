@@ -88,13 +88,13 @@ private extension AlarmPopUpViewController {
         popUpTitle.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(40)
             make.centerX.equalToSuperview()
-            make.leading.trailing.equalToSuperview().inset(80)
+            make.leading.trailing.equalToSuperview()
         }
         
         popUpSubTitle.snp.makeConstraints { make in
             make.top.equalTo(popUpTitle.snp.bottom).offset(16)
             make.centerX.equalToSuperview()
-            make.leading.trailing.equalToSuperview().inset(68)
+            make.leading.trailing.equalToSuperview()
         }
         
         alarmImage.snp.makeConstraints { make in
