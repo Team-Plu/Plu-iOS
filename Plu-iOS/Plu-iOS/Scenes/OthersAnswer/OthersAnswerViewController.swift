@@ -7,13 +7,12 @@
 //
 
 import UIKit
+import Combine
 
 import SnapKit
 
 final class OthersAnswerViewController: UIViewController {
     
-    var coordinator: OtherAnswersCoordinator
-        
     private let everydayAnswerView = PLUEverydayAnswerView()
     
     private let elementImageView = UIImageView()
@@ -29,6 +28,14 @@ final class OthersAnswerViewController: UIViewController {
     private let menuView = AnswerFilterMenuView()
         
     private let answersTableView = OthersAnswerTableView(tableViewType: .othersAnswers)
+    
+    private let navigationBar = PLUNavigationBarView()
+        .setTitle(text: "모두의 답변")
+        .setLeftButton(type: .back)
+    
+    private var coordinator: OtherAnswersCoordinator
+    
+    private var cancelBag = Set<AnyCancellable>()
     
     private var datasource: UITableViewDiffableDataSource<OtherAnswersSection, OtherAnswersItem>!
     
@@ -51,6 +58,16 @@ final class OthersAnswerViewController: UIViewController {
         applySnapshot(OthersAnswer.dummmy())
         setButtonHandler()
         setDelegate()
+        bindInput()
+    }
+    
+    private func bindInput() {
+        navigationBar.leftButtonTapSubject
+            .sink { [weak self] _ in
+                guard let self else { return }
+                self.coordinator.pop()
+            }
+            .store(in: &cancelBag)
     }
 }
 
@@ -61,7 +78,8 @@ private extension OthersAnswerViewController {
     
     func setHierarchy() {
         self.view.addSubviews(everydayAnswerView, elementImageView,
-                              totalAnswerCountLabel, answersTableView, filterButton, menuView)
+                              totalAnswerCountLabel, answersTableView,
+                              filterButton, menuView, navigationBar)
     }
     
     func setButtonHandler() {
@@ -79,8 +97,13 @@ private extension OthersAnswerViewController {
     }
     
     func setLayout() {
-        everydayAnswerView.snp.makeConstraints { make in
+        navigationBar.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
+            make.leading.trailing.equalToSuperview()
+        }
+        
+        everydayAnswerView.snp.makeConstraints { make in
+            make.top.equalTo(navigationBar.snp.bottom)
             make.leading.trailing.equalToSuperview()
         }
         
