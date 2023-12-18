@@ -7,10 +7,19 @@
 //
 
 import UIKit
+import Combine
 
 import SnapKit
 
+enum MypageAlarmSwitchType {
+    case alarmAccept, moveSetting
+}
+
 final class MyPageAlarmTableViewCell: UITableViewCell, TableViewCellRegisterDequeueProtocol {
+    
+    let alarmSwitchTypeSubject = PassthroughSubject<MypageAlarmSwitchType, Never>()
+    var cancelBag = Set<AnyCancellable>()
+    
     
     private let cellTitle: UILabel = {
         let label = UILabel()
@@ -19,7 +28,7 @@ final class MyPageAlarmTableViewCell: UITableViewCell, TableViewCellRegisterDequ
         return label
     }()
     
-    private let alarmSwitch: UISwitch = {
+    let alarmSwitch: UISwitch = {
         let `switch` = UISwitch()
         `switch`.onTintColor = .designSystem(.black)
         return `switch`
@@ -33,20 +42,10 @@ final class MyPageAlarmTableViewCell: UITableViewCell, TableViewCellRegisterDequ
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        // MARK: - 컴포넌트 설정
         setUI()
-        
-        // MARK: - addsubView
         setHierarchy()
-        
-        // MARK: - autolayout설정
         setLayout()
-        
-        // MARK: - button의 addtarget설정
         setAddTarget()
-        
-        // MARK: - delegate설정
-        setDelegate()
     }
     
     @available(*, unavailable)
@@ -55,8 +54,13 @@ final class MyPageAlarmTableViewCell: UITableViewCell, TableViewCellRegisterDequ
     }
     
     func configureUI(_ input: MyPageAlarmCellData) {
-        self.alarmSwitch.isOn = input.acceptAlarm
+        self.alarmSwitch.setOn(input.acceptAlarm, animated: false)
         self.cellTitle.text = input.title
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.cancelBag.removeAll()
     }
 }
 
@@ -82,10 +86,21 @@ private extension MyPageAlarmTableViewCell {
     }
     
     func setAddTarget() {
-        
+        alarmSwitch.addTarget(self, action: #selector(onClickSwitch), for: .valueChanged)
     }
     
-    func setDelegate() {
-        
+    @objc func onClickSwitch() {
+        if !self.alarmSwitch.isOn {
+            self.alarmSwitchTypeSubject.send(.alarmAccept)
+        } else {
+            let notificationCenter = UNUserNotificationCenter.current()
+            notificationCenter.getNotificationSettings { settings in
+                DispatchQueue.main.async {
+                    if settings.authorizationStatus != .authorized {
+                        self.alarmSwitchTypeSubject.send(.moveSetting)
+                    }
+                }
+            }
+        }
     }
 }

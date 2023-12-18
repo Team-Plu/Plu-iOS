@@ -136,9 +136,9 @@
 		C0E93B402B2035370098A822 /* MyPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B3F2B2035370098A822 /* MyPageCell.swift */; };
 		C0E93B432B2035580098A822 /* MyPageUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B422B2035580098A822 /* MyPageUserData.swift */; };
 		C0E93B452B2035650098A822 /* MyPageAlarmCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B442B2035650098A822 /* MyPageAlarmCellData.swift */; };
-		C0E93B472B20357B0098A822 /* MypageInfomationCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B462B20357B0098A822 /* MypageInfomationCellData.swift */; };
+		C0E93B472B20357B0098A822 /* MyPageInfomaitonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B462B20357B0098A822 /* MyPageInfomaitonType.swift */; };
 		C0E93B492B20358A0098A822 /* MypageAppVersionCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B482B20358A0098A822 /* MypageAppVersionCellData.swift */; };
-		C0E93B4B2B20359B0098A822 /* MypageUserExitCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B4A2B20359B0098A822 /* MypageUserExitCellData.swift */; };
+		C0E93B4B2B20359B0098A822 /* MyPageUserExitType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B4A2B20359B0098A822 /* MyPageUserExitType.swift */; };
 		C0E93B4E2B2036E50098A822 /* MyPageSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B4D2B2036E50098A822 /* MyPageSection.swift */; };
 		C0E93B502B2037C20098A822 /* MyPageCellHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B4F2B2037C20098A822 /* MyPageCellHeight.swift */; };
 		C0E93B522B2046030098A822 /* MyPageSectionHeaderHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B512B2046030098A822 /* MyPageSectionHeaderHeight.swift */; };
@@ -295,9 +295,9 @@
 		C0E93B3F2B2035370098A822 /* MyPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCell.swift; sourceTree = "<group>"; };
 		C0E93B422B2035580098A822 /* MyPageUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageUserData.swift; sourceTree = "<group>"; };
 		C0E93B442B2035650098A822 /* MyPageAlarmCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAlarmCellData.swift; sourceTree = "<group>"; };
-		C0E93B462B20357B0098A822 /* MypageInfomationCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageInfomationCellData.swift; sourceTree = "<group>"; };
+		C0E93B462B20357B0098A822 /* MyPageInfomaitonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageInfomaitonType.swift; sourceTree = "<group>"; };
 		C0E93B482B20358A0098A822 /* MypageAppVersionCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageAppVersionCellData.swift; sourceTree = "<group>"; };
-		C0E93B4A2B20359B0098A822 /* MypageUserExitCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageUserExitCellData.swift; sourceTree = "<group>"; };
+		C0E93B4A2B20359B0098A822 /* MyPageUserExitType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageUserExitType.swift; sourceTree = "<group>"; };
 		C0E93B4D2B2036E50098A822 /* MyPageSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSection.swift; sourceTree = "<group>"; };
 		C0E93B4F2B2037C20098A822 /* MyPageCellHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCellHeight.swift; sourceTree = "<group>"; };
 		C0E93B512B2046030098A822 /* MyPageSectionHeaderHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSectionHeaderHeight.swift; sourceTree = "<group>"; };
@@ -889,9 +889,7 @@
 			children = (
 				C0E93B422B2035580098A822 /* MyPageUserData.swift */,
 				C0E93B442B2035650098A822 /* MyPageAlarmCellData.swift */,
-				C0E93B462B20357B0098A822 /* MypageInfomationCellData.swift */,
 				C0E93B482B20358A0098A822 /* MypageAppVersionCellData.swift */,
-				C0E93B4A2B20359B0098A822 /* MypageUserExitCellData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -899,9 +897,11 @@
 		C0E93B4C2B2036DA0098A822 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
+				C0E93B462B20357B0098A822 /* MyPageInfomaitonType.swift */,
 				C0E93B4D2B2036E50098A822 /* MyPageSection.swift */,
 				C0E93B4F2B2037C20098A822 /* MyPageCellHeight.swift */,
 				C0E93B512B2046030098A822 /* MyPageSectionHeaderHeight.swift */,
+				C0E93B4A2B20359B0098A822 /* MyPageUserExitType.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -1117,7 +1117,7 @@
 				C05E266D2B1D9B7200D91BFA /* UITextField+.swift in Sources */,
 				B5ACF7042B26C807006D7641 /* RecordDiffableDataSource.swift in Sources */,
 				C04E4CF42B2A8DCF00ABDFAA /* SelectMonthPopUpViewModelImpl.swift in Sources */,
-				C0E93B4B2B20359B0098A822 /* MypageUserExitCellData.swift in Sources */,
+				C0E93B4B2B20359B0098A822 /* MyPageUserExitType.swift in Sources */,
 				C05E26902B1D9ED300D91BFA /* TabbarViewController.swift in Sources */,
 				C0CEF3DE2B267A4B00682D1B /* NicknameState.swift in Sources */,
 				C0682A882B25862200AD4DB4 /* NicknameManagerStub.swift in Sources */,
@@ -1146,7 +1146,7 @@
 				B5ACF7292B28196C006D7641 /* TabBarCoordinatorImpl.swift in Sources */,
 				B5ACF6D12B1EEECB006D7641 /* OtherAnswersDiffableModel.swift in Sources */,
 				B5ACF72B2B281A19006D7641 /* AuthCoordinatorImpl.swift in Sources */,
-				C0E93B472B20357B0098A822 /* MypageInfomationCellData.swift in Sources */,
+				C0E93B472B20357B0098A822 /* MyPageInfomaitonType.swift in Sources */,
 				B5ACF7102B27F193006D7641 /* Coordinator.swift in Sources */,
 				C0E93B432B2035580098A822 /* MyPageUserData.swift in Sources */,
 				B5ACF7122B2812E2006D7641 /* SplashCoordinator.swift in Sources */,

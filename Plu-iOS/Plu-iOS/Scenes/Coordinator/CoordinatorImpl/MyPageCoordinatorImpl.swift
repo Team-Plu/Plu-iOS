@@ -7,8 +7,12 @@
 
 import UIKit
 
+protocol MypageAlarmResultDelegate: AnyObject {
+    func isAccept()
+}
+
 final class MyPageCoordinatorImpl: MyPageCoordinator {
-    
+    weak var delegate: MypageAlarmResultDelegate?
     weak var navigationController: UINavigationController?
     
     init(navigationController: UINavigationController?) {
@@ -22,7 +26,8 @@ final class MyPageCoordinatorImpl: MyPageCoordinator {
     
     func presentAlarmPopUpViewController() {
         let popUpCoordinator = PopUpCoordinatorImpl(navigationController: self.navigationController)
-        popUpCoordinator.show(type: .alarm)
+        popUpCoordinator.alarmDelegate = self
+        popUpCoordinator.show(type: .alarm(.mypage))
     }
     
     func showProfileEditViewController() {
@@ -40,5 +45,11 @@ final class MyPageCoordinatorImpl: MyPageCoordinator {
     
     func pop() {
         self.navigationController?.popViewController(animated: true)
+    }
+}
+
+extension MyPageCoordinatorImpl: AlarmDelegate {
+    func isAccept() {
+        self.delegate?.isAccept()
     }
 }

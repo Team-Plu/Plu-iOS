@@ -47,10 +47,21 @@ final class SplashViewController: UIViewController {
         selectRandomElement()
         setHierarchy()
         setLayout()
+        requestNotificationPermission()
     }
     
     @objc func tap() {
         self.coordinator.showLoginViewController()
+    }
+    
+    func requestNotificationPermission(){
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge], completionHandler: {didAllow,Error in
+            if didAllow {
+                print("Push: 권한 허용")
+            } else {
+                print("Push: 권한 거부")
+            }
+        })
     }
 }
 

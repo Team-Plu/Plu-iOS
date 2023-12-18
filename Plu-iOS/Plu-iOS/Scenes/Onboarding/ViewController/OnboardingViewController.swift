@@ -34,7 +34,7 @@ final class OnboardingViewController: UIViewController {
     private let errorLabel = PLULabel(type: .body3, color: .error)
     
     private var signInButton = PLUButton(config: .bordered())
-        .setText(text: "가입 완료", font: .title1)
+        .setText(text: StringConstant.Onboarding.buttonTitle.description!, font: .title1)
         .setLayer(cornerRadius: 8)
     
     
@@ -58,14 +58,14 @@ final class OnboardingViewController: UIViewController {
         bind()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        setKeyboard()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.nickNameTextField.becomeFirstResponder()
     }
 }
 
@@ -147,9 +147,5 @@ private extension OnboardingViewController {
             make.leading.trailing.equalToSuperview().inset(20)
             make.height.equalTo(44)
         }
-    }
-
-    func setKeyboard() {
-        self.nickNameTextField.becomeFirstResponder()
     }
 }

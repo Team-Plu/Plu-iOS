@@ -34,3 +34,21 @@ extension UIViewController {
         self.present(alertViewController, animated: true, completion: completion)
     }
 }
+
+extension UIViewController {
+    func goToSettingPage() {
+        let alertController = UIAlertController(title: "알림을 설정하시겠어요?",
+                                                message: "설정에서 알림을 허용해주세요",
+                                                preferredStyle: .alert)
+        
+        let goToSettings = UIAlertAction(title: "설정으로가기", style: .default) {_ in
+            guard let settingURL = URL(string: UIApplication.openSettingsURLString) else { return }
+            if UIApplication.shared.canOpenURL(settingURL) {
+                UIApplication.shared.open(settingURL)
+            }
+        }
+        alertController.addAction(goToSettings)
+        alertController.addAction(UIAlertAction(title: "취소", style: .default))
+        self.present(alertController, animated: true)
+    }
+}

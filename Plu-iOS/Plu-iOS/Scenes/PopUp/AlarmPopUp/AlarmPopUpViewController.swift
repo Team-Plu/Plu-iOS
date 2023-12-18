@@ -17,6 +17,7 @@ final class AlarmPopUpViewController: PopUpDimmedViewController {
         case accept, reject
     }
     
+    let viewDidLoadSubject = PassthroughSubject<Void, Never>()
     let buttonSubject = PassthroughSubject<AlarmPopUpViewController.ButtonType, Never>()
     var cancelBag = Set<AnyCancellable>()
     
@@ -29,21 +30,19 @@ final class AlarmPopUpViewController: PopUpDimmedViewController {
                                       backgroundColor: .white,
                                       alignment: .center,
                                       lines: 2,
-                                      text: StringConstant.PopUp.Alarm.title)
+                                      text: StringConstant.PopUp.TodayQuestionAlarm.title)
     
     private let popUpSubTitle = PLULabel(type: .body2M,
                                          color: .gray500,
                                          backgroundColor: .white,
                                          alignment: .center,
                                          lines: 2,
-                                         text: StringConstant.PopUp.Alarm.subTitle)
+                                         text: StringConstant.PopUp.TodayQuestionAlarm.subTitle)
     
     private let alarmImage = PLUImageView(ImageLiterals.PopUp.alarm)
 
     
     private let acceptButton = PLUButton(config: .bordered())
-        .setText(text: StringConstant.PopUp.Alarm.acceptButtonTitle,
-                 font: .title1)
         .setBackForegroundColor(backgroundColor: .gray600,
                                 foregroundColor: .white)
         .setLayer(cornerRadius: 8,
@@ -53,7 +52,6 @@ final class AlarmPopUpViewController: PopUpDimmedViewController {
     private let rejectButton = PLUButton(config: .plain())
         .setBackForegroundColor(backgroundColor: .white,
                                 foregroundColor: .gray500)
-        .underLine(title: StringConstant.PopUp.Alarm.rejectButtonTitle)
     
     init(viewModel: AlarmPopUpViewModel) {
         self.viewModel = viewModel
@@ -65,6 +63,7 @@ final class AlarmPopUpViewController: PopUpDimmedViewController {
         setLayout()
         bindInput()
         bind()
+        self.viewDidLoadSubject.send(())
     }
     
     required public init?(coder: NSCoder) {
@@ -136,7 +135,15 @@ private extension AlarmPopUpViewController {
     }
     
     func bind() {
-        let input = AlarmPopUpInput(buttonSubject: buttonSubject)
-        _ = viewModel.transform(input: input)
+        let input = AlarmPopUpInput(viewDidLoadSubject: viewDidLoadSubject, buttonSubject: buttonSubject)
+        let output = viewModel.transform(input: input)
+        output.viewDidLoadPublisher
+            .sink { des in
+                self.popUpTitle.text = des.title
+                self.popUpSubTitle.text = des.subTitle
+                self.acceptButton.setText(text: des.acceptButtonTitle, font: .title1)
+                _ = self.rejectButton.underLine(title: des.rejectButtonTitle)
+            }
+            .store(in: &cancelBag)
     }
 }
