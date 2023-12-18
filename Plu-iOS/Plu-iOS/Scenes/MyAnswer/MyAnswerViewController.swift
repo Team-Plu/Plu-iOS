@@ -20,10 +20,11 @@ final class MyAnswerViewController: UIViewController {
     private let keyboardStatyeType = PassthroughSubject<KeyboardType, Never>()
     private let textViewTextCountSubject = PassthroughSubject<String, Never>()
     
-    private let navigationBar = PLUNavigationBarView()
+    private lazy var navigationBar = PLUNavigationBarView()
         .setTitle(text: StringConstant.Navibar.title.myAnswer)
         .setRightButton(type: .text(StringConstant.Navibar.rightButton.complete))
         .setLeftButton(type: .back)
+        .setRightButtonInitState(isEnabeld: false)
     private let everyDayAnswerView = PLUEverydayAnswerView()
     private lazy var answerTextView = PLUTextView()
     private let answerCautionView = AnswerCautionView()
@@ -110,6 +111,7 @@ final class MyAnswerViewController: UIViewController {
             .receive(on: RunLoop.main)
             .sink { [weak self] state in
                 self?.answerTextView.placeHolderLabel.isHidden = state
+                self?.navigationBar.setRightButtonState(isEnabled: state)
             }
             .store(in: &cancelBag)
     }

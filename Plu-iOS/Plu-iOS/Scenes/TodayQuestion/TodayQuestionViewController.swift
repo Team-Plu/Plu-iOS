@@ -30,10 +30,10 @@ final class TodayQuestionViewController: UIViewController {
     private let seeYouTommorowImage = UIImageView(image: ImageLiterals.Main.seeYouTommorowSpeechBubble)
     private let myAnswerButton = PLUButton(config: .bordered())
         .setText(text: StringConstant.TodayQuestion.myAnswer.text, font: .title1)
-        .setBackForegroundColor(backgroundColor: .gray600, foregroundColor: .gray50)
+        .setBackForegroundColor(backgroundColor: .gray600, foregroundColor: .white)
     private let everyAnswerButtom = PLUButton(config: .bordered())
         .setText(text: StringConstant.TodayQuestion.everyAnswer.text, font: .title1)
-        .setBackForegroundColor(backgroundColor: .gray600, foregroundColor: .gray50)
+        .setBackForegroundColor(backgroundColor: .gray50, foregroundColor: .gray300)
     private let explanationLabel = PLULabel(type: .caption, color: .gray300, text: StringConstant.TodayQuestion.explanation.text)
     
     init(coordinator: TodayQuestionCoordinator, viewModel: TodayQuestionViewModel) {
@@ -157,9 +157,31 @@ private extension TodayQuestionViewController {
     func setButtonHandler() {
         myAnswerButton.setUpdateHandler(updateHandler: { button in
             var config = button.configuration
+            // TODO: 오늘의 일기를 작성했다면 값에 따라 버튼 비활성화
             config?.baseBackgroundColor = button.isSelected
             ? .designSystem(.gray600)
             : .designSystem(.gray50)
+            
+            config?.baseForegroundColor = button.isSelected
+            ? .designSystem(.white)
+            : .designSystem(.gray300)
+            
+            button.configuration = config
+        })
+        
+        everyAnswerButtom.setUpdateHandler(updateHandler: { button in
+            var config = button.configuration
+            // TODO: 오늘의 일기 작성 안했다면 모두의 일기 버튼 비활성화
+            config?.baseBackgroundColor = button.isSelected
+            ? .designSystem(.gray600)
+            : .designSystem(.gray50)
+            
+            config?.baseForegroundColor = button.isSelected
+            ? .designSystem(.white)
+            : .designSystem(.gray300)
+            
+            // TODO: 오늘의 일기 작성 안했다면 모두의 일기 버튼 비활성화
+            button.configuration = config
         })
     }
     

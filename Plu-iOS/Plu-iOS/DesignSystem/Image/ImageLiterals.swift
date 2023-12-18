@@ -78,6 +78,18 @@ enum ImageLiterals {
         static var arrowRightSmall500: UIImage { .load(named: "ic_arrow_right_small_500") }
         static var arrowRightSmall900: UIImage { .load(named: "ic_arrow_right_small_900") }
     }
+    
+    enum MyAnswerDetail {
+        static var airEmpathyLargeActivated: UIImage { .load(named: "ic_empathy_large_air_activated") }
+        static var fireEmpathyLargeActivated: UIImage { .load(named: "ic_empathy_large_fire_activated") }
+        static var waterEmpathyLargeActivated: UIImage { .load(named: "ic_empathy_large_water_activated") }
+        static var dustEmpathyLargeActivated: UIImage { .load(named: "ic_empathy_large_dust_activated") }
+        
+        static var airEmpathyLargeInactivated: UIImage { .load(named: "ic_empathy_large_air_inactivated") }
+        static var fireEmpathyLargeInactivated: UIImage { .load(named: "ic_empathy_large_fire_inactivated") }
+        static var waterEmpathyLargeInactivated: UIImage { .load(named: "ic_empathy_large_water_inactivated") }
+        static var dustEmpathyLargeInactivated: UIImage { .load(named: "ic_empathy_large_dust_inactivated") }
+    }
 }
 
 
