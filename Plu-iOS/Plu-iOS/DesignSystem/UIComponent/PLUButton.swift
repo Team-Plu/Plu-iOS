@@ -77,6 +77,12 @@ final class PLUButton: UIButton {
         return self
     }
     
+    func setActivityIndicator(isShow: Bool) {
+        var config = self.configuration
+        config?.showsActivityIndicator = isShow
+        self.configuration = config
+    }
+    
     func isActive(state: Bool) {
         var config = self.configuration
         config?.baseBackgroundColor = .designSystem(state ? .gray600 : .gray50)
