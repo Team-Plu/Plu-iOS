@@ -2,17 +2,24 @@
 //  LoginViewController.swift
 //  Plu-iOS
 //
-//  Created by uiskim on 2023/12/04.
+//  Created by 김민재 on 2023/12/04.
 //  Copyright (c) 2023 Login. All rights reserved.
 //
 
 import UIKit
+import Combine
 
 import SnapKit
 
 final class LoginViewController: UIViewController {
     
-    var coordinator: AuthCoordinator
+    private let viewModel: any LoginViewModel
+    
+    private var cancelBag = Set<AnyCancellable>()
+    
+    private let loginButtonTapSubject = PassthroughSubject<LoginType, Never>()
+    
+    private lazy var loadingView = PLUIndicator(parent: self)
     
     private let pageControl: UIPageControl = {
         let pageControl = UIPageControl()
@@ -47,8 +54,8 @@ final class LoginViewController: UIViewController {
         .setBackForegroundColor(backgroundColor: .black, foregroundColor: .white)
         .setImage(image: ImageLiterals.Tutorial.AppleLogo, placement: .leading)
     
-    init(coordinator: AuthCoordinator) {
-        self.coordinator = coordinator
+    init(viewModel: some LoginViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -62,12 +69,55 @@ final class LoginViewController: UIViewController {
         setHierarchy()
         setLayout()
         setDataSource()
-        kakaoLoginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        bindInput()
+        bind()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    private func bindInput() {
+        kakaoLoginButton.tapPublisher
+            .sink { [weak self] _ in
+                self?.kakaoLoginButton.setActivityIndicator(isShow: true)
+//                self?.loadingView.startAnimating()
+                self?.loginButtonTapSubject.send(.kakao)
+            }
+            .store(in: &cancelBag)
+        
+        appleLoginButton.tapPublisher
+            .sink { [weak self] _ in
+                self?.appleLoginButton.setActivityIndicator(isShow: true)
+                self?.loginButtonTapSubject.send(.apple)
+            }
+            .store(in: &cancelBag)
+    }
+    
+    private func bind() {
+        let input = LoginViewModelInput(loginButtonTapped: loginButtonTapSubject)
+        let output = viewModel.transform(input: input)
+        output.loginResult
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] type, state in
+                self?.makeButtonBusyState(type: type, isBusy: false)
+                switch state {
+                case .end:
+                    print("로그인 성공했으니 로딩창 내려야함")
+                case .error(let message):
+                    print("error: \(message)")
+                }
+            }
+            .store(in: &cancelBag)
+    }
+    
+    private func makeButtonBusyState(type: LoginType, isBusy: Bool) {
+        if type == .kakao {
+            self.kakaoLoginButton.setActivityIndicator(isShow: isBusy)
+        } else {
+            self.appleLoginButton.setActivityIndicator(isShow: isBusy)
+        }
     }
 }
 
@@ -78,7 +128,9 @@ private extension LoginViewController {
     }
     
     func setHierarchy() {
-        self.view.addSubviews(pageControl, elementalsImageView, tutorialCollectionView, kakaoLoginButton, appleLoginButton)
+        self.view.addSubviews(pageControl, elementalsImageView,
+                              tutorialCollectionView, kakaoLoginButton,
+                              appleLoginButton, loadingView)
     }
     
     func setLayout() {
@@ -114,10 +166,6 @@ private extension LoginViewController {
     func setDataSource() {
         self.tutorialCollectionView.dataSource = self
         self.tutorialCollectionView.delegate = self
-    }
-    
-    @objc func loginButtonTapped() {
-        self.coordinator.showOnboardingController()
     }
 }
 

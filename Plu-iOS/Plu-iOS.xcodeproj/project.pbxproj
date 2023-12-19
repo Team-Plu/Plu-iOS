@@ -506,6 +506,14 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		B5B744DE2B31355200AF368A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C05E26972B1D9F1000D91BFA /* LoginViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		B5B744DF2B31355700AF368A /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -765,7 +773,7 @@
 			children = (
 				B5B744E02B31355E00AF368A /* Adaptor */,
 				B5B744DF2B31355700AF368A /* View */,
-				B5ACF7092B26DEB1006D7641 /* LoginModel.swift */,
+				B5B744DE2B31355200AF368A /* ViewController */,
 				B5B744DD2B31354600AF368A /* Manager */,
 				B5B744DC2B31354100AF368A /* Model */,
 				B5B744DB2B31353800AF368A /* ViewModel */,
