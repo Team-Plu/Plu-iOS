@@ -13,17 +13,17 @@ protocol NicknameEditViewModel {
 }
 
 struct NicknameEditInput {
-    let textFieldSubject: PassthroughSubject<String, Never>
+    let textFieldSubject: AnyPublisher<String, Never>
     let naviagtionLeftButtonTapped: PassthroughSubject<Void, Never>
     let naviagtionRightButtonTapped: PassthroughSubject<String?, Never>
 }
 
 struct NicknameEditOutput {
     let nickNameResultPublisher: AnyPublisher<NicknameState, Never>
-    let loadingViewSubject: AnyPublisher<NicknameLoadingState, Never>
+    let loadingViewSubject: AnyPublisher<LoadingState, Never>
 }
 
-enum NicknameLoadingState {
+enum LoadingState {
     case start, end, error
 }
 
@@ -43,8 +43,8 @@ final class NicknameEditViewModelImpl: NicknameEditViewModel, NicknameCheck {
     func transform(input: NicknameEditInput) -> NicknameEditOutput {
         
         let loadingViewSubject = input.naviagtionRightButtonTapped
-            .flatMap { newNickname -> AnyPublisher<NicknameLoadingState, Never> in
-                return Future<NicknameLoadingState, Error> { promise in
+            .flatMap { newNickname -> AnyPublisher<LoadingState, Never> in
+                return Future<LoadingState, Error> { promise in
                     Task {
                         do {
                             try await Task.sleep(nanoseconds: 1000000000)

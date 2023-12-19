@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-typealias textFieldInput = PassthroughSubject<String, Never>
+typealias textFieldInput = AnyPublisher<String, Never>
 typealias textFieldOutput = AnyPublisher<NicknameState, Never>
 typealias textFieldVaildChecker = PassthroughSubject<String?, Never>
 

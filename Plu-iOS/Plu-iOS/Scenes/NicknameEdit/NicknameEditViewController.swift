@@ -18,7 +18,7 @@ final class NicknameEditViewController: UIViewController {
         .setLeftButton(type: .back)
         .setRightButton(type: .text("완료"))
     
-    private let textFieldSubject = PassthroughSubject<String, Never>()
+//    private let textFieldSubject = AnyPublisher<String, Never>("")
     private let navigationLeftButtonTapped = PassthroughSubject<Void, Never>()
     private let navigationRightButtonTapped = PassthroughSubject<String?, Never>()
     private var cancelBag = Set<AnyCancellable>()
@@ -72,7 +72,7 @@ final class NicknameEditViewController: UIViewController {
 
 private extension NicknameEditViewController {
     func bind() {
-        let input = NicknameEditInput(textFieldSubject: textFieldSubject, naviagtionLeftButtonTapped: navigationLeftButtonTapped, naviagtionRightButtonTapped: navigationRightButtonTapped)
+        let input = NicknameEditInput(textFieldSubject: self.nickNameTextField.textPublisher, naviagtionLeftButtonTapped: navigationLeftButtonTapped, naviagtionRightButtonTapped: navigationRightButtonTapped)
         let output = self.viewModel.transform(input: input)
         output.nickNameResultPublisher
             .receive(on: DispatchQueue.main)
@@ -161,8 +161,8 @@ private extension NicknameEditViewController {
     }
     
     func bindInput() {
-        self.nickNameTextField.textPublisher
-            .sink { self.textFieldSubject.send($0) }
-            .store(in: &cancelBag)
+//        self.nickNameTextField.textPublisher
+//            .sink { self.textFieldSubject.send($0) }
+//            .store(in: &cancelBag)
     }
 }
