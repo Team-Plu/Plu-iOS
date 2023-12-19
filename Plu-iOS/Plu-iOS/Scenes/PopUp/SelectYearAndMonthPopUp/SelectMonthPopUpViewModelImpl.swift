@@ -65,7 +65,8 @@ final class SelectMonthPopUpViewModelImpl: SelectMonthPopUpViewModel {
             .sink { [weak self] _ in
                 guard let selectedYear = self?.selectedYear, let selectedMonth = self?.selectedMonth else { return }
                 print("\(selectedYear)년 \(selectedMonth)월이 선택되었습니다")
-                self?.coordinator.accept(type: .selectMonth)
+                self?.coordinator.accept(type: .selectMonth(year: selectedYear,
+                                                            month: selectedMonth))
             }
             .store(in: &cancelBag)
         
