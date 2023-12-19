@@ -9,7 +9,6 @@ import UIKit
 
 
 final class AuthCoordinatorImpl: AuthCoordinator {
-    
     weak var navigationController: UINavigationController?
     
     init(navigationController: UINavigationController?) {
@@ -17,7 +16,10 @@ final class AuthCoordinatorImpl: AuthCoordinator {
     }
     
     func showLoginViewController() {
-        let loginViewController = LoginViewController(coordinator: self)
+        let adaptor = LoginAdaptor(coordinator: self)
+        let manager = LoginManagerImpl()
+        let loginViewModelImpl = LoginViewModelImpl(navigator: adaptor, manager: manager)
+        let loginViewController = LoginViewController(viewModel: loginViewModelImpl)
         self.navigationController?.pushViewController(loginViewController, animated: true)
     }
     
