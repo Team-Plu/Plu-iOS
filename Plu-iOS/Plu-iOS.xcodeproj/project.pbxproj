@@ -62,10 +62,11 @@
 		B5ACF72F2B283D23006D7641 /* AnswerDetailCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF72E2B283D23006D7641 /* AnswerDetailCoordinatorImpl.swift */; };
 		B5ACF7312B284296006D7641 /* MyPageCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF7302B284296006D7641 /* MyPageCoordinatorImpl.swift */; };
 		B5ACF7392B2A8ADC006D7641 /* PLUNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF7382B2A8ADC006D7641 /* PLUNavigationBarView.swift */; };
-		B5B744C92B312B1100AF368A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744C82B312B1100AF368A /* LoginViewModel.swift */; };
 		B5B744CC2B312B6400AF368A /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744CB2B312B6400AF368A /* ViewModel.swift */; };
+		B5B744CE2B312C5D00AF368A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744CD2B312C5D00AF368A /* LoginViewModel.swift */; };
 		B5B744D02B312C6D00AF368A /* LoginNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744CF2B312C6D00AF368A /* LoginNavigation.swift */; };
 		B5B744D22B312CE000AF368A /* LoginAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744D12B312CE000AF368A /* LoginAdaptor.swift */; };
+		B5B744D42B312E7D00AF368A /* LoginViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744D32B312E7D00AF368A /* LoginViewModelImpl.swift */; };
 		B5B744D62B31312C00AF368A /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744D52B31312C00AF368A /* LoginManager.swift */; };
 		B5B744D82B31314F00AF368A /* LoginManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744D72B31314F00AF368A /* LoginManagerImpl.swift */; };
 		B5B744DA2B31330300AF368A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744D92B31330300AF368A /* NetworkError.swift */; };
@@ -227,10 +228,11 @@
 		B5ACF72E2B283D23006D7641 /* AnswerDetailCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerDetailCoordinatorImpl.swift; sourceTree = "<group>"; };
 		B5ACF7302B284296006D7641 /* MyPageCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCoordinatorImpl.swift; sourceTree = "<group>"; };
 		B5ACF7382B2A8ADC006D7641 /* PLUNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLUNavigationBarView.swift; sourceTree = "<group>"; };
-		B5B744C82B312B1100AF368A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		B5B744CB2B312B6400AF368A /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		B5B744CD2B312C5D00AF368A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		B5B744CF2B312C6D00AF368A /* LoginNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNavigation.swift; sourceTree = "<group>"; };
 		B5B744D12B312CE000AF368A /* LoginAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAdaptor.swift; sourceTree = "<group>"; };
+		B5B744D32B312E7D00AF368A /* LoginViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelImpl.swift; sourceTree = "<group>"; };
 		B5B744D52B31312C00AF368A /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		B5B744D72B31314F00AF368A /* LoginManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManagerImpl.swift; sourceTree = "<group>"; };
 		B5B744D92B31330300AF368A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -476,6 +478,15 @@
 				B5B744CB2B312B6400AF368A /* ViewModel.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		B5B744DB2B31353800AF368A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B5B744CD2B312C5D00AF368A /* LoginViewModel.swift */,
+				B5B744D32B312E7D00AF368A /* LoginViewModelImpl.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		B5B744DD2B31354600AF368A /* Manager */ = {
@@ -740,6 +751,7 @@
 				B5ACF7052B26D47C006D7641 /* TutorialCollectionViewCell.swift */,
 				B5ACF7092B26DEB1006D7641 /* LoginModel.swift */,
 				B5B744DD2B31354600AF368A /* Manager */,
+				B5B744DB2B31353800AF368A /* ViewModel */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1143,6 +1155,7 @@
 				C05E26592B1D9A1D00D91BFA /* TableViewCellRegisterDequeueProtocol.swift in Sources */,
 				C05E26722B1D9BCF00D91BFA /* UILabel+.swift in Sources */,
 				B5ACF7222B2816C6006D7641 /* PopUpCoordinator.swift in Sources */,
+				B5B744D42B312E7D00AF368A /* LoginViewModelImpl.swift in Sources */,
 				B5ACF6C92B1EE26C006D7641 /* ElementColor.swift in Sources */,
 				B5ACF72F2B283D23006D7641 /* AnswerDetailCoordinatorImpl.swift in Sources */,
 				C0E93B5A2B20518B0098A822 /* TableSectionViewRegisterDequeueProtocol.swift in Sources */,
@@ -1182,7 +1195,6 @@
 				B5B744D82B31314F00AF368A /* LoginManagerImpl.swift in Sources */,
 				C0E93B552B2046EE0098A822 /* MyPageTableView.swift in Sources */,
 				C00113DA2B25359100B2C799 /* OnboardingViewModel.swift in Sources */,
-				B5B744C92B312B1100AF368A /* LoginViewModel.swift in Sources */,
 				4AA747652B25B8C8004D0335 /* PLUExplanationView.swift in Sources */,
 				C083F62C2B27F20500808AE6 /* RegisterPopUpViewController.swift in Sources */,
 				C05E26982B1D9F1000D91BFA /* LoginViewController.swift in Sources */,
@@ -1252,6 +1264,7 @@
 				B5ACF6CB2B1EE3EC006D7641 /* Dummy.swift in Sources */,
 				B5ACF6CF2B1EECD0006D7641 /* OthersAnswerTableView.swift in Sources */,
 				C0682A822B25857200AD4DB4 /* PLUTextField.swift in Sources */,
+				B5B744CE2B312C5D00AF368A /* LoginViewModel.swift in Sources */,
 				C05E269A2B1D9F1B00D91BFA /* SplashViewController.swift in Sources */,
 				C07AB7272B2828A600C2E02C /* TabbarCoordinator.swift in Sources */,
 				B5ACF6F72B22DA61006D7641 /* RecordDummy.swift in Sources */,
