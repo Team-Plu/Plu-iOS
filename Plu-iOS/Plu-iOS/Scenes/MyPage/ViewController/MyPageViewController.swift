@@ -28,6 +28,10 @@ final class MyPageViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
@@ -35,6 +39,7 @@ final class MyPageViewController: UIViewController {
         setLayout()
         setDelegate()
         setMyPageFromUserData(input: .dummyData)
+        setTabBar()
     }
 }
 
@@ -67,6 +72,10 @@ private extension MyPageViewController {
     
     func setTableViewDataFromUserData(_ alarmAccept: Bool, _ appVersion: String?) -> [[MyPageSection]] {
         return MyPageSection.makeMypageData(alarmAccept, appVersion)
+    }
+    
+    func setTabBar() {
+        self.tabBarController?.tabBar.isHidden = true
     }
     
 }

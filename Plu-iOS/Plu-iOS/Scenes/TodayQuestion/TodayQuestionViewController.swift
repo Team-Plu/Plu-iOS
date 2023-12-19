@@ -18,6 +18,9 @@ final class TodayQuestionViewController: UIViewController {
     private let isShownAlarmPopUpSubject = PassthroughSubject<Void, Never>()
     private var cancelBag = Set<AnyCancellable>()
     
+    private let navigationBar = PLUNavigationBarView()
+        .setRightButton(type: .logo)
+        .setLeftButton(type: .textLogo)
     private lazy var questionCharcterImage = UIImageView(image: self.setRandomImage())
     private let questionLabel = PLULabel(type: .head1,
                                          color: .gray700,
@@ -27,19 +30,11 @@ final class TodayQuestionViewController: UIViewController {
     private let seeYouTommorowImage = UIImageView(image: ImageLiterals.Main.seeYouTommorowSpeechBubble)
     private let myAnswerButton = PLUButton(config: .bordered())
         .setText(text: StringConstant.TodayQuestion.myAnswer.text, font: .title1)
-        .setBackForegroundColor(backgroundColor: .gray600, foregroundColor: .gray50)
+        .setBackForegroundColor(backgroundColor: .gray600, foregroundColor: .white)
     private let everyAnswerButtom = PLUButton(config: .bordered())
         .setText(text: StringConstant.TodayQuestion.everyAnswer.text, font: .title1)
-        .setBackForegroundColor(backgroundColor: .gray600, foregroundColor: .gray50)
+        .setBackForegroundColor(backgroundColor: .gray50, foregroundColor: .gray300)
     private let explanationLabel = PLULabel(type: .caption, color: .gray300, text: StringConstant.TodayQuestion.explanation.text)
-    
-    lazy var tempMyPageButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("마이페이지", for: .normal)
-        button.backgroundColor = .designSystem(.error)
-        button.addTarget(self, action: #selector(mypageButtonTapped), for: .touchUpInside)
-        return button
-    }()
     
     init(coordinator: TodayQuestionCoordinator, viewModel: TodayQuestionViewModel) {
         self.coordinator = coordinator
@@ -61,6 +56,7 @@ final class TodayQuestionViewController: UIViewController {
         setDelegate()
         setButtonHandler()
         bind()
+        bindInput()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -70,6 +66,14 @@ final class TodayQuestionViewController: UIViewController {
     
     @objc func mypageButtonTapped() {
         self.coordinator.showMyPageViewController()
+    }
+    
+    private func bindInput() {
+        navigationBar.rightButtonTapSubject
+            .sink { [weak self] in
+                self?.coordinator.showMyPageViewController()
+            }
+            .store(in: &cancelBag)
     }
     
     private func bind() {
@@ -93,13 +97,17 @@ private extension TodayQuestionViewController {
     }
     
     func setHierarchy() {
-        view.addSubviews(questionCharcterImage, questionLabel, explanationView, seeYouTommorowImage, myAnswerButton, everyAnswerButtom, explanationLabel)
-        view.addSubview(tempMyPageButton)
+        view.addSubviews(navigationBar, questionCharcterImage, questionLabel, explanationView, seeYouTommorowImage, myAnswerButton, everyAnswerButtom, explanationLabel)
     }
     
     func setLayout() {
+        navigationBar.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.leading.trailing.equalToSuperview()
+        }
+        
         questionCharcterImage.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(42)
+            make.top.equalTo(navigationBar.snp.bottom).offset(42)
             make.leading.equalToSuperview().inset(103)
         }
         
@@ -135,11 +143,6 @@ private extension TodayQuestionViewController {
             make.bottom.equalToSuperview().inset(124)
             make.centerX.equalToSuperview()
         }
-        
-        tempMyPageButton.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-            make.size.equalTo(100)
-        }
     }
     
     func setAddTarget() {
@@ -154,9 +157,31 @@ private extension TodayQuestionViewController {
     func setButtonHandler() {
         myAnswerButton.setUpdateHandler(updateHandler: { button in
             var config = button.configuration
+            // TODO: 오늘의 일기를 작성했다면 값에 따라 버튼 비활성화
             config?.baseBackgroundColor = button.isSelected
             ? .designSystem(.gray600)
             : .designSystem(.gray50)
+            
+            config?.baseForegroundColor = button.isSelected
+            ? .designSystem(.white)
+            : .designSystem(.gray300)
+            
+            button.configuration = config
+        })
+        
+        everyAnswerButtom.setUpdateHandler(updateHandler: { button in
+            var config = button.configuration
+            // TODO: 오늘의 일기 작성 안했다면 모두의 일기 버튼 비활성화
+            config?.baseBackgroundColor = button.isSelected
+            ? .designSystem(.gray600)
+            : .designSystem(.gray50)
+            
+            config?.baseForegroundColor = button.isSelected
+            ? .designSystem(.white)
+            : .designSystem(.gray300)
+            
+            // TODO: 오늘의 일기 작성 안했다면 모두의 일기 버튼 비활성화
+            button.configuration = config
         })
     }
     

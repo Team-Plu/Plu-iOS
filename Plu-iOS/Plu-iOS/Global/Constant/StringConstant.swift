@@ -109,4 +109,17 @@ enum StringConstant {
             static let rejectButtonTitle = "괜찮아요"
         }
     }
+    
+    enum Navibar {
+        enum title {
+            static let signUp = "회원가입"
+            static let myAnswer = "나의 답변"
+            static let everyAnswer = "모두의 답변"
+            static let diaryRecord = "일기 기록"
+            static let myPage = "마이페이지"
+            static let resign = "탈퇴하기"
+            static let profileEdit = "프로필수정"
+            static let completeRightButton = "완료"
+        }
+    }
 }

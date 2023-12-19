@@ -36,15 +36,9 @@ private extension TabbarViewController {
         let tabBarAppearance = UITabBarAppearance()
         tabBarAppearance.stackedLayoutAppearance.normal.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -4)
         tabBarAppearance.stackedLayoutAppearance.selected.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -4)
-        let _ = self.setTabBarItemAppearnce()
+        tabBarAppearance.stackedLayoutAppearance.normal.titleTextAttributes = [.font: UIFont.suite(.tabbar), .foregroundColor: UIColor.designSystem(.gray700)!]
+        tabBarAppearance.stackedLayoutAppearance.selected.titleTextAttributes = [.font: UIFont.suite(.tabbar), .foregroundColor: UIColor.designSystem(.gray700)!]
         self.tabBar.standardAppearance = tabBarAppearance
-    }
-    
-    func setTabBarItemAppearnce() -> UITabBarItemAppearance {
-        let tabbarItemAppearance = UITabBarItemAppearance()
-        tabbarItemAppearance.normal.titleTextAttributes = [.font: UIFont.suite(.tabbar)]
-        tabbarItemAppearance.selected.titleTextAttributes = [.font: UIFont.suite(.tabbar)]
-        return tabbarItemAppearance
     }
     
     func setTabBarUI() {
@@ -67,8 +61,6 @@ extension UINavigationController {
                                        image: tabBarImg.withRenderingMode(renderingMode),
                                        selectedImage: tabBarSelectedImg.withRenderingMode(renderingMode))
     }
-    
-    
 }
 
 
