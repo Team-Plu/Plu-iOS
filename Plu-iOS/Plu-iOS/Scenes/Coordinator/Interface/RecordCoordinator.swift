@@ -13,4 +13,6 @@ protocol RecordCoordinator: Coordinator {
     func showMyPageViewController()
     func presentSelectMonthPopUpViewController()
     func showAnswerDetailViewController()
+    
+    var delegate: RecordCoordinatorDelegate? { get set }
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SelectMonthDelegate: AnyObject {
-    func passYearAndMonth(_ input: String)
+    func passYearAndMonth(year: Int, month: Int)
 }
 
 protocol AlarmDelegate: AnyObject {
@@ -59,8 +59,8 @@ final class PopUpCoordinatorImpl: PopUpCoordinator {
                 self.alarmDelegate?.alarmAccept(true)
             case .register:
                 self.registerDelgate?.register(true)
-            case .selectMonth:
-                self.selectMonthDelegate?.passYearAndMonth("날짜가 입력되었습니다")
+            case .selectMonth(let year, let month):
+                self.selectMonthDelegate?.passYearAndMonth(year: year, month: month)
             }
         }
     }

@@ -24,7 +24,7 @@ import Foundation
 enum PopUpType {
     case alarm
     case register
-    case selectMonth
+    case selectMonth(year: Int, month: Int)
 }
 
 protocol PopUpCoordinator: Coordinator {

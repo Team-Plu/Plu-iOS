@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol RecordCoordinatorDelegate: AnyObject {
+    func getYearAndMonth(year: Int, month: Int)
+}
+
 final class RecordCoordinatorImpl: RecordCoordinator {
+    
+    weak var delegate: RecordCoordinatorDelegate?
     
     weak var navigationController: UINavigationController?
     
@@ -28,8 +34,7 @@ final class RecordCoordinatorImpl: RecordCoordinator {
     func presentSelectMonthPopUpViewController() {
         let popUpCoordinator = PopUpCoordinatorImpl(navigationController: self.navigationController)
         popUpCoordinator.selectMonthDelegate = self
-        
-        popUpCoordinator.show(type: .selectMonth)
+        popUpCoordinator.show(type: .selectMonth(year: .zero, month: .zero))
     }
     
     func showAnswerDetailViewController() {
@@ -39,7 +44,7 @@ final class RecordCoordinatorImpl: RecordCoordinator {
 }
 
 extension RecordCoordinatorImpl: SelectMonthDelegate {
-    func passYearAndMonth(_ input: String) {
-        print("필터 입력완료: \(input)")
+    func passYearAndMonth(year: Int, month: Int) {
+        self.delegate?.getYearAndMonth(year: year, month: month)
     }
 }

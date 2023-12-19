@@ -35,6 +35,8 @@ final class RecordViewController: UIViewController {
     init(coordinator: RecordCoordinator) {
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
+        //TODO: 이 후 ViewModel에서 채택해야할 delegate
+        coordinator.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -132,3 +134,11 @@ extension RecordViewController: UITableViewDelegate {
     }
 }
 
+
+//TODO: 이 후 ViewModel에서 구현되어야할 메서드
+extension RecordViewController: RecordCoordinatorDelegate {
+    func getYearAndMonth(year: Int, month: Int) {
+        print("ViewController에서 \(year): \(month)")
+        dateFilterButton.setText(text: "\(year)년 \(month)월", font: .body3)
+    }
+}
