@@ -64,6 +64,8 @@
 		B5ACF7392B2A8ADC006D7641 /* PLUNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF7382B2A8ADC006D7641 /* PLUNavigationBarView.swift */; };
 		B5B744C92B312B1100AF368A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744C82B312B1100AF368A /* LoginViewModel.swift */; };
 		B5B744CC2B312B6400AF368A /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744CB2B312B6400AF368A /* ViewModel.swift */; };
+		B5B744D02B312C6D00AF368A /* LoginNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744CF2B312C6D00AF368A /* LoginNavigation.swift */; };
+		B5B744D22B312CE000AF368A /* LoginAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744D12B312CE000AF368A /* LoginAdaptor.swift */; };
 		B5B744DA2B31330300AF368A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744D92B31330300AF368A /* NetworkError.swift */; };
 		C00113DA2B25359100B2C799 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00113D92B25359100B2C799 /* OnboardingViewModel.swift */; };
 		C00113DC2B2546DB00B2C799 /* PluTempButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00113DB2B2546DB00B2C799 /* PluTempButton.swift */; };
@@ -225,6 +227,8 @@
 		B5ACF7382B2A8ADC006D7641 /* PLUNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLUNavigationBarView.swift; sourceTree = "<group>"; };
 		B5B744C82B312B1100AF368A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		B5B744CB2B312B6400AF368A /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		B5B744CF2B312C6D00AF368A /* LoginNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNavigation.swift; sourceTree = "<group>"; };
+		B5B744D12B312CE000AF368A /* LoginAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAdaptor.swift; sourceTree = "<group>"; };
 		B5B744D92B31330300AF368A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		C00113D92B25359100B2C799 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		C00113DB2B2546DB00B2C799 /* PluTempButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluTempButton.swift; sourceTree = "<group>"; };
@@ -470,6 +474,15 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		B5B744E02B31355E00AF368A /* Adaptor */ = {
+			isa = PBXGroup;
+			children = (
+				B5B744CF2B312C6D00AF368A /* LoginNavigation.swift */,
+				B5B744D12B312CE000AF368A /* LoginAdaptor.swift */,
+			);
+			path = Adaptor;
+			sourceTree = "<group>";
+		};
 		C0121A1F2B1347CA00D10EB0 = {
 			isa = PBXGroup;
 			children = (
@@ -710,7 +723,7 @@
 		C05E267A2B1D9E1900D91BFA /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				C05E26972B1D9F1000D91BFA /* LoginViewController.swift */,
+				B5B744E02B31355E00AF368A /* Adaptor */,
 				B5ACF7052B26D47C006D7641 /* TutorialCollectionViewCell.swift */,
 				B5ACF7092B26DEB1006D7641 /* LoginModel.swift */,
 				B5B744C82B312B1100AF368A /* LoginViewModel.swift */,
@@ -1186,6 +1199,7 @@
 				C00113DC2B2546DB00B2C799 /* PluTempButton.swift in Sources */,
 				C083F6262B27EDBA00808AE6 /* PopUpDimmedViewController.swift in Sources */,
 				C05E26922B1D9EED00D91BFA /* MyAnswerViewController.swift in Sources */,
+				B5B744D22B312CE000AF368A /* LoginAdaptor.swift in Sources */,
 				C07CD88F2B2BD4C90091DAAF /* UIButton+.swift in Sources */,
 				B5B744CC2B312B6400AF368A /* ViewModel.swift in Sources */,
 				C05E26882B1D9EA300D91BFA /* MyPageViewController.swift in Sources */,
@@ -1202,6 +1216,7 @@
 				B5B744DA2B31330300AF368A /* NetworkError.swift in Sources */,
 				B5ACF70A2B26DEB1006D7641 /* LoginModel.swift in Sources */,
 				4AA747552B1CF094004D0335 /* Palette.swift in Sources */,
+				B5B744D02B312C6D00AF368A /* LoginNavigation.swift in Sources */,
 				B5ACF6F52B22DA42006D7641 /* RecordDiffableModel.swift in Sources */,
 				C05E265B2B1D9A4300D91BFA /* CollectionViewCellRegisterDequeueProtocol.swift in Sources */,
 				C0682A852B25860D00AD4DB4 /* NicknameManager.swift in Sources */,
