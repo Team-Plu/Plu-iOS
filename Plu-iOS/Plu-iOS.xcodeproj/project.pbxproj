@@ -71,6 +71,7 @@
 		C0121A432B1347CB00D10EB0 /* Plu_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A422B1347CB00D10EB0 /* Plu_iOSTests.swift */; };
 		C0121A4D2B1347CB00D10EB0 /* Plu_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A4C2B1347CB00D10EB0 /* Plu_iOSUITests.swift */; };
 		C0121A4F2B1347CB00D10EB0 /* Plu_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A4E2B1347CB00D10EB0 /* Plu_iOSUITestsLaunchTests.swift */; };
+		C012FFF62B2F06FA00433211 /* PLUIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C012FFF52B2F06FA00433211 /* PLUIndicator.swift */; };
 		C02C5DFE2B22E0780011F07C /* UIEdgeInsets+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C5DFD2B22E0780011F07C /* UIEdgeInsets+.swift */; };
 		C04E4CF42B2A8DCF00ABDFAA /* SelectMonthPopUpViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04E4CF32B2A8DCF00ABDFAA /* SelectMonthPopUpViewModelImpl.swift */; };
 		C04E4CF62B2AAE0B00ABDFAA /* PLUPopUpContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04E4CF52B2AAE0A00ABDFAA /* PLUPopUpContainerView.swift */; };
@@ -129,15 +130,16 @@
 		C0A256272B1EE1200059AA7E /* MyPageAppVersionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A256262B1EE1200059AA7E /* MyPageAppVersionTableViewCell.swift */; };
 		C0CEF3DE2B267A4B00682D1B /* NicknameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CEF3DD2B267A4B00682D1B /* NicknameState.swift */; };
 		C0CEF3E02B267B3600682D1B /* NicknameCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CEF3DF2B267B3600682D1B /* NicknameCheck.swift */; };
+		C0DBFB362B300EFF002F71A4 /* ExitUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DBFB352B300EFF002F71A4 /* ExitUser.swift */; };
 		C0E0D4F72B26C7FC00840C0B /* NicknameEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E0D4F62B26C7FC00840C0B /* NicknameEditViewController.swift */; };
 		C0E0D4F92B26C81700840C0B /* NicknameEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E0D4F82B26C81700840C0B /* NicknameEditViewModel.swift */; };
 		C0E0D4FB2B26CC4C00840C0B /* PLUImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E0D4FA2B26CC4C00840C0B /* PLUImageView.swift */; };
 		C0E93B402B2035370098A822 /* MyPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B3F2B2035370098A822 /* MyPageCell.swift */; };
 		C0E93B432B2035580098A822 /* MyPageUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B422B2035580098A822 /* MyPageUserData.swift */; };
-		C0E93B452B2035650098A822 /* MyPageAlarmCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B442B2035650098A822 /* MyPageAlarmCellData.swift */; };
-		C0E93B472B20357B0098A822 /* MypageInfomationCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B462B20357B0098A822 /* MypageInfomationCellData.swift */; };
-		C0E93B492B20358A0098A822 /* MypageAppVersionCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B482B20358A0098A822 /* MypageAppVersionCellData.swift */; };
-		C0E93B4B2B20359B0098A822 /* MypageUserExitCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B4A2B20359B0098A822 /* MypageUserExitCellData.swift */; };
+		C0E93B452B2035650098A822 /* MyPageAlarmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B442B2035650098A822 /* MyPageAlarmData.swift */; };
+		C0E93B472B20357B0098A822 /* MyPageInfomaitonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B462B20357B0098A822 /* MyPageInfomaitonType.swift */; };
+		C0E93B492B20358A0098A822 /* MypageAppVersionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B482B20358A0098A822 /* MypageAppVersionData.swift */; };
+		C0E93B4B2B20359B0098A822 /* MyPageUserExitType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B4A2B20359B0098A822 /* MyPageUserExitType.swift */; };
 		C0E93B4E2B2036E50098A822 /* MyPageSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B4D2B2036E50098A822 /* MyPageSection.swift */; };
 		C0E93B502B2037C20098A822 /* MyPageCellHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B4F2B2037C20098A822 /* MyPageCellHeight.swift */; };
 		C0E93B522B2046030098A822 /* MyPageSectionHeaderHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93B512B2046030098A822 /* MyPageSectionHeaderHeight.swift */; };
@@ -231,6 +233,7 @@
 		C0121A482B1347CB00D10EB0 /* Plu-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Plu-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0121A4C2B1347CB00D10EB0 /* Plu_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plu_iOSUITests.swift; sourceTree = "<group>"; };
 		C0121A4E2B1347CB00D10EB0 /* Plu_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plu_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C012FFF52B2F06FA00433211 /* PLUIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLUIndicator.swift; sourceTree = "<group>"; };
 		C02C5DFD2B22E0780011F07C /* UIEdgeInsets+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+.swift"; sourceTree = "<group>"; };
 		C04E4CF32B2A8DCF00ABDFAA /* SelectMonthPopUpViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMonthPopUpViewModelImpl.swift; sourceTree = "<group>"; };
 		C04E4CF52B2AAE0A00ABDFAA /* PLUPopUpContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLUPopUpContainerView.swift; sourceTree = "<group>"; };
@@ -287,15 +290,16 @@
 		C0A256262B1EE1200059AA7E /* MyPageAppVersionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAppVersionTableViewCell.swift; sourceTree = "<group>"; };
 		C0CEF3DD2B267A4B00682D1B /* NicknameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameState.swift; sourceTree = "<group>"; };
 		C0CEF3DF2B267B3600682D1B /* NicknameCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameCheck.swift; sourceTree = "<group>"; };
+		C0DBFB352B300EFF002F71A4 /* ExitUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitUser.swift; sourceTree = "<group>"; };
 		C0E0D4F62B26C7FC00840C0B /* NicknameEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameEditViewController.swift; sourceTree = "<group>"; };
 		C0E0D4F82B26C81700840C0B /* NicknameEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameEditViewModel.swift; sourceTree = "<group>"; };
 		C0E0D4FA2B26CC4C00840C0B /* PLUImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLUImageView.swift; sourceTree = "<group>"; };
 		C0E93B3F2B2035370098A822 /* MyPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCell.swift; sourceTree = "<group>"; };
 		C0E93B422B2035580098A822 /* MyPageUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageUserData.swift; sourceTree = "<group>"; };
-		C0E93B442B2035650098A822 /* MyPageAlarmCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAlarmCellData.swift; sourceTree = "<group>"; };
-		C0E93B462B20357B0098A822 /* MypageInfomationCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageInfomationCellData.swift; sourceTree = "<group>"; };
-		C0E93B482B20358A0098A822 /* MypageAppVersionCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageAppVersionCellData.swift; sourceTree = "<group>"; };
-		C0E93B4A2B20359B0098A822 /* MypageUserExitCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageUserExitCellData.swift; sourceTree = "<group>"; };
+		C0E93B442B2035650098A822 /* MyPageAlarmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAlarmData.swift; sourceTree = "<group>"; };
+		C0E93B462B20357B0098A822 /* MyPageInfomaitonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageInfomaitonType.swift; sourceTree = "<group>"; };
+		C0E93B482B20358A0098A822 /* MypageAppVersionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageAppVersionData.swift; sourceTree = "<group>"; };
+		C0E93B4A2B20359B0098A822 /* MyPageUserExitType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageUserExitType.swift; sourceTree = "<group>"; };
 		C0E93B4D2B2036E50098A822 /* MyPageSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSection.swift; sourceTree = "<group>"; };
 		C0E93B4F2B2037C20098A822 /* MyPageCellHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCellHeight.swift; sourceTree = "<group>"; };
 		C0E93B512B2046030098A822 /* MyPageSectionHeaderHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSectionHeaderHeight.swift; sourceTree = "<group>"; };
@@ -429,6 +433,7 @@
 				B5ACF71F2B281622006D7641 /* MyPageCoordinator.swift */,
 				B5ACF7212B2816C6006D7641 /* PopUpCoordinator.swift */,
 				C07AB7262B2828A600C2E02C /* TabbarCoordinator.swift */,
+				C0DBFB352B300EFF002F71A4 /* ExitUser.swift */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -662,6 +667,7 @@
 				4AA747642B25B8C8004D0335 /* PLUExplanationView.swift */,
 				C0E0D4FA2B26CC4C00840C0B /* PLUImageView.swift */,
 				4AA7476F2B261221004D0335 /* PLUEverydayAnswerView.swift */,
+				C012FFF52B2F06FA00433211 /* PLUIndicator.swift */,
 			);
 			path = UIComponent;
 			sourceTree = "<group>";
@@ -885,10 +891,8 @@
 			isa = PBXGroup;
 			children = (
 				C0E93B422B2035580098A822 /* MyPageUserData.swift */,
-				C0E93B442B2035650098A822 /* MyPageAlarmCellData.swift */,
-				C0E93B462B20357B0098A822 /* MypageInfomationCellData.swift */,
-				C0E93B482B20358A0098A822 /* MypageAppVersionCellData.swift */,
-				C0E93B4A2B20359B0098A822 /* MypageUserExitCellData.swift */,
+				C0E93B442B2035650098A822 /* MyPageAlarmData.swift */,
+				C0E93B482B20358A0098A822 /* MypageAppVersionData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -896,9 +900,11 @@
 		C0E93B4C2B2036DA0098A822 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
+				C0E93B462B20357B0098A822 /* MyPageInfomaitonType.swift */,
 				C0E93B4D2B2036E50098A822 /* MyPageSection.swift */,
 				C0E93B4F2B2037C20098A822 /* MyPageCellHeight.swift */,
 				C0E93B512B2046030098A822 /* MyPageSectionHeaderHeight.swift */,
+				C0E93B4A2B20359B0098A822 /* MyPageUserExitType.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -1097,6 +1103,7 @@
 				B5ACF6C92B1EE26C006D7641 /* ElementColor.swift in Sources */,
 				B5ACF72F2B283D23006D7641 /* AnswerDetailCoordinatorImpl.swift in Sources */,
 				C0E93B5A2B20518B0098A822 /* TableSectionViewRegisterDequeueProtocol.swift in Sources */,
+				C012FFF62B2F06FA00433211 /* PLUIndicator.swift in Sources */,
 				C05E26782B1D9D2900D91BFA /* StringConstant.swift in Sources */,
 				C0A2561D2B1ED99B0059AA7E /* MyPageHeaderView.swift in Sources */,
 				4AA747702B261221004D0335 /* PLUEverydayAnswerView.swift in Sources */,
@@ -1104,7 +1111,7 @@
 				4AA747612B24B495004D0335 /* AnswerCautionView.swift in Sources */,
 				C0E93B522B2046030098A822 /* MyPageSectionHeaderHeight.swift in Sources */,
 				B5ACF7142B28133E006D7641 /* AuthCoordinator.swift in Sources */,
-				C0E93B452B2035650098A822 /* MyPageAlarmCellData.swift in Sources */,
+				C0E93B452B2035650098A822 /* MyPageAlarmData.swift in Sources */,
 				C0A2561F2B1EDC350059AA7E /* MyPageRoundSectionHeaderView.swift in Sources */,
 				4ABEEDBE2B27E7310020DA86 /* KeyboardType.swift in Sources */,
 				C05E263F2B1C4E1E00D91BFA /* UIFont+.swift in Sources */,
@@ -1113,7 +1120,7 @@
 				C05E266D2B1D9B7200D91BFA /* UITextField+.swift in Sources */,
 				B5ACF7042B26C807006D7641 /* RecordDiffableDataSource.swift in Sources */,
 				C04E4CF42B2A8DCF00ABDFAA /* SelectMonthPopUpViewModelImpl.swift in Sources */,
-				C0E93B4B2B20359B0098A822 /* MypageUserExitCellData.swift in Sources */,
+				C0E93B4B2B20359B0098A822 /* MyPageUserExitType.swift in Sources */,
 				C05E26902B1D9ED300D91BFA /* TabbarViewController.swift in Sources */,
 				C0CEF3DE2B267A4B00682D1B /* NicknameState.swift in Sources */,
 				C0682A882B25862200AD4DB4 /* NicknameManagerStub.swift in Sources */,
@@ -1142,7 +1149,7 @@
 				B5ACF7292B28196C006D7641 /* TabBarCoordinatorImpl.swift in Sources */,
 				B5ACF6D12B1EEECB006D7641 /* OtherAnswersDiffableModel.swift in Sources */,
 				B5ACF72B2B281A19006D7641 /* AuthCoordinatorImpl.swift in Sources */,
-				C0E93B472B20357B0098A822 /* MypageInfomationCellData.swift in Sources */,
+				C0E93B472B20357B0098A822 /* MyPageInfomaitonType.swift in Sources */,
 				B5ACF7102B27F193006D7641 /* Coordinator.swift in Sources */,
 				C0E93B432B2035580098A822 /* MyPageUserData.swift in Sources */,
 				B5ACF7122B2812E2006D7641 /* SplashCoordinator.swift in Sources */,
@@ -1166,7 +1173,7 @@
 				C07CD8912B2BD9E20091DAAF /* AlarmPopUpViewModelImpl.swift in Sources */,
 				B5ACF7162B2814CE006D7641 /* TodayQuestionCoordinator.swift in Sources */,
 				4AA747572B1D74A6004D0335 /* CGColor+.swift in Sources */,
-				C0E93B492B20358A0098A822 /* MypageAppVersionCellData.swift in Sources */,
+				C0E93B492B20358A0098A822 /* MypageAppVersionData.swift in Sources */,
 				C05E266B2B1D9B4C00D91BFA /* UIViewController+.swift in Sources */,
 				B5ACF7312B284296006D7641 /* MyPageCoordinatorImpl.swift in Sources */,
 				C05E26762B1D9CFB00D91BFA /* ScreenConstant.swift in Sources */,
@@ -1201,6 +1208,7 @@
 				4A4466732B2D8EBE002D5BF7 /* TodayQuestionViewModel.swift in Sources */,
 				C04E4CF62B2AAE0B00ABDFAA /* PLUPopUpContainerView.swift in Sources */,
 				C02C5DFE2B22E0780011F07C /* UIEdgeInsets+.swift in Sources */,
+				C0DBFB362B300EFF002F71A4 /* ExitUser.swift in Sources */,
 				4A44666A2B281F52002D5BF7 /* TodayQuestionCoordinatorImpl.swift in Sources */,
 				B5ACF70C2B26EC48006D7641 /* se+.swift in Sources */,
 				B5ACF7392B2A8ADC006D7641 /* PLUNavigationBarView.swift in Sources */,
@@ -1373,7 +1381,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = AXN37CP9B9;
+				DEVELOPMENT_TEAM = Z225784MRD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Plu-iOS/Application/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1403,7 +1411,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = AXN37CP9B9;
+				DEVELOPMENT_TEAM = Z225784MRD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Plu-iOS/Application/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -61,6 +61,13 @@ final class PLUButton: UIButton {
         return self
     }
     
+    @discardableResult
+    func setLayer(cornerRadius: CGFloat) -> Self {
+        self.layer.cornerRadius = cornerRadius
+        self.layer.masksToBounds = true
+        return self
+    }
+    
     func setUpdateHandler(updateHandler: UIButton.ConfigurationUpdateHandler?) {
         self.configurationUpdateHandler = updateHandler
     }
@@ -68,5 +75,12 @@ final class PLUButton: UIButton {
     func underLine(title: String?) -> Self {
         self.setUnderline(title: title)
         return self
+    }
+    
+    func isActive(state: Bool) {
+        var config = self.configuration
+        config?.baseBackgroundColor = .designSystem(state ? .gray600 : .gray50)
+        config?.baseForegroundColor = .designSystem(state ? .white : .gray300)
+        self.configuration = config
     }
 }

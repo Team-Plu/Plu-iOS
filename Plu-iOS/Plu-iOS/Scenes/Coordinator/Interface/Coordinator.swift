@@ -7,6 +7,6 @@
 
 import UIKit
 
-protocol Coordinator : AnyObject {
+protocol Coordinator : AnyObject, ExitUser {
     var navigationController : UINavigationController? { get set }
 }

@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "ic_record_activated.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "ic_record_activated@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "ic_record_activated@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Property 1=activated.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {

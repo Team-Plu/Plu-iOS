@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "ic_today_question_fire.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "ic_today_question_fire@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "ic_today_question_fire@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Prop=fire.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {

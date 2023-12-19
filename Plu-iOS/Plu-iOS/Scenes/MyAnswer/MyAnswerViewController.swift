@@ -18,26 +18,28 @@ final class MyAnswerViewController: UIViewController {
     private var cancelBag = Set<AnyCancellable>()
     private let viewModel = MyAnswerViewModel()
     private let keyboardStatyeType = PassthroughSubject<KeyboardType, Never>()
+    private let textViewTextCountSubject = PassthroughSubject<String, Never>()
     
+    private lazy var navigationBar = PLUNavigationBarView()
+        .setTitle(text: StringConstant.Navibar.title.myAnswer)
+        .setRightButton(type: .text(StringConstant.Navibar.rightButton.complete))
+        .setLeftButton(type: .back)
+        .setRightButtonInitState(isEnabeld: false)
     private let everyDayAnswerView = PLUEverydayAnswerView()
-    private lazy var answerTextView = PLUTextView(text: StringConstant.MyAnswer.placeholder.text, textColor: .gray300, font: .body1R)
+    private lazy var answerTextView = PLUTextView()
     private let answerCautionView = AnswerCautionView()
     private let bottomView = UIView()
     private let underLine = PLUUnserLine(color: .gray100)
     private let bottomTextLabel = PLULabel(type: .body1R, color: .gray700, text: StringConstant.MyAnswer.bottomView.text)
     private let answerStateSwitch = UISwitch()
     
-    private lazy var tempCompleteButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("임시완료버튼입니다", for: .normal)
-        button.backgroundColor = .designSystem(.error)
-        button.addTarget(self, action: #selector(completButtonTapped), for: .touchUpInside)
-        return button
-    }()
-    
     init(coordinator: MyAnswerCoordinator) {
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     required init?(coder: NSCoder) {
@@ -47,6 +49,7 @@ final class MyAnswerViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tabBarController?.tabBar.isHidden = true
         setUI()
         setHierarchy()
         setLayout()
@@ -54,7 +57,7 @@ final class MyAnswerViewController: UIViewController {
         everyDayAnswerView.configureUI(answer: OthersAnswer.dummmy())
         bind()
         bindInput()
-
+        setTabBar()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -78,16 +81,37 @@ final class MyAnswerViewController: UIViewController {
                 self?.keyboardStatyeType.send((.hide))
             }
             .store(in: &cancelBag)
+        
+        navigationBar.leftButtonTapSubject
+            .sink { [weak self] in
+                self?.coordinator.pop()
+            }
+            .store(in: &cancelBag)
+        
+        navigationBar.rightButtonTapSubject
+            .sink { [weak self] in
+                self?.coordinator.presentRegisterPopUpViewController()
+            }
+            .store(in: &cancelBag)
     }
     
     private func bind() {
-        let input = MyAnswerViewModel.MyAnswerInput(keyboardStateSubject: keyboardStatyeType)
+        let input = MyAnswerViewModel.MyAnswerInput(keyboardStateSubject: keyboardStatyeType,
+                                                    textViewTextCountSubject: textViewTextCountSubject)
         let output = viewModel.transform(input: input)
         
         output.keyboardStatePublisher
             .receive(on: RunLoop.main)
             .sink { [weak self] state in
                 self?.updateTextViewLayout(keyboardState: state)
+            }
+            .store(in: &cancelBag)
+        
+        output.textViewTextCountPublisher
+            .receive(on: RunLoop.main)
+            .sink { [weak self] state in
+                self?.answerTextView.placeHolderLabel.isHidden = state
+                self?.navigationBar.setRightButtonState(isEnabled: state)
             }
             .store(in: &cancelBag)
     }
@@ -109,18 +133,9 @@ final class MyAnswerViewController: UIViewController {
 
 // MARK: - UITextViewDelegate
 extension MyAnswerViewController: UITextViewDelegate {
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == .designSystem(.gray300) {
-            textView.text = nil
-            textView.textColor = .designSystem(.black)
-        }
-    }
     
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
-            textView.textColor = .designSystem(.gray300)
-            textView.text = StringConstant.MyAnswer.placeholder.text
-        }
+    func textViewDidChange(_ textView: UITextView) {
+        textViewTextCountSubject.send(textView.text)
     }
 }
 
@@ -130,15 +145,18 @@ private extension MyAnswerViewController {
     }
     
     func setHierarchy() {
-        view.addSubviews(everyDayAnswerView, answerTextView, answerCautionView, bottomView)
+        view.addSubviews(navigationBar, everyDayAnswerView, answerTextView, answerCautionView, bottomView)
         bottomView.addSubviews(underLine, bottomTextLabel, answerStateSwitch)
-        /// 나중에 삭제
-        view.addSubview(tempCompleteButton)
     }
     
     func setLayout() {
+        navigationBar.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.leading.trailing.equalToSuperview()
+        }
+        
         everyDayAnswerView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalTo(navigationBar.snp.bottom)
             make.leading.trailing.equalToSuperview()
         }
         
@@ -175,14 +193,13 @@ private extension MyAnswerViewController {
             make.trailing.equalToSuperview().inset(20)
             make.centerY.equalToSuperview()
         }
-        
-        tempCompleteButton.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-            make.size.equalTo(150)
-        }
     }
     
     func setDelegate() {
         answerTextView.delegate = self
+    }
+    
+    func setTabBar() {
+        self.tabBarController?.tabBar.isHidden = true
     }
 }

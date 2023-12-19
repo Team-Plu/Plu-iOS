@@ -7,22 +7,13 @@
 
 import Foundation
 
-
-//protocol AlarmPopUp: Coordinator {
-//    func
-//}
-//
-//protocol RegisterPopUp: Coordinator {
-//    
-//}
-//
-//protocol SelectMonthPopUp: Coordinator {
-//    
-//}
+enum AlarmType {
+    case todayQuestion, mypage
+}
 
 @frozen
 enum PopUpType {
-    case alarm
+    case alarm(AlarmType)
     case register
     case selectMonth(year: Int, month: Int)
 }
