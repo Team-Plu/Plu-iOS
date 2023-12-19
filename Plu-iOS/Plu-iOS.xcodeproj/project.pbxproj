@@ -62,6 +62,8 @@
 		B5ACF72F2B283D23006D7641 /* AnswerDetailCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF72E2B283D23006D7641 /* AnswerDetailCoordinatorImpl.swift */; };
 		B5ACF7312B284296006D7641 /* MyPageCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF7302B284296006D7641 /* MyPageCoordinatorImpl.swift */; };
 		B5ACF7392B2A8ADC006D7641 /* PLUNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF7382B2A8ADC006D7641 /* PLUNavigationBarView.swift */; };
+		B5B744C92B312B1100AF368A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744C82B312B1100AF368A /* LoginViewModel.swift */; };
+		B5B744CC2B312B6400AF368A /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744CB2B312B6400AF368A /* ViewModel.swift */; };
 		C00113DA2B25359100B2C799 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00113D92B25359100B2C799 /* OnboardingViewModel.swift */; };
 		C0121A2C2B1347CA00D10EB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A2B2B1347CA00D10EB0 /* AppDelegate.swift */; };
 		C0121A2E2B1347CA00D10EB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A2D2B1347CA00D10EB0 /* SceneDelegate.swift */; };
@@ -219,6 +221,8 @@
 		B5ACF72E2B283D23006D7641 /* AnswerDetailCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerDetailCoordinatorImpl.swift; sourceTree = "<group>"; };
 		B5ACF7302B284296006D7641 /* MyPageCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCoordinatorImpl.swift; sourceTree = "<group>"; };
 		B5ACF7382B2A8ADC006D7641 /* PLUNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLUNavigationBarView.swift; sourceTree = "<group>"; };
+		B5B744C82B312B1100AF368A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		B5B744CB2B312B6400AF368A /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		C00113D92B25359100B2C799 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		C0121A282B1347CA00D10EB0 /* Plu-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plu-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0121A2B2B1347CA00D10EB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -454,6 +458,14 @@
 			path = CoordinatorImpl;
 			sourceTree = "<group>";
 		};
+		B5B744CA2B312B5F00AF368A /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				B5B744CB2B312B6400AF368A /* ViewModel.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		C0121A1F2B1347CA00D10EB0 = {
 			isa = PBXGroup;
 			children = (
@@ -541,6 +553,7 @@
 		C05E26482B1D977900D91BFA /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				B5B744CA2B312B5F00AF368A /* Protocol */,
 				4A44666D2B2B2029002D5BF7 /* UserDefault */,
 				C05E264E2B1D985A00D91BFA /* Enum */,
 				C05E264D2B1D984500D91BFA /* Extention */,
@@ -695,6 +708,7 @@
 				C05E26972B1D9F1000D91BFA /* LoginViewController.swift */,
 				B5ACF7052B26D47C006D7641 /* TutorialCollectionViewCell.swift */,
 				B5ACF7092B26DEB1006D7641 /* LoginModel.swift */,
+				B5B744C82B312B1100AF368A /* LoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1135,6 +1149,7 @@
 				4AA747532B1CEF9C004D0335 /* UIColor+.swift in Sources */,
 				C0E93B552B2046EE0098A822 /* MyPageTableView.swift in Sources */,
 				C00113DA2B25359100B2C799 /* OnboardingViewModel.swift in Sources */,
+				B5B744C92B312B1100AF368A /* LoginViewModel.swift in Sources */,
 				4AA747652B25B8C8004D0335 /* PLUExplanationView.swift in Sources */,
 				C083F62C2B27F20500808AE6 /* RegisterPopUpViewController.swift in Sources */,
 				C05E26982B1D9F1000D91BFA /* LoginViewController.swift in Sources */,
@@ -1165,6 +1180,7 @@
 				C083F6262B27EDBA00808AE6 /* PopUpDimmedViewController.swift in Sources */,
 				C05E26922B1D9EED00D91BFA /* MyAnswerViewController.swift in Sources */,
 				C07CD88F2B2BD4C90091DAAF /* UIButton+.swift in Sources */,
+				B5B744CC2B312B6400AF368A /* ViewModel.swift in Sources */,
 				C05E26882B1D9EA300D91BFA /* MyPageViewController.swift in Sources */,
 				C07CD8912B2BD9E20091DAAF /* AlarmPopUpViewModelImpl.swift in Sources */,
 				B5ACF7162B2814CE006D7641 /* TodayQuestionCoordinator.swift in Sources */,
