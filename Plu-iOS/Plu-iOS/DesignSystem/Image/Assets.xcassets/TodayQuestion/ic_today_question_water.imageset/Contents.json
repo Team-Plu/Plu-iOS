@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "ic_today_question_water.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "ic_today_question_water@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "ic_today_question_water@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Prop=water.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {

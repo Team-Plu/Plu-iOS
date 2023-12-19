@@ -40,6 +40,10 @@ final class MyPageViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
@@ -48,7 +52,6 @@ final class MyPageViewController: UIViewController {
         setDelegate()
         bindInput()
         setMyPageFromUserData(input: .dummyData)
-        self.tabBarController?.tabBar.isHidden = true
         navigationSubject
             .sink { type in
                 switch type {
@@ -71,6 +74,9 @@ final class MyPageViewController: UIViewController {
                 }
             }
             .store(in: &cancelBag)
+
+        setTabBar()
+
     }
 }
 
@@ -113,6 +119,7 @@ private extension MyPageViewController {
         return MyPageSection.makeMypageData(alarmAccept, appVersion)
     }
     
+
     func bindInput() {
         self.navigationBar.leftButtonTapSubject
             .sink { [weak self] in
@@ -120,6 +127,11 @@ private extension MyPageViewController {
             }
             .store(in: &cancelBag)
     }
+
+    func setTabBar() {
+        self.tabBarController?.tabBar.isHidden = true
+    }
+
 }
 
 extension MyPageViewController: UITableViewDataSource {

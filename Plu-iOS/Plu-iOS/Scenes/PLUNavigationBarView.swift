@@ -15,12 +15,14 @@ final class PLUNavigationBarView: UIView {
     
     enum LeftButtonType {
         case logo
+        case textLogo
         case back
         
         var image: UIImage {
             switch self {
             case .back: return ImageLiterals.NavigationBar.arrowLeft
             case .logo: return ImageLiterals.NavigationBar.profile32
+            case .textLogo: return ImageLiterals.NavigationBar.pluSmallLogo
             }
         }
     }
@@ -98,7 +100,14 @@ final class PLUNavigationBarView: UIView {
         return self
     }
     
+    func setRightButtonInitState(isEnabeld: Bool) -> Self {
+        rightButton.isEnabled = isEnabeld
+        return self
+    }
+    
     func setRightButtonState(isEnabled: Bool) {
+        let buttonTitleColor = isEnabled ? Palette.gray600 : Palette.gray200
+        rightButton.setBackForegroundColor(backgroundColor: .background, foregroundColor: buttonTitleColor)
         rightButton.isEnabled = isEnabled
         var config = rightButton.configuration
         config?.baseForegroundColor = .designSystem(isEnabled ? .gray600 : .gray200)

@@ -7,10 +7,19 @@
 //
 
 import UIKit
+import Combine
 
 import SnapKit
 
 final class ResignViewController: UIViewController {
+    
+    private var coordinator: MyPageCoordinator
+    
+    private var cancelBag = Set<AnyCancellable>()
+    
+    private let navigationBar = PLUNavigationBarView()
+        .setTitle(text: "탈퇴하기")
+        .setLeftButton(type: .back)
     
     private let airElementImageView = UIImageView(image: ImageLiterals.MyPage.farewellCharacter)
     
@@ -27,13 +36,32 @@ final class ResignViewController: UIViewController {
         .setText(text: StringConstant.Resign.resignText, font: .title1)
         .setBackForegroundColor(backgroundColor: .gray50, foregroundColor: .gray300)
         .setLayer(cornerRadius: 8, borderColor: .gray50)
-
+    
+    init(coordinator: MyPageCoordinator) {
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
         setHierarchy()
         setLayout()
         setUpdateHandler()
+        bindInput()
+    }
+    
+    private func bindInput() {
+        navigationBar.leftButtonTapSubject
+            .sink { [weak self] _ in
+                guard let self else { return }
+                self.coordinator.pop()
+            }
+            .store(in: &cancelBag)
     }
 }
 
@@ -47,14 +75,20 @@ private extension ResignViewController {
                               resignTitleLabel,
                               descriptionView,
                               reuseButton,
-                              resignButton)
+                              resignButton,
+                              navigationBar)
         
     }
     
     func setLayout() {
+        navigationBar.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.leading.trailing.equalToSuperview()
+        }
+        
         airElementImageView.snp.makeConstraints { make in
+            make.top.equalTo(navigationBar.snp.bottom).offset(69)
             make.centerX.equalToSuperview()
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(69)
         }
         
         resignTitleLabel.snp.makeConstraints { make in
