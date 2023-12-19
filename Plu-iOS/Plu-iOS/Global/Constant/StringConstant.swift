@@ -8,6 +8,7 @@
 import Foundation
 
 enum StringConstant {
+    
     enum Login {
         static let page1Title = "매일 오후 10시 전달되는\n오늘의 질문을 확인해 보세요"
         static let page2Title = "나의 답변을 작성하면\n모두의 답변을 볼 수 있어요"
@@ -38,9 +39,10 @@ enum StringConstant {
     }
   
     enum Onboarding {
-        case title, subTitle
+        case buttonTitle, title, subTitle
         var description: String? {
             switch self {
+            case .buttonTitle: return "가입 완료"
             case .title: return "닉네임을 입력해주세요"
             case .subTitle: return "닉네임을 입력하면 가입이 완료됩니다."
             }
@@ -102,11 +104,18 @@ enum StringConstant {
             static let checkButtonTitle = "다시 확인하기"
         }
         
-        enum Alarm {
+        enum TodayQuestionAlarm {
             static let title = "매일 저녁 10시\n알림을 드려도 될까요?"
             static let subTitle = "오늘의 질문을 놓치지 않을 수 있어요.\n필요 없는 알림은 보내지 않을게요!"
             static let acceptButtonTitle = "알림을 받을래요"
             static let rejectButtonTitle = "괜찮아요"
+        }
+        
+        enum MypageAlarm {
+            static let title = "매일 저녁 10시\n오늘의 질문 알림을 보내드려요!"
+            static let subTitle = "알림 설정을 해제하면\n더이상 오늘의 질문 알림이 오지 않아요."
+            static let acceptButtonTitle = "계속 알림을 받을래요"
+            static let rejectButtonTitle = "알림을 해제할래요"
         }
     }
     

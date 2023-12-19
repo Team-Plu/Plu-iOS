@@ -117,12 +117,16 @@ private extension ResignViewController {
     }
     
     func setUpdateHandler() {
-        reuseButton.setUpdateHandler { button in
-            print("reuse button tapped : \(button.isSelected)")
-        }
-        
-        resignButton.setUpdateHandler { button in
-            print("reuse button tapped : \(button.isSelected)")
-        }
+        resignButton.addTarget(self, action: #selector(resignButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func resignButtonTapped() {
+        guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else { return }
+        let navigationController = UINavigationController()
+        sceneDelegate.appCoordinator = AppCoordinatorImpl(navigationController: navigationController)
+        sceneDelegate.appCoordinator?.startSplashCoordinator()
+        sceneDelegate.window?.rootViewController = navigationController
+        sceneDelegate.window?.makeKeyAndVisible()
     }
 }
+

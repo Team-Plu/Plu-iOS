@@ -109,6 +109,9 @@ final class PLUNavigationBarView: UIView {
         let buttonTitleColor = isEnabled ? Palette.gray600 : Palette.gray200
         rightButton.setBackForegroundColor(backgroundColor: .background, foregroundColor: buttonTitleColor)
         rightButton.isEnabled = isEnabled
+        var config = rightButton.configuration
+        config?.baseForegroundColor = .designSystem(isEnabled ? .gray600 : .gray200)
+        rightButton.configuration = config
     }
 }
 
@@ -127,6 +130,7 @@ extension PLUNavigationBarView {
         }
         
         leftButton.snp.makeConstraints { make in
+            make.size.equalTo(24)
             make.leading.equalToSuperview().inset(20)
             make.centerY.equalToSuperview()
         }

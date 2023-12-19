@@ -33,7 +33,7 @@ final class MyAnswerCoordinatorImpl: MyAnswerCoordinator {
 }
 
 extension MyAnswerCoordinatorImpl: RegisterDelegate {
-    func register(_ input: Bool) {
+    func register() {
         print("나의답변을 등록한다고 합니다")
         self.pop()
     }

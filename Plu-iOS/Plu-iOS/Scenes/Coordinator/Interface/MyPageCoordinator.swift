@@ -9,6 +9,7 @@ import UIKit
 
 
 protocol MyPageCoordinator: Coordinator {
+    var delegate: MypageAlarmResultDelegate? { get set }
     func showMyPageViewController()
     func presentAlarmPopUpViewController()
     func showProfileEditViewController()

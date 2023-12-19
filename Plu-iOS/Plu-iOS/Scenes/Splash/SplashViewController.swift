@@ -47,10 +47,21 @@ final class SplashViewController: UIViewController {
         selectRandomElement()
         setHierarchy()
         setLayout()
+        requestNotificationPermission()
     }
     
     @objc func tap() {
         self.coordinator.showLoginViewController()
+    }
+    
+    func requestNotificationPermission(){
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge], completionHandler: {didAllow,Error in
+            if didAllow {
+                print("Push: 권한 허용")
+            } else {
+                print("Push: 권한 거부")
+            }
+        })
     }
 }
 
@@ -71,20 +82,21 @@ private extension SplashViewController {
     
     func setLayout() {
         eyeImageView.snp.makeConstraints { make in
-            make.centerY.equalToSuperview().multipliedBy(0.77)
+            make.centerY.equalToSuperview().multipliedBy(0.7)
             make.centerX.equalToSuperview()
             make.width.equalTo(view.snp.width).multipliedBy(0.25)
             make.height.equalTo(eyeImageView.snp.width).multipliedBy(0.5)
         }
         
         wordMarkView.snp.makeConstraints { make in
-            make.top.equalTo(eyeImageView.snp.bottom).offset(5)
+            make.top.equalTo(eyeImageView.snp.bottom).offset(3)
             make.centerX.equalToSuperview()
             make.width.equalTo(view.snp.width).multipliedBy(0.20)
             make.height.equalTo(wordMarkView.snp.width).multipliedBy(0.74)
         }
         button.snp.makeConstraints { make in
-            make.center.equalToSuperview()
+            make.top.equalTo(wordMarkView.snp.bottom).offset(50)
+            make.centerX.equalToSuperview()
             make.size.equalTo(100)
         }
     }

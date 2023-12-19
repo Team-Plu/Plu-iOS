@@ -12,11 +12,11 @@ protocol SelectMonthDelegate: AnyObject {
 }
 
 protocol AlarmDelegate: AnyObject {
-    func alarmAccept(_ input: Bool)
+    func isAccept()
 }
 
 protocol RegisterDelegate: AnyObject {
-    func register(_ input: Bool)
+    func register()
 }
 
 final class PopUpCoordinatorImpl: PopUpCoordinator {
@@ -35,8 +35,8 @@ final class PopUpCoordinatorImpl: PopUpCoordinator {
     
     func show(type: PopUpType) {
         switch type {
-        case .alarm:
-            let viewModel = AlarmPopUpViewModelImpl(coordinator: self)
+        case .alarm(let type):
+            let viewModel = AlarmPopUpViewModelImpl(coordinator: self, type: type)
             let alarmPopUpViewController = AlarmPopUpViewController(viewModel: viewModel)
             self.navigationController?.present(alarmPopUpViewController, animated: true)
         case .register:
@@ -52,17 +52,15 @@ final class PopUpCoordinatorImpl: PopUpCoordinator {
     
     
     func accept(type: PopUpType) {
-        
-        self.navigationController?.dismiss(animated: true) {
-            switch type {
-            case .alarm:
-                self.alarmDelegate?.alarmAccept(true)
-            case .register:
-                self.registerDelgate?.register(true)
-            case .selectMonth:
-                self.selectMonthDelegate?.passYearAndMonth("날짜가 입력되었습니다")
-            }
+        switch type {
+        case .alarm:
+            self.alarmDelegate?.isAccept()
+        case .register:
+            self.registerDelgate?.register()
+        case .selectMonth:
+            self.selectMonthDelegate?.passYearAndMonth("날짜가 입력되었습니다")
         }
+        self.navigationController?.dismiss(animated: true)
     }
     
     func dismiss() {
