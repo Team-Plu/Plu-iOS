@@ -55,6 +55,11 @@ final class ResignViewController: UIViewController {
         bindInput()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setTabBar()
+    }
+    
     private func bindInput() {
         navigationBar.leftButtonTapSubject
             .sink { [weak self] _ in
@@ -62,6 +67,10 @@ final class ResignViewController: UIViewController {
                 self.coordinator.pop()
             }
             .store(in: &cancelBag)
+    }
+    
+    func setTabBar() {
+        self.tabBarController?.tabBar.isHidden = true
     }
 }
 

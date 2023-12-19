@@ -22,7 +22,7 @@ final class MyAnswerViewController: UIViewController {
     
     private lazy var navigationBar = PLUNavigationBarView()
         .setTitle(text: StringConstant.Navibar.title.myAnswer)
-        .setRightButton(type: .text(StringConstant.Navibar.rightButton.complete))
+        .setRightButton(type: .text(StringConstant.Navibar.title.completeRightButton))
         .setLeftButton(type: .back)
         .setRightButtonInitState(isEnabeld: false)
     private let everyDayAnswerView = PLUEverydayAnswerView()

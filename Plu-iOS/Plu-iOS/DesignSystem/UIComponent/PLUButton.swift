@@ -20,7 +20,6 @@ final class PLUButton: UIButton {
     
     private func setUpButton(config: UIButton.Configuration) {
         self.configuration = config
-//        self.changesSelectionAsPrimaryAction = true
     }
     
     @discardableResult
@@ -72,6 +71,7 @@ final class PLUButton: UIButton {
         self.configurationUpdateHandler = updateHandler
     }
     
+    @discardableResult
     func underLine(title: String?) -> Self {
         self.setUnderline(title: title)
         return self
