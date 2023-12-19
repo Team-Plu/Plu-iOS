@@ -16,7 +16,7 @@ final class TodayQuestionCoordinatorImpl: TodayQuestionCoordinator {
     }
     
     func showTodayQuestionViewController() {
-        let todayQuestionViewController = TodayQuestionViewController(coordinator: self)
+        let todayQuestionViewController = TodayQuestionViewController(coordinator: self, viewModel: TodayQuestionViewModel())
         self.navigationController?.pushViewController(todayQuestionViewController, animated: true)
     }
     

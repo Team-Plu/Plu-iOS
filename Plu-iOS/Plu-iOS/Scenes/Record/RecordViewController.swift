@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import Combine
 
 import SnapKit
 
 final class RecordViewController: UIViewController {
     
     var coordinator: RecordCoordinator
+    
+    private let navigationBar = PLUNavigationBarView()
+        .setTitle(text: "일기 기록")
+        .setRightButton(type: .logo)
     
     private let totalCountLabel = PLULabel(type: .subHead1, color: .gray600, backgroundColor: .background)
     
@@ -24,6 +29,8 @@ final class RecordViewController: UIViewController {
     private let questionTableView = OthersAnswerTableView(tableViewType: .recordQuestions)
     
     private lazy var datasource = RecordDiffableDataSource(tableView: self.questionTableView)
+    
+    private var cancelBag = Set<AnyCancellable>()
     
     init(coordinator: RecordCoordinator) {
         self.coordinator = coordinator
@@ -43,11 +50,21 @@ final class RecordViewController: UIViewController {
         setAction()
         applySnapshot(.dummy())
         configureUI(record: .dummy())
+        bindInput()
     }
     
     func configureUI(record: Record) {
         self.dateFilterButton.setText(text: record.currentDate, font: .body3)
         self.totalCountLabel.text = "총 \(record.questions.count)개"
+    }
+    
+    private func bindInput() {
+        navigationBar.rightButtonTapSubject
+            .sink { [weak self] _ in
+                guard let self else { return }
+                self.coordinator.showMyPageViewController()
+            }
+            .store(in: &cancelBag)
     }
 }
 
@@ -68,12 +85,18 @@ private extension RecordViewController {
     }
     
     func setHierarchy() {
-        self.view.addSubviews(totalCountLabel, dateFilterButton, questionTableView)
+        self.view.addSubviews(totalCountLabel, dateFilterButton,
+                              questionTableView, navigationBar)
     }
     
     func setLayout() {
+        navigationBar.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.leading.trailing.equalToSuperview()
+        }
+        
         totalCountLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(29)
+            make.top.equalTo(navigationBar.snp.bottom).offset(29)
             make.leading.equalToSuperview().inset(20)
         }
         
