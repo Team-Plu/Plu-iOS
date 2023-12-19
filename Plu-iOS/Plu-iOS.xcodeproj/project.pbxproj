@@ -66,6 +66,8 @@
 		B5B744CC2B312B6400AF368A /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744CB2B312B6400AF368A /* ViewModel.swift */; };
 		B5B744D02B312C6D00AF368A /* LoginNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744CF2B312C6D00AF368A /* LoginNavigation.swift */; };
 		B5B744D22B312CE000AF368A /* LoginAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744D12B312CE000AF368A /* LoginAdaptor.swift */; };
+		B5B744D62B31312C00AF368A /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744D52B31312C00AF368A /* LoginManager.swift */; };
+		B5B744D82B31314F00AF368A /* LoginManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744D72B31314F00AF368A /* LoginManagerImpl.swift */; };
 		B5B744DA2B31330300AF368A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744D92B31330300AF368A /* NetworkError.swift */; };
 		C00113DA2B25359100B2C799 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00113D92B25359100B2C799 /* OnboardingViewModel.swift */; };
 		C00113DC2B2546DB00B2C799 /* PluTempButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00113DB2B2546DB00B2C799 /* PluTempButton.swift */; };
@@ -229,6 +231,8 @@
 		B5B744CB2B312B6400AF368A /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		B5B744CF2B312C6D00AF368A /* LoginNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNavigation.swift; sourceTree = "<group>"; };
 		B5B744D12B312CE000AF368A /* LoginAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAdaptor.swift; sourceTree = "<group>"; };
+		B5B744D52B31312C00AF368A /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
+		B5B744D72B31314F00AF368A /* LoginManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManagerImpl.swift; sourceTree = "<group>"; };
 		B5B744D92B31330300AF368A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		C00113D92B25359100B2C799 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		C00113DB2B2546DB00B2C799 /* PluTempButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluTempButton.swift; sourceTree = "<group>"; };
@@ -472,6 +476,15 @@
 				B5B744CB2B312B6400AF368A /* ViewModel.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		B5B744DD2B31354600AF368A /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				B5B744D52B31312C00AF368A /* LoginManager.swift */,
+				B5B744D72B31314F00AF368A /* LoginManagerImpl.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		B5B744E02B31355E00AF368A /* Adaptor */ = {
@@ -726,7 +739,7 @@
 				B5B744E02B31355E00AF368A /* Adaptor */,
 				B5ACF7052B26D47C006D7641 /* TutorialCollectionViewCell.swift */,
 				B5ACF7092B26DEB1006D7641 /* LoginModel.swift */,
-				B5B744C82B312B1100AF368A /* LoginViewModel.swift */,
+				B5B744DD2B31354600AF368A /* Manager */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1166,6 +1179,7 @@
 				B5ACF6C52B1EDFF3006D7641 /* PLULabel.swift in Sources */,
 				4AA7475B2B22DA38004D0335 /* PLUTextView.swift in Sources */,
 				4AA747532B1CEF9C004D0335 /* UIColor+.swift in Sources */,
+				B5B744D82B31314F00AF368A /* LoginManagerImpl.swift in Sources */,
 				C0E93B552B2046EE0098A822 /* MyPageTableView.swift in Sources */,
 				C00113DA2B25359100B2C799 /* OnboardingViewModel.swift in Sources */,
 				B5B744C92B312B1100AF368A /* LoginViewModel.swift in Sources */,
@@ -1194,6 +1208,7 @@
 				C083F62A2B27EE4400808AE6 /* AlarmPopUpViewController.swift in Sources */,
 				B5ACF6F32B22D2F2006D7641 /* QuestionView.swift in Sources */,
 				C0A256232B1EDD550059AA7E /* MyPageAlarmTableViewCell.swift in Sources */,
+				B5B744D62B31312C00AF368A /* LoginManager.swift in Sources */,
 				C05E268C2B1D9EB600D91BFA /* RecordViewController.swift in Sources */,
 				C0121A2C2B1347CA00D10EB0 /* AppDelegate.swift in Sources */,
 				C00113DC2B2546DB00B2C799 /* PluTempButton.swift in Sources */,
