@@ -64,6 +64,7 @@
 		B5ACF7392B2A8ADC006D7641 /* PLUNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF7382B2A8ADC006D7641 /* PLUNavigationBarView.swift */; };
 		B5B744C92B312B1100AF368A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744C82B312B1100AF368A /* LoginViewModel.swift */; };
 		B5B744CC2B312B6400AF368A /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744CB2B312B6400AF368A /* ViewModel.swift */; };
+		B5B744DA2B31330300AF368A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744D92B31330300AF368A /* NetworkError.swift */; };
 		C00113DA2B25359100B2C799 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00113D92B25359100B2C799 /* OnboardingViewModel.swift */; };
 		C00113DC2B2546DB00B2C799 /* PluTempButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00113DB2B2546DB00B2C799 /* PluTempButton.swift */; };
 		C0121A2C2B1347CA00D10EB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A2B2B1347CA00D10EB0 /* AppDelegate.swift */; };
@@ -224,6 +225,7 @@
 		B5ACF7382B2A8ADC006D7641 /* PLUNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLUNavigationBarView.swift; sourceTree = "<group>"; };
 		B5B744C82B312B1100AF368A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		B5B744CB2B312B6400AF368A /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		B5B744D92B31330300AF368A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		C00113D92B25359100B2C799 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		C00113DB2B2546DB00B2C799 /* PluTempButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluTempButton.swift; sourceTree = "<group>"; };
 		C0121A282B1347CA00D10EB0 /* Plu-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plu-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -576,6 +578,7 @@
 			isa = PBXGroup;
 			children = (
 				C05E265E2B1D9A9400D91BFA /* Network */,
+				B5B744D92B31330300AF368A /* NetworkError.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1196,6 +1199,7 @@
 				4AA747672B25E6FD004D0335 /* ImageDummy.swift in Sources */,
 				C0121A2E2B1347CA00D10EB0 /* SceneDelegate.swift in Sources */,
 				4ABEEDBC2B2733A60020DA86 /* MyAnswerViewModel.swift in Sources */,
+				B5B744DA2B31330300AF368A /* NetworkError.swift in Sources */,
 				B5ACF70A2B26DEB1006D7641 /* LoginModel.swift in Sources */,
 				4AA747552B1CF094004D0335 /* Palette.swift in Sources */,
 				B5ACF6F52B22DA42006D7641 /* RecordDiffableModel.swift in Sources */,
