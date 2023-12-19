@@ -64,6 +64,11 @@ final class LoginViewController: UIViewController {
         setDataSource()
         kakaoLoginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+    }
 }
 
 private extension LoginViewController {

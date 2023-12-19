@@ -12,6 +12,9 @@ import SnapKit
 
 final class SplashViewController: UIViewController {
     
+    private let eyeImageView = PLUImageView(nil)
+    private let wordMarkView = PLUImageView(ImageLiterals.Splash.pluWordmarkLarge)
+    
     let coordinator: SplashCoordinator
     
     init(coordinator: SplashCoordinator) {
@@ -22,25 +25,7 @@ final class SplashViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    private let eyeImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-    
-    private let wordMarkView: UIImageView = {
-        let imageView = UIImageView(image: ImageLiterals.Splash.pluWordmarkLarge)
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-    
-    lazy var button: UIButton = {
-        let button = UIButton()
-        button.setTitle("sofjisofjsoi", for: .normal)
-        button.addTarget(self, action: #selector(tap), for: .touchUpInside)
-        return button
-    }()
+
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,14 +33,13 @@ final class SplashViewController: UIViewController {
         setHierarchy()
         setLayout()
         requestNotificationPermission()
-    }
-    
-    @objc func tap() {
-        self.coordinator.showLoginViewController()
+        DispatchQueue.main.asyncAfter(wallDeadline: .now()+1) {
+            self.coordinator.showLoginViewController()
+        }
     }
     
     func requestNotificationPermission(){
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge], completionHandler: {didAllow,Error in
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge], completionHandler: { didAllow,Error in
             if didAllow {
                 print("Push: 권한 허용")
             } else {
@@ -77,7 +61,7 @@ private extension SplashViewController {
     }
     
     func setHierarchy() {
-        view.addSubviews(eyeImageView, wordMarkView, button)
+        view.addSubviews(eyeImageView, wordMarkView)
     }
     
     func setLayout() {
@@ -93,11 +77,6 @@ private extension SplashViewController {
             make.centerX.equalToSuperview()
             make.width.equalTo(view.snp.width).multipliedBy(0.20)
             make.height.equalTo(wordMarkView.snp.width).multipliedBy(0.74)
-        }
-        button.snp.makeConstraints { make in
-            make.top.equalTo(wordMarkView.snp.bottom).offset(50)
-            make.centerX.equalToSuperview()
-            make.size.equalTo(100)
         }
     }
 }

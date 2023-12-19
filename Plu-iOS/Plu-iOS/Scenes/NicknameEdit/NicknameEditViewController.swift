@@ -47,7 +47,6 @@ final class NicknameEditViewController: UIViewController {
         setLayout()
         bindInput()
         bind()
-
         /// 임시로 넣어놨습니다
         nickNameTextField.setTextfieldDefaultInput(input: "의성")
     }
@@ -57,8 +56,17 @@ final class NicknameEditViewController: UIViewController {
         setKeyboard()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setTabBar()
+    }
+    
     func setNickname(input: String) {
         nickNameTextField.setTextfieldDefaultInput(input: input)
+    }
+    
+    func setTabBar() {
+        self.tabBarController?.tabBar.isHidden = true
     }
 }
 

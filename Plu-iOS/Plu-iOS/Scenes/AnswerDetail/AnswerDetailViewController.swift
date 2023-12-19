@@ -23,7 +23,7 @@ final class AnswerDetailViewController: UIViewController {
     private let sympathyButton = PLUButton(config: .bordered())
         .setImage(image: ImageLiterals.AnswerDetail.airEmpathyLargeActivated, placement: .leading, padding: 4)
         .setBackForegroundColor(backgroundColor: .background, foregroundColor: .pluRed)
-        .setText(text: "공감 999", font: .body1M)
+        .setText(text: "공감 999", font: .body2M)
         .setLayer(cornerRadius: 15, borderColor: .pluRed)
     
     public override func viewDidLoad() {
@@ -103,6 +103,7 @@ private extension AnswerDetailViewController {
         sympathyButton.snp.makeConstraints { make in
             make.top.equalTo(answerDetailLabel.snp.bottom).offset(40)
             make.leading.equalToSuperview().inset(20)
+            make.height.equalTo(30)
             make.bottom.equalToSuperview().inset(20)
         }
     }

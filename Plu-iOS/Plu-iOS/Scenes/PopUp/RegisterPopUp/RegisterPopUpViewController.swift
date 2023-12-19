@@ -88,14 +88,14 @@ private extension RegisterPopUpViewController {
             make.top.equalToSuperview().inset(24)
             make.centerX.equalToSuperview()
             make.height.equalTo(30)
-            make.leading.trailing.equalToSuperview().inset(60)
+            make.leading.trailing.equalToSuperview()
         }
         
         popUpSubTitle.snp.makeConstraints { make in
             make.top.equalTo(popUpTitle.snp.bottom).offset(8)
             make.centerX.equalToSuperview()
             make.height.equalTo(48)
-            make.leading.trailing.equalToSuperview().inset(48)
+            make.leading.trailing.equalToSuperview()
         }
         
         reCheckButton.snp.makeConstraints { make in
