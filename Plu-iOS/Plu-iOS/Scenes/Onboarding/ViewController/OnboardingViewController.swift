@@ -22,7 +22,7 @@ final class OnboardingViewController: UIViewController {
     private var cancelBag = Set<AnyCancellable>()
     
     private let navigationBar = PLUNavigationBarView()
-        .setTitle(text: "회원가입")
+        .setTitle(text: StringConstant.Navibar.title.signUp)
         .setLeftButton(type: .back)
     
     private let titleLabel = PLULabel(type: .head1, color: .gray700, text: StringConstant.Onboarding.title.description)

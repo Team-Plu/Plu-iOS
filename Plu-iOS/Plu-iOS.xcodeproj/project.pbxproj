@@ -63,7 +63,6 @@
 		B5ACF7312B284296006D7641 /* MyPageCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF7302B284296006D7641 /* MyPageCoordinatorImpl.swift */; };
 		B5ACF7392B2A8ADC006D7641 /* PLUNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF7382B2A8ADC006D7641 /* PLUNavigationBarView.swift */; };
 		C00113DA2B25359100B2C799 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00113D92B25359100B2C799 /* OnboardingViewModel.swift */; };
-		C00113DC2B2546DB00B2C799 /* PluTempButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00113DB2B2546DB00B2C799 /* PluTempButton.swift */; };
 		C0121A2C2B1347CA00D10EB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A2B2B1347CA00D10EB0 /* AppDelegate.swift */; };
 		C0121A2E2B1347CA00D10EB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A2D2B1347CA00D10EB0 /* SceneDelegate.swift */; };
 		C0121A352B1347CB00D10EB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0121A342B1347CB00D10EB0 /* Assets.xcassets */; };
@@ -221,7 +220,6 @@
 		B5ACF7302B284296006D7641 /* MyPageCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCoordinatorImpl.swift; sourceTree = "<group>"; };
 		B5ACF7382B2A8ADC006D7641 /* PLUNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLUNavigationBarView.swift; sourceTree = "<group>"; };
 		C00113D92B25359100B2C799 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
-		C00113DB2B2546DB00B2C799 /* PluTempButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluTempButton.swift; sourceTree = "<group>"; };
 		C0121A282B1347CA00D10EB0 /* Plu-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plu-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0121A2B2B1347CA00D10EB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0121A2D2B1347CA00D10EB0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -709,7 +707,6 @@
 				C0682A892B25867700AD4DB4 /* MangerImpl */,
 				C0682A862B25861900AD4DB4 /* ViewModel */,
 				C0682A832B25860000AD4DB4 /* OnboardingInteface */,
-				C00113DB2B2546DB00B2C799 /* PluTempButton.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -1165,7 +1162,6 @@
 				C0A256232B1EDD550059AA7E /* MyPageAlarmTableViewCell.swift in Sources */,
 				C05E268C2B1D9EB600D91BFA /* RecordViewController.swift in Sources */,
 				C0121A2C2B1347CA00D10EB0 /* AppDelegate.swift in Sources */,
-				C00113DC2B2546DB00B2C799 /* PluTempButton.swift in Sources */,
 				C083F6262B27EDBA00808AE6 /* PopUpDimmedViewController.swift in Sources */,
 				C05E26922B1D9EED00D91BFA /* MyAnswerViewController.swift in Sources */,
 				C07CD88F2B2BD4C90091DAAF /* UIButton+.swift in Sources */,
