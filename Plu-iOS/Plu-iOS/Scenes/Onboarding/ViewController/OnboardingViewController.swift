@@ -21,13 +21,18 @@ final class OnboardingViewController: UIViewController {
         .setTitle(text: StringConstant.Navibar.title.signUp)
         .setLeftButton(type: .back)
     
-    private let titleLabel = PLULabel(type: .head1, color: .gray700, text: StringConstant.Onboarding.title.description)
+    private let titleLabel = PLULabel(type: .head1,
+                                      color: .gray700,
+                                      text: StringConstant.Onboarding.title.description)
     
-    private let subTitleLabel = PLULabel(type: .body2R, color: .gray500, text: StringConstant.Onboarding.subTitle.description)
+    private let subTitleLabel = PLULabel(type: .body2R,
+                                         color: .gray500,
+                                         text: StringConstant.Onboarding.subTitle.description)
     
     private let nickNameTextField = PLUTextField()
     
-    private let errorLabel = PLULabel(type: .body3, color: .error)
+    private let errorLabel = PLULabel(type: .body3,
+                                      color: .error)
     
     private var signInButton = PLUButton(config: .bordered())
         .setText(text: StringConstant.Onboarding.buttonTitle.description!, font: .title1)
@@ -35,7 +40,6 @@ final class OnboardingViewController: UIViewController {
     
     // 추후에 button내부의 indicator로 변경 예정
     private lazy var loadingView = PLUIndicator(parent: self)
-    
     
     private let viewModel: any OnboardingViewModel
     
@@ -70,12 +74,16 @@ final class OnboardingViewController: UIViewController {
 
 private extension OnboardingViewController {
     func bind() {
-        let input = OnboardingInput(textFieldSubject: self.nickNameTextField.textPublisher, backButtonTapped: backButtonTapped, singInButtonTapped: singInButtonTapped)
+        let input = OnboardingInput(textFieldSubject: self.nickNameTextField.textPublisher,
+                                    backButtonTapped: backButtonTapped,
+                                    singInButtonTapped: singInButtonTapped)
+        
         let output = self.viewModel.transform(input: input)
         output.nickNameResultPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] in
-                guard let isActive = $0.nextProcessButtonIsActive, let description = $0.errorDescription else { return }
+                guard let isActive = $0.nextProcessButtonIsActive,
+                      let description = $0.errorDescription else { return }
                 self?.errorLabel.text = description
                 self?.signInButton.isEnabled = isActive
                 self?.signInButton.isActive(state: isActive)
@@ -91,10 +99,11 @@ private extension OnboardingViewController {
     }
     
     func bindInput() {
-        
         self.navigationBar.leftButtonTapSubject
             .sink { [weak self] in
-                self?.backButtonTapped.send(())
+                DispatchQueue.global().async {
+                    self?.backButtonTapped.send(())
+                }
             }
             .store(in: &cancelBag)
         

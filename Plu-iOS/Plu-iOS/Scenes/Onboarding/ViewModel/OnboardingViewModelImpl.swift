@@ -9,15 +9,10 @@ import Foundation
 import Combine
 
 final class OnboardingViewModelImpl: OnboardingViewModel, NicknameCheck {
-    
-    enum OnboardingFlowType {
-        case backButtonTapped, signInButtonTapped
-    }
 
     var nickNameManager: NicknameManager
     var adaptor: OnboardingNavigation
     var vaildNicknameSubject = textFieldVaildChecker()
-    var navigationSubject = PassthroughSubject<OnboardingFlowType, Never>()
     var cancelBag = Set<AnyCancellable>()
     
     init(manager: NicknameManager, adaptor: OnboardingNavigation) {
@@ -27,29 +22,14 @@ final class OnboardingViewModelImpl: OnboardingViewModel, NicknameCheck {
     
     func transform(input: OnboardingInput) -> OnboardingOutput {
         
+        input.backButtonTapped
+            .sink { [weak self] _ in self?.adaptor.backButtonTapped() }
+            .store(in: &cancelBag)
+        
         let nicknameInput = input.textFieldSubject
         let checker = self.vaildNicknameSubject
         let nickNameResultPublisher = self.makeNicknameResultPublisher(from: nicknameInput, to: checker, with: nickNameManager)
         
-        self.navigationSubject
-            .receive(on: DispatchQueue.main)
-            .sink { type in
-                switch type {
-                case .backButtonTapped:
-                    self.adaptor.backButtonTapped()
-                case .signInButtonTapped:
-                    self.adaptor.signInButtonTapped()
-                }
-            }
-            .store(in: &cancelBag)
-        
-        input.backButtonTapped
-            .sink { _ in
-                self.navigationSubject.send(.backButtonTapped)
-            }
-            .store(in: &cancelBag)
-        
-
         let signInStatePublisher = input.singInButtonTapped
             .flatMap { nickname -> AnyPublisher<LoadingState, Never> in
                 return Future<LoadingState, Error> { promise in
@@ -57,7 +37,7 @@ final class OnboardingViewModelImpl: OnboardingViewModel, NicknameCheck {
                         do {
                             try await Task.sleep(nanoseconds: 100_000_000_0)
                             try await self.nickNameManager.registerUser(nickName: nickname)
-                            self.navigationSubject.send(.signInButtonTapped)
+                            self.adaptor.signInButtonTapped()
                             promise(.success(.end))
                         } catch {
                             promise(.failure(error))
