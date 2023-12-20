@@ -16,7 +16,7 @@ final class LoginAdaptor: LoginNavigation {
         self.coordinator = coordinator
     }
     
-    func loginButtonTapped(type: FlowType) {
+    func loginButtonTapped(type: LoginState) {
         switch type {
         case .loginSuccess:
             self.coordinator.showTabbarController()

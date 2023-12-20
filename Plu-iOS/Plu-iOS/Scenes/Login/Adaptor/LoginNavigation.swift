@@ -12,6 +12,15 @@ enum LoginType {
     case kakao
     case apple
     
+    var object: SocialLogin {
+        switch self {
+        case .apple:
+            return Apple()
+        case .kakao:
+            return Kakao()
+        }
+    }
+    
     var rawValue: String {
         return "\(self)".uppercased()
     }
@@ -19,5 +28,5 @@ enum LoginType {
 
 
 protocol LoginNavigation: AnyObject {
-    func loginButtonTapped(type: FlowType)
+    func loginButtonTapped(type: LoginState)
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 
-enum Login: CaseIterable {
+enum Tutorial: CaseIterable {
     case page1
     case page2
     case page3

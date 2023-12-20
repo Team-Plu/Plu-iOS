@@ -15,5 +15,5 @@ struct LoginViewModelInput {
 }
 
 struct LoginViewModelOutput {
-    let loginResult: AnyPublisher<(type: LoginType, state: LoginState), Never>
+    let loginResult: AnyPublisher<(type: LoginType, state: LoadingState), Never>
 }
