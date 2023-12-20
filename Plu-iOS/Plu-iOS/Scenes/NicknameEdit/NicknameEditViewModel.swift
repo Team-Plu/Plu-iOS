@@ -24,7 +24,7 @@ struct NicknameEditOutput {
 }
 
 enum LoadingState {
-    case start, end, error
+    case end, error(message: String)
 }
 
 final class NicknameEditViewModelImpl: NicknameEditViewModel, NicknameCheck {
@@ -57,7 +57,7 @@ final class NicknameEditViewModelImpl: NicknameEditViewModel, NicknameCheck {
                     }
                 }
                 .catch { error in
-                    Just(.error)
+                    Just(.error(message: "닉네임 수정 오류 발생"))
                 }
                 .eraseToAnyPublisher()
             }
