@@ -91,17 +91,15 @@ private extension MyPageAlarmTableViewCell {
     
     @objc func onClickSwitch() {
         let notificationCenter = UNUserNotificationCenter.current()
-        notificationCenter.getNotificationSettings { settings in
-            DispatchQueue.main.async {
-                if settings.authorizationStatus != .authorized {
-                    self.alarmSwitch.setOn(self.alarmSwitch.isOn, animated: false)
-                    self.alarmSwitchTypeSubject.send(.moveSetting)
-                    return
-                }
-                
-                if !self.alarmSwitch.isOn {
-                    self.alarmSwitchTypeSubject.send(.alarmAccept)
-                }
+        Task {
+            let setting = await notificationCenter.notificationSettings()
+            if setting.authorizationStatus != .authorized {
+                self.alarmSwitch.setOn(self.alarmSwitch.isOn, animated: false)
+                self.alarmSwitchTypeSubject.send(.moveSetting)
+                return
+            }
+            if !self.alarmSwitch.isOn {
+                self.alarmSwitchTypeSubject.send(.alarmAccept)
             }
         }
     }
