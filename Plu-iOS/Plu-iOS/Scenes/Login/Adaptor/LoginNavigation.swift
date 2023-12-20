@@ -21,6 +21,10 @@ enum LoginType {
         }
     }
     
+    var title: String {
+        return "\(self)".capitalized
+    }
+    
     var rawValue: String {
         return "\(self)".uppercased()
     }

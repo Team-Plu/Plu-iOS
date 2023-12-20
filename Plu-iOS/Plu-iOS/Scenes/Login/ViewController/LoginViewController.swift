@@ -81,14 +81,14 @@ final class LoginViewController: UIViewController {
     private func bindInput() {
         kakaoLoginButton.tapPublisher
             .sink { [weak self] _ in
-                self?.kakaoLoginButton.setActivityIndicator(isShow: true, isImage: .true)
+                self?.kakaoLoginButton.setActivityIndicator(isShow: true, isImage: true)
                 self?.loginButtonTapSubject.send(.kakao)
             }
             .store(in: &cancelBag)
         
         appleLoginButton.tapPublisher
             .sink { [weak self] _ in
-                self?.appleLoginButton.setActivityIndicator(isShow: true, isImage: .true)
+                self?.appleLoginButton.setActivityIndicator(isShow: true, isImage: false)
                 self?.loginButtonTapSubject.send(.apple)
             }
             .store(in: &cancelBag)
@@ -100,7 +100,7 @@ final class LoginViewController: UIViewController {
         output.loginResult
             .receive(on: DispatchQueue.main)
             .sink { [weak self] type, state in
-                self?.makeButtonBusyState(type: type, isBusy: false, isImage: .true)
+                self?.makeButtonBusyState(type: type, isBusy: false, isImage: false)
                 switch state {
                 case .end:
                     print("로그인 성공했으니 로딩창 내려야함")
@@ -111,7 +111,7 @@ final class LoginViewController: UIViewController {
             .store(in: &cancelBag)
     }
     
-    private func makeButtonBusyState(type: LoginType, isBusy: Bool, isImage: isImage) {
+    private func makeButtonBusyState(type: LoginType, isBusy: Bool, isImage: Bool) {
         if type == .kakao {
             self.kakaoLoginButton.setActivityIndicator(isShow: isBusy, isImage: isImage)
         } else {
