@@ -43,7 +43,7 @@ final class LoginViewController: UIViewController {
     }()
     
     private let kakaoLoginButton = PLUButton(config: .filled())
-        .setText(text: "카카오로 시작하기", font: .title1)
+        .setText(text: "Kakao로 시작하기", font: .title1)
         .setBackForegroundColor(backgroundColor: .kakaoYellow, foregroundColor: .black)
         .setImage(image: ImageLiterals.Tutorial.kakaoLogo, placement: .leading)
     
@@ -81,15 +81,14 @@ final class LoginViewController: UIViewController {
     private func bindInput() {
         kakaoLoginButton.tapPublisher
             .sink { [weak self] _ in
-                self?.kakaoLoginButton.setActivityIndicator(isShow: true)
-//                self?.loadingView.startAnimating()
+                self?.kakaoLoginButton.setActivityIndicator(isShow: true, isImage: .true)
                 self?.loginButtonTapSubject.send(.kakao)
             }
             .store(in: &cancelBag)
         
         appleLoginButton.tapPublisher
             .sink { [weak self] _ in
-                self?.appleLoginButton.setActivityIndicator(isShow: true)
+                self?.appleLoginButton.setActivityIndicator(isShow: true, isImage: .true)
                 self?.loginButtonTapSubject.send(.apple)
             }
             .store(in: &cancelBag)
@@ -101,7 +100,7 @@ final class LoginViewController: UIViewController {
         output.loginResult
             .receive(on: DispatchQueue.main)
             .sink { [weak self] type, state in
-                self?.makeButtonBusyState(type: type, isBusy: false)
+                self?.makeButtonBusyState(type: type, isBusy: false, isImage: .true)
                 switch state {
                 case .end:
                     print("로그인 성공했으니 로딩창 내려야함")
@@ -112,11 +111,11 @@ final class LoginViewController: UIViewController {
             .store(in: &cancelBag)
     }
     
-    private func makeButtonBusyState(type: LoginType, isBusy: Bool) {
+    private func makeButtonBusyState(type: LoginType, isBusy: Bool, isImage: isImage) {
         if type == .kakao {
-            self.kakaoLoginButton.setActivityIndicator(isShow: isBusy)
+            self.kakaoLoginButton.setActivityIndicator(isShow: isBusy, isImage: isImage)
         } else {
-            self.appleLoginButton.setActivityIndicator(isShow: isBusy)
+            self.appleLoginButton.setActivityIndicator(isShow: isBusy, isImage: isImage)
         }
     }
 }
@@ -190,13 +189,13 @@ extension LoginViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) 
     -> Int {
-        return Login.allCases.count
+        return Tutorial.allCases.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = TutorialCollectionViewCell.dequeueReusableCell(to: collectionView, indexPath: indexPath)
-        let title = Login.allCases[indexPath.item].title
-        let image = Login.allCases[indexPath.item].image
+        let title = Tutorial.allCases[indexPath.item].title
+        let image = Tutorial.allCases[indexPath.item].image
         
         cell.configureUI(image: image, text: title)
         return cell

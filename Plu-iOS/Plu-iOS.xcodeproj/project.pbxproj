@@ -70,6 +70,10 @@
 		B5B744D62B31312C00AF368A /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744D52B31312C00AF368A /* LoginManager.swift */; };
 		B5B744D82B31314F00AF368A /* LoginManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744D72B31314F00AF368A /* LoginManagerImpl.swift */; };
 		B5B744DA2B31330300AF368A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744D92B31330300AF368A /* NetworkError.swift */; };
+		B5B744E22B32C02100AF368A /* SocialLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744E12B32C02100AF368A /* SocialLogin.swift */; };
+		B5B744E42B32C87500AF368A /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744E32B32C87500AF368A /* Login.swift */; };
+		B5B744E62B32C88F00AF368A /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744E52B32C88F00AF368A /* LoginState.swift */; };
+		B5B744E82B32C89A00AF368A /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744E72B32C89A00AF368A /* LoadingState.swift */; };
 		C00113DA2B25359100B2C799 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00113D92B25359100B2C799 /* OnboardingViewModel.swift */; };
 		C00113DC2B2546DB00B2C799 /* PluTempButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00113DB2B2546DB00B2C799 /* PluTempButton.swift */; };
 		C0121A2C2B1347CA00D10EB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A2B2B1347CA00D10EB0 /* AppDelegate.swift */; };
@@ -236,6 +240,10 @@
 		B5B744D52B31312C00AF368A /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		B5B744D72B31314F00AF368A /* LoginManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManagerImpl.swift; sourceTree = "<group>"; };
 		B5B744D92B31330300AF368A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		B5B744E12B32C02100AF368A /* SocialLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLogin.swift; sourceTree = "<group>"; };
+		B5B744E32B32C87500AF368A /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		B5B744E52B32C88F00AF368A /* LoginState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginState.swift; sourceTree = "<group>"; };
+		B5B744E72B32C89A00AF368A /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 		C00113D92B25359100B2C799 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		C00113DB2B2546DB00B2C799 /* PluTempButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluTempButton.swift; sourceTree = "<group>"; };
 		C0121A282B1347CA00D10EB0 /* Plu-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plu-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -492,7 +500,10 @@
 		B5B744DC2B31354100AF368A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B5B744E12B32C02100AF368A /* SocialLogin.swift */,
 				B5ACF7092B26DEB1006D7641 /* LoginModel.swift */,
+				B5B744E32B32C87500AF368A /* Login.swift */,
+				B5B744E52B32C88F00AF368A /* LoginState.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -687,6 +698,7 @@
 			isa = PBXGroup;
 			children = (
 				C05E26622B1D9AC000D91BFA /* Enum */,
+				B5B744E72B32C89A00AF368A /* LoadingState.swift */,
 				B5ACF6C82B1EE26C006D7641 /* ElementColor.swift */,
 			);
 			path = Enum;
@@ -1198,6 +1210,7 @@
 				C05E263F2B1C4E1E00D91BFA /* UIFont+.swift in Sources */,
 				C083F6302B27F30200808AE6 /* SelectYearAndMonthPopUpViewController.swift in Sources */,
 				C05E26962B1D9F0600D91BFA /* OnboardingViewController.swift in Sources */,
+				B5B744E22B32C02100AF368A /* SocialLogin.swift in Sources */,
 				C05E266D2B1D9B7200D91BFA /* UITextField+.swift in Sources */,
 				B5ACF7042B26C807006D7641 /* RecordDiffableDataSource.swift in Sources */,
 				C04E4CF42B2A8DCF00ABDFAA /* SelectMonthPopUpViewModelImpl.swift in Sources */,
@@ -1239,6 +1252,7 @@
 				B5ACF71A2B28158E006D7641 /* OtherAnswersCoordinator.swift in Sources */,
 				B5ACF7252B2818D5006D7641 /* AppCoordinatorImpl.swift in Sources */,
 				4A4466712B2D8DB1002D5BF7 /* UserDefaultKey.swift in Sources */,
+				B5B744E42B32C87500AF368A /* Login.swift in Sources */,
 				C0E93B4E2B2036E50098A822 /* MyPageSection.swift in Sources */,
 				C0E0D4F72B26C7FC00840C0B /* NicknameEditViewController.swift in Sources */,
 				C05E265D2B1D9A5900D91BFA /* CollectionSectionViewRegisterDequeueProtocol.swift in Sources */,
@@ -1255,8 +1269,10 @@
 				C07CD88F2B2BD4C90091DAAF /* UIButton+.swift in Sources */,
 				B5B744CC2B312B6400AF368A /* ViewModel.swift in Sources */,
 				C05E26882B1D9EA300D91BFA /* MyPageViewController.swift in Sources */,
+				B5B744E82B32C89A00AF368A /* LoadingState.swift in Sources */,
 				C07CD8912B2BD9E20091DAAF /* AlarmPopUpViewModelImpl.swift in Sources */,
 				B5ACF7162B2814CE006D7641 /* TodayQuestionCoordinator.swift in Sources */,
+				B5B744E62B32C88F00AF368A /* LoginState.swift in Sources */,
 				4AA747572B1D74A6004D0335 /* CGColor+.swift in Sources */,
 				C0E93B492B20358A0098A822 /* MypageAppVersionData.swift in Sources */,
 				C05E266B2B1D9B4C00D91BFA /* UIViewController+.swift in Sources */,
