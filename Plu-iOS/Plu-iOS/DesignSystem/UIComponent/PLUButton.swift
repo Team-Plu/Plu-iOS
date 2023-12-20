@@ -8,6 +8,8 @@
 import UIKit
 
 final class PLUButton: UIButton {
+    
+    private var buttonFont: Font.SuiteType?
         
     init(config: UIButton.Configuration) {
         super.init(frame: .zero)
@@ -28,6 +30,7 @@ final class PLUButton: UIButton {
         var attrString = AttributedString(text)
         attrString.font = .suite(font)
         config?.attributedTitle = attrString
+        self.buttonFont = font
         self.configuration = config
         return self
     }
@@ -77,9 +80,29 @@ final class PLUButton: UIButton {
         return self
     }
     
-    func setActivityIndicator(isShow: Bool) {
+    func setActivityIndicator(isShow: Bool, isImage: isImage) {
+        
         var config = self.configuration
         config?.showsActivityIndicator = isShow
+        
+        if isShow { // 로딩중이고
+            if case .false = isImage { // 이미지가 없는 버튼일 경우
+                // 텍스트영역에서 스피너
+                config?.attributedTitle = nil
+            }
+        } else {
+            if case .false(let text) = isImage {
+                guard let font = self.buttonFont else { 
+                    return
+                }
+                var attrString = AttributedString(text)
+                attrString.font = .suite(font)
+                config?.attributedTitle = attrString
+                
+            }
+        }
+        
+        
         self.configuration = config
     }
     
@@ -89,4 +112,9 @@ final class PLUButton: UIButton {
         config?.baseForegroundColor = .designSystem(state ? .white : .gray300)
         self.configuration = config
     }
+}
+
+enum isImage {
+    case `true`
+    case `false`(text: String)
 }
