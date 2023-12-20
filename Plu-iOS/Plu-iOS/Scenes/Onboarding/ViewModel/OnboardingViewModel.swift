@@ -16,7 +16,7 @@ struct OnboardingInput {
 
 struct OnboardingOutput {
     let nickNameResultPublisher: AnyPublisher<NicknameState, Never>
-    let signInStatePublisher: PassthroughSubject<LoadingState, Never>
+    let signInStatePublisher: AnyPublisher<LoadingState, Never>
 }
 
 protocol OnboardingViewModel: ViewModel where Input == OnboardingInput, Output == OnboardingOutput {

@@ -33,6 +33,7 @@ final class OnboardingViewController: UIViewController {
         .setText(text: StringConstant.Onboarding.buttonTitle.description!, font: .title1)
         .setLayer(cornerRadius: 8)
     
+    // 추후에 button내부의 indicator로 변경 예정
     private lazy var loadingView = PLUIndicator(parent: self)
     
     
@@ -83,15 +84,8 @@ private extension OnboardingViewController {
         
         output.signInStatePublisher
             .receive(on: DispatchQueue.main)
-            .sink { state in
-                switch state {
-                case .end:
-                    self.loadingView.stopAnimating()
-                case .start:
-                    self.loadingView.startAnimating()
-                case .error:
-                    break
-                }
+            .sink { _ in
+                self.loadingView.stopAnimating()
             }
             .store(in: &cancelBag)
     }
@@ -107,6 +101,7 @@ private extension OnboardingViewController {
         self.signInButton.tapPublisher
             .sink { [weak self] in
                 guard let text = self?.nickNameTextField.text else { return }
+                self?.loadingView.startAnimating()
                 self?.singInButtonTapped.send(text)
                 self?.signInButton.isUserInteractionEnabled = false
             }

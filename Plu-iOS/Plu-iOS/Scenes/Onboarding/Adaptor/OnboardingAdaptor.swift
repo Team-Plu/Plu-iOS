@@ -9,7 +9,7 @@ import Foundation
 
 final class OnboardingAdaptor: OnboardingNavigation {
     
-    let  coordinator: AuthCoordinator
+    let coordinator: AuthCoordinator
     
     init(coordinator: AuthCoordinator) {
         self.coordinator = coordinator
@@ -22,5 +22,4 @@ final class OnboardingAdaptor: OnboardingNavigation {
     func signInButtonTapped() {
         self.coordinator.showTabbarController()
     }
-    
 }
