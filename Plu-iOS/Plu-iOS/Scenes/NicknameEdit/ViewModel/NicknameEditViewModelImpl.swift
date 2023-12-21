@@ -1,5 +1,5 @@
 //
-//  NicknameEditViewModel.swift
+//  NicknameEditViewModelImpl.swift
 //  Plu-iOS
 //
 //  Created by uiskim on 2023/12/11.
@@ -8,32 +8,16 @@
 import Foundation
 import Combine
 
-protocol NicknameEditViewModel {
-    func transform(input: NicknameEditInput) -> NicknameEditOutput
-}
-
-struct NicknameEditInput {
-    let textFieldSubject: AnyPublisher<String, Never>
-    let naviagtionLeftButtonTapped: PassthroughSubject<Void, Never>
-    let naviagtionRightButtonTapped: PassthroughSubject<String?, Never>
-}
-
-struct NicknameEditOutput {
-    let nickNameResultPublisher: AnyPublisher<NicknameState, Never>
-    let loadingViewSubject: AnyPublisher<LoadingState, Never>
-}
-
 final class NicknameEditViewModelImpl: NicknameEditViewModel, NicknameCheck {
     var nickNameManager: NicknameManager
-    var coordinator: MyPageCoordinator
+    var adaptor: NicknameEditNavigation
     
     var vaildNicknameSubject = textFieldVaildChecker()
-    let navigationSubject = PassthroughSubject<Void, Never>()
     var cancelBag = Set<AnyCancellable>()
     
-    init(nickNameManager: NicknameManager, coordinator: MyPageCoordinator) {
+    init(nickNameManager: NicknameManager, adaptor: NicknameEditNavigation) {
         self.nickNameManager = nickNameManager
-        self.coordinator = coordinator
+        self.adaptor = adaptor
     }
 
     func transform(input: NicknameEditInput) -> NicknameEditOutput {
@@ -45,7 +29,7 @@ final class NicknameEditViewModelImpl: NicknameEditViewModel, NicknameCheck {
                         do {
                             try await Task.sleep(nanoseconds: 1000000000)
                             try await self.nickNameManager.changeNickName(newNickname: newNickname)
-                            self.navigationSubject.send(())
+                            self.adaptor.nicknameChangeCompleteButtonTapped()
                             promise(.success(.end))
                         } catch {
                             promise(.failure(error))
@@ -62,14 +46,7 @@ final class NicknameEditViewModelImpl: NicknameEditViewModel, NicknameCheck {
         
         input.naviagtionLeftButtonTapped
             .sink { [weak self] in
-                self?.navigationSubject.send(())
-            }
-            .store(in: &cancelBag)
-        
-        self.navigationSubject
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] _ in
-                self?.coordinator.pop()
+                self?.adaptor.backButtonTapped()
             }
             .store(in: &cancelBag)
         

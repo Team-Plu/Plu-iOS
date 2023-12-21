@@ -27,9 +27,9 @@ final class NicknameEditViewController: UIViewController {
     private let errorLabel = PLULabel(type: .body3, color: .error)
     private let nicknameLabel = PLULabel(type: .body3, color: .gray600, text: StringConstant.MyPage.nickName.description)
     
-    private let viewModel: NicknameEditViewModel
+    private let viewModel: any NicknameEditViewModel
     
-    init(viewModel: NicknameEditViewModel) {
+    init(viewModel: some NicknameEditViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -99,8 +99,6 @@ private extension NicknameEditViewController {
                 self?.navigationRightButtonTapped.send(self?.nickNameTextField.text)
             }
             .store(in: &cancelBag)
-        
-        
     }
 }
 

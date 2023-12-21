@@ -2,7 +2,7 @@
 //  LoginViewModel.swift
 //  Plu-iOS
 //
-//  Created by 김민재 on 12/19/23.
+//  Created by 김의성 on 12/19/23.
 //
 
 import Foundation

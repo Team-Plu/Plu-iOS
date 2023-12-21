@@ -31,8 +31,9 @@ final class MyPageCoordinatorImpl: MyPageCoordinator {
     }
     
     func showProfileEditViewController() {
+        let adaptor = NicknameEditAdaptor(coordinator: self)
         let manager = NicknameManagerStub()
-        let viewModel = NicknameEditViewModelImpl(nickNameManager: manager, coordinator: self)
+        let viewModel = NicknameEditViewModelImpl(nickNameManager: manager, adaptor: adaptor)
         let profileEditViewController = NicknameEditViewController(viewModel: viewModel)
         self.navigationController?.pushViewController(profileEditViewController, animated: true)
     }
