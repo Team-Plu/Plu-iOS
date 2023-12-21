@@ -18,7 +18,7 @@ final class AuthCoordinatorImpl: AuthCoordinator {
     func showLoginViewController() {
         let adaptor = LoginAdaptor(coordinator: self)
         let manager = LoginManagerImpl()
-        let loginViewModelImpl = LoginViewModelImpl(navigator: adaptor, manager: manager)
+        let loginViewModelImpl = LoginViewModelImpl(adaptor: adaptor, manager: manager)
         let loginViewController = LoginViewController(viewModel: loginViewModelImpl)
         self.navigationController?.pushViewController(loginViewController, animated: true)
     }

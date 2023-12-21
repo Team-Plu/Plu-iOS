@@ -10,7 +10,7 @@ import Combine
 
 protocol Login: AnyObject {
     var manager: LoginManager { get set }
-    var navigator: LoginNavigation { get set }
+    var adaptor: LoginNavigation { get set }
     func makeSocialLoginFuture(socialLogin: SocialLogin,
                                manager: LoginManager,
                                navigator: LoginNavigation
