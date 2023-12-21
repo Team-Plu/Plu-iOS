@@ -400,20 +400,60 @@
 			path = UserDefault;
 			sourceTree = "<group>";
 		};
-		4AA7476C2B261181004D0335 /* AnswerDetail */ = {
+		4A72FD122B349BF800CD1BF8 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				4AA7476D2B26119D004D0335 /* AnswerDetailViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4A72FD132B349BFF00CD1BF8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
 				4A72FCFE2B3457BF00CD1BF8 /* AnswerDetailViewModel.swift */,
 				4A72FD002B34598000CD1BF8 /* AnswerDetailViewModelImpl.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4A72FD142B349C0600CD1BF8 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
 				4A72FD022B3459B300CD1BF8 /* AnswerDetailAdaptor.swift */,
-				4A72FD042B3459BF00CD1BF8 /* AnswerDetailNavigation.swift */,
 				4A72FD062B345A4C00CD1BF8 /* AnswerDetailMananger.swift */,
-				4A72FD082B345A6F00CD1BF8 /* AnswerDetailResponse.swift */,
-				4A72FD0A2B345B3700CD1BF8 /* AnswerDetailStub.swift */,
-				4A72FD0C2B3467A700CD1BF8 /* EmpathyType.swift */,
-				4A72FD0E2B3480FE00CD1BF8 /* EmpthyCountRequest.swift */,
+				4A72FD042B3459BF00CD1BF8 /* AnswerDetailNavigation.swift */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		4A72FD152B349C1200CD1BF8 /* Type */ = {
+			isa = PBXGroup;
+			children = (
 				4A72FD102B348C5200CD1BF8 /* CountType.swift */,
+				4A72FD0C2B3467A700CD1BF8 /* EmpathyType.swift */,
+				4A72FD0A2B345B3700CD1BF8 /* AnswerDetailStub.swift */,
+			);
+			path = Type;
+			sourceTree = "<group>";
+		};
+		4A72FD162B349C2000CD1BF8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4A72FD0E2B3480FE00CD1BF8 /* EmpthyCountRequest.swift */,
+				4A72FD082B345A6F00CD1BF8 /* AnswerDetailResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4AA7476C2B261181004D0335 /* AnswerDetail */ = {
+			isa = PBXGroup;
+			children = (
+				4A72FD162B349C2000CD1BF8 /* Model */,
+				4A72FD152B349C1200CD1BF8 /* Type */,
+				4A72FD142B349C0600CD1BF8 /* Interface */,
+				4A72FD132B349BFF00CD1BF8 /* ViewModel */,
+				4A72FD122B349BF800CD1BF8 /* ViewController */,
 			);
 			path = AnswerDetail;
 			sourceTree = "<group>";
