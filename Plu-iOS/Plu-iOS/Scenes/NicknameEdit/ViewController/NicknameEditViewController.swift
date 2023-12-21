@@ -43,6 +43,7 @@ final class NicknameEditViewController: UIViewController {
         setUI()
         setHierarchy()
         setLayout()
+        bindInput()
         bind()
         /// 임시로 넣어놨습니다
         nickNameTextField.setTextfieldDefaultInput(input: "의성")
@@ -68,8 +69,26 @@ final class NicknameEditViewController: UIViewController {
 }
 
 private extension NicknameEditViewController {
+    func bindInput() {
+        navigationBar.leftButtonTapSubject
+            .sink { [weak self] in
+                self?.navigationLeftButtonTapped.send(())
+            }
+            .store(in: &cancelBag)
+        
+        navigationBar.rightButtonTapSubject
+            .sink { [weak self] in
+                self?.navigationBar.setActivityIndicator(isShow: true, isImage: false)
+                self?.navigationRightButtonTapped.send(self?.nickNameTextField.text)
+            }
+            .store(in: &cancelBag)
+    }
+    
     func bind() {
-        let input = NicknameEditInput(textFieldSubject: self.nickNameTextField.textPublisher, naviagtionLeftButtonTapped: navigationLeftButtonTapped, naviagtionRightButtonTapped: navigationRightButtonTapped)
+        let input = NicknameEditInput(textFieldSubject: self.nickNameTextField.textPublisher,
+                                      naviagtionLeftButtonTapped: navigationLeftButtonTapped,
+                                      naviagtionRightButtonTapped: navigationRightButtonTapped)
+        
         let output = self.viewModel.transform(input: input)
         output.nickNameResultPublisher
             .receive(on: DispatchQueue.main)
@@ -84,19 +103,6 @@ private extension NicknameEditViewController {
             .receive(on: DispatchQueue.main)
             .sink { _ in
                 self.navigationBar.setActivityIndicator(isShow: false, isImage: false)
-            }
-            .store(in: &cancelBag)
-        
-        navigationBar.leftButtonTapSubject
-            .sink { [weak self] in
-                self?.navigationLeftButtonTapped.send(())
-            }
-            .store(in: &cancelBag)
-        
-        navigationBar.rightButtonTapSubject
-            .sink { [weak self] in
-                self?.navigationBar.setActivityIndicator(isShow: true, isImage: false)
-                self?.navigationRightButtonTapped.send(self?.nickNameTextField.text)
             }
             .store(in: &cancelBag)
     }
