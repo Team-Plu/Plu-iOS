@@ -83,6 +83,10 @@
 		B5B744F82B3408A800AF368A /* RecordAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744F72B3408A800AF368A /* RecordAdaptor.swift */; };
 		B5B744FC2B348C5F00AF368A /* OthersAnswerNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744FB2B348C5F00AF368A /* OthersAnswerNavigation.swift */; };
 		B5B744FE2B348CD300AF368A /* OthersAnswerAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744FD2B348CD300AF368A /* OthersAnswerAdaptor.swift */; };
+		B5B745012B348D7200AF368A /* OthersAnswerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B745002B348D7200AF368A /* OthersAnswerViewModel.swift */; };
+		B5B745032B348E5E00AF368A /* OthersAnswerViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B745022B348E5E00AF368A /* OthersAnswerViewModelImpl.swift */; };
+		B5B745062B348EA000AF368A /* OthersAnswerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B745052B348EA000AF368A /* OthersAnswerManager.swift */; };
+		B5B745082B348F3D00AF368A /* OthersAnswerManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B745072B348F3D00AF368A /* OthersAnswerManagerImpl.swift */; };
 		C00113DA2B25359100B2C799 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00113D92B25359100B2C799 /* OnboardingViewModel.swift */; };
 		C0121A2C2B1347CA00D10EB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A2B2B1347CA00D10EB0 /* AppDelegate.swift */; };
 		C0121A2E2B1347CA00D10EB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A2D2B1347CA00D10EB0 /* SceneDelegate.swift */; };
@@ -264,6 +268,10 @@
 		B5B744F72B3408A800AF368A /* RecordAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordAdaptor.swift; sourceTree = "<group>"; };
 		B5B744FB2B348C5F00AF368A /* OthersAnswerNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersAnswerNavigation.swift; sourceTree = "<group>"; };
 		B5B744FD2B348CD300AF368A /* OthersAnswerAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersAnswerAdaptor.swift; sourceTree = "<group>"; };
+		B5B745002B348D7200AF368A /* OthersAnswerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersAnswerViewModel.swift; sourceTree = "<group>"; };
+		B5B745022B348E5E00AF368A /* OthersAnswerViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersAnswerViewModelImpl.swift; sourceTree = "<group>"; };
+		B5B745052B348EA000AF368A /* OthersAnswerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersAnswerManager.swift; sourceTree = "<group>"; };
+		B5B745072B348F3D00AF368A /* OthersAnswerManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersAnswerManagerImpl.swift; sourceTree = "<group>"; };
 		C00113D92B25359100B2C799 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		C0121A282B1347CA00D10EB0 /* Plu-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plu-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0121A2B2B1347CA00D10EB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -603,6 +611,24 @@
 			path = Adaptor;
 			sourceTree = "<group>";
 		};
+		B5B744FF2B348D6A00AF368A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B5B745002B348D7200AF368A /* OthersAnswerViewModel.swift */,
+				B5B745022B348E5E00AF368A /* OthersAnswerViewModelImpl.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B5B745042B348E9800AF368A /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				B5B745052B348EA000AF368A /* OthersAnswerManager.swift */,
+				B5B745072B348F3D00AF368A /* OthersAnswerManagerImpl.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		C0121A1F2B1347CA00D10EB0 = {
 			isa = PBXGroup;
 			children = (
@@ -899,6 +925,8 @@
 		C05E267F2B1D9E4200D91BFA /* OthersAnswer */ = {
 			isa = PBXGroup;
 			children = (
+				B5B745042B348E9800AF368A /* Manager */,
+				B5B744FF2B348D6A00AF368A /* ViewModel */,
 				B5B744FA2B348C5300AF368A /* Adaptor */,
 				B5ACF6FE2B22E292006D7641 /* Enum */,
 				B5ACF6FD2B22E281006D7641 /* View */,
@@ -1265,6 +1293,7 @@
 				B59FC6E72B1C44C9000996CA /* ImageLiterals.swift in Sources */,
 				C05E26592B1D9A1D00D91BFA /* TableViewCellRegisterDequeueProtocol.swift in Sources */,
 				C05E26722B1D9BCF00D91BFA /* UILabel+.swift in Sources */,
+				B5B745012B348D7200AF368A /* OthersAnswerViewModel.swift in Sources */,
 				B5ACF7222B2816C6006D7641 /* PopUpCoordinator.swift in Sources */,
 				B5B744D42B312E7D00AF368A /* LoginViewModelImpl.swift in Sources */,
 				B5ACF6C92B1EE26C006D7641 /* ElementColor.swift in Sources */,
@@ -1282,6 +1311,7 @@
 				C0E93B452B2035650098A822 /* MyPageAlarmData.swift in Sources */,
 				C0A2561F2B1EDC350059AA7E /* MyPageRoundSectionHeaderView.swift in Sources */,
 				4ABEEDBE2B27E7310020DA86 /* KeyboardType.swift in Sources */,
+				B5B745082B348F3D00AF368A /* OthersAnswerManagerImpl.swift in Sources */,
 				C05E263F2B1C4E1E00D91BFA /* UIFont+.swift in Sources */,
 				C083F6302B27F30200808AE6 /* SelectYearAndMonthPopUpViewController.swift in Sources */,
 				C05E26962B1D9F0600D91BFA /* OnboardingViewController.swift in Sources */,
@@ -1335,6 +1365,7 @@
 				B5B744E42B32C87500AF368A /* Login.swift in Sources */,
 				C0E93B4E2B2036E50098A822 /* MyPageSection.swift in Sources */,
 				C0E0D4F72B26C7FC00840C0B /* NicknameEditViewController.swift in Sources */,
+				B5B745032B348E5E00AF368A /* OthersAnswerViewModelImpl.swift in Sources */,
 				C05E265D2B1D9A5900D91BFA /* CollectionSectionViewRegisterDequeueProtocol.swift in Sources */,
 				C083F62A2B27EE4400808AE6 /* AlarmPopUpViewController.swift in Sources */,
 				B5ACF6F32B22D2F2006D7641 /* QuestionView.swift in Sources */,
@@ -1352,6 +1383,7 @@
 				B5B744F62B34080400AF368A /* RecordNavigation.swift in Sources */,
 				C07CD8912B2BD9E20091DAAF /* AlarmPopUpViewModelImpl.swift in Sources */,
 				B5ACF7162B2814CE006D7641 /* TodayQuestionCoordinator.swift in Sources */,
+				B5B745062B348EA000AF368A /* OthersAnswerManager.swift in Sources */,
 				B5B744E62B32C88F00AF368A /* LoginState.swift in Sources */,
 				4AA747572B1D74A6004D0335 /* CGColor+.swift in Sources */,
 				C0E93B492B20358A0098A822 /* MypageAppVersionData.swift in Sources */,
