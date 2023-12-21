@@ -74,6 +74,8 @@
 		B5B744E42B32C87500AF368A /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744E32B32C87500AF368A /* Login.swift */; };
 		B5B744E62B32C88F00AF368A /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744E52B32C88F00AF368A /* LoginState.swift */; };
 		B5B744E82B32C89A00AF368A /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744E72B32C89A00AF368A /* LoadingState.swift */; };
+		B5B744EA2B33CC6800AF368A /* RecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744E92B33CC6800AF368A /* RecordViewModel.swift */; };
+		B5B744EC2B33CDEE00AF368A /* RecordViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744EB2B33CDEE00AF368A /* RecordViewModelImpl.swift */; };
 		B5B744EE2B33D2BB00AF368A /* FilterDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744ED2B33D2BB00AF368A /* FilterDate.swift */; };
 		B5B744F12B33D62600AF368A /* RecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744F02B33D62600AF368A /* RecordManager.swift */; };
 		B5B744F32B33D6A200AF368A /* RecordManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744F22B33D6A200AF368A /* RecordManagerImpl.swift */; };
@@ -251,6 +253,8 @@
 		B5B744E32B32C87500AF368A /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		B5B744E52B32C88F00AF368A /* LoginState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginState.swift; sourceTree = "<group>"; };
 		B5B744E72B32C89A00AF368A /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
+		B5B744E92B33CC6800AF368A /* RecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModel.swift; sourceTree = "<group>"; };
+		B5B744EB2B33CDEE00AF368A /* RecordViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModelImpl.swift; sourceTree = "<group>"; };
 		B5B744ED2B33D2BB00AF368A /* FilterDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDate.swift; sourceTree = "<group>"; };
 		B5B744F02B33D62600AF368A /* RecordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordManager.swift; sourceTree = "<group>"; };
 		B5B744F22B33D6A200AF368A /* RecordManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordManagerImpl.swift; sourceTree = "<group>"; };
@@ -575,6 +579,15 @@
 			path = Adaptor;
 			sourceTree = "<group>";
 		};
+		B5B744F92B3411DE00AF368A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B5B744E92B33CC6800AF368A /* RecordViewModel.swift */,
+				B5B744EB2B33CDEE00AF368A /* RecordViewModelImpl.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		C0121A1F2B1347CA00D10EB0 = {
 			isa = PBXGroup;
 			children = (
@@ -883,6 +896,7 @@
 		C05E26802B1D9E4C00D91BFA /* Record */ = {
 			isa = PBXGroup;
 			children = (
+				B5B744F92B3411DE00AF368A /* ViewModel */,
 				B5B744F42B3407FD00AF368A /* Adaptor */,
 				B5B744EF2B33D5B700AF368A /* Manager */,
 				B5ACF6FA2B22E044006D7641 /* View */,
@@ -1263,6 +1277,7 @@
 				C04E4CF42B2A8DCF00ABDFAA /* SelectMonthPopUpViewModelImpl.swift in Sources */,
 				C0E93B4B2B20359B0098A822 /* MyPageUserExitType.swift in Sources */,
 				C05E26902B1D9ED300D91BFA /* TabbarViewController.swift in Sources */,
+				B5B744EA2B33CC6800AF368A /* RecordViewModel.swift in Sources */,
 				C0CEF3DE2B267A4B00682D1B /* NicknameState.swift in Sources */,
 				C0682A882B25862200AD4DB4 /* NicknameManagerStub.swift in Sources */,
 				C0E93B502B2037C20098A822 /* MyPageCellHeight.swift in Sources */,
@@ -1362,6 +1377,7 @@
 				4A4466732B2D8EBE002D5BF7 /* TodayQuestionViewModel.swift in Sources */,
 				C04E4CF62B2AAE0B00ABDFAA /* PLUPopUpContainerView.swift in Sources */,
 				C0D813EF2B312D1400F1B180 /* OnboardingViewModelImpl.swift in Sources */,
+				B5B744EC2B33CDEE00AF368A /* RecordViewModelImpl.swift in Sources */,
 				C02C5DFE2B22E0780011F07C /* UIEdgeInsets+.swift in Sources */,
 				C0DBFB362B300EFF002F71A4 /* ExitUser.swift in Sources */,
 				4A44666A2B281F52002D5BF7 /* TodayQuestionCoordinatorImpl.swift in Sources */,
