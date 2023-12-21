@@ -11,19 +11,25 @@ import Combine
 protocol Login: AnyObject {
     var manager: LoginManager { get set }
     var navigator: LoginNavigation { get set }
-    func makeSocialLoginFuture(socialLogin: SocialLogin) -> AnyPublisher<(type: LoginType, state: LoadingState), Never>
+    func makeSocialLoginFuture(socialLogin: SocialLogin,
+                               manager: LoginManager,
+                               navigator: LoginNavigation
+    ) -> AnyPublisher<(type: LoginType, state: LoadingState), Never>
 }
 
 extension Login {
     @MainActor
-    func makeSocialLoginFuture(socialLogin: SocialLogin) -> AnyPublisher<(type: LoginType, state: LoadingState), Never> {
+    func makeSocialLoginFuture(socialLogin: SocialLogin,
+                               manager: LoginManager,
+                               navigator: LoginNavigation
+    ) -> AnyPublisher<(type: LoginType, state: LoadingState), Never> {
         return Future<(type: LoginType, state: LoadingState), NetworkError> { promise in
             Task {
                 do {
                     try await Task.sleep(nanoseconds: 100_000_000_0)
                     let token = try await socialLogin.getToken()
-                    try await self.manager.login(type: socialLogin.type, token: token)
-                    self.navigator.loginButtonTapped(type: .loginSuccess)
+                    try await manager.login(type: socialLogin.type, token: token)
+                    navigator.loginButtonTapped(type: .loginSuccess)
                     promise(.success((type: socialLogin.type, state: .end)))
                 } catch {
                     promise(.failure(error as! NetworkError))
