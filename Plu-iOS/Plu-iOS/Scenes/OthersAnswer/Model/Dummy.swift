@@ -23,6 +23,9 @@ struct Answer: Hashable {
 }
 
 extension OthersAnswer {
+    static var empty: OthersAnswer {
+        return .init(elementType: .air, date: "", question: "", answersCount: 0, answers: [])
+    }
     static func dummmy() -> OthersAnswer {
         let answer: [Answer] = [
             .init(id: 1, answerText: "진정한 행복이란 추석 연휴에 엽떡을 먹는 것 엽떡은 정말 맛있기 때문입니다. 엽떡 만세", empathyCount: 1),

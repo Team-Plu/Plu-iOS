@@ -8,5 +8,5 @@
 import Foundation
 
 protocol OthersAnswerManager {
-    func getAnswers(type: AnswerFilterButtonType) -> OthersAnswer
+    func getAnswers(filter: AnswerFilter) async throws -> OthersAnswer
 }
