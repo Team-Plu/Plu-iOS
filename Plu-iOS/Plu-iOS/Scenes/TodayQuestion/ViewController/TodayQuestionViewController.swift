@@ -13,15 +13,19 @@ import SnapKit
 
 final class TodayQuestionViewController: UIViewController {
     
-    let coordinator: TodayQuestionCoordinator
-    private let viewModel: TodayQuestionViewModel
+    private let viewModel: any TodayQuestionViewModel
+    
     private let isShownAlarmPopUpSubject = PassthroughSubject<Void, Never>()
+    private let navigationRightButtonTapped = PassthroughSubject<Void, Never>()
+    private let myAnswerButtonTapped = PassthroughSubject<Void, Never>()
+    private let otherAnswerButtonTapped = PassthroughSubject<Void, Never>()
+    private let viewWillAppearSubject = PassthroughSubject<Void, Never>()
     private var cancelBag = Set<AnyCancellable>()
     
     private let navigationBar = PLUNavigationBarView()
         .setRightButton(type: .logo)
         .setLeftButton(type: .textLogo)
-    private lazy var questionCharcterImage = UIImageView(image: self.setRandomImage())
+    private lazy var questionCharcterImage = UIImageView()
     private let questionLabel = PLULabel(type: .head1,
                                          color: .gray700,
                                          alignment: .center,
@@ -31,13 +35,12 @@ final class TodayQuestionViewController: UIViewController {
     private let myAnswerButton = PLUButton(config: .bordered())
         .setText(text: StringConstant.TodayQuestion.myAnswer.text, font: .title1)
         .setBackForegroundColor(backgroundColor: .gray600, foregroundColor: .white)
-    private let everyAnswerButtom = PLUButton(config: .bordered())
+    private let otherAnswerButton = PLUButton(config: .bordered())
         .setText(text: StringConstant.TodayQuestion.everyAnswer.text, font: .title1)
         .setBackForegroundColor(backgroundColor: .gray50, foregroundColor: .gray300)
     private let explanationLabel = PLULabel(type: .caption, color: .gray300, text: StringConstant.TodayQuestion.explanation.text)
     
-    init(coordinator: TodayQuestionCoordinator, viewModel: TodayQuestionViewModel) {
-        self.coordinator = coordinator
+    init(viewModel: some TodayQuestionViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -52,45 +55,51 @@ final class TodayQuestionViewController: UIViewController {
         setUI()
         setHierarchy()
         setLayout()
-        setAddTarget()
-        setDelegate()
-        setButtonHandler()
-        bind()
         bindInput()
+        bind()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         self.tabBarController?.tabBar.isHidden = false
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         self.isShownAlarmPopUpSubject.send(())
-    }
-    
-    @objc func mypageButtonTapped() {
-        self.coordinator.showMyPageViewController()
+        self.viewWillAppearSubject.send(())
     }
     
     private func bindInput() {
         navigationBar.rightButtonTapSubject
             .sink { [weak self] in
-                self?.coordinator.showMyPageViewController()
+                self?.navigationRightButtonTapped.send(())
+            }
+            .store(in: &cancelBag)
+        
+        myAnswerButton.tapPublisher
+            .sink { [weak self] in
+                self?.myAnswerButtonTapped.send(())
+            }
+            .store(in: &cancelBag)
+        
+        otherAnswerButton.tapPublisher
+            .sink { [weak self] in
+                self?.otherAnswerButtonTapped.send(())
             }
             .store(in: &cancelBag)
     }
     
     private func bind() {
-        // TODO: ViewModel Protocol 주입시 변경
-        let input = TodayQuestionViewModel.TodayQuestionViewModelInput(isShownAlarmPopupSubject: isShownAlarmPopUpSubject)
+        let input = TodayQuestionViewModelInput(isShownAlarmPopupSubject: isShownAlarmPopUpSubject,
+                                                navigationRightButtonTapped: navigationRightButtonTapped,
+                                                myAnswerButtonTapped: myAnswerButtonTapped,
+                                                otherAnswerButtonTapped: otherAnswerButtonTapped,
+                                                viewWillAppearSubject: viewWillAppearSubject)
         
         let output = viewModel.transform(input: input)
         
-        // TODO: 화면 전환 책임 ViewModel로 옮길시, 해당 Output VC로 받을 필요 없음.
-        output.isShownAlarmPopupSubject
-            .sink { [weak self] popUp in
-                self?.coordinator.presentAlarmPopUpViewController()
+        output.viewWillAppearSubject
+            .receive(on: RunLoop.main)
+            .sink { response in
+                self.updateUI(response: response)
             }
             .store(in: &cancelBag)
     }
@@ -102,7 +111,8 @@ private extension TodayQuestionViewController {
     }
     
     func setHierarchy() {
-        view.addSubviews(navigationBar, questionCharcterImage, questionLabel, explanationView, seeYouTommorowImage, myAnswerButton, everyAnswerButtom, explanationLabel)
+        view.addSubviews(navigationBar, questionCharcterImage, questionLabel, explanationView,
+                         seeYouTommorowImage, myAnswerButton, otherAnswerButton, explanationLabel)
     }
     
     func setLayout() {
@@ -126,19 +136,18 @@ private extension TodayQuestionViewController {
             make.centerX.equalToSuperview()
         }
         
-        // output 값에 따라 isHidden 처리
         seeYouTommorowImage.snp.makeConstraints { make in
             make.bottom.equalTo(myAnswerButton.snp.top)
             make.centerX.equalToSuperview()
         }
         
         myAnswerButton.snp.makeConstraints { make in
-            make.bottom.equalTo(everyAnswerButtom.snp.top).offset(-12)
+            make.bottom.equalTo(otherAnswerButton.snp.top).offset(-12)
             make.leading.trailing.equalToSuperview().inset(20)
             make.height.equalTo(44)
         }
         
-        everyAnswerButtom.snp.makeConstraints { make in
+        otherAnswerButton.snp.makeConstraints { make in
             make.bottom.equalTo(explanationLabel.snp.top).offset(-8)
             make.leading.trailing.equalToSuperview().inset(20)
             make.height.equalTo(44)
@@ -150,57 +159,11 @@ private extension TodayQuestionViewController {
         }
     }
     
-    func setAddTarget() {
-        myAnswerButton.addTarget(self, action: #selector(writeButtonTapped), for: .touchUpInside)
-        everyAnswerButtom.addTarget(self, action: #selector(everyAnswerTapped), for: .touchUpInside)
-    }
-    
-    func setDelegate() {
-        
-    }
-    
-    func setButtonHandler() {
-        myAnswerButton.setUpdateHandler(updateHandler: { button in
-            var config = button.configuration
-            // TODO: 오늘의 일기를 작성했다면 값에 따라 버튼 비활성화
-            config?.baseBackgroundColor = button.isSelected
-            ? .designSystem(.gray600)
-            : .designSystem(.gray50)
-            
-            config?.baseForegroundColor = button.isSelected
-            ? .designSystem(.white)
-            : .designSystem(.gray300)
-            
-            button.configuration = config
-        })
-        
-        everyAnswerButtom.setUpdateHandler(updateHandler: { button in
-            var config = button.configuration
-            // TODO: 오늘의 일기 작성 안했다면 모두의 일기 버튼 비활성화
-            config?.baseBackgroundColor = button.isSelected
-            ? .designSystem(.gray600)
-            : .designSystem(.gray50)
-            
-            config?.baseForegroundColor = button.isSelected
-            ? .designSystem(.white)
-            : .designSystem(.gray300)
-            
-            // TODO: 오늘의 일기 작성 안했다면 모두의 일기 버튼 비활성화
-            button.configuration = config
-        })
-    }
-    
-    // 추후에 ViewModel로 뺄 부분
-    func setRandomImage() -> UIImage {
-        let randomIndex = Int(arc4random_uniform(UInt32(ImageDummy.imageList.count)))
-        return ImageDummy.imageList[randomIndex]
-    }
-    
-    @objc func writeButtonTapped() {
-        self.coordinator.showMyAnswerViewController()
-    }
-    
-    @objc func everyAnswerTapped() {
-        self.coordinator.showOtherAnswersViewController()
+    func updateUI(response: TodayQuestionResponse) {
+        let explanationIsHidden = response.myAnswerButtonState
+        questionCharcterImage.image = response.todayQuestionImage.image
+        myAnswerButton.isActive(state: response.myAnswerButtonState)
+        otherAnswerButton.isActive(state: response.othertAnswerButtonState)
+        seeYouTommorowImage.isHidden = explanationIsHidden
     }
 }

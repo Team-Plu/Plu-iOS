@@ -27,7 +27,7 @@ final class MyAnswerViewController: UIViewController {
         .setRightButtonInitState(isEnabeld: false)
     private let everyDayAnswerView = PLUEverydayAnswerView()
     private lazy var answerTextView = PLUTextView()
-    private let answerCautionView = AnswerCautionView()
+    private lazy var answerCautionView = AnswerCautionView()
     private let bottomView = UIView()
     private let underLine = PLUUnserLine(color: .gray100)
     private let bottomTextLabel = PLULabel(type: .body1R, color: .gray700, text: StringConstant.MyAnswer.bottomView.text)
@@ -49,7 +49,6 @@ final class MyAnswerViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tabBarController?.tabBar.isHidden = true
         setUI()
         setHierarchy()
         setLayout()
@@ -151,7 +150,7 @@ private extension MyAnswerViewController {
     
     func setLayout() {
         navigationBar.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.top.equalTo(view.safeAreaLayoutGuide)
             make.leading.trailing.equalToSuperview()
         }
         
@@ -168,7 +167,7 @@ private extension MyAnswerViewController {
         
         answerCautionView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-56)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(56)
             make.height.equalTo(160)
         }
         
