@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol OthersAnswerManager {
+    func getAnswers(type: AnswerFilterButtonType) -> OthersAnswer
+}
