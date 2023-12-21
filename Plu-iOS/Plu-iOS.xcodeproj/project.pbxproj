@@ -75,7 +75,6 @@
 		B5B744E62B32C88F00AF368A /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744E52B32C88F00AF368A /* LoginState.swift */; };
 		B5B744E82B32C89A00AF368A /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744E72B32C89A00AF368A /* LoadingState.swift */; };
 		C00113DA2B25359100B2C799 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00113D92B25359100B2C799 /* OnboardingViewModel.swift */; };
-		C00113DC2B2546DB00B2C799 /* PluTempButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00113DB2B2546DB00B2C799 /* PluTempButton.swift */; };
 		C0121A2C2B1347CA00D10EB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A2B2B1347CA00D10EB0 /* AppDelegate.swift */; };
 		C0121A2E2B1347CA00D10EB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A2D2B1347CA00D10EB0 /* SceneDelegate.swift */; };
 		C0121A352B1347CB00D10EB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0121A342B1347CB00D10EB0 /* Assets.xcassets */; };
@@ -142,6 +141,9 @@
 		C0A256272B1EE1200059AA7E /* MyPageAppVersionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A256262B1EE1200059AA7E /* MyPageAppVersionTableViewCell.swift */; };
 		C0CEF3DE2B267A4B00682D1B /* NicknameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CEF3DD2B267A4B00682D1B /* NicknameState.swift */; };
 		C0CEF3E02B267B3600682D1B /* NicknameCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CEF3DF2B267B3600682D1B /* NicknameCheck.swift */; };
+		C0D813EF2B312D1400F1B180 /* OnboardingViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D813EE2B312D1400F1B180 /* OnboardingViewModelImpl.swift */; };
+		C0D813F22B312E4200F1B180 /* OnboardingNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D813F12B312E4200F1B180 /* OnboardingNavigation.swift */; };
+		C0D813F42B312E7D00F1B180 /* OnboardingAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D813F32B312E7D00F1B180 /* OnboardingAdaptor.swift */; };
 		C0DBFB362B300EFF002F71A4 /* ExitUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DBFB352B300EFF002F71A4 /* ExitUser.swift */; };
 		C0E0D4F72B26C7FC00840C0B /* NicknameEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E0D4F62B26C7FC00840C0B /* NicknameEditViewController.swift */; };
 		C0E0D4F92B26C81700840C0B /* NicknameEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E0D4F82B26C81700840C0B /* NicknameEditViewModel.swift */; };
@@ -245,7 +247,6 @@
 		B5B744E52B32C88F00AF368A /* LoginState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginState.swift; sourceTree = "<group>"; };
 		B5B744E72B32C89A00AF368A /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 		C00113D92B25359100B2C799 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
-		C00113DB2B2546DB00B2C799 /* PluTempButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluTempButton.swift; sourceTree = "<group>"; };
 		C0121A282B1347CA00D10EB0 /* Plu-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plu-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0121A2B2B1347CA00D10EB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0121A2D2B1347CA00D10EB0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -314,6 +315,9 @@
 		C0A256262B1EE1200059AA7E /* MyPageAppVersionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAppVersionTableViewCell.swift; sourceTree = "<group>"; };
 		C0CEF3DD2B267A4B00682D1B /* NicknameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameState.swift; sourceTree = "<group>"; };
 		C0CEF3DF2B267B3600682D1B /* NicknameCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameCheck.swift; sourceTree = "<group>"; };
+		C0D813EE2B312D1400F1B180 /* OnboardingViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelImpl.swift; sourceTree = "<group>"; };
+		C0D813F12B312E4200F1B180 /* OnboardingNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNavigation.swift; sourceTree = "<group>"; };
+		C0D813F32B312E7D00F1B180 /* OnboardingAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAdaptor.swift; sourceTree = "<group>"; };
 		C0DBFB352B300EFF002F71A4 /* ExitUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitUser.swift; sourceTree = "<group>"; };
 		C0E0D4F62B26C7FC00840C0B /* NicknameEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameEditViewController.swift; sourceTree = "<group>"; };
 		C0E0D4F82B26C81700840C0B /* NicknameEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameEditViewModel.swift; sourceTree = "<group>"; };
@@ -796,12 +800,12 @@
 		C05E267B2B1D9E1E00D91BFA /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				C0D813F02B312E3300F1B180 /* Adaptor */,
 				C0CEF3DC2B267A3E00682D1B /* Model */,
 				C0682A8A2B25868900AD4DB4 /* ViewController */,
 				C0682A892B25867700AD4DB4 /* MangerImpl */,
 				C0682A862B25861900AD4DB4 /* ViewModel */,
 				C0682A832B25860000AD4DB4 /* OnboardingInteface */,
-				C00113DB2B2546DB00B2C799 /* PluTempButton.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -895,6 +899,7 @@
 			isa = PBXGroup;
 			children = (
 				C00113D92B25359100B2C799 /* OnboardingViewModel.swift */,
+				C0D813EE2B312D1400F1B180 /* OnboardingViewModelImpl.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -960,6 +965,15 @@
 				C0CEF3DD2B267A4B00682D1B /* NicknameState.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C0D813F02B312E3300F1B180 /* Adaptor */ = {
+			isa = PBXGroup;
+			children = (
+				C0D813F12B312E4200F1B180 /* OnboardingNavigation.swift */,
+				C0D813F32B312E7D00F1B180 /* OnboardingAdaptor.swift */,
+			);
+			path = Adaptor;
 			sourceTree = "<group>";
 		};
 		C0E0D4F52B26C7C500840C0B /* NicknameEdit */ = {
@@ -1212,6 +1226,7 @@
 				C05E26962B1D9F0600D91BFA /* OnboardingViewController.swift in Sources */,
 				B5B744E22B32C02100AF368A /* SocialLogin.swift in Sources */,
 				C05E266D2B1D9B7200D91BFA /* UITextField+.swift in Sources */,
+				C0D813F42B312E7D00F1B180 /* OnboardingAdaptor.swift in Sources */,
 				B5ACF7042B26C807006D7641 /* RecordDiffableDataSource.swift in Sources */,
 				C04E4CF42B2A8DCF00ABDFAA /* SelectMonthPopUpViewModelImpl.swift in Sources */,
 				C0E93B4B2B20359B0098A822 /* MyPageUserExitType.swift in Sources */,
@@ -1262,7 +1277,6 @@
 				B5B744D62B31312C00AF368A /* LoginManager.swift in Sources */,
 				C05E268C2B1D9EB600D91BFA /* RecordViewController.swift in Sources */,
 				C0121A2C2B1347CA00D10EB0 /* AppDelegate.swift in Sources */,
-				C00113DC2B2546DB00B2C799 /* PluTempButton.swift in Sources */,
 				C083F6262B27EDBA00808AE6 /* PopUpDimmedViewController.swift in Sources */,
 				C05E26922B1D9EED00D91BFA /* MyAnswerViewController.swift in Sources */,
 				B5B744D22B312CE000AF368A /* LoginAdaptor.swift in Sources */,
@@ -1306,11 +1320,13 @@
 				B5ACF6CF2B1EECD0006D7641 /* OthersAnswerTableView.swift in Sources */,
 				C0682A822B25857200AD4DB4 /* PLUTextField.swift in Sources */,
 				B5B744CE2B312C5D00AF368A /* LoginViewModel.swift in Sources */,
+				C0D813F22B312E4200F1B180 /* OnboardingNavigation.swift in Sources */,
 				C05E269A2B1D9F1B00D91BFA /* SplashViewController.swift in Sources */,
 				C07AB7272B2828A600C2E02C /* TabbarCoordinator.swift in Sources */,
 				B5ACF6F72B22DA61006D7641 /* RecordDummy.swift in Sources */,
 				4A4466732B2D8EBE002D5BF7 /* TodayQuestionViewModel.swift in Sources */,
 				C04E4CF62B2AAE0B00ABDFAA /* PLUPopUpContainerView.swift in Sources */,
+				C0D813EF2B312D1400F1B180 /* OnboardingViewModelImpl.swift in Sources */,
 				C02C5DFE2B22E0780011F07C /* UIEdgeInsets+.swift in Sources */,
 				C0DBFB362B300EFF002F71A4 /* ExitUser.swift in Sources */,
 				4A44666A2B281F52002D5BF7 /* TodayQuestionCoordinatorImpl.swift in Sources */,

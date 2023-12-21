@@ -9,6 +9,7 @@ import UIKit
 
 
 final class AuthCoordinatorImpl: AuthCoordinator {
+    
     weak var navigationController: UINavigationController?
     
     init(navigationController: UINavigationController?) {
@@ -29,8 +30,9 @@ final class AuthCoordinatorImpl: AuthCoordinator {
     }
     
     func showOnboardingController() {
+        let adaptor = OnboardingAdaptor(coordinator: self)
         let manger = NicknameManagerStub()
-        let viewModel = OnboardingViewModelImpl(manager: manger, coordinator: self)
+        let viewModel = OnboardingViewModelImpl(manager: manger, adaptor: adaptor)
         let onboardingViewController = OnboardingViewController(viewModel: viewModel)
         self.navigationController?.pushViewController(onboardingViewController, animated: true)
     }
