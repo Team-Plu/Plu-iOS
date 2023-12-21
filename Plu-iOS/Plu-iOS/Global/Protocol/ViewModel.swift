@@ -11,5 +11,5 @@ protocol ViewModel where Self: AnyObject {
     associatedtype Input
     associatedtype Output
     
-    func transform(input: Input) -> Output
-}
+    @MainActor func transform(input: Input) -> Output
+}                                                                       

@@ -11,36 +11,39 @@ import Combine
 
 import SnapKit
 
-enum OnboardingNavigationType {
-    case backButtonTapped, signInButtonTapped
-}
-
 final class OnboardingViewController: UIViewController {
     
-    private let textFieldSubject = PassthroughSubject<String, Never>()
-    private let navigationSubject = PassthroughSubject<OnboardingNavigationType, Never>()
+    private let backButtonTapped = PassthroughSubject<Void, Never>()
+    private let singInButtonTapped = PassthroughSubject<String, Never>()
     private var cancelBag = Set<AnyCancellable>()
     
     private let navigationBar = PLUNavigationBarView()
-        .setTitle(text: "회원가입")
+        .setTitle(text: StringConstant.Navibar.title.signUp)
         .setLeftButton(type: .back)
     
-    private let titleLabel = PLULabel(type: .head1, color: .gray700, text: StringConstant.Onboarding.title.description)
+    private let titleLabel = PLULabel(type: .head1,
+                                      color: .gray700,
+                                      text: StringConstant.Onboarding.title.description)
     
-    private let subTitleLabel = PLULabel(type: .body2R, color: .gray500, text: StringConstant.Onboarding.subTitle.description)
+    private let subTitleLabel = PLULabel(type: .body2R,
+                                         color: .gray500,
+                                         text: StringConstant.Onboarding.subTitle.description)
     
     private let nickNameTextField = PLUTextField()
     
-    private let errorLabel = PLULabel(type: .body3, color: .error)
+    private let errorLabel = PLULabel(type: .body3,
+                                      color: .error)
     
     private var signInButton = PLUButton(config: .bordered())
         .setText(text: StringConstant.Onboarding.buttonTitle.description!, font: .title1)
         .setLayer(cornerRadius: 8)
     
+    // 추후에 button내부의 indicator로 변경 예정
+    private lazy var loadingView = PLUIndicator(parent: self)
     
-    private let viewModel: OnboardingViewModel
+    private let viewModel: any OnboardingViewModel
     
-    init(viewModel: OnboardingViewModel) {
+    init(viewModel: some OnboardingViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -71,33 +74,42 @@ final class OnboardingViewController: UIViewController {
 
 private extension OnboardingViewController {
     func bind() {
-        let input = OnboardingInput(textFieldSubject: textFieldSubject, navigationSubject: navigationSubject)
+        let input = OnboardingInput(textFieldSubject: self.nickNameTextField.textPublisher,
+                                    backButtonTapped: backButtonTapped,
+                                    singInButtonTapped: singInButtonTapped)
+        
         let output = self.viewModel.transform(input: input)
         output.nickNameResultPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] in
-                guard let isActive = $0.nextProcessButtonIsActive, let description = $0.errorDescription else { return }
+                guard let isActive = $0.nextProcessButtonIsActive,
+                      let description = $0.errorDescription else { return }
                 self?.errorLabel.text = description
                 self?.signInButton.isEnabled = isActive
                 self?.signInButton.isActive(state: isActive)
             }
             .store(in: &cancelBag)
+        
+        output.signInStatePublisher
+            .receive(on: DispatchQueue.main)
+            .sink { _ in
+                self.loadingView.stopAnimating()
+            }
+            .store(in: &cancelBag)
     }
     
     func bindInput() {
-        self.nickNameTextField.textPublisher
-            .sink { [weak self] in self?.textFieldSubject.send($0) }
-            .store(in: &cancelBag)
-        
         self.navigationBar.leftButtonTapSubject
             .sink { [weak self] in
-                self?.navigationSubject.send(.backButtonTapped)
+                self?.backButtonTapped.send(())
             }
             .store(in: &cancelBag)
         
         self.signInButton.tapPublisher
             .sink { [weak self] in
-                self?.navigationSubject.send(.signInButtonTapped)
+                guard let text = self?.nickNameTextField.text else { return }
+                self?.loadingView.startAnimating()
+                self?.singInButtonTapped.send(text)
                 self?.signInButton.isUserInteractionEnabled = false
             }
             .store(in: &cancelBag)
@@ -113,6 +125,7 @@ private extension OnboardingViewController {
     
     func setHierarchy() {
         view.addSubviews(navigationBar, titleLabel, subTitleLabel, nickNameTextField, errorLabel, signInButton)
+        view.addSubview(loadingView)
     }
     
     func setLayout() {

@@ -55,9 +55,9 @@ final class PopUpCoordinatorImpl: PopUpCoordinator {
         self.navigationController?.dismiss(animated: true) {
             switch type {
             case .alarm:
-                self.alarmDelegate?.alarmAccept(true)
+                self.alarmDelegate?.isAccept()
             case .register:
-                self.registerDelgate?.register(true)
+                self.registerDelgate?.register()
             case .selectMonth(let year, let month):
                 self.selectMonthDelegate?.passYearAndMonth(year: year, month: month)
             }
