@@ -88,6 +88,7 @@
 		B5B745082B348F3D00AF368A /* OthersAnswerManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B745072B348F3D00AF368A /* OthersAnswerManagerImpl.swift */; };
 		B5B7450A2B3491F400AF368A /* AnswerFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B745092B3491F400AF368A /* AnswerFilter.swift */; };
 		B5B7450C2B34965E00AF368A /* AnswerFilterButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7450B2B34965E00AF368A /* AnswerFilterButtonType.swift */; };
+		B5B7450F2B349F4600AF368A /* GesturePublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7450E2B349F4600AF368A /* GesturePublisher.swift */; };
 		C00113DA2B25359100B2C799 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00113D92B25359100B2C799 /* OnboardingViewModel.swift */; };
 		C0121A2C2B1347CA00D10EB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A2B2B1347CA00D10EB0 /* AppDelegate.swift */; };
 		C0121A2E2B1347CA00D10EB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A2D2B1347CA00D10EB0 /* SceneDelegate.swift */; };
@@ -274,6 +275,7 @@
 		B5B745072B348F3D00AF368A /* OthersAnswerManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersAnswerManagerImpl.swift; sourceTree = "<group>"; };
 		B5B745092B3491F400AF368A /* AnswerFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerFilter.swift; sourceTree = "<group>"; };
 		B5B7450B2B34965E00AF368A /* AnswerFilterButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerFilterButtonType.swift; sourceTree = "<group>"; };
+		B5B7450E2B349F4600AF368A /* GesturePublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GesturePublisher.swift; sourceTree = "<group>"; };
 		C00113D92B25359100B2C799 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		C0121A282B1347CA00D10EB0 /* Plu-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plu-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0121A2B2B1347CA00D10EB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -625,6 +627,14 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		B5B7450D2B349F3500AF368A /* Combine */ = {
+			isa = PBXGroup;
+			children = (
+				B5B7450E2B349F4600AF368A /* GesturePublisher.swift */,
+			);
+			path = Combine;
+			sourceTree = "<group>";
+		};
 		C0121A1F2B1347CA00D10EB0 = {
 			isa = PBXGroup;
 			children = (
@@ -712,6 +722,7 @@
 		C05E26482B1D977900D91BFA /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				B5B7450D2B349F3500AF368A /* Combine */,
 				B5B744CA2B312B5F00AF368A /* Protocol */,
 				4A44666D2B2B2029002D5BF7 /* UserDefault */,
 				C05E264E2B1D985A00D91BFA /* Enum */,
@@ -1420,6 +1431,7 @@
 				B5ACF6F72B22DA61006D7641 /* RecordDummy.swift in Sources */,
 				4A4466732B2D8EBE002D5BF7 /* TodayQuestionViewModel.swift in Sources */,
 				C04E4CF62B2AAE0B00ABDFAA /* PLUPopUpContainerView.swift in Sources */,
+				B5B7450F2B349F4600AF368A /* GesturePublisher.swift in Sources */,
 				C0D813EF2B312D1400F1B180 /* OnboardingViewModelImpl.swift in Sources */,
 				B5B744EC2B33CDEE00AF368A /* RecordViewModelImpl.swift in Sources */,
 				C02C5DFE2B22E0780011F07C /* UIEdgeInsets+.swift in Sources */,
