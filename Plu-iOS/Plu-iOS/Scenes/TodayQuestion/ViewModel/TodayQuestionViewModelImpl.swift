@@ -14,13 +14,12 @@ final class TodayQuestionViewModelImpl: TodayQuestionViewModel {
         case myPage, myAnswer, otherAnswer, alarmPopUp
     }
     
-    private let navigation: TodayQuestionNavigation
+    private let adaptor: TodayQuestionNavigation
     private let manager: TodayQuestionManagerStub
-    private let navigationSubject = PassthroughSubject<FlowType, Never>()
     private var cancelBag = Set<AnyCancellable>()
     
-    init(navigation: TodayQuestionNavigation, manager: TodayQuestionManagerStub) {
-        self.navigation = navigation
+    init(adaptor: TodayQuestionNavigation, manager: TodayQuestionManagerStub) {
+        self.adaptor = adaptor
         self.manager = manager
     }
     
@@ -45,47 +44,31 @@ final class TodayQuestionViewModelImpl: TodayQuestionViewModel {
             }
             .eraseToAnyPublisher()
         
-        self.navigationSubject
-            .receive(on: RunLoop.main)
-            .sink { [weak self] type in
-                switch type {
-                case .myPage:
-                    self?.navigation.navigationRightButtonTapped()
-                case .myAnswer:
-                    self?.navigation.myAnswerButtonTapped()
-                case .otherAnswer:
-                    self?.navigation.otherAnswerButtonTapped()
-                case .alarmPopUp:
-                    self?.navigation.presentAlarmPopUp()
-                }
-            }
-            .store(in: &cancelBag)
-        
         input.isShownAlarmPopupSubject
             .map { _ -> Bool in
                 self.checkAlarmPopUpUserDefault()
             }
             .filter { $0 }
             .sink { [weak self] _ in
-                self?.navigationSubject.send(.alarmPopUp)
+                self?.adaptor.presentAlarmPopUp()
             }
             .store(in: &cancelBag)
         
         input.navigationRightButtonTapped
             .sink { [weak self] _ in
-                self?.navigationSubject.send(.myPage)
+                self?.adaptor.navigationRightButtonTapped()
             }
             .store(in: &cancelBag)
         
         input.myAnswerButtonTapped
             .sink { [weak self] _ in
-                self?.navigationSubject.send(.myAnswer)
+                self?.adaptor.myAnswerButtonTapped()
             }
             .store(in: &cancelBag)
         
         input.otherAnswerButtonTapped
             .sink { [weak self] _ in
-                self?.navigationSubject.send(.otherAnswer)
+                self?.adaptor.otherAnswerButtonTapped()
             }
             .store(in: &cancelBag)
         
