@@ -9,4 +9,5 @@ import Foundation
 
 protocol AnswerDetailManager {
     func answerDetailResponse() async throws -> AnswerDetailResponse
+    func empthyStateReqeust(request: EmpthyCountRequest) async throws
 }

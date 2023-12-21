@@ -11,9 +11,15 @@ final class AnswerDetailStub: AnswerDetailManager {
     
     func answerDetailResponse() async throws -> AnswerDetailResponse {
         return AnswerDetailResponse(date: "Sep 28, 2023",
-                                    title: "진정한 행복이란\n 무엇이라고 생각하나요?",
-                                    contents: "진정한 행복이란 추석 연휴에 엽떡을 먹는 것 엽떡은 정말 맛있기 때문입니다 엽떡 만세",
-                                    empathyCount: 998)
+                                    question: "진정한 행복이란\n 무엇이라고 생각하나요?",
+                                    answer: "이것은 테스트입니다 텍스트가 알맞게 나오고 있나요?",
+                                    empathyState: false,
+                                    empathyType: .dust,
+                                    empathyCount: 99)
     }
     
+    // mock...?
+    func empthyStateReqeust(request: EmpthyCountRequest) async throws {
+        print("공감 버튼 클릭시 Request를 보냈다고 가정하고")
+    }
 }

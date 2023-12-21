@@ -34,9 +34,9 @@ final class PLUEverydayAnswerView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureUI(answer: OthersAnswer) {
-        self.dateLabel.text = answer.date
-        self.questionLabel.text = answer.question
+    func configureUI(date: String, question: String) {
+        self.dateLabel.text = date
+        self.questionLabel.text = question
     }
 }
 
