@@ -21,7 +21,6 @@
 		4AA7475D2B22E28F004D0335 /* PLUUnderLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7475C2B22E28F004D0335 /* PLUUnderLine.swift */; };
 		4AA747612B24B495004D0335 /* AnswerCautionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA747602B24B495004D0335 /* AnswerCautionView.swift */; };
 		4AA747652B25B8C8004D0335 /* PLUExplanationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA747642B25B8C8004D0335 /* PLUExplanationView.swift */; };
-		4AA747672B25E6FD004D0335 /* ImageDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA747662B25E6FD004D0335 /* ImageDummy.swift */; };
 		4AA7476E2B26119D004D0335 /* AnswerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7476D2B26119D004D0335 /* AnswerDetailViewController.swift */; };
 		4AA747702B261221004D0335 /* PLUEverydayAnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7476F2B261221004D0335 /* PLUEverydayAnswerView.swift */; };
 		4ABEEDBC2B2733A60020DA86 /* MyAnswerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABEEDBB2B2733A60020DA86 /* MyAnswerViewModel.swift */; };
@@ -186,7 +185,6 @@
 		4AA7475C2B22E28F004D0335 /* PLUUnderLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLUUnderLine.swift; sourceTree = "<group>"; };
 		4AA747602B24B495004D0335 /* AnswerCautionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerCautionView.swift; sourceTree = "<group>"; };
 		4AA747642B25B8C8004D0335 /* PLUExplanationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLUExplanationView.swift; sourceTree = "<group>"; };
-		4AA747662B25E6FD004D0335 /* ImageDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDummy.swift; sourceTree = "<group>"; };
 		4AA7476D2B26119D004D0335 /* AnswerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerDetailViewController.swift; sourceTree = "<group>"; };
 		4AA7476F2B261221004D0335 /* PLUEverydayAnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLUEverydayAnswerView.swift; sourceTree = "<group>"; };
 		4ABEEDBB2B2733A60020DA86 /* MyAnswerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnswerViewModel.swift; sourceTree = "<group>"; };
@@ -770,7 +768,6 @@
 				4AD85E172B33BDFD00558188 /* ViewModel */,
 				4AD85E162B33BDF400558188 /* ViewController */,
 				4A8502D32B312DCA00EC12DD /* TodayQuestionAdaptor.swift */,
-				4AA747662B25E6FD004D0335 /* ImageDummy.swift */,
 				4AD85E102B32B70300558188 /* TodayQuestionResponse.swift */,
 				4AD85E142B32BD8300558188 /* TodayQuestionManagerStub.swift */,
 			);
@@ -1234,7 +1231,6 @@
 				C05E266B2B1D9B4C00D91BFA /* UIViewController+.swift in Sources */,
 				B5ACF7312B284296006D7641 /* MyPageCoordinatorImpl.swift in Sources */,
 				C05E26762B1D9CFB00D91BFA /* ScreenConstant.swift in Sources */,
-				4AA747672B25E6FD004D0335 /* ImageDummy.swift in Sources */,
 				C0121A2E2B1347CA00D10EB0 /* SceneDelegate.swift in Sources */,
 				4AD85E0F2B31326200558188 /* TodayQuestionViewModel.swift in Sources */,
 				4ABEEDBC2B2733A60020DA86 /* MyAnswerViewModel.swift in Sources */,
