@@ -101,9 +101,7 @@ private extension OnboardingViewController {
     func bindInput() {
         self.navigationBar.leftButtonTapSubject
             .sink { [weak self] in
-                DispatchQueue.global().async {
-                    self?.backButtonTapped.send(())
-                }
+                self?.backButtonTapped.send(())
             }
             .store(in: &cancelBag)
         
