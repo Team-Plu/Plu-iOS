@@ -19,8 +19,7 @@ final class LoginAdaptor: LoginNavigation {
     func loginButtonTapped(type: LoginState) {
         switch type {
         case .loginSuccess:
-            self.coordinator.showOnboardingController()
-//            self.coordinator.showTabbarController()
+            self.coordinator.showTabbarController()
         case .userNotFound:
             self.coordinator.showOnboardingController()
         }

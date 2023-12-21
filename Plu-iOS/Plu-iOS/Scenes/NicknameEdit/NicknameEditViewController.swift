@@ -27,7 +27,6 @@ final class NicknameEditViewController: UIViewController {
     private let errorLabel = PLULabel(type: .body3, color: .error)
     private let nicknameLabel = PLULabel(type: .body3, color: .gray600, text: StringConstant.MyPage.nickName.description)
     
-    private lazy var activityIndicator = PLUIndicator(parent: self)
     private let viewModel: NicknameEditViewModel
     
     init(viewModel: NicknameEditViewModel) {
@@ -84,7 +83,7 @@ private extension NicknameEditViewController {
         output.loadingViewSubject
             .receive(on: DispatchQueue.main)
             .sink { _ in
-                self.activityIndicator.stopAnimating()
+                self.navigationBar.setActivityIndicator(isShow: false, isImage: false)
             }
             .store(in: &cancelBag)
         
@@ -96,7 +95,7 @@ private extension NicknameEditViewController {
         
         navigationBar.rightButtonTapSubject
             .sink { [weak self] in
-                self?.activityIndicator.startAnimating()
+                self?.navigationBar.setActivityIndicator(isShow: true, isImage: false)
                 self?.navigationRightButtonTapped.send(self?.nickNameTextField.text)
             }
             .store(in: &cancelBag)
@@ -112,7 +111,6 @@ private extension NicknameEditViewController {
     
     func setHierarchy() {
         view.addSubviews(nicknameLabel, defaultProfileImage, nickNameTextField, errorLabel, navigationBar)
-        view.addSubview(activityIndicator)
     }
     
     func setLayout() {
