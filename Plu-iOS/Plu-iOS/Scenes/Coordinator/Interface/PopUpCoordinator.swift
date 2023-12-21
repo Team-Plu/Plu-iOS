@@ -15,7 +15,7 @@ enum AlarmType {
 enum PopUpType {
     case alarm(AlarmType)
     case register
-    case selectMonth(year: Int, month: Int)
+    case selectMonth(date: FilterDate)
 }
 
 protocol PopUpCoordinator: Coordinator {
