@@ -20,9 +20,9 @@ final class OtherAnswerCoordinatorImpl: OtherAnswersCoordinator {
         self.navigationController?.pushViewController(otherAnswerViewController, animated: true)
     }
     
-    func showAnswerDetailViewController() {
+    func showAnswerDetailViewController(id: Int) {
         let answerDetailCoordinator = AnswerDetailCoordinatorImpl(navigationController: self.navigationController)
-        answerDetailCoordinator.showAnswerDetailViewController()
+        answerDetailCoordinator.showAnswerDetailViewController(id: id)
     }
     
     func pop() {

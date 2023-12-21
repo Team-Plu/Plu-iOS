@@ -168,6 +168,7 @@ private extension OthersAnswerViewController {
 
 extension OthersAnswerViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.coordinator.showAnswerDetailViewController()
+        //TODO: id값 viewmodel에서
+        self.coordinator.showAnswerDetailViewController(id: 1)
     }
 }
