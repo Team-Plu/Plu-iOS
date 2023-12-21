@@ -32,6 +32,6 @@ struct TodayQuestionResponse {
 
 extension TodayQuestionResponse {
     static let empty = TodayQuestionResponse(todayQuestionImage: .fire,
-                                             myAnswerButtonState: false,
+                                             myAnswerButtonState: true,
                                              othertAnswerButtonState: true)
 }
