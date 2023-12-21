@@ -17,7 +17,10 @@ final class AuthCoordinatorImpl: AuthCoordinator {
     }
     
     func showLoginViewController() {
-        let loginViewController = LoginViewController(coordinator: self)
+        let adaptor = LoginAdaptor(coordinator: self)
+        let manager = LoginManagerImpl()
+        let loginViewModelImpl = LoginViewModelImpl(adaptor: adaptor, manager: manager)
+        let loginViewController = LoginViewController(viewModel: loginViewModelImpl)
         self.navigationController?.pushViewController(loginViewController, animated: true)
     }
     
@@ -27,8 +30,9 @@ final class AuthCoordinatorImpl: AuthCoordinator {
     }
     
     func showOnboardingController() {
+        let adaptor = OnboardingAdaptor(coordinator: self)
         let manger = NicknameManagerStub()
-        let viewModel = OnboardingViewModelImpl(manager: manger, coordinator: self)
+        let viewModel = OnboardingViewModelImpl(manager: manger, adaptor: adaptor)
         let onboardingViewController = OnboardingViewController(viewModel: viewModel)
         self.navigationController?.pushViewController(onboardingViewController, animated: true)
     }
