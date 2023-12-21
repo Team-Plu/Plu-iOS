@@ -74,6 +74,8 @@
 		B5B744E42B32C87500AF368A /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744E32B32C87500AF368A /* Login.swift */; };
 		B5B744E62B32C88F00AF368A /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744E52B32C88F00AF368A /* LoginState.swift */; };
 		B5B744E82B32C89A00AF368A /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744E72B32C89A00AF368A /* LoadingState.swift */; };
+		B5B744F62B34080400AF368A /* RecordNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744F52B34080400AF368A /* RecordNavigation.swift */; };
+		B5B744F82B3408A800AF368A /* RecordAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744F72B3408A800AF368A /* RecordAdaptor.swift */; };
 		C00113DA2B25359100B2C799 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00113D92B25359100B2C799 /* OnboardingViewModel.swift */; };
 		C0121A2C2B1347CA00D10EB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A2B2B1347CA00D10EB0 /* AppDelegate.swift */; };
 		C0121A2E2B1347CA00D10EB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A2D2B1347CA00D10EB0 /* SceneDelegate.swift */; };
@@ -246,6 +248,8 @@
 		B5B744E32B32C87500AF368A /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		B5B744E52B32C88F00AF368A /* LoginState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginState.swift; sourceTree = "<group>"; };
 		B5B744E72B32C89A00AF368A /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
+		B5B744F52B34080400AF368A /* RecordNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordNavigation.swift; sourceTree = "<group>"; };
+		B5B744F72B3408A800AF368A /* RecordAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordAdaptor.swift; sourceTree = "<group>"; };
 		C00113D92B25359100B2C799 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		C0121A282B1347CA00D10EB0 /* Plu-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plu-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0121A2B2B1347CA00D10EB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -542,6 +546,15 @@
 			children = (
 				B5B744CF2B312C6D00AF368A /* LoginNavigation.swift */,
 				B5B744D12B312CE000AF368A /* LoginAdaptor.swift */,
+			);
+			path = Adaptor;
+			sourceTree = "<group>";
+		};
+		B5B744F42B3407FD00AF368A /* Adaptor */ = {
+			isa = PBXGroup;
+			children = (
+				B5B744F52B34080400AF368A /* RecordNavigation.swift */,
+				B5B744F72B3408A800AF368A /* RecordAdaptor.swift */,
 			);
 			path = Adaptor;
 			sourceTree = "<group>";
@@ -854,6 +867,7 @@
 		C05E26802B1D9E4C00D91BFA /* Record */ = {
 			isa = PBXGroup;
 			children = (
+				B5B744F42B3407FD00AF368A /* Adaptor */,
 				B5ACF6FA2B22E044006D7641 /* View */,
 				B5ACF6F92B22E035006D7641 /* Model */,
 				B5ACF6F82B22E020006D7641 /* TableViewCell */,
@@ -1234,6 +1248,7 @@
 				C0CEF3DE2B267A4B00682D1B /* NicknameState.swift in Sources */,
 				C0682A882B25862200AD4DB4 /* NicknameManagerStub.swift in Sources */,
 				C0E93B502B2037C20098A822 /* MyPageCellHeight.swift in Sources */,
+				B5B744F82B3408A800AF368A /* RecordAdaptor.swift in Sources */,
 				C0A256272B1EE1200059AA7E /* MyPageAppVersionTableViewCell.swift in Sources */,
 				C0CEF3E02B267B3600682D1B /* NicknameCheck.swift in Sources */,
 				C0A256252B1EE0330059AA7E /* MyPageGeneralTableViewCell.swift in Sources */,
@@ -1284,6 +1299,7 @@
 				B5B744CC2B312B6400AF368A /* ViewModel.swift in Sources */,
 				C05E26882B1D9EA300D91BFA /* MyPageViewController.swift in Sources */,
 				B5B744E82B32C89A00AF368A /* LoadingState.swift in Sources */,
+				B5B744F62B34080400AF368A /* RecordNavigation.swift in Sources */,
 				C07CD8912B2BD9E20091DAAF /* AlarmPopUpViewModelImpl.swift in Sources */,
 				B5ACF7162B2814CE006D7641 /* TodayQuestionCoordinator.swift in Sources */,
 				B5B744E62B32C88F00AF368A /* LoginState.swift in Sources */,
