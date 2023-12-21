@@ -23,10 +23,6 @@ struct NicknameEditOutput {
     let loadingViewSubject: AnyPublisher<LoadingState, Never>
 }
 
-enum LoadingState {
-    case end, error(message: String)
-}
-
 final class NicknameEditViewModelImpl: NicknameEditViewModel, NicknameCheck {
     var nickNameManager: NicknameManager
     var coordinator: MyPageCoordinator

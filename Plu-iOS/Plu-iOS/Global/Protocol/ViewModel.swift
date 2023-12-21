@@ -12,4 +12,4 @@ protocol ViewModel where Self: AnyObject {
     associatedtype Output
     
     @MainActor func transform(input: Input) -> Output
-}                                                                       
+}
