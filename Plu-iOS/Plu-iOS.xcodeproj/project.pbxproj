@@ -75,6 +75,8 @@
 		B5B744E62B32C88F00AF368A /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744E52B32C88F00AF368A /* LoginState.swift */; };
 		B5B744E82B32C89A00AF368A /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744E72B32C89A00AF368A /* LoadingState.swift */; };
 		B5B744EE2B33D2BB00AF368A /* FilterDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744ED2B33D2BB00AF368A /* FilterDate.swift */; };
+		B5B744F12B33D62600AF368A /* RecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744F02B33D62600AF368A /* RecordManager.swift */; };
+		B5B744F32B33D6A200AF368A /* RecordManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744F22B33D6A200AF368A /* RecordManagerImpl.swift */; };
 		B5B744F62B34080400AF368A /* RecordNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744F52B34080400AF368A /* RecordNavigation.swift */; };
 		B5B744F82B3408A800AF368A /* RecordAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744F72B3408A800AF368A /* RecordAdaptor.swift */; };
 		C00113DA2B25359100B2C799 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00113D92B25359100B2C799 /* OnboardingViewModel.swift */; };
@@ -250,6 +252,8 @@
 		B5B744E52B32C88F00AF368A /* LoginState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginState.swift; sourceTree = "<group>"; };
 		B5B744E72B32C89A00AF368A /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 		B5B744ED2B33D2BB00AF368A /* FilterDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDate.swift; sourceTree = "<group>"; };
+		B5B744F02B33D62600AF368A /* RecordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordManager.swift; sourceTree = "<group>"; };
+		B5B744F22B33D6A200AF368A /* RecordManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordManagerImpl.swift; sourceTree = "<group>"; };
 		B5B744F52B34080400AF368A /* RecordNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordNavigation.swift; sourceTree = "<group>"; };
 		B5B744F72B3408A800AF368A /* RecordAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordAdaptor.swift; sourceTree = "<group>"; };
 		C00113D92B25359100B2C799 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
@@ -551,6 +555,15 @@
 				B5B744D12B312CE000AF368A /* LoginAdaptor.swift */,
 			);
 			path = Adaptor;
+			sourceTree = "<group>";
+		};
+		B5B744EF2B33D5B700AF368A /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				B5B744F02B33D62600AF368A /* RecordManager.swift */,
+				B5B744F22B33D6A200AF368A /* RecordManagerImpl.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		B5B744F42B3407FD00AF368A /* Adaptor */ = {
@@ -871,6 +884,7 @@
 			isa = PBXGroup;
 			children = (
 				B5B744F42B3407FD00AF368A /* Adaptor */,
+				B5B744EF2B33D5B700AF368A /* Manager */,
 				B5ACF6FA2B22E044006D7641 /* View */,
 				B5ACF6F92B22E035006D7641 /* Model */,
 				B5ACF6F82B22E020006D7641 /* TableViewCell */,
@@ -1225,6 +1239,7 @@
 				B5ACF7222B2816C6006D7641 /* PopUpCoordinator.swift in Sources */,
 				B5B744D42B312E7D00AF368A /* LoginViewModelImpl.swift in Sources */,
 				B5ACF6C92B1EE26C006D7641 /* ElementColor.swift in Sources */,
+				B5B744F12B33D62600AF368A /* RecordManager.swift in Sources */,
 				B5ACF72F2B283D23006D7641 /* AnswerDetailCoordinatorImpl.swift in Sources */,
 				C0E93B5A2B20518B0098A822 /* TableSectionViewRegisterDequeueProtocol.swift in Sources */,
 				C012FFF62B2F06FA00433211 /* PLUIndicator.swift in Sources */,
@@ -1352,6 +1367,7 @@
 				4A44666A2B281F52002D5BF7 /* TodayQuestionCoordinatorImpl.swift in Sources */,
 				B5ACF70C2B26EC48006D7641 /* se+.swift in Sources */,
 				B5ACF7392B2A8ADC006D7641 /* PLUNavigationBarView.swift in Sources */,
+				B5B744F32B33D6A200AF368A /* RecordManagerImpl.swift in Sources */,
 				C07AB7292B282E2D00C2E02C /* PopUpCoordinatorImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
