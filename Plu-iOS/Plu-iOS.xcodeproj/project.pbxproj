@@ -392,17 +392,18 @@
 			path = AnswerDetail;
 			sourceTree = "<group>";
 		};
-		B5ACF6F82B22E020006D7641 /* TableViewCell */ = {
+		B5ACF6F82B22E020006D7641 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				B5ACF6F02B22D116006D7641 /* RecordQuestionTableViewCell.swift */,
+				C05E268B2B1D9EB600D91BFA /* RecordViewController.swift */,
 			);
-			path = TableViewCell;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		B5ACF6F92B22E035006D7641 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B5ACF7032B26C807006D7641 /* RecordDiffableDataSource.swift */,
 				B5ACF6F42B22DA42006D7641 /* RecordDiffableModel.swift */,
 				B5ACF6F62B22DA61006D7641 /* RecordDummy.swift */,
 				B5B744ED2B33D2BB00AF368A /* FilterDate.swift */,
@@ -413,6 +414,7 @@
 		B5ACF6FA2B22E044006D7641 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B5ACF6F02B22D116006D7641 /* RecordQuestionTableViewCell.swift */,
 				B5ACF6F22B22D2F2006D7641 /* QuestionView.swift */,
 			);
 			path = View;
@@ -901,9 +903,7 @@
 				B5B744EF2B33D5B700AF368A /* Manager */,
 				B5ACF6FA2B22E044006D7641 /* View */,
 				B5ACF6F92B22E035006D7641 /* Model */,
-				B5ACF6F82B22E020006D7641 /* TableViewCell */,
-				C05E268B2B1D9EB600D91BFA /* RecordViewController.swift */,
-				B5ACF7032B26C807006D7641 /* RecordDiffableDataSource.swift */,
+				B5ACF6F82B22E020006D7641 /* ViewController */,
 			);
 			path = Record;
 			sourceTree = "<group>";
