@@ -13,6 +13,11 @@ import SnapKit
 
 final class OthersAnswerViewController: UIViewController {
     
+    private let viewWillAppear = PassthroughSubject<AnswerFilterButtonType, Never>()
+    private let tableViewCellTapped = PassthroughSubject<Int, Never>()
+    private let filterButtonTapped = PassthroughSubject<AnswerFilterButtonType, Never>()
+    private let navigationBackButtonTapped = PassthroughSubject<Void, Never>()
+    
     private let everydayAnswerView = PLUEverydayAnswerView()
     
     private let elementImageView = UIImageView()
@@ -25,7 +30,11 @@ final class OthersAnswerViewController: UIViewController {
         .setText(text: AnswerFilterButtonType.latest.title, font: .body3)
         .setLayer(cornerRadius: 15, borderColor: .gray500)
     
-    private let menuView = AnswerFilterMenuView()
+    private let menuView: AnswerFilterMenuView = {
+        let menu = AnswerFilterMenuView()
+        menu.isHidden = true
+        return menu
+    }()
         
     private let answersTableView = OthersAnswerTableView(tableViewType: .othersAnswers)
     
@@ -33,14 +42,14 @@ final class OthersAnswerViewController: UIViewController {
         .setTitle(text: "모두의 답변")
         .setLeftButton(type: .back)
     
-    private var coordinator: OtherAnswersCoordinator
+    private var viewModel: any OthersAnswerViewModel
     
     private var cancelBag = Set<AnyCancellable>()
     
     private var datasource: UITableViewDiffableDataSource<OtherAnswersSection, OtherAnswersItem>!
     
-    init(coordinator: OtherAnswersCoordinator) {
-        self.coordinator = coordinator
+    init(viewModel: some OthersAnswerViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -54,18 +63,50 @@ final class OthersAnswerViewController: UIViewController {
         setHierarchy()
         setLayout()
         setDataSource()
-        configUI(answer: OthersAnswer.dummmy())
-        applySnapshot(OthersAnswer.dummmy())
         setButtonHandler()
         setDelegate()
         bindInput()
+        bind()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.viewWillAppear.send(.latest)
     }
     
     private func bindInput() {
         navigationBar.leftButtonTapSubject
             .sink { [weak self] _ in
                 guard let self else { return }
-                self.coordinator.pop()
+                self.navigationBackButtonTapped.send(())
+            }
+            .store(in: &cancelBag)
+        
+        filterButton.tapPublisher
+            .sink { [weak self] _ in
+                self?.menuView.isHidden.toggle()
+            }
+            .store(in: &cancelBag)
+        
+        menuView.filterTapSubject
+            .sink { [weak self] type in
+                self?.menuView.isHidden.toggle()
+                self?.filterButtonTapped.send(type)
+            }
+            .store(in: &cancelBag)
+    }
+    
+    private func bind() {
+        let input = OthersAnswerViewModelInput(viewWillAppear: viewWillAppear,
+                                               tableViewCellTapped: tableViewCellTapped,
+                                               filterButtonTapped: filterButtonTapped,
+                                               navigationBackButtonTapped: navigationBackButtonTapped)
+        let output = viewModel.transform(input: input)
+        
+        output.questions
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] otherAnswer in
+                self?.configUI(answer: otherAnswer)
+                self?.applySnapshot(otherAnswer)
             }
             .store(in: &cancelBag)
     }
@@ -168,7 +209,6 @@ private extension OthersAnswerViewController {
 
 extension OthersAnswerViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //TODO: id값 viewmodel에서
-        self.coordinator.showAnswerDetailViewController(id: 1)
+        self.tableViewCellTapped.send(indexPath.row)
     }
 }
