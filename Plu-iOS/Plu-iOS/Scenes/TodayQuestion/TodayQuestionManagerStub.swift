@@ -11,7 +11,7 @@ final class TodayQuestionManagerStub: TodayQuestionMananger {
     
     func getTodayQuestionResponse() async throws -> TodayQuestionResponse {
         return TodayQuestionResponse(todayQuestionImage: .fire,
-                                     myAnswerButtonState: false,
+                                     myAnswerButtonState: true,
                                      othertAnswerButtonState: true)
     }
 }
