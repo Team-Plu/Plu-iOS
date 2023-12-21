@@ -14,9 +14,9 @@ import SnapKit
 final class NicknameEditViewController: UIViewController {
     
     private let navigationBar = PLUNavigationBarView()
-        .setTitle(text: "프로필 수정")
+        .setTitle(text: StringConstant.Navibar.title.profileEdit)
         .setLeftButton(type: .back)
-        .setRightButton(type: .text("완료"))
+        .setRightButton(type: .text(StringConstant.Navibar.title.completeRightButton))
     
     private let navigationLeftButtonTapped = PassthroughSubject<Void, Never>()
     private let navigationRightButtonTapped = PassthroughSubject<String?, Never>()
@@ -25,7 +25,7 @@ final class NicknameEditViewController: UIViewController {
     private let defaultProfileImage = PLUImageView(ImageLiterals.MyPage.profile92)
     private let nickNameTextField = PLUTextField()
     private let errorLabel = PLULabel(type: .body3, color: .error)
-    private let nicknameLabel = PLULabel(type: .body3, color: .gray600, text: "닉네임")
+    private let nicknameLabel = PLULabel(type: .body3, color: .gray600, text: StringConstant.MyPage.nickName.description)
     
     private lazy var activityIndicator = PLUIndicator(parent: self)
     private let viewModel: NicknameEditViewModel

@@ -38,9 +38,6 @@ final class OnboardingViewController: UIViewController {
         .setText(text: StringConstant.Onboarding.buttonTitle.description!, font: .title1)
         .setLayer(cornerRadius: 8)
     
-    // 추후에 button내부의 indicator로 변경 예정
-    private lazy var loadingView = PLUIndicator(parent: self)
-    
     private let viewModel: any OnboardingViewModel
     
     init(viewModel: some OnboardingViewModel) {
@@ -93,7 +90,7 @@ private extension OnboardingViewController {
         output.signInStatePublisher
             .receive(on: DispatchQueue.main)
             .sink { _ in
-                self.loadingView.stopAnimating()
+                self.signInButton.setActivityIndicator(isShow: false, isImage: false)
             }
             .store(in: &cancelBag)
     }
@@ -108,7 +105,7 @@ private extension OnboardingViewController {
         self.signInButton.tapPublisher
             .sink { [weak self] in
                 guard let text = self?.nickNameTextField.text else { return }
-                self?.loadingView.startAnimating()
+                self?.signInButton.setActivityIndicator(isShow: true, isImage: false)
                 self?.singInButtonTapped.send(text)
                 self?.signInButton.isUserInteractionEnabled = false
             }
@@ -125,7 +122,6 @@ private extension OnboardingViewController {
     
     func setHierarchy() {
         view.addSubviews(navigationBar, titleLabel, subTitleLabel, nickNameTextField, errorLabel, signInButton)
-        view.addSubview(loadingView)
     }
     
     func setLayout() {
