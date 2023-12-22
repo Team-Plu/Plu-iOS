@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol ResignManager {
+    func resign() async throws
+}

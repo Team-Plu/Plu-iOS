@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+
+final class ResignManagerImpl: ResignManager {
+    func resign() async throws {
+        return
+    }
+}
