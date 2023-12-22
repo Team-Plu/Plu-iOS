@@ -148,6 +148,7 @@
 		C0CFE1DB2B33D2BA001FB7A5 /* OnboardingOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CFE1DA2B33D2BA001FB7A5 /* OnboardingOutput.swift */; };
 		C0CFE1DE2B33D2F4001FB7A5 /* NicknameEditInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CFE1DD2B33D2F4001FB7A5 /* NicknameEditInput.swift */; };
 		C0CFE1E02B33D2FB001FB7A5 /* NicknameEditOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CFE1DF2B33D2FB001FB7A5 /* NicknameEditOutput.swift */; };
+		C0CFE1E32B3529AF001FB7A5 /* Publisher+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CFE1E22B3529AF001FB7A5 /* Publisher+.swift */; };
 		C0D813EF2B312D1400F1B180 /* OnboardingViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D813EE2B312D1400F1B180 /* OnboardingViewModelImpl.swift */; };
 		C0D813F22B312E4200F1B180 /* OnboardingNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D813F12B312E4200F1B180 /* OnboardingNavigation.swift */; };
 		C0D813F42B312E7D00F1B180 /* OnboardingAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D813F32B312E7D00F1B180 /* OnboardingAdaptor.swift */; };
@@ -329,6 +330,7 @@
 		C0CFE1DA2B33D2BA001FB7A5 /* OnboardingOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingOutput.swift; sourceTree = "<group>"; };
 		C0CFE1DD2B33D2F4001FB7A5 /* NicknameEditInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameEditInput.swift; sourceTree = "<group>"; };
 		C0CFE1DF2B33D2FB001FB7A5 /* NicknameEditOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameEditOutput.swift; sourceTree = "<group>"; };
+		C0CFE1E22B3529AF001FB7A5 /* Publisher+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+.swift"; sourceTree = "<group>"; };
 		C0D813EE2B312D1400F1B180 /* OnboardingViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelImpl.swift; sourceTree = "<group>"; };
 		C0D813F12B312E4200F1B180 /* OnboardingNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNavigation.swift; sourceTree = "<group>"; };
 		C0D813F32B312E7D00F1B180 /* OnboardingAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAdaptor.swift; sourceTree = "<group>"; };
@@ -708,6 +710,7 @@
 				C02C5DFD2B22E0780011F07C /* UIEdgeInsets+.swift */,
 				B5ACF70B2B26EC48006D7641 /* se+.swift */,
 				C07CD88E2B2BD4C80091DAAF /* UIButton+.swift */,
+				C0CFE1E22B3529AF001FB7A5 /* Publisher+.swift */,
 			);
 			path = Extention;
 			sourceTree = "<group>";
@@ -1319,6 +1322,7 @@
 				C0E93B432B2035580098A822 /* MyPageUserData.swift in Sources */,
 				B5ACF7122B2812E2006D7641 /* SplashCoordinator.swift in Sources */,
 				C0CFE1DE2B33D2F4001FB7A5 /* NicknameEditInput.swift in Sources */,
+				C0CFE1E32B3529AF001FB7A5 /* Publisher+.swift in Sources */,
 				C0E93B402B2035370098A822 /* MyPageCell.swift in Sources */,
 				B5ACF71A2B28158E006D7641 /* OtherAnswersCoordinator.swift in Sources */,
 				B5ACF7252B2818D5006D7641 /* AppCoordinatorImpl.swift in Sources */,

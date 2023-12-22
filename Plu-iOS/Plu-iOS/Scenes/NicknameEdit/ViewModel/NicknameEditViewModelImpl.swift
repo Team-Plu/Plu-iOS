@@ -21,28 +21,15 @@ final class NicknameEditViewModelImpl: NicknameEditViewModel, NicknameCheck {
     }
 
     func transform(input: NicknameEditInput) -> NicknameEditOutput {
-        
-        let loadingViewSubject = input.naviagtionRightButtonTapped
-            .flatMap { newNickname -> AnyPublisher<LoadingState, Never> in
-                return Future<LoadingState, Error> { promise in
-                    Task {
-                        do {
-                            try await Task.sleep(nanoseconds: 1000000000)
-                            try await self.nickNameManager.changeNickName(newNickname: newNickname)
-                            self.adaptor.nicknameChangeCompleteButtonTapped()
-                            promise(.success(.end))
-                        } catch {
-                            promise(.failure(error))
-                        }
-                    }
-                }
-                .catch { error in
-                    Just(.error(message: "닉네임 수정 오류 발생"))
-                }
-                .eraseToAnyPublisher()
+        let loadingViewSubject: AnyPublisher<LoadingState, Never> = input.naviagtionRightButtonTapped
+            .requestAPI(failure: .error(message: "닉네임 수정 오류 발생")) { nickname in
+                try await Task.sleep(nanoseconds: 1000000000)
+                try await self.nickNameManager.changeNickName(newNickname: nickname)
+                self.adaptor.nicknameChangeCompleteButtonTapped()
+                return .end
+            } errorHandler: { error in
+                // 에러처리
             }
-            .eraseToAnyPublisher()
-        
         
         input.naviagtionLeftButtonTapped
             .sink { [weak self] in
@@ -50,9 +37,8 @@ final class NicknameEditViewModelImpl: NicknameEditViewModel, NicknameCheck {
             }
             .store(in: &cancelBag)
         
-        let nicknameInput = input.textFieldSubject
-        let checker = self.vaildNicknameSubject
-        let nickNameResultPublisher = self.makeNicknameResultPublisher(from: nicknameInput, to: checker, with: nickNameManager)
+        let nickNameResultPublisher = self.nicknamePublisher(from: input.textFieldSubject, to: self.vaildNicknameSubject, with: nickNameManager)
+        
         return NicknameEditOutput(nickNameResultPublisher: nickNameResultPublisher, loadingViewSubject: loadingViewSubject)
     }
 }
