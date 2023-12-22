@@ -30,11 +30,7 @@ final class OthersAnswerViewController: UIViewController {
         .setText(text: AnswerFilterButtonType.latest.title, font: .body3)
         .setLayer(cornerRadius: 15, borderColor: .gray500)
     
-    private let menuView: AnswerFilterMenuView = {
-        let menu = AnswerFilterMenuView()
-        menu.isHidden = true
-        return menu
-    }()
+    private let menuView = AnswerFilterMenuView()
         
     private let answersTableView = OthersAnswerTableView(tableViewType: .othersAnswers)
     
@@ -90,6 +86,7 @@ final class OthersAnswerViewController: UIViewController {
         menuView.filterTapSubject
             .sink { [weak self] type in
                 self?.menuView.isHidden.toggle()
+                self?.filterButton.setText(text: type.title, font: .body3)
                 self?.filterButtonTapped.send(type)
             }
             .store(in: &cancelBag)
