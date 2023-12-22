@@ -27,7 +27,7 @@ final class AnswerFilterMenuView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureUI()
+        setUI()
         setHierarchy()
         setLayout()
         bindInput()
@@ -51,7 +51,8 @@ final class AnswerFilterMenuView: UIView {
             .store(in: &cancelBag)
     }
     
-    private func configureUI() {
+    private func setUI() {
+        self.isHidden = true
         self.layer.cornerRadius = 8
         self.layer.masksToBounds = true
         self.layer.borderColor = .designSystem(.gray500)
