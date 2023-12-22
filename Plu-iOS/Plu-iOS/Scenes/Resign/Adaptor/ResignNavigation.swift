@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+
+protocol ResignNavigation {
+    func resignButtonTapped()
+    func pop()
+}
