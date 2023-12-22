@@ -64,7 +64,8 @@ final class AnswerDetailViewModelImpl: AnswerDetailViewModel {
                     }
                 }
                 .catch { _ in
-                    Just(EmpthyCountResponse(empthyState: false, empthyCount: 0))
+                    Just(EmpthyCountResponse(empthyState: request.empthyState,
+                                             empthyCount: request.empthyCount))
                 }
                 .eraseToAnyPublisher()
             }
