@@ -51,7 +51,7 @@ final class NicknameEditViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setKeyboard()
+        self.nickNameTextField.becomeFirstResponder()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -144,9 +144,5 @@ private extension NicknameEditViewController {
             make.top.equalTo(nickNameTextField.snp.bottom).offset(12)
             make.leading.equalToSuperview().inset(20)
         }
-    }
-    
-    func setKeyboard() {
-        self.nickNameTextField.becomeFirstResponder()
     }
 }

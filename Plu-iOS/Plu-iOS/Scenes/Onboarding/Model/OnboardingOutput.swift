@@ -10,5 +10,5 @@ import Combine
 
 struct OnboardingOutput {
     let nickNameResultPublisher: AnyPublisher<NicknameState, Never>
-    let signInStatePublisher: AnyPublisher<LoadingState, Never>
+    let signInStatePublisher: AnyPublisher<AppData<String?>, Never>
 }
