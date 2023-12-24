@@ -14,7 +14,7 @@ final class AnswerDetailStub: AnswerDetailManager {
                                     question: "진정한 행복이란\n 무엇이라고 생각하나요?",
                                     answer: "이것은 테스트입니다 텍스트가 알맞게 나오고 있나요?",
                                     empathyState: false,
-                                    empathyType: .dust,
+                                    empathyType: .water,
                                     empathyCount: 99)
     }
     

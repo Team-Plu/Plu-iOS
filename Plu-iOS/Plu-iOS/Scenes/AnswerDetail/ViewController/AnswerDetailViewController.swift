@@ -146,7 +146,7 @@ private extension AnswerDetailViewController {
         }
     }
     
-    func setButtonHandler(type: EmpathyType, count: Int, state: Bool) {
+    func setButtonHandler(type: Elements, count: Int, state: Bool) {
         sympathyButton.setUpdateHandler { button in
             var config = button.configuration
             var attrString = AttributedString("공감 \(count)")
@@ -162,8 +162,8 @@ private extension AnswerDetailViewController {
             : .designSystem(type.color)
             
             config?.image = state
-            ? type.inActiveEmpathy
-            : type.activeEmpathy
+            ? type.activeEmpathy
+            : type.inActiveEmpathy
             
             button.configuration = config
             

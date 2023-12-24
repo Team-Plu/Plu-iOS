@@ -12,7 +12,7 @@ struct AnswerDetailResponse {
     let question: String
     let answer: String
     var empathyState: Bool
-    var empathyType: EmpathyType
+    var empathyType: Elements
     var empathyCount: Int
 }
 

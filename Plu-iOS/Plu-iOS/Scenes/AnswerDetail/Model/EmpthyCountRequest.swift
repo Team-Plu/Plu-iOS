@@ -13,7 +13,7 @@ struct EmpthyCountRequest {
 }
 
 struct EmpthyCountResponse {
-    let empthyType: EmpathyType
+    let empthyType: Elements
     let empthyState: Bool
     let empthyCount: Int
 }
