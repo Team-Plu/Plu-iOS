@@ -11,15 +11,11 @@ import Combine
 import SnapKit
 
 final class AnswerDetailViewController: UIViewController {
-    
-    private var empathyCount = 0
-    private var empathyState = false
-    private var empathyType = EmpathyType.air
 
     private var cancleBag = Set<AnyCancellable>()
     private let leftButtonTapped = PassthroughSubject<Void, Never>()
     private let viewWillAppearSubject = PassthroughSubject<Void, Never>()
-    private let empathyButtonTappedSubject = PassthroughSubject<(EmpthyCountRequest, CountType), Never>()
+    private let empathyButtonTappedSubject = PassthroughSubject<Void, Never>()
     
     private let viewModel: any AnswerDetailViewModel
 
@@ -76,9 +72,7 @@ final class AnswerDetailViewController: UIViewController {
         sympathyButton.tapPublisher
             .sink { [weak self] _ in
                 guard let self else { return }
-                let countType = empathyState ? CountType.down : CountType.up
-                self.empathyButtonTappedSubject.send((EmpthyCountRequest(empthyState: empathyState,
-                                                                         empthyCount: empathyCount), countType))
+                self.empathyButtonTappedSubject.send(())
             }
             .store(in: &cancleBag)
     }
@@ -92,18 +86,15 @@ final class AnswerDetailViewController: UIViewController {
             .sink { [weak self] response in
                 guard let self else { return }
                 self.updateUI(response: response)
-                self.empathyCount = response.empathyCount
-                self.empathyState = response.empathyState
-                self.empathyType = response.empathyType
             }
             .store(in: &cancleBag)
         
         output.empathyButtonResult
             .sink { [weak self] response in
                 guard let self else { return }
-                self.empathyCount = response.empthyCount
-                self.empathyState = response.empthyState
-                self.setButtonHandler(type: empathyType, count: empathyCount, state: empathyState)
+                self.setButtonHandler(type: response.empthyType,
+                                      count: response.empthyCount,
+                                      state: response.empthyState)
             }
             .store(in: &cancleBag)
     }

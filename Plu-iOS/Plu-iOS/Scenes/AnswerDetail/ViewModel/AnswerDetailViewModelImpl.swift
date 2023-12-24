@@ -15,6 +15,8 @@ final class AnswerDetailViewModelImpl: AnswerDetailViewModel {
     
     private var cancelBag = Set<AnyCancellable>()
     
+    private var data = AnswerDetailResponse.empty
+    
     init(adaptor: AnswerDetailAdaptor, manager: AnswerDetailManager) {
         self.adaptor = adaptor
         self.manager = manager
@@ -26,8 +28,8 @@ final class AnswerDetailViewModelImpl: AnswerDetailViewModel {
                 return Future<AnswerDetailResponse, Error> { promise in
                     Task {
                         do {
-                            let response = try await self.manager.answerDetailResponse()
-                            promise(.success(response))
+                            self.data = try await self.manager.answerDetailResponse()
+                            promise(.success(self.data))
                         } catch {
                             promise(.failure(error))
                         }
@@ -41,22 +43,16 @@ final class AnswerDetailViewModelImpl: AnswerDetailViewModel {
             .eraseToAnyPublisher()
         
         let empathyButtonResult = input.empathyButtonTappedSubject
-            .map { (request, type) -> EmpthyCountRequest in
-                switch type {
-                case .up:
-                    return EmpthyCountRequest(empthyState: !request.empthyState,
-                                              empthyCount: request.empthyCount+1)
-                case .down:
-                    return EmpthyCountRequest(empthyState: !request.empthyState,
-                                              empthyCount: request.empthyCount-1)
-                }
+            .map { _ -> EmpthyCountRequest in
+                return self.calculateEmpthyCount()
             }
             .flatMap { request -> AnyPublisher<EmpthyCountResponse, Never> in
                 return Future<EmpthyCountResponse, Error> { promise in
                     Task {
                         do {
                             try await self.manager.empthyStateReqeust(request: request)
-                            promise(.success((EmpthyCountResponse(empthyState: request.empthyState,
+                            promise(.success((EmpthyCountResponse(empthyType: self.data.empathyType,
+                                                                  empthyState: request.empthyState,
                                                                   empthyCount: request.empthyCount))))
                         } catch {
                             promise(.failure(error))
@@ -64,7 +60,8 @@ final class AnswerDetailViewModelImpl: AnswerDetailViewModel {
                     }
                 }
                 .catch { _ in
-                    Just(EmpthyCountResponse(empthyState: request.empthyState,
+                    Just(EmpthyCountResponse(empthyType: self.data.empathyType,
+                                             empthyState: request.empthyState,
                                              empthyCount: request.empthyCount))
                 }
                 .eraseToAnyPublisher()
@@ -79,5 +76,22 @@ final class AnswerDetailViewModelImpl: AnswerDetailViewModel {
         
         return AnswerDetailViewModelOuput(viewWillAppearResult: viewWillAppearResult,
                                           empathyButtonResult: empathyButtonResult)
+    }
+}
+
+extension AnswerDetailViewModelImpl {
+    private func calculateEmpthyCount() -> EmpthyCountRequest {
+        let countType = data.empathyState ? CountType.down : CountType.up
+        
+        switch countType {
+        case .up:
+            self.data.empathyState = !self.data.empathyState
+            self.data.empathyCount += 1
+        case .down:
+            self.data.empathyState = !self.data.empathyState
+            self.data.empathyCount -= 1
+        }
+        return EmpthyCountRequest(empthyState: self.data.empathyState,
+                                  empthyCount: self.data.empathyCount)
     }
 }

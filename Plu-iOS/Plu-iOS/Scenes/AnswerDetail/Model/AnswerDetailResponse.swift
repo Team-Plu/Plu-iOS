@@ -11,9 +11,9 @@ struct AnswerDetailResponse {
     let date: String
     let question: String
     let answer: String
-    let empathyState: Bool
-    let empathyType: EmpathyType
-    let empathyCount: Int
+    var empathyState: Bool
+    var empathyType: EmpathyType
+    var empathyCount: Int
 }
 
 extension AnswerDetailResponse {

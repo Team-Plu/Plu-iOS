@@ -13,7 +13,7 @@ protocol AnswerDetailViewModel: ViewModel where Input == AnswerDetailViewModelIn
 struct AnswerDetailViewModelInput {
     let leftButtonTapped: PassthroughSubject<Void, Never>
     let viewWillAppearSubject: PassthroughSubject<Void, Never>
-    let empathyButtonTappedSubject: PassthroughSubject<(EmpthyCountRequest, CountType), Never>
+    let empathyButtonTappedSubject: PassthroughSubject<Void, Never>
 }
 
 struct AnswerDetailViewModelOuput {
