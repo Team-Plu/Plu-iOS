@@ -135,7 +135,7 @@ extension MyPageViewController: UITableViewDataSource {
                     switch type {
                     case .alarmAccept:
                         self?.navigationSubject.send(.alarm)
-                    case .moveSetting:
+                    case .alarmReject:
                         self?.goToSettingPage { _ in 
                             cell.alarmSwitch.setOn(false, animated: false)
                         }

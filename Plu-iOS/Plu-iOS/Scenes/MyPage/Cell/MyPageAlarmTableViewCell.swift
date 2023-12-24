@@ -12,7 +12,7 @@ import Combine
 import SnapKit
 
 enum MypageAlarmSwitchType {
-    case alarmAccept, moveSetting
+    case alarmAccept, alarmReject
 }
 
 final class MyPageAlarmTableViewCell: UITableViewCell, TableViewCellRegisterDequeueProtocol {
@@ -95,7 +95,7 @@ private extension MyPageAlarmTableViewCell {
             let setting = await notificationCenter.notificationSettings()
             if setting.authorizationStatus != .authorized {
                 self.alarmSwitch.setOn(self.alarmSwitch.isOn, animated: false)
-                self.alarmSwitchTypeSubject.send(.moveSetting)
+                self.alarmSwitchTypeSubject.send(.alarmReject)
                 return
             }
             if !self.alarmSwitch.isOn {
