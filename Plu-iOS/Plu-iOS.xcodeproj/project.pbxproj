@@ -154,6 +154,7 @@
 		C0CFE1DE2B33D2F4001FB7A5 /* NicknameEditInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CFE1DD2B33D2F4001FB7A5 /* NicknameEditInput.swift */; };
 		C0CFE1E02B33D2FB001FB7A5 /* NicknameEditOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CFE1DF2B33D2FB001FB7A5 /* NicknameEditOutput.swift */; };
 		C0CFE1E32B3529AF001FB7A5 /* Publisher+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CFE1E22B3529AF001FB7A5 /* Publisher+.swift */; };
+		C0CFE1E52B37C1BE001FB7A5 /* MypageNavigationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CFE1E42B37C1BE001FB7A5 /* MypageNavigationType.swift */; };
 		C0D813EF2B312D1400F1B180 /* OnboardingViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D813EE2B312D1400F1B180 /* OnboardingViewModelImpl.swift */; };
 		C0D813F22B312E4200F1B180 /* OnboardingNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D813F12B312E4200F1B180 /* OnboardingNavigation.swift */; };
 		C0D813F42B312E7D00F1B180 /* OnboardingAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D813F32B312E7D00F1B180 /* OnboardingAdaptor.swift */; };
@@ -341,6 +342,7 @@
 		C0CFE1DD2B33D2F4001FB7A5 /* NicknameEditInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameEditInput.swift; sourceTree = "<group>"; };
 		C0CFE1DF2B33D2FB001FB7A5 /* NicknameEditOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameEditOutput.swift; sourceTree = "<group>"; };
 		C0CFE1E22B3529AF001FB7A5 /* Publisher+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+.swift"; sourceTree = "<group>"; };
+		C0CFE1E42B37C1BE001FB7A5 /* MypageNavigationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageNavigationType.swift; sourceTree = "<group>"; };
 		C0D813EE2B312D1400F1B180 /* OnboardingViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelImpl.swift; sourceTree = "<group>"; };
 		C0D813F12B312E4200F1B180 /* OnboardingNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNavigation.swift; sourceTree = "<group>"; };
 		C0D813F32B312E7D00F1B180 /* OnboardingAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAdaptor.swift; sourceTree = "<group>"; };
@@ -1106,6 +1108,7 @@
 				C0E93B4F2B2037C20098A822 /* MyPageCellHeight.swift */,
 				C0E93B512B2046030098A822 /* MyPageSectionHeaderHeight.swift */,
 				C0E93B4A2B20359B0098A822 /* MyPageUserExitType.swift */,
+				C0CFE1E42B37C1BE001FB7A5 /* MypageNavigationType.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -1392,6 +1395,7 @@
 				B5B744E62B32C88F00AF368A /* LoginState.swift in Sources */,
 				4AA747572B1D74A6004D0335 /* CGColor+.swift in Sources */,
 				C0E93B492B20358A0098A822 /* MypageAppVersionData.swift in Sources */,
+				C0CFE1E52B37C1BE001FB7A5 /* MypageNavigationType.swift in Sources */,
 				C05E266B2B1D9B4C00D91BFA /* UIViewController+.swift in Sources */,
 				B5ACF7312B284296006D7641 /* MyPageCoordinatorImpl.swift in Sources */,
 				C05E26762B1D9CFB00D91BFA /* ScreenConstant.swift in Sources */,

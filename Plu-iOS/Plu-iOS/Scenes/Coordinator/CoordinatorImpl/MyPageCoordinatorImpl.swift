@@ -20,7 +20,9 @@ final class MyPageCoordinatorImpl: MyPageCoordinator {
     }
     
     func showMyPageViewController() {
-        let mypageViewController = MyPageViewController(coordinator: self)
+        let adaptor = MypageAdaptor(coorinator: self)
+        let manager = MyPageManagerStub()
+        let mypageViewController = MyPageViewController(viewModel: MypageViewModelImpl(adaptor: adaptor, manager: manager))
         self.navigationController?.pushViewController(mypageViewController, animated: true)
     }
     
