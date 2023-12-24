@@ -69,8 +69,8 @@ final class AnswerDetailViewModelImpl: AnswerDetailViewModel {
             .eraseToAnyPublisher()
         
         input.leftButtonTapped
-            .sink { _ in
-                self.adaptor.pop()
+            .sink { [weak self] _ in
+                self?.adaptor.pop()
             }
             .store(in: &cancelBag)
         
@@ -82,15 +82,9 @@ final class AnswerDetailViewModelImpl: AnswerDetailViewModel {
 extension AnswerDetailViewModelImpl {
     private func calculateEmpthyCount() -> EmpthyCountRequest {
         let countType = data.empathyState ? CountType.down : CountType.up
+        self.data.empathyState = !self.data.empathyState
+        self.data.empathyCount += countType.addValue
         
-        switch countType {
-        case .up:
-            self.data.empathyState = !self.data.empathyState
-            self.data.empathyCount += 1
-        case .down:
-            self.data.empathyState = !self.data.empathyState
-            self.data.empathyCount -= 1
-        }
         return EmpthyCountRequest(empthyState: self.data.empathyState,
                                   empthyCount: self.data.empathyCount)
     }
