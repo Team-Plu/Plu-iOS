@@ -16,7 +16,7 @@ enum StringConstant {
     }
     
     enum MyPage {
-        case alarm, faq, openSource, privacy, appVersion, logOut, resign
+        case alarm, faq, openSource, privacy, appVersion, logOut, resign, nickName
         
         var description: String {
             switch self {
@@ -27,6 +27,7 @@ enum StringConstant {
             case .resign: return "탈퇴하기"
             case .openSource: return "오픈소스 라이브러리"
             case .privacy: return "개인정보 보호 및 약관"
+            case .nickName: return "닉네임"
             }
         }
     }

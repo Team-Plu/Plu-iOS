@@ -8,6 +8,9 @@
 import Foundation
 import Combine
 
+// 모든 비동기 코드는 optional의 데이터와 state가 무조건 들어가잖아
+// 얘를 프로토콜로 빼고
+
 final class OnboardingViewModelImpl: OnboardingViewModel, NicknameCheck {
 
     var nickNameManager: NicknameManager
@@ -26,33 +29,22 @@ final class OnboardingViewModelImpl: OnboardingViewModel, NicknameCheck {
             .sink { [weak self] _ in self?.adaptor.backButtonTapped() }
             .store(in: &cancelBag)
         
-        let nicknameInput = input.textFieldSubject
-        let checker = self.vaildNicknameSubject
-        let nickNameResultPublisher = self.makeNicknameResultPublisher(from: nicknameInput, to: checker, with: nickNameManager)
+        let nickNameResultPublisher = self.nicknamePublisher(from: input.textFieldSubject, to: self.vaildNicknameSubject, with: nickNameManager)
         
-        let signInStatePublisher = input.singInButtonTapped
-            .flatMap { nickname -> AnyPublisher<LoadingState, Never> in
-                return Future<LoadingState, Error> { promise in
-                    Task {
-                        do {
-                            try await Task.sleep(nanoseconds: 100_000_000_0)
-                            try await self.nickNameManager.registerUser(nickName: nickname)
-                            self.adaptor.signInButtonTapped()
-                            promise(.success(.end))
-                        } catch {
-                            promise(.failure(error))
-                        }
-                    }
-                }
-                .catch { _ in
-                    Just(.error(message: "유저 등록 오류 발생"))
-                }
-                .eraseToAnyPublisher()
+
+        let signInStatePublisher: AnyPublisher<LoadingState, Never> = input.singInButtonTapped
+            .requestAPI(failure: .error(message: "오류가발생했습니다")) { nickname in
+                try await Task.sleep(nanoseconds: 100_000_000_0)
+                try await self.nickNameManager.registerUser(nickName: nickname)
+                self.adaptor.signInButtonTapped()
+                return .end
+            } errorHandler: { error in
+                // 에러처리하는 코드
             }
-            .eraseToAnyPublisher()
     
         
         return OnboardingOutput(nickNameResultPublisher: nickNameResultPublisher, signInStatePublisher: signInStatePublisher)
     }
 }
+
 
