@@ -11,149 +11,17 @@ import Combine
 
 import SnapKit
 
-protocol MyPagePresentable {
-    var tableData: [[MyPageSection]] { get set }
-}
-
-protocol MyPageViewModel: ViewModel where Input == MypageInput, Output == MypageOutput {}
-
-struct MypageInput {
-    var navigationSubject: PassthroughSubject<MypageNavigationType, Never>
-    var viewWillAppearSubject: PassthroughSubject<Void, Never>
-}
-
-struct MypageOutput {
-    var viewWillAppearPublisher: AnyPublisher<MyPageUserData, Never>
-    var switchOnSubject: PassthroughSubject<Void, Never>
-}
-
-protocol MyPageNavigation {
-    var delegate: MyPageAdatporDelegate? { get set }
-    func navigation(from type: MypageNavigationType)
-//    func backButtonTapped()
-//    func myPageHeaderTapped()
-//    func resignCellTapped()
-//    func logoutCellTapped()
-//    func alarmSwitchOff()
-//    func faqCellTapped()
-//    func openSourceCellTapped()
-//    func privacyCellTapped()
-}
-
-protocol MyPageManager {
-    func getUserData() async throws -> MyPageUserData
-}
-
-final class MyPageManagerStub: MyPageManager {
-    func getUserData() async throws -> MyPageUserData {
-        return .dummyData
-    }
-}
-
-protocol MyPageAdatporDelegate: AnyObject {
-    func isAccept()
-}
-
-final class MypageAdaptor: MyPageNavigation {
-
-    weak var delegate: MyPageAdatporDelegate?
-    
-    var coorinator: MyPageCoordinator
-    init(coorinator: MyPageCoordinator) {
-        self.coorinator = coorinator
-        setDelegate()
-    }
-    
-    func navigation(from type: MypageNavigationType) {
-        switch type {
-        case .header:
-            self.coorinator.showProfileEditViewController()
-        case .back:
-            self.coorinator.pop()
-        case .resign:
-            self.coorinator.showResignViewController()
-        case .logout:
-            print("로그아웃이 눌림")
-        case .alarm:
-            self.coorinator.presentAlarmPopUpViewController()
-        case .faq:
-            print("faq가 눌림")
-        case .openSource:
-            print("오픈소스가 눌림")
-        case .privacy:
-            print("개인정보가 눌림")
-        }
-    }
-    
-    private func setDelegate() {
-        self.coorinator.delegate = self
-    }
-}
-
-extension MypageAdaptor: MypageAlarmResultDelegate {
-    func isAccept() {
-        self.delegate?.isAccept()
-    }
-}
-
-final class MypageViewModelImpl: MyPageViewModel, MyPagePresentable {
-    var tableData: [[MyPageSection]] = []
-    let switchOnSubject = PassthroughSubject<Void, Never>()
-    var cancelBag = Set<AnyCancellable>()
-    var adaptor: MyPageNavigation
-    let manager: MyPageManager
-    
-    init(adaptor: MyPageNavigation, manager: MyPageManager) {
-        self.adaptor = adaptor
-        self.manager = manager
-        setDelegate()
-    }
-    
-    func transform(input: MypageInput) -> MypageOutput {
-        
-        let viewWillAppearPublisher: AnyPublisher<MyPageUserData, Never> = input.viewWillAppearSubject
-            .requestAPI(failure: .errorDummy) { _ in
-                let userData = try await self.manager.getUserData()
-                self.tableData = self.setTableViewDataFromUserData(userData.acceptAlarm, userData.appVersion)
-                return userData
-            } errorHandler: { error in
-                print(error)
-            }
-        
-        input.navigationSubject
-            .sink { type in
-                self.adaptor.navigation(from: type)
-            }
-            .store(in: &cancelBag)
-        
-        return MypageOutput(viewWillAppearPublisher: viewWillAppearPublisher, switchOnSubject: switchOnSubject)
-    }
-    
-    private func setTableViewDataFromUserData(_ alarmAccept: Bool, _ appVersion: String?) -> [[MyPageSection]] {
-        return MyPageSection.makeMypageData(alarmAccept, appVersion)
-    }
-    
-    private func setDelegate() {
-        self.adaptor.delegate = self
-    }
-}
-
-extension MypageViewModelImpl: MyPageAdatporDelegate {
-    func isAccept() {
-        self.switchOnSubject.send(())
-    }
-}
-
 final class MyPageViewController: UIViewController {
-    var viewModel: any MyPageViewModel & MyPagePresentable
-    
+
     let navigationSubject = PassthroughSubject<MypageNavigationType, Never>()
     let viewWillAppearSubject = PassthroughSubject<Void, Never>()
     let switchOnSubject = PassthroughSubject<Void, Never>()
     var cancelBag = Set<AnyCancellable>()
     
+    var viewModel: any MyPageViewModel & MyPagePresentable
+    
     private let navigationBar = PLUNavigationBarView()
-        .setTitle(text: "마이페이지")
+        .setTitle(text: StringConstant.Navibar.title.myPage)
         .setLeftButton(type: .back)
     
     private let myPageTableView = MyPageTableView()
@@ -167,15 +35,6 @@ final class MyPageViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        self.tabBarController?.tabBar.isHidden = false
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.viewWillAppearSubject.send(())
-    }
-    
     public override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
@@ -183,9 +42,16 @@ final class MyPageViewController: UIViewController {
         setLayout()
         setDelegate()
         bindInput()
-        setTabBar()
         bind()
-
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.viewWillAppearSubject.send(())
     }
 }
 
@@ -228,10 +94,6 @@ private extension MyPageViewController {
                 self?.navigationSubject.send(.back)
             }
             .store(in: &cancelBag)
-    }
-
-    func setTabBar() {
-        self.tabBarController?.tabBar.isHidden = true
     }
     
     func bind() {
