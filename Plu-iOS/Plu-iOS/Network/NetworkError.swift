@@ -18,6 +18,13 @@ enum NetworkError: Error, CustomStringConvertible, Equatable {
     case serverError
     
     var description: String {
+        guard let description = self.errorDescription else { return "" }
+        return description
+    }
+}
+
+extension NetworkError: LocalizedError {
+    var errorDescription: String? {
         switch self {
         case .urlEncodingError:
             return "🔒URL Encoding 에러입니다"
