@@ -8,7 +8,7 @@
 import Foundation
 
 @frozen
-enum NetworkError: Error, CustomStringConvertible, Equatable {
+enum NetworkError: Error, Equatable {
     case urlEncodingError
     case jsonDecodingError
     case badCasting
@@ -16,11 +16,6 @@ enum NetworkError: Error, CustomStringConvertible, Equatable {
     case unAuthorizedError
     case clientError(code: String, message: String)
     case serverError
-    
-    var description: String {
-        guard let description = self.errorDescription else { return "" }
-        return description
-    }
 }
 
 extension NetworkError: LocalizedError {
