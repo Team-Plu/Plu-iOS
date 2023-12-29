@@ -27,7 +27,7 @@ protocol NicknameCheck {
                                      with manager: NicknameManager) -> textFieldOutput
 }
 
-extension NicknameCheck where Self: AnyObject {
+extension NicknameCheck where Self: ViewModel {
     func nicknamePublisher(from input: textFieldInput, to checker: textFieldVaildChecker, with manager: NicknameManager) -> textFieldOutput {
         let stateFromNicknamePublisher = self.getNicknameStatePublisher(from: input, to: checker)
         let nickNameValidPublisher = self.getNicknameVaildPublisher(from: checker, with: manager)

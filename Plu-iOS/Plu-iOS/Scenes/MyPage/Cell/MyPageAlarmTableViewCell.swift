@@ -15,18 +15,12 @@ enum MypageAlarmSwitchType {
     case alarmAccept, alarmReject
 }
 
-final class MyPageAlarmTableViewCell: UITableViewCell, TableViewCellRegisterDequeueProtocol {
+final class MyPageAlarmTableViewCell: UITableViewCell {
     
     let alarmSwitchTypeSubject = PassthroughSubject<MypageAlarmSwitchType, Never>()
     var cancelBag = Set<AnyCancellable>()
-    
-    
-    private let cellTitle: UILabel = {
-        let label = UILabel()
-        label.font = .suite(.body1M)
-        label.textColor = .designSystem(.black)
-        return label
-    }()
+
+    private let cellTitle = PLULabel(type: .body1M, color: .black)
     
     let alarmSwitch: UISwitch = {
         let `switch` = UISwitch()
@@ -34,11 +28,7 @@ final class MyPageAlarmTableViewCell: UITableViewCell, TableViewCellRegisterDequ
         return `switch`
     }()
     
-    private let rightArrow: UIImageView = {
-        let imageView = UIImageView(image: ImageLiterals.MyPage.arrowRightSmall900)
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
+    private let rightArrow = PLUImageView(ImageLiterals.MyPage.arrowRightSmall900)
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

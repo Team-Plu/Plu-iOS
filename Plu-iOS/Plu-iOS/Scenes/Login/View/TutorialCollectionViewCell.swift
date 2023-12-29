@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TutorialCollectionViewCell: UICollectionViewCell, CollectionViewCellRegisterDequeueProtocol {
+final class TutorialCollectionViewCell: UICollectionViewCell {
     
     private let tutorialLabel = PLULabel(type: .head2, color: .gray700, backgroundColor: .background, alignment: .center, lines: 2)
     

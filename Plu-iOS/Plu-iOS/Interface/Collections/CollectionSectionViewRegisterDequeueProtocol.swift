@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol CollectionSectionViewRegisterDequeueProtocol where Self: UICollectionReusableView {
+protocol CollectionSectionViewRegisterDequeueProtocol {
     static func registerHeaderView(to collectionView: UICollectionView)
     static func registerFooterView(to collectionView: UICollectionView)
     static func dequeueReusableheaderView(to collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, indexPath: IndexPath) -> Self
@@ -15,7 +15,7 @@ protocol CollectionSectionViewRegisterDequeueProtocol where Self: UICollectionRe
     static var reuseIdentifier: String { get }
 }
 
-extension CollectionSectionViewRegisterDequeueProtocol {
+extension CollectionSectionViewRegisterDequeueProtocol where Self: UICollectionReusableView  {
     static func registerHeaderView(to collectionView: UICollectionView) {
         collectionView.register(self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: self.reuseIdentifier)
     }
@@ -39,3 +39,4 @@ extension CollectionSectionViewRegisterDequeueProtocol {
     }
 }
 
+extension UICollectionReusableView: CollectionSectionViewRegisterDequeueProtocol {}
