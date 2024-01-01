@@ -12,8 +12,16 @@ import Combine
 import SnapKit
 
 final class MyPageViewController: UIViewController {
+    
+    let headerTapped = PassthroughSubject<MypageNavigationType, Never>()
+    let faqCellTapped = PassthroughSubject<MypageNavigationType, Never>()
+    let backButtonTapped = PassthroughSubject<MypageNavigationType, Never>()
+    let resignCellTapped = PassthroughSubject<MypageNavigationType, Never>()
+    let logoutCellTapped = PassthroughSubject<Void, Never>()
+    let alarmSwitchTapped = PassthroughSubject<MypageNavigationType, Never>()
+    let openSourceCellTapped = PassthroughSubject<MypageNavigationType, Never>()
+    let privacyCellTapped = PassthroughSubject<MypageNavigationType, Never>()
 
-    let navigationSubject = PassthroughSubject<MypageNavigationType, Never>()
     let viewWillAppearSubject = PassthroughSubject<Void, Never>()
     let switchOnSubject = PassthroughSubject<Void, Never>()
     var cancelBag = Set<AnyCancellable>()
@@ -91,13 +99,22 @@ private extension MyPageViewController {
     func bindInput() {
         self.navigationBar.leftButtonTapSubject
             .sink { [weak self] in
-                self?.navigationSubject.send(.back)
+                self?.backButtonTapped.send(.back)
             }
             .store(in: &cancelBag)
     }
     
     func bind() {
-        let input = MypageInput(navigationSubject: navigationSubject, viewWillAppearSubject: viewWillAppearSubject)
+        let input = MypageInput(headerTapped: self.headerTapped,
+                                faqCellTapped: self.faqCellTapped,
+                                backButtonTapped: self.backButtonTapped,
+                                resignCellTapped: self.resignCellTapped,
+                                logoutCellTapped: self.logoutCellTapped,
+                                alarmSwitchTapped: self.alarmSwitchTapped,
+                                openSourceCellTapped: self.openSourceCellTapped,
+                                privacyCellTapped: self.privacyCellTapped,
+                                viewWillAppearSubject: self.viewWillAppearSubject)
+        
         let output = viewModel.transform(input: input)
         
         output.viewWillAppearPublisher
@@ -134,7 +151,7 @@ extension MyPageViewController: UITableViewDataSource {
                 .sink { [weak self] type in
                     switch type {
                     case .alarmAccept:
-                        self?.navigationSubject.send(.alarm)
+                        self?.alarmSwitchTapped.send(.alarm)
                     case .alarmReject:
                         self?.goToSettingPage { _ in 
                             cell.alarmSwitch.setOn(false, animated: false)
@@ -176,7 +193,7 @@ extension MyPageViewController: UITableViewDataSource {
 
 extension MyPageViewController: UITableViewDelegate, MyPageHeaderDelgate {
     func headerDidTapped() {
-        self.navigationSubject.send(.header)
+        self.headerTapped.send(.header)
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -200,10 +217,22 @@ extension MyPageViewController: UITableViewDelegate, MyPageHeaderDelgate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cellType = self.viewModel.tableData[indexPath.section][indexPath.row]
         if case .info(let type) = cellType {
-            self.navigationSubject.send(type.changeToMyPageNavigation)
+            switch type {
+            case .faq:
+                self.faqCellTapped.send(type.changeToMyPageNavigation)
+            case .openSource:
+                self.openSourceCellTapped.send(type.changeToMyPageNavigation)
+            case .privacy:
+                self.openSourceCellTapped.send(type.changeToMyPageNavigation)
+            }
         }
         if case .exit(let type) = cellType {
-            self.navigationSubject.send(type.changeToMyPageNavigation)
+            switch type {
+            case .logout:
+                self.logoutCellTapped.send(())
+            case .resign:
+                self.resignCellTapped.send(type.changeToMyPageNavigation)
+            }
         }
     }
 }

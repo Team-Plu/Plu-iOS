@@ -32,11 +32,22 @@ final class MypageViewModelImpl: MyPageViewModel, MyPagePresentable {
                 print(error)
             }
         
-        input.navigationSubject
+        input.alarmSwitchTapped.merge(with: input.backButtonTapped, input.faqCellTapped, input.headerTapped, input.openSourceCellTapped, input.privacyCellTapped, input.resignCellTapped)
             .sink { type in
                 self.adaptor.navigation(from: type)
             }
             .store(in: &cancelBag)
+        
+        input.logoutCellTapped
+            .requestAPI(failure: print("gg")) { _ in
+                try await self.manager.logout()
+                self.adaptor.navigation(from: .logout)
+            } errorHandler: { error in
+                print(error)
+            }
+            .sink { _ in }
+            .store(in: &cancelBag)
+            
         
         return MypageOutput(viewWillAppearPublisher: viewWillAppearPublisher, switchOnSubject: switchOnSubject)
     }

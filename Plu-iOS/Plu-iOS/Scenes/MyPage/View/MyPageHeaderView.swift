@@ -18,12 +18,7 @@ final class MyPageHeaderView: UIView {
         return imageView
     }()
     
-    private let nickNameLabel: UILabel = {
-        let label = UILabel()
-        label.font = .suite(.head2)
-        label.textColor = .designSystem(.black)
-        return label
-    }()
+    private let nickNameLabel = PLULabel(type: .head2, color: .black)
     
     private let rightArrow: UIImageView = {
         let imageView = UIImageView(image: ImageLiterals.MyPage.arrowRightSmall900)

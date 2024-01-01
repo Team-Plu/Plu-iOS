@@ -20,7 +20,7 @@ final class MyPageAlarmTableViewCell: UITableViewCell {
     let alarmSwitchTypeSubject = PassthroughSubject<MypageAlarmSwitchType, Never>()
     var cancelBag = Set<AnyCancellable>()
 
-    private let cellTitle = PLULabel(type: .body1M, color: .black)
+    private let cellTitle = PLULabel(type: .body1M, color: .black, backgroundColor: .white)
     
     let alarmSwitch: UISwitch = {
         let `switch` = UISwitch()

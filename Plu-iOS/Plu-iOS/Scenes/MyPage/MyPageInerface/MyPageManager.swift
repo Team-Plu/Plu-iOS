@@ -9,4 +9,5 @@ import Foundation
 
 protocol MyPageManager {
     func getUserData() async throws -> MyPageUserData
+    func logout() async throws
 }

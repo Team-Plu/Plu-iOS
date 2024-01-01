@@ -8,12 +8,12 @@
 import Foundation
 
 enum MyPageUserExitType {
-    case logOut
+    case logout
     case resign
     
     var title: String {
         switch self {
-        case .logOut:
+        case .logout:
             return StringConstant.MyPage.logOut.description
         case .resign:
             return StringConstant.MyPage.resign.description
@@ -22,7 +22,7 @@ enum MyPageUserExitType {
     
     var changeToMyPageNavigation: MypageNavigationType {
         switch self {
-        case .logOut:
+        case .logout:
             return .logout
         case .resign:
             return .resign

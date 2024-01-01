@@ -8,6 +8,10 @@
 import Foundation
 
 final class MyPageManagerStub: MyPageManager {
+    func logout() async throws {
+        print("로그아웃했습니다")
+    }
+    
     func getUserData() async throws -> MyPageUserData {
         return .dummyData
     }
