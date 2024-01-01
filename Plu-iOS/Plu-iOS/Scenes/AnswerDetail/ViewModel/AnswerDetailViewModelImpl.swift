@@ -8,14 +8,15 @@
 import Foundation
 import Combine
 
-final class AnswerDetailViewModelImpl: AnswerDetailViewModel {
-    
+final class AnswerDetailViewModelImpl: AnswerDetailViewModel, AnswerDetailPresentable {
+
     private let adaptor: AnswerDetailAdaptor
     private let manager: AnswerDetailManager
     
     private var cancelBag = Set<AnyCancellable>()
     
     private var data = AnswerDetailResponse.empty
+    private var answerId = 0
     
     init(adaptor: AnswerDetailAdaptor, manager: AnswerDetailManager) {
         self.adaptor = adaptor
@@ -23,6 +24,7 @@ final class AnswerDetailViewModelImpl: AnswerDetailViewModel {
     }
     
     func transform(input: AnswerDetailViewModelInput) -> AnswerDetailViewModelOuput {
+        // 추후 Id 값 추가 : answerId
         let viewWillAppearResult = input.viewWillAppearSubject
             .flatMap { _ -> AnyPublisher<AnswerDetailResponse, Never> in
                 return Future<AnswerDetailResponse, Error> { promise in
@@ -76,6 +78,10 @@ final class AnswerDetailViewModelImpl: AnswerDetailViewModel {
         
         return AnswerDetailViewModelOuput(viewWillAppearResult: viewWillAppearResult,
                                           empathyButtonResult: empathyButtonResult)
+    }
+    
+    func setAnswerId(id: Int) {
+        self.answerId = id
     }
 }
 

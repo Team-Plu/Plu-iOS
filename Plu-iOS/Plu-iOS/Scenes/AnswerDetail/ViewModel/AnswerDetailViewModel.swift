@@ -8,6 +8,10 @@
 import Foundation
 import Combine
 
+protocol AnswerDetailPresentable {
+    func setAnswerId(id: Int)
+}
+
 protocol AnswerDetailViewModel: ViewModel where Input == AnswerDetailViewModelInput, Output == AnswerDetailViewModelOuput {}
 
 struct AnswerDetailViewModelInput {
