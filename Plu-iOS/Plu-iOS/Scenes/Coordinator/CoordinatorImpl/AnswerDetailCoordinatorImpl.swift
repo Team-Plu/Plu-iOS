@@ -17,7 +17,7 @@ final class AnswerDetailCoordinatorImpl: AnswerDetailCoordinator {
     }
     
     func showAnswerDetailViewController() {
-        let answerDetailViewController = AnswerDetailViewController(coordinator: AnswerDetailCoordinatorImpl(navigationController: navigationController))
+        let answerDetailViewController = AnswerDetailViewController(viewModel: AnswerDetailViewModelImpl(adaptor: AnswerDetailAdaptor(coordinator: self), manager: AnswerDetailStub()))
         self.navigationController?.pushViewController(answerDetailViewController, animated: true)
     }
     

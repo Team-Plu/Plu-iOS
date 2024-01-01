@@ -53,7 +53,7 @@ final class MyAnswerViewController: UIViewController {
         setHierarchy()
         setLayout()
         setDelegate()
-        everyDayAnswerView.configureUI(answer: OthersAnswer.dummmy())
+//        everyDayAnswerView.configureUI(answer: OthersAnswer.dummmy())
         bind()
         bindInput()
         setTabBar()
