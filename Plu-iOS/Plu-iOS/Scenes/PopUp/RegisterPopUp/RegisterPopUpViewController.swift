@@ -16,7 +16,7 @@ final class RegisterPopUpViewController: PopUpDimmedViewController {
         case reCheck, register
     }
     
-    let viewModel: RegisterPopUpViewModel
+    let viewModel: any RegisterPopUpViewModel
     var cancelBag = Set<AnyCancellable>()
     
     let buttonSubject = PassthroughSubject<ButtonType, Never>()
@@ -53,7 +53,7 @@ final class RegisterPopUpViewController: PopUpDimmedViewController {
         .setLayer(cornerRadius: 8,
                   borderColor: .gray50)
     
-    init(viewModel: RegisterPopUpViewModel) {
+    init(viewModel: some RegisterPopUpViewModel) {
         self.viewModel = viewModel
         super.init()
     }

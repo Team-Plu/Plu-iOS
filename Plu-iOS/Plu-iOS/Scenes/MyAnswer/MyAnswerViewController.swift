@@ -13,12 +13,13 @@ import Combine
 
 final class MyAnswerViewController: UIViewController {
     
-    let coordinator: MyAnswerCoordinator
-    
+    private let viewModel: any MyAnswerViewModel
+
     private var cancelBag = Set<AnyCancellable>()
-    private let viewModel = MyAnswerViewModel()
     private let keyboardStatyeType = PassthroughSubject<KeyboardType, Never>()
     private let textViewTextCountSubject = PassthroughSubject<String, Never>()
+    private let completeButtonTapped = PassthroughSubject<String, Never>()
+    private let backButtonTapped = PassthroughSubject<Void, Never>()
     
     private lazy var navigationBar = PLUNavigationBarView()
         .setTitle(text: StringConstant.Navibar.title.myAnswer)
@@ -33,8 +34,8 @@ final class MyAnswerViewController: UIViewController {
     private let bottomTextLabel = PLULabel(type: .body1R, color: .gray700, text: StringConstant.MyAnswer.bottomView.text)
     private let answerStateSwitch = UISwitch()
     
-    init(coordinator: MyAnswerCoordinator) {
-        self.coordinator = coordinator
+    init(viewModel: some MyAnswerViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -49,8 +50,8 @@ final class MyAnswerViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUI()
         setHierarchy()
+        setUI()
         setLayout()
         setDelegate()
 //        everyDayAnswerView.configureUI(answer: OthersAnswer.dummmy())
@@ -61,6 +62,7 @@ final class MyAnswerViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+
         answerTextView.becomeFirstResponder()
     }
     
@@ -83,22 +85,23 @@ final class MyAnswerViewController: UIViewController {
         
         navigationBar.leftButtonTapSubject
             .sink { [weak self] in
-                self?.coordinator.pop()
+                self?.backButtonTapped.send(())
             }
             .store(in: &cancelBag)
         
         navigationBar.rightButtonTapSubject
             .sink { [weak self] in
-                self?.coordinator.presentRegisterPopUpViewController()
+                guard let answer = self?.answerTextView.text else { return }
+                self?.completeButtonTapped.send(answer)
             }
             .store(in: &cancelBag)
     }
     
     private func bind() {
-        let input = MyAnswerViewModel.MyAnswerInput(keyboardStateSubject: keyboardStatyeType,
-                                                    textViewTextCountSubject: textViewTextCountSubject)
-        let output = viewModel.transform(input: input)
-        
+        let output = viewModel.transform(input: MyAnswerInput(keyboardStateSubject: keyboardStatyeType,
+                                                             textViewTextCountSubject: textViewTextCountSubject,
+                                                             completeButtonTapped: completeButtonTapped,
+                                                             backButtonTapped: backButtonTapped))
         output.keyboardStatePublisher
             .receive(on: RunLoop.main)
             .sink { [weak self] state in
@@ -123,10 +126,6 @@ final class MyAnswerViewController: UIViewController {
             make.leading.trailing.equalToSuperview()
             make.bottom.equalTo(components.snp.top)
         }
-    }
-    
-    @objc func completButtonTapped() {
-        self.coordinator.presentRegisterPopUpViewController()
     }
 }
 

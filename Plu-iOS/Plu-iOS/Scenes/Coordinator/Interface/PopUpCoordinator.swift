@@ -14,7 +14,7 @@ enum AlarmType {
 @frozen
 enum PopUpType {
     case alarm(AlarmType)
-    case register
+    case register(answer: String)
     case selectMonth(year: Int, month: Int)
 }
 

@@ -20,7 +20,6 @@ protocol RegisterDelegate: AnyObject {
 }
 
 final class PopUpCoordinatorImpl: PopUpCoordinator {
-
     
     weak var selectMonthDelegate: SelectMonthDelegate?
     weak var alarmDelegate: AlarmDelegate?
@@ -39,8 +38,9 @@ final class PopUpCoordinatorImpl: PopUpCoordinator {
             let viewModel = AlarmPopUpViewModelImpl(coordinator: self, type: type)
             let alarmPopUpViewController = AlarmPopUpViewController(viewModel: viewModel)
             self.navigationController?.present(alarmPopUpViewController, animated: true)
-        case .register:
-            let viewModel = RegisterPopUpViewModelImpl(coordinator: self)
+        case .register(let answer):
+            let viewModel = RegisterPopUpViewModelImpl(adaptor: RegisterPopUpAdaptor(coordinator: self), manager: RegisterPopUpManagerImpl())
+            viewModel.setAnswer(answer: answer)
             let registerPopUpViewController = RegisterPopUpViewController(viewModel: viewModel)
             self.navigationController?.present(registerPopUpViewController, animated: true)
         case .selectMonth:

@@ -21,6 +21,11 @@
 		4A72FD0B2B345B3700CD1BF8 /* AnswerDetailStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A72FD0A2B345B3700CD1BF8 /* AnswerDetailStub.swift */; };
 		4A72FD0F2B3480FE00CD1BF8 /* EmpthyCountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A72FD0E2B3480FE00CD1BF8 /* EmpthyCountRequest.swift */; };
 		4A72FD112B348C5200CD1BF8 /* CountType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A72FD102B348C5200CD1BF8 /* CountType.swift */; };
+		4A72FD1A2B386AA000CD1BF8 /* MyAnswerViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A72FD192B386AA000CD1BF8 /* MyAnswerViewModelImpl.swift */; };
+		4A72FD1C2B386B5700CD1BF8 /* MyAnswerAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A72FD1B2B386B5700CD1BF8 /* MyAnswerAdaptor.swift */; };
+		4A72FD1E2B386B6200CD1BF8 /* MyAnswerNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A72FD1D2B386B6200CD1BF8 /* MyAnswerNavigation.swift */; };
+		4A72FD222B3A9FB300CD1BF8 /* RegisterPopUpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A72FD212B3A9FB300CD1BF8 /* RegisterPopUpManager.swift */; };
+		4A72FD242B3AA02400CD1BF8 /* RegisterPopUpAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A72FD232B3AA02400CD1BF8 /* RegisterPopUpAdaptor.swift */; };
 		4A8502D22B31275F00EC12DD /* TodayQuestionNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8502D12B31275F00EC12DD /* TodayQuestionNavigation.swift */; };
 		4A8502D42B312DCA00EC12DD /* TodayQuestionAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8502D32B312DCA00EC12DD /* TodayQuestionAdaptor.swift */; };
 		4AA747532B1CEF9C004D0335 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA747522B1CEF9C004D0335 /* UIColor+.swift */; };
@@ -215,6 +220,11 @@
 		4A72FD0A2B345B3700CD1BF8 /* AnswerDetailStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerDetailStub.swift; sourceTree = "<group>"; };
 		4A72FD0E2B3480FE00CD1BF8 /* EmpthyCountRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmpthyCountRequest.swift; sourceTree = "<group>"; };
 		4A72FD102B348C5200CD1BF8 /* CountType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountType.swift; sourceTree = "<group>"; };
+		4A72FD192B386AA000CD1BF8 /* MyAnswerViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnswerViewModelImpl.swift; sourceTree = "<group>"; };
+		4A72FD1B2B386B5700CD1BF8 /* MyAnswerAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnswerAdaptor.swift; sourceTree = "<group>"; };
+		4A72FD1D2B386B6200CD1BF8 /* MyAnswerNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnswerNavigation.swift; sourceTree = "<group>"; };
+		4A72FD212B3A9FB300CD1BF8 /* RegisterPopUpManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPopUpManager.swift; sourceTree = "<group>"; };
+		4A72FD232B3AA02400CD1BF8 /* RegisterPopUpAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPopUpAdaptor.swift; sourceTree = "<group>"; };
 		4A8502D12B31275F00EC12DD /* TodayQuestionNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayQuestionNavigation.swift; sourceTree = "<group>"; };
 		4A8502D32B312DCA00EC12DD /* TodayQuestionAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayQuestionAdaptor.swift; sourceTree = "<group>"; };
 		4AA747522B1CEF9C004D0335 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
@@ -950,6 +960,9 @@
 				4AA747602B24B495004D0335 /* AnswerCautionView.swift */,
 				4ABEEDBB2B2733A60020DA86 /* MyAnswerViewModel.swift */,
 				4ABEEDBD2B27E7310020DA86 /* KeyboardType.swift */,
+				4A72FD192B386AA000CD1BF8 /* MyAnswerViewModelImpl.swift */,
+				4A72FD1B2B386B5700CD1BF8 /* MyAnswerAdaptor.swift */,
+				4A72FD1D2B386B6200CD1BF8 /* MyAnswerNavigation.swift */,
 			);
 			path = MyAnswer;
 			sourceTree = "<group>";
@@ -1078,6 +1091,8 @@
 			children = (
 				C083F62B2B27F20500808AE6 /* RegisterPopUpViewController.swift */,
 				C07CD88C2B2BCDAC0091DAAF /* RegisterPopUpViewModelImpl.swift */,
+				4A72FD212B3A9FB300CD1BF8 /* RegisterPopUpManager.swift */,
+				4A72FD232B3AA02400CD1BF8 /* RegisterPopUpAdaptor.swift */,
 			);
 			path = RegisterPopUp;
 			sourceTree = "<group>";
@@ -1410,12 +1425,14 @@
 				C05E26942B1D9EF700D91BFA /* TodayQuestionViewController.swift in Sources */,
 				B5ACF7182B281530006D7641 /* MyAnswerCoordinator.swift in Sources */,
 				B5ACF6C52B1EDFF3006D7641 /* PLULabel.swift in Sources */,
+				4A72FD1E2B386B6200CD1BF8 /* MyAnswerNavigation.swift in Sources */,
 				4AA7475B2B22DA38004D0335 /* PLUTextView.swift in Sources */,
 				4AA747532B1CEF9C004D0335 /* UIColor+.swift in Sources */,
 				B5B744D82B31314F00AF368A /* LoginManagerImpl.swift in Sources */,
 				C0E93B552B2046EE0098A822 /* MyPageTableView.swift in Sources */,
 				C00113DA2B25359100B2C799 /* OnboardingViewModel.swift in Sources */,
 				4AA747652B25B8C8004D0335 /* PLUExplanationView.swift in Sources */,
+				4A72FD1C2B386B5700CD1BF8 /* MyAnswerAdaptor.swift in Sources */,
 				C083F62C2B27F20500808AE6 /* RegisterPopUpViewController.swift in Sources */,
 				C05E26982B1D9F1000D91BFA /* LoginViewController.swift in Sources */,
 				4A44666F2B2B2035002D5BF7 /* UserDefaultsManager.swift in Sources */,
@@ -1434,6 +1451,7 @@
 				B5ACF7122B2812E2006D7641 /* SplashCoordinator.swift in Sources */,
 				C0CFE1DE2B33D2F4001FB7A5 /* NicknameEditInput.swift in Sources */,
 				C0CFE1E32B3529AF001FB7A5 /* Publisher+.swift in Sources */,
+				4A72FD242B3AA02400CD1BF8 /* RegisterPopUpAdaptor.swift in Sources */,
 				C0E93B402B2035370098A822 /* MyPageCell.swift in Sources */,
 				B5ACF71A2B28158E006D7641 /* OtherAnswersCoordinator.swift in Sources */,
 				B5ACF7252B2818D5006D7641 /* AppCoordinatorImpl.swift in Sources */,
@@ -1488,6 +1506,7 @@
 				4A72FD032B3459B300CD1BF8 /* AnswerDetailAdaptor.swift in Sources */,
 				C05E26652B1D9AEA00D91BFA /* Encodable+.swift in Sources */,
 				B5ACF7022B24A4B3006D7641 /* ResignDescriptionView.swift in Sources */,
+				4A72FD222B3A9FB300CD1BF8 /* RegisterPopUpManager.swift in Sources */,
 				B5ACF7202B281622006D7641 /* MyPageCoordinator.swift in Sources */,
 				4A72FD012B34598000CD1BF8 /* AnswerDetailViewModelImpl.swift in Sources */,
 				B5ACF72D2B283CD8006D7641 /* OtherAnswerCoordinatorImpl.swift in Sources */,
@@ -1499,6 +1518,7 @@
 				B5B744CE2B312C5D00AF368A /* LoginViewModel.swift in Sources */,
 				C0CFE1E02B33D2FB001FB7A5 /* NicknameEditOutput.swift in Sources */,
 				C0D813F22B312E4200F1B180 /* OnboardingNavigation.swift in Sources */,
+				4A72FD1A2B386AA000CD1BF8 /* MyAnswerViewModelImpl.swift in Sources */,
 				C05E269A2B1D9F1B00D91BFA /* SplashViewController.swift in Sources */,
 				C07AB7272B2828A600C2E02C /* TabbarCoordinator.swift in Sources */,
 				B5ACF6F72B22DA61006D7641 /* RecordDummy.swift in Sources */,
