@@ -89,6 +89,12 @@
 		B5B7450A2B3491F400AF368A /* AnswerFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B745092B3491F400AF368A /* AnswerFilter.swift */; };
 		B5B7450C2B34965E00AF368A /* AnswerFilterButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7450B2B34965E00AF368A /* AnswerFilterButtonType.swift */; };
 		B5B7450F2B349F4600AF368A /* GesturePublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7450E2B349F4600AF368A /* GesturePublisher.swift */; };
+		B5B745122B3512FC00AF368A /* ResignNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B745112B3512FC00AF368A /* ResignNavigation.swift */; };
+		B5B745142B35242000AF368A /* ResignAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B745132B35242000AF368A /* ResignAdaptor.swift */; };
+		B5B745172B35247100AF368A /* ResignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B745162B35247100AF368A /* ResignViewModel.swift */; };
+		B5B745192B3524F100AF368A /* ResignViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B745182B3524F100AF368A /* ResignViewModelImpl.swift */; };
+		B5B7451C2B35252400AF368A /* ResignManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7451B2B35252400AF368A /* ResignManager.swift */; };
+		B5B7451E2B35255100AF368A /* ResignManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7451D2B35255100AF368A /* ResignManagerImpl.swift */; };
 		C00113DA2B25359100B2C799 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00113D92B25359100B2C799 /* OnboardingViewModel.swift */; };
 		C0121A2C2B1347CA00D10EB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A2B2B1347CA00D10EB0 /* AppDelegate.swift */; };
 		C0121A2E2B1347CA00D10EB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A2D2B1347CA00D10EB0 /* SceneDelegate.swift */; };
@@ -276,6 +282,12 @@
 		B5B745092B3491F400AF368A /* AnswerFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerFilter.swift; sourceTree = "<group>"; };
 		B5B7450B2B34965E00AF368A /* AnswerFilterButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerFilterButtonType.swift; sourceTree = "<group>"; };
 		B5B7450E2B349F4600AF368A /* GesturePublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GesturePublisher.swift; sourceTree = "<group>"; };
+		B5B745112B3512FC00AF368A /* ResignNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignNavigation.swift; sourceTree = "<group>"; };
+		B5B745132B35242000AF368A /* ResignAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignAdaptor.swift; sourceTree = "<group>"; };
+		B5B745162B35247100AF368A /* ResignViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignViewModel.swift; sourceTree = "<group>"; };
+		B5B745182B3524F100AF368A /* ResignViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignViewModelImpl.swift; sourceTree = "<group>"; };
+		B5B7451B2B35252400AF368A /* ResignManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignManager.swift; sourceTree = "<group>"; };
+		B5B7451D2B35255100AF368A /* ResignManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignManagerImpl.swift; sourceTree = "<group>"; };
 		C00113D92B25359100B2C799 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		C0121A282B1347CA00D10EB0 /* Plu-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plu-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0121A2B2B1347CA00D10EB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -635,6 +647,49 @@
 			path = Combine;
 			sourceTree = "<group>";
 		};
+		B5B745102B3512ED00AF368A /* Adaptor */ = {
+			isa = PBXGroup;
+			children = (
+				B5B745112B3512FC00AF368A /* ResignNavigation.swift */,
+				B5B745132B35242000AF368A /* ResignAdaptor.swift */,
+			);
+			path = Adaptor;
+			sourceTree = "<group>";
+		};
+		B5B745152B35246B00AF368A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B5B745162B35247100AF368A /* ResignViewModel.swift */,
+				B5B745182B3524F100AF368A /* ResignViewModelImpl.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B5B7451A2B35251B00AF368A /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				B5B7451B2B35252400AF368A /* ResignManager.swift */,
+				B5B7451D2B35255100AF368A /* ResignManagerImpl.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		B5B7451F2B352BDD00AF368A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B5ACF7012B24A4B3006D7641 /* ResignDescriptionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B5B745202B352BE300AF368A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C05E26892B1D9EAE00D91BFA /* ResignViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		C0121A1F2B1347CA00D10EB0 = {
 			isa = PBXGroup;
 			children = (
@@ -959,8 +1014,11 @@
 		C05E26812B1D9E5500D91BFA /* Resign */ = {
 			isa = PBXGroup;
 			children = (
-				C05E26892B1D9EAE00D91BFA /* ResignViewController.swift */,
-				B5ACF7012B24A4B3006D7641 /* ResignDescriptionView.swift */,
+				B5B745202B352BE300AF368A /* ViewController */,
+				B5B7451F2B352BDD00AF368A /* View */,
+				B5B7451A2B35251B00AF368A /* Manager */,
+				B5B745152B35246B00AF368A /* ViewModel */,
+				B5B745102B3512ED00AF368A /* Adaptor */,
 			);
 			path = Resign;
 			sourceTree = "<group>";
@@ -1316,6 +1374,7 @@
 				B5ACF7142B28133E006D7641 /* AuthCoordinator.swift in Sources */,
 				C0E93B452B2035650098A822 /* MyPageAlarmData.swift in Sources */,
 				C0A2561F2B1EDC350059AA7E /* MyPageRoundSectionHeaderView.swift in Sources */,
+				B5B745142B35242000AF368A /* ResignAdaptor.swift in Sources */,
 				4ABEEDBE2B27E7310020DA86 /* KeyboardType.swift in Sources */,
 				B5B745082B348F3D00AF368A /* OthersAnswerManagerImpl.swift in Sources */,
 				C05E263F2B1C4E1E00D91BFA /* UIFont+.swift in Sources */,
@@ -1330,6 +1389,7 @@
 				C05E26902B1D9ED300D91BFA /* TabbarViewController.swift in Sources */,
 				B5B744EA2B33CC6800AF368A /* RecordViewModel.swift in Sources */,
 				C0CEF3DE2B267A4B00682D1B /* NicknameState.swift in Sources */,
+				B5B745172B35247100AF368A /* ResignViewModel.swift in Sources */,
 				C0682A882B25862200AD4DB4 /* NicknameManagerStub.swift in Sources */,
 				C0E93B502B2037C20098A822 /* MyPageCellHeight.swift in Sources */,
 				B5B744F82B3408A800AF368A /* RecordAdaptor.swift in Sources */,
@@ -1356,6 +1416,7 @@
 				B5ACF6F12B22D116006D7641 /* RecordQuestionTableViewCell.swift in Sources */,
 				B5ACF6CD2B1EE735006D7641 /* AnswerView.swift in Sources */,
 				B5ACF7292B28196C006D7641 /* TabBarCoordinatorImpl.swift in Sources */,
+				B5B7451E2B35255100AF368A /* ResignManagerImpl.swift in Sources */,
 				B5ACF6D12B1EEECB006D7641 /* OtherAnswersDiffableModel.swift in Sources */,
 				B5ACF72B2B281A19006D7641 /* AuthCoordinatorImpl.swift in Sources */,
 				C0E93B472B20357B0098A822 /* MyPageInfomaitonType.swift in Sources */,
@@ -1389,6 +1450,7 @@
 				B5B744E82B32C89A00AF368A /* LoadingState.swift in Sources */,
 				B5B744F62B34080400AF368A /* RecordNavigation.swift in Sources */,
 				C07CD8912B2BD9E20091DAAF /* AlarmPopUpViewModelImpl.swift in Sources */,
+				B5B745192B3524F100AF368A /* ResignViewModelImpl.swift in Sources */,
 				B5ACF7162B2814CE006D7641 /* TodayQuestionCoordinator.swift in Sources */,
 				B5B745062B348EA000AF368A /* OthersAnswerManager.swift in Sources */,
 				B5B744E62B32C88F00AF368A /* LoginState.swift in Sources */,
@@ -1400,6 +1462,7 @@
 				4AA747672B25E6FD004D0335 /* ImageDummy.swift in Sources */,
 				C0121A2E2B1347CA00D10EB0 /* SceneDelegate.swift in Sources */,
 				4ABEEDBC2B2733A60020DA86 /* MyAnswerViewModel.swift in Sources */,
+				B5B745122B3512FC00AF368A /* ResignNavigation.swift in Sources */,
 				B5B744DA2B31330300AF368A /* NetworkError.swift in Sources */,
 				B5ACF70A2B26DEB1006D7641 /* LoginModel.swift in Sources */,
 				4AA747552B1CF094004D0335 /* Palette.swift in Sources */,
@@ -1421,6 +1484,7 @@
 				B5ACF7022B24A4B3006D7641 /* ResignDescriptionView.swift in Sources */,
 				B5ACF7202B281622006D7641 /* MyPageCoordinator.swift in Sources */,
 				B5ACF72D2B283CD8006D7641 /* OtherAnswerCoordinatorImpl.swift in Sources */,
+				B5B7451C2B35252400AF368A /* ResignManager.swift in Sources */,
 				B5ACF6CB2B1EE3EC006D7641 /* Dummy.swift in Sources */,
 				B5ACF6CF2B1EECD0006D7641 /* OthersAnswerTableView.swift in Sources */,
 				C0682A822B25857200AD4DB4 /* PLUTextField.swift in Sources */,
