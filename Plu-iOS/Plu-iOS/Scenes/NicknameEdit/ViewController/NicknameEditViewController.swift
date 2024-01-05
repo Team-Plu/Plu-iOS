@@ -14,9 +14,9 @@ import SnapKit
 final class NicknameEditViewController: UIViewController {
     
     private let navigationBar = PLUNavigationBarView()
-        .setTitle(text: "프로필 수정")
+        .setTitle(text: StringConstant.Navibar.title.profileEdit)
         .setLeftButton(type: .back)
-        .setRightButton(type: .text("완료"))
+        .setRightButton(type: .text(StringConstant.Navibar.title.completeRightButton))
     
     private let navigationLeftButtonTapped = PassthroughSubject<Void, Never>()
     private let navigationRightButtonTapped = PassthroughSubject<String?, Never>()
@@ -25,12 +25,11 @@ final class NicknameEditViewController: UIViewController {
     private let defaultProfileImage = PLUImageView(ImageLiterals.MyPage.profile92)
     private let nickNameTextField = PLUTextField()
     private let errorLabel = PLULabel(type: .body3, color: .error)
-    private let nicknameLabel = PLULabel(type: .body3, color: .gray600, text: "닉네임")
+    private let nicknameLabel = PLULabel(type: .body3, color: .gray600, text: StringConstant.MyPage.nickName.description)
     
-    private lazy var activityIndicator = PLUIndicator(parent: self)
-    private let viewModel: NicknameEditViewModel
+    private let viewModel: any NicknameEditViewModel
     
-    init(viewModel: NicknameEditViewModel) {
+    init(viewModel: some NicknameEditViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -44,6 +43,7 @@ final class NicknameEditViewController: UIViewController {
         setUI()
         setHierarchy()
         setLayout()
+        bindInput()
         bind()
         /// 임시로 넣어놨습니다
         nickNameTextField.setTextfieldDefaultInput(input: "의성")
@@ -51,7 +51,7 @@ final class NicknameEditViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setKeyboard()
+        self.nickNameTextField.becomeFirstResponder()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,8 +69,26 @@ final class NicknameEditViewController: UIViewController {
 }
 
 private extension NicknameEditViewController {
+    func bindInput() {
+        navigationBar.leftButtonTapSubject
+            .sink { [weak self] in
+                self?.navigationLeftButtonTapped.send(())
+            }
+            .store(in: &cancelBag)
+        
+        navigationBar.rightButtonTapSubject
+            .sink { [weak self] in
+                self?.navigationBar.setActivityIndicator(isShow: true, isImage: false)
+                self?.navigationRightButtonTapped.send(self?.nickNameTextField.text)
+            }
+            .store(in: &cancelBag)
+    }
+    
     func bind() {
-        let input = NicknameEditInput(textFieldSubject: self.nickNameTextField.textPublisher, naviagtionLeftButtonTapped: navigationLeftButtonTapped, naviagtionRightButtonTapped: navigationRightButtonTapped)
+        let input = NicknameEditInput(textFieldSubject: self.nickNameTextField.textPublisher,
+                                      naviagtionLeftButtonTapped: navigationLeftButtonTapped,
+                                      naviagtionRightButtonTapped: navigationRightButtonTapped)
+        
         let output = self.viewModel.transform(input: input)
         output.nickNameResultPublisher
             .receive(on: DispatchQueue.main)
@@ -84,24 +102,9 @@ private extension NicknameEditViewController {
         output.loadingViewSubject
             .receive(on: DispatchQueue.main)
             .sink { _ in
-                self.activityIndicator.stopAnimating()
+                self.navigationBar.setActivityIndicator(isShow: false, isImage: false)
             }
             .store(in: &cancelBag)
-        
-        navigationBar.leftButtonTapSubject
-            .sink { [weak self] in
-                self?.navigationLeftButtonTapped.send(())
-            }
-            .store(in: &cancelBag)
-        
-        navigationBar.rightButtonTapSubject
-            .sink { [weak self] in
-                self?.activityIndicator.startAnimating()
-                self?.navigationRightButtonTapped.send(self?.nickNameTextField.text)
-            }
-            .store(in: &cancelBag)
-        
-        
     }
 }
 
@@ -112,7 +115,6 @@ private extension NicknameEditViewController {
     
     func setHierarchy() {
         view.addSubviews(nicknameLabel, defaultProfileImage, nickNameTextField, errorLabel, navigationBar)
-        view.addSubview(activityIndicator)
     }
     
     func setLayout() {
@@ -142,9 +144,5 @@ private extension NicknameEditViewController {
             make.top.equalTo(nickNameTextField.snp.bottom).offset(12)
             make.leading.equalToSuperview().inset(20)
         }
-    }
-    
-    func setKeyboard() {
-        self.nickNameTextField.becomeFirstResponder()
     }
 }

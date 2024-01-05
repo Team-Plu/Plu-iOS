@@ -110,5 +110,6 @@ final class PLUButton: UIButton {
         config?.baseBackgroundColor = .designSystem(state ? .gray600 : .gray50)
         config?.baseForegroundColor = .designSystem(state ? .white : .gray300)
         self.configuration = config
+        self.isEnabled = state
     }
 }

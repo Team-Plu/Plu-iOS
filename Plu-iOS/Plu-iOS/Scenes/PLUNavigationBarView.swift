@@ -113,6 +113,10 @@ final class PLUNavigationBarView: UIView {
         config?.baseForegroundColor = .designSystem(isEnabled ? .gray600 : .gray200)
         rightButton.configuration = config
     }
+    
+    func setActivityIndicator(isShow: Bool, isImage: Bool) {
+        self.rightButton.setActivityIndicator(isShow: isShow, isImage: isImage)
+    }
 }
 
 extension PLUNavigationBarView {

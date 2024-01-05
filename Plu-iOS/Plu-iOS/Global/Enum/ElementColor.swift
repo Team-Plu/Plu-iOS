@@ -65,4 +65,29 @@ enum Elements: CaseIterable {
             return ImageLiterals.Splash.fireEye
         }
     }
+    var activeEmpathy: UIImage {
+        switch self {
+        case .air:
+            return ImageLiterals.AnswerDetail.airEmpathyLargeActivated
+        case .fire:
+            return ImageLiterals.AnswerDetail.fireEmpathyLargeActivated
+        case .dust:
+            return ImageLiterals.AnswerDetail.dustEmpathyLargeActivated
+        case .water:
+            return ImageLiterals.AnswerDetail.waterEmpathyLargeActivated
+        }
+    }
+    
+    var inActiveEmpathy: UIImage {
+        switch self {
+        case .air:
+            return ImageLiterals.AnswerDetail.airEmpathyLargeInactivated
+        case .fire:
+            return ImageLiterals.AnswerDetail.fireEmpathyLargeInactivated
+        case .dust:
+            return ImageLiterals.AnswerDetail.dustEmpathyLargeInactivated
+        case .water:
+            return ImageLiterals.AnswerDetail.waterEmpathyLargeInactivated
+        }
+    }
 }

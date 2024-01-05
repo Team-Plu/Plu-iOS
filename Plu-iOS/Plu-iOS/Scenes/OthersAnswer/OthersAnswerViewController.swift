@@ -160,7 +160,7 @@ private extension OthersAnswerViewController {
     }
     
     func configUI(answer: OthersAnswer) {
-        self.everydayAnswerView.configureUI(answer: answer)
+        self.everydayAnswerView.configureUI(date: answer.date, question: answer.question)
         self.elementImageView.image = answer.elementType.characterSmallImage
         self.totalAnswerCountLabel.text = "총 \(answer.answers.count)개"
     }
