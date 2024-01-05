@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class AnswerTableViewCell: UITableViewCell, TableViewCellRegisterDequeueProtocol {
+final class AnswerTableViewCell: UITableViewCell {
     
     private let answerView = AnswerView()
     

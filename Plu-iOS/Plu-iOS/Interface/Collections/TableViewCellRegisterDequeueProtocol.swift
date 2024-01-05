@@ -7,13 +7,13 @@
 
 import UIKit
 
-protocol TableViewCellRegisterDequeueProtocol where Self: UITableViewCell {
+protocol TableViewCellRegisterDequeueProtocol {
     static func register(to tableView: UITableView)
     static func dequeueReusableCell(to tableView: UITableView) -> Self
     static var reuseIdentifier: String { get }
 }
 
-extension TableViewCellRegisterDequeueProtocol {
+extension TableViewCellRegisterDequeueProtocol where Self: UITableViewCell {
     static func register(to tableView: UITableView) {
         tableView.register(Self.self, forCellReuseIdentifier: self.reuseIdentifier)
     }
@@ -27,3 +27,5 @@ extension TableViewCellRegisterDequeueProtocol {
         return String(describing: self)
     }
 }
+
+extension UITableViewCell: TableViewCellRegisterDequeueProtocol {}

@@ -8,17 +8,19 @@
 import Foundation
 import Combine
 
-// 모든 비동기 코드는 optional의 데이터와 state가 무조건 들어가잖아
-// 얘를 프로토콜로 빼고
+enum OnboardingNavigationType {
+    case backButtonTapped
+    case signInButtonTapped
+}
 
 final class OnboardingViewModelImpl: OnboardingViewModel, NicknameCheck {
 
     var nickNameManager: NicknameManager
-    var adaptor: OnboardingNavigation
+    var adaptor: any OnboardingNavigation
     var vaildNicknameSubject = textFieldVaildChecker()
     var cancelBag = Set<AnyCancellable>()
     
-    init(manager: NicknameManager, adaptor: OnboardingNavigation) {
+    init(manager: NicknameManager, adaptor: some OnboardingNavigation) {
         self.nickNameManager = manager
         self.adaptor = adaptor
     }
@@ -26,7 +28,7 @@ final class OnboardingViewModelImpl: OnboardingViewModel, NicknameCheck {
     func transform(input: OnboardingInput) -> OnboardingOutput {
         
         input.backButtonTapped
-            .sink { [weak self] _ in self?.adaptor.backButtonTapped() }
+            .sink { [weak self] _ in self?.adaptor.navigation(from: .backButtonTapped) }
             .store(in: &cancelBag)
         
         let nickNameResultPublisher = self.nicknamePublisher(from: input.textFieldSubject, to: self.vaildNicknameSubject, with: nickNameManager)
@@ -36,7 +38,7 @@ final class OnboardingViewModelImpl: OnboardingViewModel, NicknameCheck {
             .requestAPI(failure: .error(message: "오류가발생했습니다")) { nickname in
                 try await Task.sleep(nanoseconds: 100_000_000_0)
                 try await self.nickNameManager.registerUser(nickName: nickname)
-                self.adaptor.signInButtonTapped()
+                self.adaptor.navigation(from: .signInButtonTapped)
                 return .end
             } errorHandler: { error in
                 // 에러처리하는 코드

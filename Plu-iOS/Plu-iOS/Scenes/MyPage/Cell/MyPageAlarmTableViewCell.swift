@@ -12,21 +12,15 @@ import Combine
 import SnapKit
 
 enum MypageAlarmSwitchType {
-    case alarmAccept, moveSetting
+    case alarmAccept, alarmReject
 }
 
-final class MyPageAlarmTableViewCell: UITableViewCell, TableViewCellRegisterDequeueProtocol {
+final class MyPageAlarmTableViewCell: UITableViewCell {
     
     let alarmSwitchTypeSubject = PassthroughSubject<MypageAlarmSwitchType, Never>()
     var cancelBag = Set<AnyCancellable>()
-    
-    
-    private let cellTitle: UILabel = {
-        let label = UILabel()
-        label.font = .suite(.body1M)
-        label.textColor = .designSystem(.black)
-        return label
-    }()
+
+    private let cellTitle = PLULabel(type: .body1M, color: .black, backgroundColor: .white)
     
     let alarmSwitch: UISwitch = {
         let `switch` = UISwitch()
@@ -34,11 +28,7 @@ final class MyPageAlarmTableViewCell: UITableViewCell, TableViewCellRegisterDequ
         return `switch`
     }()
     
-    private let rightArrow: UIImageView = {
-        let imageView = UIImageView(image: ImageLiterals.MyPage.arrowRightSmall900)
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
+    private let rightArrow = PLUImageView(ImageLiterals.MyPage.arrowRightSmall900)
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -95,7 +85,7 @@ private extension MyPageAlarmTableViewCell {
             let setting = await notificationCenter.notificationSettings()
             if setting.authorizationStatus != .authorized {
                 self.alarmSwitch.setOn(self.alarmSwitch.isOn, animated: false)
-                self.alarmSwitchTypeSubject.send(.moveSetting)
+                self.alarmSwitchTypeSubject.send(.alarmReject)
                 return
             }
             if !self.alarmSwitch.isOn {

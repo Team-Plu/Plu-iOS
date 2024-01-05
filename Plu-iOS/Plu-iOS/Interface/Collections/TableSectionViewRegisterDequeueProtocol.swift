@@ -7,13 +7,13 @@
 
 import UIKit
 
-protocol TableSectionViewRegisterDequeueProtocol where Self: UITableViewHeaderFooterView {
+protocol TableSectionViewRegisterDequeueProtocol {
     static func registerHeaderView(to tableView: UITableView)
     static func dequeueReusableSectionHeaderView(to tableView: UITableView) -> Self
     static var reuseIdentifier: String { get }
 }
 
-extension TableSectionViewRegisterDequeueProtocol {
+extension TableSectionViewRegisterDequeueProtocol where Self: UITableViewHeaderFooterView {
     static func registerHeaderView(to tableView: UITableView) {
         tableView.register(Self.self, forHeaderFooterViewReuseIdentifier: self.reuseIdentifier)
     }
@@ -29,4 +29,4 @@ extension TableSectionViewRegisterDequeueProtocol {
     }
 }
 
-
+extension UITableViewHeaderFooterView: TableSectionViewRegisterDequeueProtocol {}

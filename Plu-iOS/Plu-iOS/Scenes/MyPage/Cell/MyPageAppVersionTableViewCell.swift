@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-final class MyPageAppVersionTableViewCell: UITableViewCell, TableViewCellRegisterDequeueProtocol {
+final class MyPageAppVersionTableViewCell: UITableViewCell {
     
     private let cellTitle: UILabel = {
         let label = UILabel()

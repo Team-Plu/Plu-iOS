@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-final class MyPageRoundSectionHeaderView: UITableViewHeaderFooterView, TableSectionViewRegisterDequeueProtocol {
+final class MyPageRoundSectionHeaderView: UITableViewHeaderFooterView {
     
     private let roundView: UIView = {
         let view = UIView()

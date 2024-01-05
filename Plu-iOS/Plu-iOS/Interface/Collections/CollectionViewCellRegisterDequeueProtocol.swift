@@ -7,14 +7,14 @@
 
 import UIKit
 
-protocol CollectionViewCellRegisterDequeueProtocol where Self: UICollectionViewCell {
+protocol CollectionViewCellRegisterDequeueProtocol {
     static func register(to collectionView: UICollectionView)
     static func dequeueReusableCell(to collectionView: UICollectionView, indexPath: IndexPath) -> Self
     static var reuseIdentifier: String { get }
 }
 
 
-extension CollectionViewCellRegisterDequeueProtocol {
+extension CollectionViewCellRegisterDequeueProtocol where Self: UICollectionViewCell {
     static func register(to collectionView: UICollectionView) {
         collectionView.register(self, forCellWithReuseIdentifier: self.reuseIdentifier)
     }
@@ -28,3 +28,5 @@ extension CollectionViewCellRegisterDequeueProtocol {
         return String(describing: self)
     }
 }
+
+extension UICollectionViewCell: CollectionViewCellRegisterDequeueProtocol {}

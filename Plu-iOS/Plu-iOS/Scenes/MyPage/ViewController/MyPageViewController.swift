@@ -11,37 +11,36 @@ import Combine
 
 import SnapKit
 
-enum MypageNavigationType {
-    case back, nicknameEdit, resign, logout, popUp, faq, openSource, privacy
-}
-
 final class MyPageViewController: UIViewController {
     
-    var tableData: [[MyPageSection]] = []
-    
-    let coordinator: MyPageCoordinator
-    
-    let navigationSubject = PassthroughSubject<MypageNavigationType, Never>()
+    let headerTapped = PassthroughSubject<MypageNavigationType, Never>()
+    let faqCellTapped = PassthroughSubject<MypageNavigationType, Never>()
+    let backButtonTapped = PassthroughSubject<MypageNavigationType, Never>()
+    let resignCellTapped = PassthroughSubject<MypageNavigationType, Never>()
+    let logoutCellTapped = PassthroughSubject<Void, Never>()
+    let alarmSwitchTapped = PassthroughSubject<MypageNavigationType, Never>()
+    let openSourceCellTapped = PassthroughSubject<MypageNavigationType, Never>()
+    let privacyCellTapped = PassthroughSubject<MypageNavigationType, Never>()
+
+    let viewWillAppearSubject = PassthroughSubject<Void, Never>()
     let switchOnSubject = PassthroughSubject<Void, Never>()
     var cancelBag = Set<AnyCancellable>()
     
+    var viewModel: any MyPageViewModel & MyPagePresentable
+    
     private let navigationBar = PLUNavigationBarView()
-        .setTitle(text: "마이페이지")
+        .setTitle(text: StringConstant.Navibar.title.myPage)
         .setLeftButton(type: .back)
     
     private let myPageTableView = MyPageTableView()
     
-    init(coordinator: MyPageCoordinator) {
-        self.coordinator = coordinator
+    init(viewModel: some MyPageViewModel & MyPagePresentable) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        self.tabBarController?.tabBar.isHidden = false
     }
     
     public override func viewDidLoad() {
@@ -51,32 +50,16 @@ final class MyPageViewController: UIViewController {
         setLayout()
         setDelegate()
         bindInput()
-        setMyPageFromUserData(input: .dummyData)
-        navigationSubject
-            .sink { type in
-                switch type {
-                case .back:
-                    self.coordinator.pop()
-                case .nicknameEdit:
-                    self.coordinator.showProfileEditViewController()
-                case .resign:
-                    self.coordinator.showResignViewController()
-                case .logout:
-                    print("로그아웃버튼눌림")
-                case .popUp:
-                    self.coordinator.presentAlarmPopUpViewController()
-                case .faq:
-                    print("faq눌림")
-                case .openSource:
-                    print("오픈소스 눌림")
-                case .privacy:
-                    print("약관 눌림")
-                }
-            }
-            .store(in: &cancelBag)
-
-        setTabBar()
-
+        bind()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.viewWillAppearSubject.send(())
     }
 }
 
@@ -106,45 +89,61 @@ private extension MyPageViewController {
         myPageTableView.dataSource = self
         myPageTableView.delegate = self
         myPageTableView.myPageHeaderDelgate = self
-        self.coordinator.delegate = self
     }
     
     func setMyPageFromUserData(input: MyPageUserData) {
         myPageTableView.setTableHeader(nickName: input.nickName)
-        tableData = setTableViewDataFromUserData(input.acceptAlarm, input.appVersion)
         myPageTableView.reloadData()
     }
     
-    func setTableViewDataFromUserData(_ alarmAccept: Bool, _ appVersion: String?) -> [[MyPageSection]] {
-        return MyPageSection.makeMypageData(alarmAccept, appVersion)
-    }
-    
-
     func bindInput() {
         self.navigationBar.leftButtonTapSubject
             .sink { [weak self] in
-                self?.navigationSubject.send(.back)
+                self?.backButtonTapped.send(.back)
             }
             .store(in: &cancelBag)
     }
-
-    func setTabBar() {
-        self.tabBarController?.tabBar.isHidden = true
+    
+    func bind() {
+        let input = MypageInput(headerTapped: self.headerTapped,
+                                faqCellTapped: self.faqCellTapped,
+                                backButtonTapped: self.backButtonTapped,
+                                resignCellTapped: self.resignCellTapped,
+                                logoutCellTapped: self.logoutCellTapped,
+                                alarmSwitchTapped: self.alarmSwitchTapped,
+                                openSourceCellTapped: self.openSourceCellTapped,
+                                privacyCellTapped: self.privacyCellTapped,
+                                viewWillAppearSubject: self.viewWillAppearSubject)
+        
+        let output = viewModel.transform(input: input)
+        
+        output.viewWillAppearPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { userData in
+                self.setMyPageFromUserData(input: userData)
+            }
+            .store(in: &cancelBag)
+        
+        output.switchOnSubject
+            .sink { _ in
+                self.switchOnSubject.send(())
+            }
+            .store(in: &cancelBag)
     }
 
 }
 
 extension MyPageViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return tableData.count
+        return self.viewModel.tableData.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableData[section].count
+        return self.viewModel.tableData[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch tableData[indexPath.section][indexPath.row] {
+        switch self.viewModel.tableData[indexPath.section][indexPath.row] {
         case .alarm(let data):
             let cell = MyPageAlarmTableViewCell.dequeueReusableCell(to: tableView)
             
@@ -152,8 +151,8 @@ extension MyPageViewController: UITableViewDataSource {
                 .sink { [weak self] type in
                     switch type {
                     case .alarmAccept:
-                        self?.navigationSubject.send(.popUp)
-                    case .moveSetting:
+                        self?.alarmSwitchTapped.send(.alarm)
+                    case .alarmReject:
                         self?.goToSettingPage { _ in 
                             cell.alarmSwitch.setOn(false, animated: false)
                         }
@@ -184,7 +183,7 @@ extension MyPageViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch tableData[indexPath.section][indexPath.row] {
+        switch self.viewModel.tableData[indexPath.section][indexPath.row] {
         case .alarm: return MyPageCellHeight.alarmCellHeight
         case .info, .exit: return MyPageCellHeight.infoCellHeight
         case .appVersion: return MyPageCellHeight.appVersionCellHeight
@@ -194,11 +193,11 @@ extension MyPageViewController: UITableViewDataSource {
 
 extension MyPageViewController: UITableViewDelegate, MyPageHeaderDelgate {
     func headerDidTapped() {
-        self.coordinator.showProfileEditViewController()
+        self.headerTapped.send(.header)
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let section = tableData[section].first else { return UIView() }
+        guard let section = self.viewModel.tableData[section].first else { return UIView() }
         if case .alarm = section {
             return MyPageRoundSectionHeaderView.dequeueReusableSectionHeaderView(to: tableView)
         }
@@ -208,7 +207,7 @@ extension MyPageViewController: UITableViewDelegate, MyPageHeaderDelgate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        guard let section = tableData[section].first else { return 0 }
+        guard let section = self.viewModel.tableData[section].first else { return 0 }
         if case .alarm = section {
             return MyPageSectionHeaderHeight.alarmSectionHeaderHeight
         }
@@ -216,18 +215,24 @@ extension MyPageViewController: UITableViewDelegate, MyPageHeaderDelgate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cellType = tableData[indexPath.section][indexPath.row]
+        let cellType = self.viewModel.tableData[indexPath.section][indexPath.row]
         if case .info(let type) = cellType {
-            self.navigationSubject.send(type.changeToMyPageNavigation)
+            switch type {
+            case .faq:
+                self.faqCellTapped.send(type.changeToMyPageNavigation)
+            case .openSource:
+                self.openSourceCellTapped.send(type.changeToMyPageNavigation)
+            case .privacy:
+                self.openSourceCellTapped.send(type.changeToMyPageNavigation)
+            }
         }
         if case .exit(let type) = cellType {
-            self.navigationSubject.send(type.changeToMyPageNavigation)
+            switch type {
+            case .logout:
+                self.logoutCellTapped.send(())
+            case .resign:
+                self.resignCellTapped.send(type.changeToMyPageNavigation)
+            }
         }
-    }
-}
-
-extension MyPageViewController: MypageAlarmResultDelegate {
-    func isAccept() {
-        self.switchOnSubject.send(())
     }
 }

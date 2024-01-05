@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RecordQuestionTableViewCell: UITableViewCell, TableViewCellRegisterDequeueProtocol {
+class RecordQuestionTableViewCell: UITableViewCell {
 
     private let questionView = QuestionView()
     

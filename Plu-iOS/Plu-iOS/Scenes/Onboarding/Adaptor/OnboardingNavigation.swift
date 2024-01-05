@@ -7,9 +7,11 @@
 
 import Foundation
 
-protocol OnboardingNavigation {
-    func backButtonTapped()
-    func signInButtonTapped()
+protocol Navigation {
+    associatedtype NavigationType
+    func navigation(from type: NavigationType)
 }
+
+protocol OnboardingNavigation: Navigation where NavigationType == OnboardingNavigationType {}
 
 
