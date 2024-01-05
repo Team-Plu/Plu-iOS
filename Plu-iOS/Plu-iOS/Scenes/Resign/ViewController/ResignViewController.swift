@@ -13,7 +13,11 @@ import SnapKit
 
 final class ResignViewController: UIViewController {
     
-    private var coordinator: MyPageCoordinator
+    private let navigationBackButtonTapped = PassthroughSubject<Void, Never>()
+    private let reuseButtonTapped = PassthroughSubject<Void, Never>()
+    private let resignButtonTapped = PassthroughSubject<Void, Never>()
+    
+    private let viewModel: any ResignViewModel
     
     private var cancelBag = Set<AnyCancellable>()
     
@@ -37,8 +41,8 @@ final class ResignViewController: UIViewController {
         .setBackForegroundColor(backgroundColor: .gray50, foregroundColor: .gray300)
         .setLayer(cornerRadius: 8, borderColor: .gray50)
     
-    init(coordinator: MyPageCoordinator) {
-        self.coordinator = coordinator
+    init(viewModel: some ResignViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -51,8 +55,8 @@ final class ResignViewController: UIViewController {
         setUI()
         setHierarchy()
         setLayout()
-        setUpdateHandler()
         bindInput()
+        bind()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,17 +68,44 @@ final class ResignViewController: UIViewController {
         navigationBar.leftButtonTapSubject
             .sink { [weak self] _ in
                 guard let self else { return }
-                self.coordinator.pop()
+                self.navigationBackButtonTapped.send(())
+            }
+            .store(in: &cancelBag)
+        
+        reuseButton.tapPublisher
+            .sink { [weak self] _ in
+                guard let self else { return }
+                self.reuseButtonTapped.send(())
+            }
+            .store(in: &cancelBag)
+        
+        resignButton.tapPublisher
+            .sink { [weak self] _ in
+                guard let self else { return }
+                self.resignButtonTapped.send(())
             }
             .store(in: &cancelBag)
     }
     
-    func setTabBar() {
-        self.tabBarController?.tabBar.isHidden = true
+    private func bind() {
+        let input = ResignViewModelInput(
+            navigationBackButtonTapped: navigationBackButtonTapped,
+            reuseButtonTapped: reuseButtonTapped,
+            resignButtonTapped: resignButtonTapped
+        )
+        let output = viewModel.transform(input: input)
+        output.resignResult
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in }
+            .store(in: &cancelBag)
     }
 }
 
 private extension ResignViewController {
+    func setTabBar() {
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
     func setUI() {
         self.view.backgroundColor = .designSystem(.background)
     }
@@ -125,11 +156,7 @@ private extension ResignViewController {
         
     }
     
-    func setUpdateHandler() {
-        resignButton.addTarget(self, action: #selector(resignButtonTapped), for: .touchUpInside)
-    }
-    
-    @objc func resignButtonTapped() {
+    @objc func resignButton2Tapped() {
         guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else { return }
         let navigationController = UINavigationController()
         sceneDelegate.appCoordinator = AppCoordinatorImpl(navigationController: navigationController)

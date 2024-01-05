@@ -78,3 +78,9 @@ extension UIButton {
     }
 }
 
+extension UIView {
+    func gesture(_ type: GestureType) -> GesturePublisher {
+        return .init(view: self, gestureType: type)
+    }
+}
+

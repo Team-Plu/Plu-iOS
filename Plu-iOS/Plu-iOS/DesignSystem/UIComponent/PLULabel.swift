@@ -23,6 +23,7 @@ final class PLULabel: UILabel {
         self.text = text
         self.backgroundColor = .designSystem(backgroundColor)
         self.numberOfLines = lines
+        self.isUserInteractionEnabled = true
     }
     
     required init?(coder: NSCoder) {

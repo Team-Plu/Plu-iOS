@@ -6,14 +6,15 @@
 //
 
 import UIKit
+import Combine
 
 protocol RecordCoordinatorDelegate: AnyObject {
     func getYearAndMonth(year: Int, month: Int)
 }
 
 final class RecordCoordinatorImpl: RecordCoordinator {
-    
-    weak var delegate: RecordCoordinatorDelegate?
+
+    var yearAndMonthSubject = PassthroughSubject<FilterDate, Never>()
     
     weak var navigationController: UINavigationController?
     
@@ -22,7 +23,10 @@ final class RecordCoordinatorImpl: RecordCoordinator {
     }
     
     func showRecordViewController() {
-        let recordViewController = RecordViewController(coordinator: self)
+        let adaptor = RecordAdaptor(coordinator: self)
+        let manager = RecordManagerImpl()
+        let viewModel = RecordViewModelImpl(adaptor: adaptor, manager: manager)
+        let recordViewController = RecordViewController(viewModel: viewModel)
         self.navigationController?.pushViewController(recordViewController, animated: true)
     }
     
@@ -34,17 +38,18 @@ final class RecordCoordinatorImpl: RecordCoordinator {
     func presentSelectMonthPopUpViewController() {
         let popUpCoordinator = PopUpCoordinatorImpl(navigationController: self.navigationController)
         popUpCoordinator.selectMonthDelegate = self
-        popUpCoordinator.show(type: .selectMonth(year: .zero, month: .zero))
+        popUpCoordinator.show(type: .selectMonth(date: .empty))
     }
     
-    func showAnswerDetailViewController() {
+    func showAnswerDetailViewController(id: Int) {
         let answerDetailCoordinator = AnswerDetailCoordinatorImpl(navigationController: self.navigationController)
-        answerDetailCoordinator.showAnswerDetailViewController()
+        answerDetailCoordinator.showAnswerDetailViewController(id: id)
     }
 }
 
 extension RecordCoordinatorImpl: SelectMonthDelegate {
-    func passYearAndMonth(year: Int, month: Int) {
-        self.delegate?.getYearAndMonth(year: year, month: month)
+    func passYearAndMonth(date: FilterDate) {
+        self.yearAndMonthSubject.send(date)
+//        self.delegate?.getYearAndMonth(year: year, month: month)
     }
 }

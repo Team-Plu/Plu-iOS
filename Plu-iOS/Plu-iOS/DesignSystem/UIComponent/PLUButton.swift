@@ -23,6 +23,7 @@ final class PLUButton: UIButton {
     
     private func setUpButton(config: UIButton.Configuration) {
         self.configuration = config
+        self.changesSelectionAsPrimaryAction = true
     }
     
     @discardableResult
