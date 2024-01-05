@@ -53,7 +53,6 @@
 		B5ACF6D12B1EEECB006D7641 /* OtherAnswersDiffableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF6D02B1EEECB006D7641 /* OtherAnswersDiffableModel.swift */; };
 		B5ACF6D62B2078B2006D7641 /* AnswerFilterMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF6D52B2078B2006D7641 /* AnswerFilterMenuView.swift */; };
 		B5ACF6D82B2086A9006D7641 /* PLUButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF6D72B2086A9006D7641 /* PLUButton.swift */; };
-		B5ACF6DA2B208B8A006D7641 /* AnswerFilterButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF6D92B208B8A006D7641 /* AnswerFilterButtonType.swift */; };
 		B5ACF6F12B22D116006D7641 /* RecordQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF6F02B22D116006D7641 /* RecordQuestionTableViewCell.swift */; };
 		B5ACF6F32B22D2F2006D7641 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF6F22B22D2F2006D7641 /* QuestionView.swift */; };
 		B5ACF6F52B22DA42006D7641 /* RecordDiffableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF6F42B22DA42006D7641 /* RecordDiffableModel.swift */; };
@@ -93,6 +92,28 @@
 		B5B744E42B32C87500AF368A /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744E32B32C87500AF368A /* Login.swift */; };
 		B5B744E62B32C88F00AF368A /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744E52B32C88F00AF368A /* LoginState.swift */; };
 		B5B744E82B32C89A00AF368A /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744E72B32C89A00AF368A /* LoadingState.swift */; };
+		B5B744EA2B33CC6800AF368A /* RecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744E92B33CC6800AF368A /* RecordViewModel.swift */; };
+		B5B744EC2B33CDEE00AF368A /* RecordViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744EB2B33CDEE00AF368A /* RecordViewModelImpl.swift */; };
+		B5B744EE2B33D2BB00AF368A /* FilterDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744ED2B33D2BB00AF368A /* FilterDate.swift */; };
+		B5B744F12B33D62600AF368A /* RecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744F02B33D62600AF368A /* RecordManager.swift */; };
+		B5B744F32B33D6A200AF368A /* RecordManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744F22B33D6A200AF368A /* RecordManagerImpl.swift */; };
+		B5B744F62B34080400AF368A /* RecordNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744F52B34080400AF368A /* RecordNavigation.swift */; };
+		B5B744F82B3408A800AF368A /* RecordAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744F72B3408A800AF368A /* RecordAdaptor.swift */; };
+		B5B744FC2B348C5F00AF368A /* OthersAnswerNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744FB2B348C5F00AF368A /* OthersAnswerNavigation.swift */; };
+		B5B744FE2B348CD300AF368A /* OthersAnswerAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744FD2B348CD300AF368A /* OthersAnswerAdaptor.swift */; };
+		B5B745012B348D7200AF368A /* OthersAnswerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B745002B348D7200AF368A /* OthersAnswerViewModel.swift */; };
+		B5B745032B348E5E00AF368A /* OthersAnswerViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B745022B348E5E00AF368A /* OthersAnswerViewModelImpl.swift */; };
+		B5B745062B348EA000AF368A /* OthersAnswerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B745052B348EA000AF368A /* OthersAnswerManager.swift */; };
+		B5B745082B348F3D00AF368A /* OthersAnswerManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B745072B348F3D00AF368A /* OthersAnswerManagerImpl.swift */; };
+		B5B7450A2B3491F400AF368A /* AnswerFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B745092B3491F400AF368A /* AnswerFilter.swift */; };
+		B5B7450C2B34965E00AF368A /* AnswerFilterButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7450B2B34965E00AF368A /* AnswerFilterButtonType.swift */; };
+		B5B7450F2B349F4600AF368A /* GesturePublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7450E2B349F4600AF368A /* GesturePublisher.swift */; };
+		B5B745122B3512FC00AF368A /* ResignNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B745112B3512FC00AF368A /* ResignNavigation.swift */; };
+		B5B745142B35242000AF368A /* ResignAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B745132B35242000AF368A /* ResignAdaptor.swift */; };
+		B5B745172B35247100AF368A /* ResignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B745162B35247100AF368A /* ResignViewModel.swift */; };
+		B5B745192B3524F100AF368A /* ResignViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B745182B3524F100AF368A /* ResignViewModelImpl.swift */; };
+		B5B7451C2B35252400AF368A /* ResignManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7451B2B35252400AF368A /* ResignManager.swift */; };
+		B5B7451E2B35255100AF368A /* ResignManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7451D2B35255100AF368A /* ResignManagerImpl.swift */; };
 		C00113DA2B25359100B2C799 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00113D92B25359100B2C799 /* OnboardingViewModel.swift */; };
 		C0121A2C2B1347CA00D10EB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A2B2B1347CA00D10EB0 /* AppDelegate.swift */; };
 		C0121A2E2B1347CA00D10EB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A2D2B1347CA00D10EB0 /* SceneDelegate.swift */; };
@@ -252,7 +273,6 @@
 		B5ACF6D02B1EEECB006D7641 /* OtherAnswersDiffableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherAnswersDiffableModel.swift; sourceTree = "<group>"; };
 		B5ACF6D52B2078B2006D7641 /* AnswerFilterMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerFilterMenuView.swift; sourceTree = "<group>"; };
 		B5ACF6D72B2086A9006D7641 /* PLUButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLUButton.swift; sourceTree = "<group>"; };
-		B5ACF6D92B208B8A006D7641 /* AnswerFilterButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerFilterButtonType.swift; sourceTree = "<group>"; };
 		B5ACF6F02B22D116006D7641 /* RecordQuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordQuestionTableViewCell.swift; sourceTree = "<group>"; };
 		B5ACF6F22B22D2F2006D7641 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		B5ACF6F42B22DA42006D7641 /* RecordDiffableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDiffableModel.swift; sourceTree = "<group>"; };
@@ -292,6 +312,28 @@
 		B5B744E32B32C87500AF368A /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		B5B744E52B32C88F00AF368A /* LoginState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginState.swift; sourceTree = "<group>"; };
 		B5B744E72B32C89A00AF368A /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
+		B5B744E92B33CC6800AF368A /* RecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModel.swift; sourceTree = "<group>"; };
+		B5B744EB2B33CDEE00AF368A /* RecordViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModelImpl.swift; sourceTree = "<group>"; };
+		B5B744ED2B33D2BB00AF368A /* FilterDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDate.swift; sourceTree = "<group>"; };
+		B5B744F02B33D62600AF368A /* RecordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordManager.swift; sourceTree = "<group>"; };
+		B5B744F22B33D6A200AF368A /* RecordManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordManagerImpl.swift; sourceTree = "<group>"; };
+		B5B744F52B34080400AF368A /* RecordNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordNavigation.swift; sourceTree = "<group>"; };
+		B5B744F72B3408A800AF368A /* RecordAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordAdaptor.swift; sourceTree = "<group>"; };
+		B5B744FB2B348C5F00AF368A /* OthersAnswerNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersAnswerNavigation.swift; sourceTree = "<group>"; };
+		B5B744FD2B348CD300AF368A /* OthersAnswerAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersAnswerAdaptor.swift; sourceTree = "<group>"; };
+		B5B745002B348D7200AF368A /* OthersAnswerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersAnswerViewModel.swift; sourceTree = "<group>"; };
+		B5B745022B348E5E00AF368A /* OthersAnswerViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersAnswerViewModelImpl.swift; sourceTree = "<group>"; };
+		B5B745052B348EA000AF368A /* OthersAnswerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersAnswerManager.swift; sourceTree = "<group>"; };
+		B5B745072B348F3D00AF368A /* OthersAnswerManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersAnswerManagerImpl.swift; sourceTree = "<group>"; };
+		B5B745092B3491F400AF368A /* AnswerFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerFilter.swift; sourceTree = "<group>"; };
+		B5B7450B2B34965E00AF368A /* AnswerFilterButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerFilterButtonType.swift; sourceTree = "<group>"; };
+		B5B7450E2B349F4600AF368A /* GesturePublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GesturePublisher.swift; sourceTree = "<group>"; };
+		B5B745112B3512FC00AF368A /* ResignNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignNavigation.swift; sourceTree = "<group>"; };
+		B5B745132B35242000AF368A /* ResignAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignAdaptor.swift; sourceTree = "<group>"; };
+		B5B745162B35247100AF368A /* ResignViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignViewModel.swift; sourceTree = "<group>"; };
+		B5B745182B3524F100AF368A /* ResignViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignViewModelImpl.swift; sourceTree = "<group>"; };
+		B5B7451B2B35252400AF368A /* ResignManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignManager.swift; sourceTree = "<group>"; };
+		B5B7451D2B35255100AF368A /* ResignManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignManagerImpl.swift; sourceTree = "<group>"; };
 		C00113D92B25359100B2C799 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		C0121A282B1347CA00D10EB0 /* Plu-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plu-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0121A2B2B1347CA00D10EB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -510,16 +552,18 @@
 		B5ACF6F82B22E020006D7641 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				B5ACF6F02B22D116006D7641 /* RecordQuestionTableViewCell.swift */,
+				C05E268B2B1D9EB600D91BFA /* RecordViewController.swift */,
 			);
-			path = TableViewCell;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		B5ACF6F92B22E035006D7641 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B5ACF7032B26C807006D7641 /* RecordDiffableDataSource.swift */,
 				B5ACF6F42B22DA42006D7641 /* RecordDiffableModel.swift */,
 				B5ACF6F62B22DA61006D7641 /* RecordDummy.swift */,
+				B5B744ED2B33D2BB00AF368A /* FilterDate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -527,6 +571,7 @@
 		B5ACF6FA2B22E044006D7641 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B5ACF6F02B22D116006D7641 /* RecordQuestionTableViewCell.swift */,
 				B5ACF6F22B22D2F2006D7641 /* QuestionView.swift */,
 			);
 			path = View;
@@ -536,7 +581,9 @@
 			isa = PBXGroup;
 			children = (
 				B5ACF6D02B1EEECB006D7641 /* OtherAnswersDiffableModel.swift */,
+				B5B745092B3491F400AF368A /* AnswerFilter.swift */,
 				B5ACF6CA2B1EE3EC006D7641 /* Dummy.swift */,
+				B5B7450B2B34965E00AF368A /* AnswerFilterButtonType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -557,14 +604,6 @@
 				B5ACF6CC2B1EE735006D7641 /* AnswerView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		B5ACF6FE2B22E292006D7641 /* Enum */ = {
-			isa = PBXGroup;
-			children = (
-				B5ACF6D92B208B8A006D7641 /* AnswerFilterButtonType.swift */,
-			);
-			path = Enum;
 			sourceTree = "<group>";
 		};
 		B5ACF70D2B27F180006D7641 /* Coordinator */ = {
@@ -675,6 +714,111 @@
 			path = Adaptor;
 			sourceTree = "<group>";
 		};
+		B5B744EF2B33D5B700AF368A /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				B5B744F02B33D62600AF368A /* RecordManager.swift */,
+				B5B744F22B33D6A200AF368A /* RecordManagerImpl.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		B5B744F42B3407FD00AF368A /* Adaptor */ = {
+			isa = PBXGroup;
+			children = (
+				B5B744F52B34080400AF368A /* RecordNavigation.swift */,
+				B5B744F72B3408A800AF368A /* RecordAdaptor.swift */,
+			);
+			path = Adaptor;
+			sourceTree = "<group>";
+		};
+		B5B744F92B3411DE00AF368A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B5B744E92B33CC6800AF368A /* RecordViewModel.swift */,
+				B5B744EB2B33CDEE00AF368A /* RecordViewModelImpl.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B5B744FA2B348C5300AF368A /* Adaptor */ = {
+			isa = PBXGroup;
+			children = (
+				B5B744FB2B348C5F00AF368A /* OthersAnswerNavigation.swift */,
+				B5B744FD2B348CD300AF368A /* OthersAnswerAdaptor.swift */,
+			);
+			path = Adaptor;
+			sourceTree = "<group>";
+		};
+		B5B744FF2B348D6A00AF368A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B5B745002B348D7200AF368A /* OthersAnswerViewModel.swift */,
+				B5B745022B348E5E00AF368A /* OthersAnswerViewModelImpl.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B5B745042B348E9800AF368A /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				B5B745052B348EA000AF368A /* OthersAnswerManager.swift */,
+				B5B745072B348F3D00AF368A /* OthersAnswerManagerImpl.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		B5B7450D2B349F3500AF368A /* Combine */ = {
+			isa = PBXGroup;
+			children = (
+				B5B7450E2B349F4600AF368A /* GesturePublisher.swift */,
+			);
+			path = Combine;
+			sourceTree = "<group>";
+		};
+		B5B745102B3512ED00AF368A /* Adaptor */ = {
+			isa = PBXGroup;
+			children = (
+				B5B745112B3512FC00AF368A /* ResignNavigation.swift */,
+				B5B745132B35242000AF368A /* ResignAdaptor.swift */,
+			);
+			path = Adaptor;
+			sourceTree = "<group>";
+		};
+		B5B745152B35246B00AF368A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B5B745162B35247100AF368A /* ResignViewModel.swift */,
+				B5B745182B3524F100AF368A /* ResignViewModelImpl.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B5B7451A2B35251B00AF368A /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				B5B7451B2B35252400AF368A /* ResignManager.swift */,
+				B5B7451D2B35255100AF368A /* ResignManagerImpl.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		B5B7451F2B352BDD00AF368A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B5ACF7012B24A4B3006D7641 /* ResignDescriptionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B5B745202B352BE300AF368A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C05E26892B1D9EAE00D91BFA /* ResignViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		C0121A1F2B1347CA00D10EB0 = {
 			isa = PBXGroup;
 			children = (
@@ -762,6 +906,7 @@
 		C05E26482B1D977900D91BFA /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				B5B7450D2B349F3500AF368A /* Combine */,
 				B5B744CA2B312B5F00AF368A /* Protocol */,
 				4A44666D2B2B2029002D5BF7 /* UserDefault */,
 				C05E264E2B1D985A00D91BFA /* Enum */,
@@ -978,7 +1123,9 @@
 		C05E267F2B1D9E4200D91BFA /* OthersAnswer */ = {
 			isa = PBXGroup;
 			children = (
-				B5ACF6FE2B22E292006D7641 /* Enum */,
+				B5B745042B348E9800AF368A /* Manager */,
+				B5B744FF2B348D6A00AF368A /* ViewModel */,
+				B5B744FA2B348C5300AF368A /* Adaptor */,
 				B5ACF6FD2B22E281006D7641 /* View */,
 				B5ACF6FC2B22E277006D7641 /* TableView */,
 				B5ACF6FB2B22E271006D7641 /* Model */,
@@ -990,11 +1137,12 @@
 		C05E26802B1D9E4C00D91BFA /* Record */ = {
 			isa = PBXGroup;
 			children = (
+				B5B744F92B3411DE00AF368A /* ViewModel */,
+				B5B744F42B3407FD00AF368A /* Adaptor */,
+				B5B744EF2B33D5B700AF368A /* Manager */,
 				B5ACF6FA2B22E044006D7641 /* View */,
 				B5ACF6F92B22E035006D7641 /* Model */,
-				B5ACF6F82B22E020006D7641 /* TableViewCell */,
-				C05E268B2B1D9EB600D91BFA /* RecordViewController.swift */,
-				B5ACF7032B26C807006D7641 /* RecordDiffableDataSource.swift */,
+				B5ACF6F82B22E020006D7641 /* ViewController */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -1002,8 +1150,11 @@
 		C05E26812B1D9E5500D91BFA /* Resign */ = {
 			isa = PBXGroup;
 			children = (
-				C05E26892B1D9EAE00D91BFA /* ResignViewController.swift */,
-				B5ACF7012B24A4B3006D7641 /* ResignDescriptionView.swift */,
+				B5B745202B352BE300AF368A /* ViewController */,
+				B5B7451F2B352BDD00AF368A /* View */,
+				B5B7451A2B35251B00AF368A /* Manager */,
+				B5B745152B35246B00AF368A /* ViewModel */,
+				B5B745102B3512ED00AF368A /* Adaptor */,
 			);
 			path = Resign;
 			sourceTree = "<group>";
@@ -1379,12 +1530,15 @@
 				C0E0D4F92B26C81700840C0B /* NicknameEditViewModelImpl.swift in Sources */,
 				B5ACF6D62B2078B2006D7641 /* AnswerFilterMenuView.swift in Sources */,
 				C05E26672B1D9B0500D91BFA /* UIView+.swift in Sources */,
+				B5B744FC2B348C5F00AF368A /* OthersAnswerNavigation.swift in Sources */,
 				B59FC6E72B1C44C9000996CA /* ImageLiterals.swift in Sources */,
 				C05E26592B1D9A1D00D91BFA /* TableViewCellRegisterDequeueProtocol.swift in Sources */,
 				C05E26722B1D9BCF00D91BFA /* UILabel+.swift in Sources */,
+				B5B745012B348D7200AF368A /* OthersAnswerViewModel.swift in Sources */,
 				B5ACF7222B2816C6006D7641 /* PopUpCoordinator.swift in Sources */,
 				B5B744D42B312E7D00AF368A /* LoginViewModelImpl.swift in Sources */,
 				B5ACF6C92B1EE26C006D7641 /* ElementColor.swift in Sources */,
+				B5B744F12B33D62600AF368A /* RecordManager.swift in Sources */,
 				B5ACF72F2B283D23006D7641 /* AnswerDetailCoordinatorImpl.swift in Sources */,
 				4A72FD112B348C5200CD1BF8 /* CountType.swift in Sources */,
 				C0E93B5A2B20518B0098A822 /* TableSectionViewRegisterDequeueProtocol.swift in Sources */,
@@ -1400,7 +1554,9 @@
 				4AD85E132B32BCFB00558188 /* TodayQuestionManager.swift in Sources */,
 				C0E93B452B2035650098A822 /* MyPageAlarmData.swift in Sources */,
 				C0A2561F2B1EDC350059AA7E /* MyPageRoundSectionHeaderView.swift in Sources */,
+				B5B745142B35242000AF368A /* ResignAdaptor.swift in Sources */,
 				4ABEEDBE2B27E7310020DA86 /* KeyboardType.swift in Sources */,
+				B5B745082B348F3D00AF368A /* OthersAnswerManagerImpl.swift in Sources */,
 				C05E263F2B1C4E1E00D91BFA /* UIFont+.swift in Sources */,
 				C083F6302B27F30200808AE6 /* SelectYearAndMonthPopUpViewController.swift in Sources */,
 				C05E26962B1D9F0600D91BFA /* OnboardingViewController.swift in Sources */,
@@ -1412,9 +1568,12 @@
 				C04E4CF42B2A8DCF00ABDFAA /* SelectMonthPopUpViewModelImpl.swift in Sources */,
 				C0E93B4B2B20359B0098A822 /* MyPageUserExitType.swift in Sources */,
 				C05E26902B1D9ED300D91BFA /* TabbarViewController.swift in Sources */,
+				B5B744EA2B33CC6800AF368A /* RecordViewModel.swift in Sources */,
 				C0CEF3DE2B267A4B00682D1B /* NicknameState.swift in Sources */,
+				B5B745172B35247100AF368A /* ResignViewModel.swift in Sources */,
 				C0682A882B25862200AD4DB4 /* NicknameManagerStub.swift in Sources */,
 				C0E93B502B2037C20098A822 /* MyPageCellHeight.swift in Sources */,
+				B5B744F82B3408A800AF368A /* RecordAdaptor.swift in Sources */,
 				C0A256272B1EE1200059AA7E /* MyPageAppVersionTableViewCell.swift in Sources */,
 				C0CEF3E02B267B3600682D1B /* NicknameCheck.swift in Sources */,
 				4AD85E112B32B70300558188 /* TodayQuestionResponse.swift in Sources */,
@@ -1434,14 +1593,15 @@
 				4AA747652B25B8C8004D0335 /* PLUExplanationView.swift in Sources */,
 				4A72FD1C2B386B5700CD1BF8 /* MyAnswerAdaptor.swift in Sources */,
 				C083F62C2B27F20500808AE6 /* RegisterPopUpViewController.swift in Sources */,
+				B5B7450A2B3491F400AF368A /* AnswerFilter.swift in Sources */,
 				C05E26982B1D9F1000D91BFA /* LoginViewController.swift in Sources */,
 				4A44666F2B2B2035002D5BF7 /* UserDefaultsManager.swift in Sources */,
-				B5ACF6DA2B208B8A006D7641 /* AnswerFilterButtonType.swift in Sources */,
 				C05E268E2B1D9EC800D91BFA /* OthersAnswerViewController.swift in Sources */,
 				B5ACF6F12B22D116006D7641 /* RecordQuestionTableViewCell.swift in Sources */,
 				B5ACF6CD2B1EE735006D7641 /* AnswerView.swift in Sources */,
 				B5ACF7292B28196C006D7641 /* TabBarCoordinatorImpl.swift in Sources */,
 				4A72FD0F2B3480FE00CD1BF8 /* EmpthyCountRequest.swift in Sources */,
+				B5B7451E2B35255100AF368A /* ResignManagerImpl.swift in Sources */,
 				B5ACF6D12B1EEECB006D7641 /* OtherAnswersDiffableModel.swift in Sources */,
 				4A8502D42B312DCA00EC12DD /* TodayQuestionAdaptor.swift in Sources */,
 				B5ACF72B2B281A19006D7641 /* AuthCoordinatorImpl.swift in Sources */,
@@ -1455,13 +1615,17 @@
 				C0E93B402B2035370098A822 /* MyPageCell.swift in Sources */,
 				B5ACF71A2B28158E006D7641 /* OtherAnswersCoordinator.swift in Sources */,
 				B5ACF7252B2818D5006D7641 /* AppCoordinatorImpl.swift in Sources */,
+				B5B744EE2B33D2BB00AF368A /* FilterDate.swift in Sources */,
 				4A4466712B2D8DB1002D5BF7 /* UserDefaultKey.swift in Sources */,
+				B5B744FE2B348CD300AF368A /* OthersAnswerAdaptor.swift in Sources */,
 				B5B744E42B32C87500AF368A /* Login.swift in Sources */,
 				C0E93B4E2B2036E50098A822 /* MyPageSection.swift in Sources */,
 				C0CFE1D32B33CF43001FB7A5 /* NicknameEditNavigation.swift in Sources */,
 				C0E0D4F72B26C7FC00840C0B /* NicknameEditViewController.swift in Sources */,
+				B5B745032B348E5E00AF368A /* OthersAnswerViewModelImpl.swift in Sources */,
 				C05E265D2B1D9A5900D91BFA /* CollectionSectionViewRegisterDequeueProtocol.swift in Sources */,
 				C083F62A2B27EE4400808AE6 /* AlarmPopUpViewController.swift in Sources */,
+				B5B7450C2B34965E00AF368A /* AnswerFilterButtonType.swift in Sources */,
 				B5ACF6F32B22D2F2006D7641 /* QuestionView.swift in Sources */,
 				C0A256232B1EDD550059AA7E /* MyPageAlarmTableViewCell.swift in Sources */,
 				B5B744D62B31312C00AF368A /* LoginManager.swift in Sources */,
@@ -1474,8 +1638,11 @@
 				B5B744CC2B312B6400AF368A /* ViewModel.swift in Sources */,
 				C05E26882B1D9EA300D91BFA /* MyPageViewController.swift in Sources */,
 				B5B744E82B32C89A00AF368A /* LoadingState.swift in Sources */,
+				B5B744F62B34080400AF368A /* RecordNavigation.swift in Sources */,
 				C07CD8912B2BD9E20091DAAF /* AlarmPopUpViewModelImpl.swift in Sources */,
+				B5B745192B3524F100AF368A /* ResignViewModelImpl.swift in Sources */,
 				B5ACF7162B2814CE006D7641 /* TodayQuestionCoordinator.swift in Sources */,
+				B5B745062B348EA000AF368A /* OthersAnswerManager.swift in Sources */,
 				B5B744E62B32C88F00AF368A /* LoginState.swift in Sources */,
 				4AA747572B1D74A6004D0335 /* CGColor+.swift in Sources */,
 				C0E93B492B20358A0098A822 /* MypageAppVersionData.swift in Sources */,
@@ -1485,6 +1652,7 @@
 				C0121A2E2B1347CA00D10EB0 /* SceneDelegate.swift in Sources */,
 				4AD85E0F2B31326200558188 /* TodayQuestionViewModel.swift in Sources */,
 				4ABEEDBC2B2733A60020DA86 /* MyAnswerViewModel.swift in Sources */,
+				B5B745122B3512FC00AF368A /* ResignNavigation.swift in Sources */,
 				B5B744DA2B31330300AF368A /* NetworkError.swift in Sources */,
 				B5ACF70A2B26DEB1006D7641 /* LoginModel.swift in Sources */,
 				4AA747552B1CF094004D0335 /* Palette.swift in Sources */,
@@ -1511,6 +1679,7 @@
 				4A72FD012B34598000CD1BF8 /* AnswerDetailViewModelImpl.swift in Sources */,
 				B5ACF72D2B283CD8006D7641 /* OtherAnswerCoordinatorImpl.swift in Sources */,
 				4A8502D22B31275F00EC12DD /* TodayQuestionNavigation.swift in Sources */,
+				B5B7451C2B35252400AF368A /* ResignManager.swift in Sources */,
 				B5ACF6CB2B1EE3EC006D7641 /* Dummy.swift in Sources */,
 				4A72FD052B3459BF00CD1BF8 /* AnswerDetailNavigation.swift in Sources */,
 				B5ACF6CF2B1EECD0006D7641 /* OthersAnswerTableView.swift in Sources */,
@@ -1524,7 +1693,9 @@
 				B5ACF6F72B22DA61006D7641 /* RecordDummy.swift in Sources */,
 				4A4466732B2D8EBE002D5BF7 /* TodayQuestionViewModelImpl.swift in Sources */,
 				C04E4CF62B2AAE0B00ABDFAA /* PLUPopUpContainerView.swift in Sources */,
+				B5B7450F2B349F4600AF368A /* GesturePublisher.swift in Sources */,
 				C0D813EF2B312D1400F1B180 /* OnboardingViewModelImpl.swift in Sources */,
+				B5B744EC2B33CDEE00AF368A /* RecordViewModelImpl.swift in Sources */,
 				4A72FD0B2B345B3700CD1BF8 /* AnswerDetailStub.swift in Sources */,
 				C02C5DFE2B22E0780011F07C /* UIEdgeInsets+.swift in Sources */,
 				C0CFE1DB2B33D2BA001FB7A5 /* OnboardingOutput.swift in Sources */,
@@ -1534,6 +1705,7 @@
 				B5ACF70C2B26EC48006D7641 /* se+.swift in Sources */,
 				4A72FD092B345A6F00CD1BF8 /* AnswerDetailResponse.swift in Sources */,
 				B5ACF7392B2A8ADC006D7641 /* PLUNavigationBarView.swift in Sources */,
+				B5B744F32B33D6A200AF368A /* RecordManagerImpl.swift in Sources */,
 				4A72FCFF2B3457BF00CD1BF8 /* AnswerDetailViewModel.swift in Sources */,
 				4A72FD072B345A4C00CD1BF8 /* AnswerDetailMananger.swift in Sources */,
 				C07AB7292B282E2D00C2E02C /* PopUpCoordinatorImpl.swift in Sources */,

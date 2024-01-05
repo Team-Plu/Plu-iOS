@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SelectMonthDelegate: AnyObject {
-    func passYearAndMonth(year: Int, month: Int)
+    func passYearAndMonth(date: FilterDate)
 }
 
 protocol AlarmDelegate: AnyObject {
@@ -58,8 +58,8 @@ final class PopUpCoordinatorImpl: PopUpCoordinator {
                 self.alarmDelegate?.isAccept()
             case .register:
                 self.registerDelgate?.register()
-            case .selectMonth(let year, let month):
-                self.selectMonthDelegate?.passYearAndMonth(year: year, month: month)
+            case .selectMonth(let date):
+                self.selectMonthDelegate?.passYearAndMonth(date: date)
             }
         }
         self.navigationController?.dismiss(animated: true)

@@ -16,13 +16,16 @@ final class OtherAnswerCoordinatorImpl: OtherAnswersCoordinator {
     }
     
     func showOtherAnswersViewController() {
-        let otherAnswerViewController = OthersAnswerViewController(coordinator: self)
+        let adaptor = OthersAnswerAdaptor(coordinator: self)
+        let manager = OthersAnswerManagerImpl()
+        let viewModel = OthersAnswerViewModelImpl(adaptor: adaptor, manager: manager)
+        let otherAnswerViewController = OthersAnswerViewController(viewModel: viewModel)
         self.navigationController?.pushViewController(otherAnswerViewController, animated: true)
     }
     
-    func showAnswerDetailViewController() {
+    func showAnswerDetailViewController(id: Int) {
         let answerDetailCoordinator = AnswerDetailCoordinatorImpl(navigationController: self.navigationController)
-        answerDetailCoordinator.showAnswerDetailViewController()
+        answerDetailCoordinator.showAnswerDetailViewController(id: id)
     }
     
     func pop() {

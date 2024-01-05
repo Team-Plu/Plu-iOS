@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import Combine
 
 
 protocol RecordCoordinator: Coordinator {
     func showRecordViewController()
     func showMyPageViewController()
     func presentSelectMonthPopUpViewController()
-    func showAnswerDetailViewController()
+    func showAnswerDetailViewController(id: Int)
     
-    var delegate: RecordCoordinatorDelegate? { get set }
+    var yearAndMonthSubject: PassthroughSubject<FilterDate, Never> { get set }
 }

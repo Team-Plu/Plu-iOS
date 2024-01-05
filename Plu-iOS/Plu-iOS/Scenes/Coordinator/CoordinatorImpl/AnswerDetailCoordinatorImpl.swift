@@ -16,8 +16,13 @@ final class AnswerDetailCoordinatorImpl: AnswerDetailCoordinator {
         self.navigationController = navigationController
     }
     
-    func showAnswerDetailViewController() {
-        let answerDetailViewController = AnswerDetailViewController(viewModel: AnswerDetailViewModelImpl(adaptor: AnswerDetailAdaptor(coordinator: self), manager: AnswerDetailStub()))
+    func showAnswerDetailViewController(id: Int) {
+        //TODO: ViewModel의 init에 id값 넣기
+        // 이후 Factory생긴다면 ViewModelPresentable 프로토콜에 setId() 같은 메서드 넣고 여기서 호출하면 됨.
+        print("id: \(id) 눌림")
+        let adaptor = AnswerDetailAdaptor(coordinator: self)
+        let manager = AnswerDetailStub()
+        let answerDetailViewController = AnswerDetailViewController(viewModel: AnswerDetailViewModelImpl(adaptor: adaptor, manager: manager))
         self.navigationController?.pushViewController(answerDetailViewController, animated: true)
     }
     

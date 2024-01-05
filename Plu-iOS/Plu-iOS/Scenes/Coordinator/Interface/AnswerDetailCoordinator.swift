@@ -9,7 +9,7 @@ import Foundation
 
 
 protocol AnswerDetailCoordinator: Coordinator {
-    func showAnswerDetailViewController()
+    func showAnswerDetailViewController(id: Int)
     func pop()
 }
 
