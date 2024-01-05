@@ -51,7 +51,7 @@ final class QuestionView: UIView {
             make.top.equalTo(dateLabel.snp.bottom).offset(8)
             make.trailing.equalToSuperview().inset(24)
             make.leading.equalTo(dateLabel)
-            make.bottom.equalToSuperview().inset(32)
+            make.bottom.equalToSuperview().inset(32).priority(.high)
         }
     }
     

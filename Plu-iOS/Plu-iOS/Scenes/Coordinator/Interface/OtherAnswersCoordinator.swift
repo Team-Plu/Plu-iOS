@@ -9,6 +9,6 @@ import Foundation
 
 protocol OtherAnswersCoordinator: Coordinator {
     func showOtherAnswersViewController()
-    func showAnswerDetailViewController()
+    func showAnswerDetailViewController(id: Int)
     func pop()
 }

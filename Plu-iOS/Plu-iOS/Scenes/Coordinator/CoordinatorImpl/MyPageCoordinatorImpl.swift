@@ -39,7 +39,10 @@ final class MyPageCoordinatorImpl: MyPageCoordinator {
     }
     
     func showResignViewController() {
-        let resignViewController = ResignViewController(coordinator: self)
+        let adaptor = ResignAdaptor(coordinator: self)
+        let manager = ResignManagerImpl()
+        let viewModel = ResignViewModelImpl(adaptor: adaptor, manager: manager)
+        let resignViewController = ResignViewController(viewModel: viewModel)
         self.navigationController?.pushViewController(resignViewController, animated: true)
     }
     

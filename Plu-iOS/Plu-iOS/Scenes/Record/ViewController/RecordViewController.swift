@@ -12,8 +12,12 @@ import Combine
 import SnapKit
 
 final class RecordViewController: UIViewController {
+    private let viewWillAppear = PassthroughSubject<FilterDate?, Never>()
+    private let tableViewCellTapped = PassthroughSubject<Int, Never>()
+    private let filterButtonTapped = PassthroughSubject<Void, Never>()
+    private let navigationRightButtonTapped = PassthroughSubject<Void, Never>()
     
-    var coordinator: RecordCoordinator
+    private let viewModel: any RecordViewModel
     
     private let navigationBar = PLUNavigationBarView()
         .setTitle(text: "일기 기록")
@@ -32,15 +36,17 @@ final class RecordViewController: UIViewController {
     
     private var cancelBag = Set<AnyCancellable>()
     
-    init(coordinator: RecordCoordinator) {
-        self.coordinator = coordinator
+    init(viewModel: some RecordViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        //TODO: 이 후 ViewModel에서 채택해야할 delegate
-        coordinator.delegate = self
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.viewWillAppear.send(nil)
     }
     
     public override func viewDidLoad() {
@@ -49,10 +55,10 @@ final class RecordViewController: UIViewController {
         setHierarchy()
         setLayout()
         setDelegate()
-        setAction()
-        applySnapshot(.dummy())
+        applySnapshot(Record.dummy().questions)
         configureUI(record: .dummy())
         bindInput()
+        bind()
     }
     
     func configureUI(record: Record) {
@@ -64,22 +70,48 @@ final class RecordViewController: UIViewController {
         navigationBar.rightButtonTapSubject
             .sink { [weak self] _ in
                 guard let self else { return }
-                self.coordinator.showMyPageViewController()
+                self.navigationRightButtonTapped.send(())
             }
             .store(in: &cancelBag)
+        
+        dateFilterButton.tapPublisher
+            .sink { [weak self] _ in
+                self?.filterButtonTapped.send(())
+            }
+            .store(in: &cancelBag)
+    }
+    
+    private func bind() {
+        let input = RecordViewModelInput(viewWillAppear: viewWillAppear,
+                                         tableViewCellTapped: tableViewCellTapped,
+                                         filterButtonTapped: filterButtonTapped,
+                                         navigationRightButtonTapped: navigationRightButtonTapped)
+        let output = viewModel.transform(input: input)
+        output.questions
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] questions in
+                //TODO: 날짜 부분은 서버랑 얘기를 해보고 나서 구현하는게 나을듯?
+//                let dateFormatter = DateFormatter()
+//                dateFormatter.dateFormat = "MMM d, yyyy"
+//                let date = dateFormatter.date(from: "Nov 9, 2023")
+//
+//                if let date = date {
+//                    dateFormatter.dateFormat = "yyyy년 M월"
+//                    let resultString = dateFormatter.string(from: date)
+//                    print(resultString) // 2023년 9월
+//                } else {
+//                    print("날짜 변환 실패")
+//                }
+                self?.applySnapshot(questions)
+            }
+            .store(in: &cancelBag)
+        
     }
 }
 
 private extension RecordViewController {
     func setDelegate() {
         self.questionTableView.delegate = self
-    }
-    
-    func setAction() {
-        let action = UIAction { action in
-            self.coordinator.presentSelectMonthPopUpViewController()
-        }
-        dateFilterButton.addAction(action, for: .touchUpInside)
     }
     
     func setUI() {
@@ -115,11 +147,11 @@ private extension RecordViewController {
         
     }
     
-    func applySnapshot(_ records: Record) {
+    func applySnapshot(_ questions: [Question]) {
         var snapshot = NSDiffableDataSourceSnapshot<RecordSection, RecordItem>()
         snapshot.appendSections([.question])
         
-        let items = records.questions.map { question in
+        let items = questions.map { question in
             return RecordItem.question(record: question)
         }
         
@@ -130,15 +162,6 @@ private extension RecordViewController {
 
 extension RecordViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.coordinator.showAnswerDetailViewController()
-    }
-}
-
-
-//TODO: 이 후 ViewModel에서 구현되어야할 메서드
-extension RecordViewController: RecordCoordinatorDelegate {
-    func getYearAndMonth(year: Int, month: Int) {
-        print("ViewController에서 \(year): \(month)")
-        dateFilterButton.setText(text: "\(year)년 \(month)월", font: .body3)
+        self.tableViewCellTapped.send(indexPath.row)
     }
 }
