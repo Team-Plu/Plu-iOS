@@ -64,13 +64,14 @@ final class RegisterPopUpViewModelImpl: RegisterPopUpViewModel, RegisterPopUpPre
                     }
                 }
                 .catch { error in
-                    Just("실패임 ㅋㅋ")
+                    Just("에러 발생")
                 }
                 .eraseToAnyPublisher()
             }
             .eraseToAnyPublisher()
             .sink { _ in
-                self.adaptor.completeButtonTapped()
+                guard let answer = self.answer else { return }
+                self.adaptor.completeButtonTapped(answer: answer)
             }
             .store(in: &cancelBag)
         

@@ -9,7 +9,7 @@ import Foundation
 
 protocol RegisterPopUpNavigation {
     func dismiss()
-    func completeButtonTapped()
+    func completeButtonTapped(answer: String)
 }
 
 final class RegisterPopUpAdaptor: RegisterPopUpNavigation {
@@ -24,7 +24,7 @@ final class RegisterPopUpAdaptor: RegisterPopUpNavigation {
         self.coordinator.dismiss()
     }
     
-    func completeButtonTapped() {
-        self.coordinator.accept(type: .register)
+    func completeButtonTapped(answer: String) {
+        self.coordinator.accept(type: .register(answer: answer))
     }
 }
