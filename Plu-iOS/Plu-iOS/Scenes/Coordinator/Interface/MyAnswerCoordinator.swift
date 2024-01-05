@@ -9,6 +9,6 @@ import Foundation
 
 protocol MyAnswerCoordinator: Coordinator {
     func showMyAnswerViewController()
-    func presentRegisterPopUpViewController()
+    func presentRegisterPopUpViewController(answer: String)
     func pop()
 }

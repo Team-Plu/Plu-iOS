@@ -16,14 +16,14 @@ final class MyAnswerCoordinatorImpl: MyAnswerCoordinator {
     }
     
     func showMyAnswerViewController() {
-        let myAnswerViewController = MyAnswerViewController(coordinator: self)
+        let myAnswerViewController = MyAnswerViewController(viewModel: MyAnswerViewModelImpl(adaptor: MyAnswerAdpator(codrdinator: MyAnswerCoordinatorImpl(navigationController: self.navigationController))))
         self.navigationController?.pushViewController(myAnswerViewController, animated: true)
     }
     
-    func presentRegisterPopUpViewController() {
+    func presentRegisterPopUpViewController(answer: String) {
         let popUpCoordinator = PopUpCoordinatorImpl(navigationController: self.navigationController)
         popUpCoordinator.registerDelgate = self
-        popUpCoordinator.show(type: .register)
+        popUpCoordinator.show(type: .register(answer: answer))
     }
     
     func pop() {
@@ -36,5 +36,6 @@ extension MyAnswerCoordinatorImpl: RegisterDelegate {
     func register() {
         print("나의답변을 등록한다고 합니다")
         self.pop()
+        
     }
 }

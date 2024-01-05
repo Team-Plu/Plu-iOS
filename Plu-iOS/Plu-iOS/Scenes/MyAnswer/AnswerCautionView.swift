@@ -13,7 +13,7 @@ final class AnswerCautionView: UIView {
     private let cautionLabel = PLULabel(type: .body2M, color: .gray700, text: StringConstant.MyAnswer.titleCaution.text)
     private let firstCautionPoint = PLULabel(type: .body3, color: .gray400, text: StringConstant.MyAnswer.cautionPoint.text)
     private let secondCautionPoint = PLULabel(type: .body3, color: .gray400, text: StringConstant.MyAnswer.cautionPoint.text)
-    private let cautionPointStackView: UIStackView = {
+    private lazy var cautionPointStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .leading
@@ -24,7 +24,7 @@ final class AnswerCautionView: UIView {
     
     private let firstCautionLabel = PLULabel(type: .body3, color: .gray400, text: StringConstant.MyAnswer.firstCaution.text)
     private let secondCautionLabel = PLULabel(type: .body3, color: .gray400, lines: 3, text: StringConstant.MyAnswer.secondCaution.text)
-    private let cautionStackView: UIStackView = {
+    private lazy var cautionStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .leading
@@ -43,15 +43,14 @@ final class AnswerCautionView: UIView {
         setLineHeight()
     }
 
-
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     private func setHierarchy() {
-        addSubviews(underLine, cautionLabel, cautionPointStackView, cautionStackView)
         cautionPointStackView.addArrangedSubviews(firstCautionPoint, secondCautionPoint)
         cautionStackView.addArrangedSubviews(firstCautionLabel, secondCautionLabel)
+        addSubviews(underLine, cautionLabel, cautionPointStackView, cautionStackView)
     }
     
     private func setLayout() {
