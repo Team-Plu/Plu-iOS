@@ -571,7 +571,7 @@
 			path = Interface;
 			sourceTree = "<group>";
 		};
-		B5ACF6F82B22E020006D7641 /* TableViewCell */ = {
+		B5ACF6F82B22E020006D7641 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				C05E268B2B1D9EB600D91BFA /* RecordViewController.swift */,
@@ -1943,9 +1943,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Z225784MRD;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AXN37CP9B9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Plu-iOS/Application/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1957,8 +1959,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "uikit.Plu-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.plu.Plu-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Debug-Plu-iOS";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
