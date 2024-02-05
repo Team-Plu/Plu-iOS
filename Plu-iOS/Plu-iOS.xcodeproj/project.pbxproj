@@ -1231,6 +1231,19 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		C0771C942B70770E00780707 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				C0771C862B7063F800780707 /* SpaceItem.swift */,
+				C0771C882B70643700780707 /* MyPageItem.swift */,
+				C0771C8A2B7067B500780707 /* RoundHeadItem.swift */,
+				C0771C8C2B70690300780707 /* ProfileItem.swift */,
+				C0771C8E2B706A7400780707 /* AppversionItem.swift */,
+				C0771C922B706BE700780707 /* AlarmSettingItem.swift */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
 		C083F6242B27ED9B00808AE6 /* PopUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -1402,12 +1415,7 @@
 		C0E93B582B20491C0098A822 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				C0771C862B7063F800780707 /* SpaceItem.swift */,
-				C0771C882B70643700780707 /* MyPageItem.swift */,
-				C0771C8A2B7067B500780707 /* RoundHeadItem.swift */,
-				C0771C8C2B70690300780707 /* ProfileItem.swift */,
-				C0771C8E2B706A7400780707 /* AppversionItem.swift */,
-				C0771C922B706BE700780707 /* AlarmSettingItem.swift */,
+				C0771C942B70770E00780707 /* Items */,
 				C05E26872B1D9EA300D91BFA /* MyPageViewController.swift */,
 			);
 			path = ViewController;
