@@ -164,6 +164,7 @@
 		C0682A822B25857200AD4DB4 /* PLUTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0682A812B25857200AD4DB4 /* PLUTextField.swift */; };
 		C0682A852B25860D00AD4DB4 /* NicknameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0682A842B25860D00AD4DB4 /* NicknameManager.swift */; };
 		C0682A882B25862200AD4DB4 /* NicknameManagerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0682A872B25862200AD4DB4 /* NicknameManagerStub.swift */; };
+		C0771C7E2B705FCD00780707 /* Carbon in Frameworks */ = {isa = PBXBuildFile; productRef = C0771C7D2B705FCD00780707 /* Carbon */; };
 		C07AB7272B2828A600C2E02C /* TabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07AB7262B2828A600C2E02C /* TabbarCoordinator.swift */; };
 		C07AB7292B282E2D00C2E02C /* PopUpCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07AB7282B282E2D00C2E02C /* PopUpCoordinatorImpl.swift */; };
 		C07AB72B2B28380200C2E02C /* MyAnswerCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07AB72A2B28380200C2E02C /* MyAnswerCoordinatorImpl.swift */; };
@@ -460,6 +461,7 @@
 			files = (
 				C05E26452B1D971800D91BFA /* Kingfisher in Frameworks */,
 				C05E26422B1D970C00D91BFA /* SnapKit in Frameworks */,
+				C0771C7E2B705FCD00780707 /* Carbon in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1454,6 +1456,7 @@
 			packageProductDependencies = (
 				C05E26412B1D970C00D91BFA /* SnapKit */,
 				C05E26442B1D971800D91BFA /* Kingfisher */,
+				C0771C7D2B705FCD00780707 /* Carbon */,
 			);
 			productName = "Plu-iOS";
 			productReference = C0121A282B1347CA00D10EB0 /* Plu-iOS.app */;
@@ -1530,6 +1533,7 @@
 			packageReferences = (
 				C05E26402B1D970C00D91BFA /* XCRemoteSwiftPackageReference "SnapKit" */,
 				C05E26432B1D971800D91BFA /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				C0771C7C2B705FCD00780707 /* XCRemoteSwiftPackageReference "Carbon" */,
 			);
 			productRefGroup = C0121A292B1347CA00D10EB0 /* Products */;
 			projectDirPath = "";
@@ -2136,6 +2140,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		C0771C7C2B705FCD00780707 /* XCRemoteSwiftPackageReference "Carbon" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ra1028/Carbon";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2148,6 +2160,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C05E26432B1D971800D91BFA /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		C0771C7D2B705FCD00780707 /* Carbon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C0771C7C2B705FCD00780707 /* XCRemoteSwiftPackageReference "Carbon" */;
+			productName = Carbon;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
