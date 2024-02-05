@@ -9,6 +9,7 @@
 import UIKit
 import Combine
 
+import Carbon
 import SnapKit
 
 final class MyPageViewController: UIViewController {
@@ -32,7 +33,8 @@ final class MyPageViewController: UIViewController {
         .setTitle(text: StringConstant.Navibar.title.myPage)
         .setLeftButton(type: .back)
     
-    private let myPageTableView = MyPageTableView()
+    private let myPageTableView = UITableView(frame: .zero, style: .grouped)
+    let renderer = Renderer(adapter: UITableViewAdapter(), updater: UITableViewUpdater())
     
     init(viewModel: some MyPageViewModel & MyPagePresentable) {
         self.viewModel = viewModel
@@ -46,11 +48,17 @@ final class MyPageViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
+        setTableView()
         setHierarchy()
         setLayout()
-        setDelegate()
         bindInput()
         bind()
+        render()
+    }
+    
+    func setTableView() {
+        myPageTableView.separatorStyle = .none
+        renderer.target = myPageTableView
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -61,6 +69,70 @@ final class MyPageViewController: UIViewController {
         super.viewWillAppear(animated)
         self.viewWillAppearSubject.send(())
     }
+    
+    enum MypageType {
+        case profile, alarm, info, version, user
+    }
+    func render() {
+        renderer.render {
+            
+            Section(id: MypageType.profile) {
+                ProfileItem(nickname: "Plu님") {
+                    print("프로필눌림")
+                }
+            }
+            
+            Section(id: MypageType.alarm) {
+                RoundHeadItem()
+                
+                AlarmSettingItem(isOn: true) { type in
+                    switch type {
+                    case .alarmAccept:
+                        self.alarmSwitchTapped.send(.alarm)
+                    case .alarmReject:
+                        self.goToSettingPage { _ in
+                            print("✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅")
+                            
+                        }
+                    }
+                }
+            }
+            
+            Section(id: MypageType.info) {
+                SpaceItem(16)
+                MyPageItem(title: "FAQ") {
+                    print("FAQ가 눌림")
+                }
+                
+                MyPageItem(title: "오픈소스 라이브러리") {
+                    print("오픈소스 라이브러리가 눌림")
+                }
+                
+                MyPageItem(title: "개인정보 보호 및 약관") {
+                    print("개인정보 보호 및 약관이 눌림")
+                }
+            }
+            
+            Section(id: MypageType.version) {
+                SpaceItem(16)
+                
+                AppversionItem(version: "1.0.0")
+            }
+            
+            Section(id: MypageType.user) {
+                SpaceItem(16)
+                
+                MyPageItem(title: "로그아웃") {
+                    print("로그아웃이 눌림")
+                }
+                
+                MyPageItem(title: "탈퇴하기") {
+                    print("탈퇴하기가 눌림")
+                }
+            }
+        }
+    }
+    
 }
 
 private extension MyPageViewController {
@@ -83,17 +155,6 @@ private extension MyPageViewController {
             make.top.equalTo(navigationBar.snp.bottom)
             make.leading.trailing.bottom.equalToSuperview()
         }
-    }
-    
-    func setDelegate() {
-        myPageTableView.dataSource = self
-        myPageTableView.delegate = self
-        myPageTableView.myPageHeaderDelgate = self
-    }
-    
-    func setMyPageFromUserData(input: MyPageUserData) {
-        myPageTableView.setTableHeader(nickName: input.nickName)
-        myPageTableView.reloadData()
     }
     
     func bindInput() {
@@ -120,7 +181,7 @@ private extension MyPageViewController {
         output.viewWillAppearPublisher
             .receive(on: DispatchQueue.main)
             .sink { userData in
-                self.setMyPageFromUserData(input: userData)
+                print(userData)
             }
             .store(in: &cancelBag)
         

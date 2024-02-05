@@ -165,6 +165,13 @@
 		C0682A852B25860D00AD4DB4 /* NicknameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0682A842B25860D00AD4DB4 /* NicknameManager.swift */; };
 		C0682A882B25862200AD4DB4 /* NicknameManagerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0682A872B25862200AD4DB4 /* NicknameManagerStub.swift */; };
 		C0771C7E2B705FCD00780707 /* Carbon in Frameworks */ = {isa = PBXBuildFile; productRef = C0771C7D2B705FCD00780707 /* Carbon */; };
+		C0771C852B70633F00780707 /* MyPageCarbonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0771C842B70633F00780707 /* MyPageCarbonViewController.swift */; };
+		C0771C872B7063F800780707 /* SpaceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0771C862B7063F800780707 /* SpaceItem.swift */; };
+		C0771C892B70643700780707 /* MyPageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0771C882B70643700780707 /* MyPageItem.swift */; };
+		C0771C8B2B7067B500780707 /* RoundHeadItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0771C8A2B7067B500780707 /* RoundHeadItem.swift */; };
+		C0771C8D2B70690300780707 /* ProfileItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0771C8C2B70690300780707 /* ProfileItem.swift */; };
+		C0771C8F2B706A7400780707 /* AppversionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0771C8E2B706A7400780707 /* AppversionItem.swift */; };
+		C0771C932B706BE700780707 /* AlarmSettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0771C922B706BE700780707 /* AlarmSettingItem.swift */; };
 		C07AB7272B2828A600C2E02C /* TabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07AB7262B2828A600C2E02C /* TabbarCoordinator.swift */; };
 		C07AB7292B282E2D00C2E02C /* PopUpCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07AB7282B282E2D00C2E02C /* PopUpCoordinatorImpl.swift */; };
 		C07AB72B2B28380200C2E02C /* MyAnswerCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07AB72A2B28380200C2E02C /* MyAnswerCoordinatorImpl.swift */; };
@@ -398,6 +405,13 @@
 		C0682A812B25857200AD4DB4 /* PLUTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLUTextField.swift; sourceTree = "<group>"; };
 		C0682A842B25860D00AD4DB4 /* NicknameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameManager.swift; sourceTree = "<group>"; };
 		C0682A872B25862200AD4DB4 /* NicknameManagerStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameManagerStub.swift; sourceTree = "<group>"; };
+		C0771C842B70633F00780707 /* MyPageCarbonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCarbonViewController.swift; sourceTree = "<group>"; };
+		C0771C862B7063F800780707 /* SpaceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceItem.swift; sourceTree = "<group>"; };
+		C0771C882B70643700780707 /* MyPageItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageItem.swift; sourceTree = "<group>"; };
+		C0771C8A2B7067B500780707 /* RoundHeadItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundHeadItem.swift; sourceTree = "<group>"; };
+		C0771C8C2B70690300780707 /* ProfileItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileItem.swift; sourceTree = "<group>"; };
+		C0771C8E2B706A7400780707 /* AppversionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppversionItem.swift; sourceTree = "<group>"; };
+		C0771C922B706BE700780707 /* AlarmSettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmSettingItem.swift; sourceTree = "<group>"; };
 		C07AB7262B2828A600C2E02C /* TabbarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarCoordinator.swift; sourceTree = "<group>"; };
 		C07AB7282B282E2D00C2E02C /* PopUpCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpCoordinatorImpl.swift; sourceTree = "<group>"; };
 		C07AB72A2B28380200C2E02C /* MyAnswerCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnswerCoordinatorImpl.swift; sourceTree = "<group>"; };
@@ -908,6 +922,7 @@
 		C05E26472B1D976E00D91BFA /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				C0771C832B70631F00780707 /* MyPageCarbon */,
 				B5ACF70D2B27F180006D7641 /* Coordinator */,
 				C083F6242B27ED9B00808AE6 /* PopUp */,
 				4AA7476C2B261181004D0335 /* AnswerDetail */,
@@ -1232,6 +1247,20 @@
 				C05E26952B1D9F0600D91BFA /* OnboardingViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C0771C832B70631F00780707 /* MyPageCarbon */ = {
+			isa = PBXGroup;
+			children = (
+				C0771C842B70633F00780707 /* MyPageCarbonViewController.swift */,
+				C0771C862B7063F800780707 /* SpaceItem.swift */,
+				C0771C882B70643700780707 /* MyPageItem.swift */,
+				C0771C8A2B7067B500780707 /* RoundHeadItem.swift */,
+				C0771C8C2B70690300780707 /* ProfileItem.swift */,
+				C0771C8E2B706A7400780707 /* AppversionItem.swift */,
+				C0771C922B706BE700780707 /* AlarmSettingItem.swift */,
+			);
+			path = MyPageCarbon;
 			sourceTree = "<group>";
 		};
 		C083F6242B27ED9B00808AE6 /* PopUp */ = {
@@ -1595,6 +1624,7 @@
 				B59FC6E72B1C44C9000996CA /* ImageLiterals.swift in Sources */,
 				C05E26592B1D9A1D00D91BFA /* TableViewCellRegisterDequeueProtocol.swift in Sources */,
 				C05E26722B1D9BCF00D91BFA /* UILabel+.swift in Sources */,
+				C0771C932B706BE700780707 /* AlarmSettingItem.swift in Sources */,
 				B5B745012B348D7200AF368A /* OthersAnswerViewModel.swift in Sources */,
 				B5ACF7222B2816C6006D7641 /* PopUpCoordinator.swift in Sources */,
 				B5B744D42B312E7D00AF368A /* LoginViewModelImpl.swift in Sources */,
@@ -1603,6 +1633,7 @@
 				B5ACF72F2B283D23006D7641 /* AnswerDetailCoordinatorImpl.swift in Sources */,
 				4A72FD112B348C5200CD1BF8 /* CountType.swift in Sources */,
 				C0E93B5A2B20518B0098A822 /* TableSectionViewRegisterDequeueProtocol.swift in Sources */,
+				C0771C8D2B70690300780707 /* ProfileItem.swift in Sources */,
 				C0CFE1F12B37D2D9001FB7A5 /* MyPageManagerStub.swift in Sources */,
 				C012FFF62B2F06FA00433211 /* PLUIndicator.swift in Sources */,
 				C05E26782B1D9D2900D91BFA /* StringConstant.swift in Sources */,
@@ -1630,6 +1661,7 @@
 				C0CFE1D52B33CF89001FB7A5 /* NicknameEditAdaptor.swift in Sources */,
 				C04E4CF42B2A8DCF00ABDFAA /* SelectMonthPopUpViewModelImpl.swift in Sources */,
 				C0E93B4B2B20359B0098A822 /* MyPageUserExitType.swift in Sources */,
+				C0771C892B70643700780707 /* MyPageItem.swift in Sources */,
 				C05E26902B1D9ED300D91BFA /* TabbarViewController.swift in Sources */,
 				B5B744EA2B33CC6800AF368A /* RecordViewModel.swift in Sources */,
 				C0CEF3DE2B267A4B00682D1B /* NicknameState.swift in Sources */,
@@ -1647,6 +1679,7 @@
 				C05E26942B1D9EF700D91BFA /* TodayQuestionViewController.swift in Sources */,
 				B5ACF7182B281530006D7641 /* MyAnswerCoordinator.swift in Sources */,
 				B5ACF6C52B1EDFF3006D7641 /* PLULabel.swift in Sources */,
+				C0771C8B2B7067B500780707 /* RoundHeadItem.swift in Sources */,
 				4A72FD1E2B386B6200CD1BF8 /* MyAnswerNavigation.swift in Sources */,
 				4AA7475B2B22DA38004D0335 /* PLUTextView.swift in Sources */,
 				4AA747532B1CEF9C004D0335 /* UIColor+.swift in Sources */,
@@ -1735,12 +1768,15 @@
 				B5ACF7062B26D47C006D7641 /* TutorialCollectionViewCell.swift in Sources */,
 				B5ACF71E2B2815EA006D7641 /* RecordCoordinator.swift in Sources */,
 				C0CFE1FA2B37D35B001FB7A5 /* MyPageViewModel.swift in Sources */,
+				C0771C8F2B706A7400780707 /* AppversionItem.swift in Sources */,
 				B5ACF6C72B1EE1B9006D7641 /* AnswerTableViewCell.swift in Sources */,
 				C05E26742B1D9C6800D91BFA /* Combine+.swift in Sources */,
 				C05E26692B1D9B2F00D91BFA /* CALayer+.swift in Sources */,
 				4AD85E152B32BD8300558188 /* TodayQuestionManagerStub.swift in Sources */,
+				C0771C872B7063F800780707 /* SpaceItem.swift in Sources */,
 				4A72FD032B3459B300CD1BF8 /* AnswerDetailAdaptor.swift in Sources */,
 				C05E26652B1D9AEA00D91BFA /* Encodable+.swift in Sources */,
+				C0771C852B70633F00780707 /* MyPageCarbonViewController.swift in Sources */,
 				B5ACF7022B24A4B3006D7641 /* ResignDescriptionView.swift in Sources */,
 				4A72FD222B3A9FB300CD1BF8 /* RegisterPopUpManager.swift in Sources */,
 				B5ACF7202B281622006D7641 /* MyPageCoordinator.swift in Sources */,
