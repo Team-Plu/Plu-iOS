@@ -49,7 +49,7 @@ final class TodayQuestionViewModelImpl: TodayQuestionViewModel {
             }
             .filter { $0 }
             .sink { [weak self] _ in
-                self?.delegate?.presentAlarmPopUp()
+//                self?.delegate?.presentAlarmPopUp()
             }
             .store(in: &cancelBag)
         
