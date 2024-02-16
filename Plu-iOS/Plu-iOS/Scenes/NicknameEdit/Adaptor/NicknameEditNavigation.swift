@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol NicknameEditNavigation {
+protocol NicknameEditNavigation: AnyObject {
     func backButtonTapped()
     func nicknameChangeCompleteButtonTapped()
 }

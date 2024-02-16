@@ -10,7 +10,7 @@ import Combine
 
 final class AnswerDetailViewModelImpl: AnswerDetailViewModel, AnswerDetailPresentable {
 
-    private let adaptor: AnswerDetailAdaptor
+    weak var delegate: AnswerDetailNavigation?
     private let manager: AnswerDetailManager
     
     private var cancelBag = Set<AnyCancellable>()
@@ -18,8 +18,7 @@ final class AnswerDetailViewModelImpl: AnswerDetailViewModel, AnswerDetailPresen
     private var data = AnswerDetailResponse.empty
     private var answerId = 0
     
-    init(adaptor: AnswerDetailAdaptor, manager: AnswerDetailManager) {
-        self.adaptor = adaptor
+    init(manager: AnswerDetailManager) {
         self.manager = manager
     }
     
@@ -72,7 +71,7 @@ final class AnswerDetailViewModelImpl: AnswerDetailViewModel, AnswerDetailPresen
         
         input.leftButtonTapped
             .sink { [weak self] _ in
-                self?.adaptor.pop()
+                self?.delegate?.backButtonTapped()
             }
             .store(in: &cancelBag)
         

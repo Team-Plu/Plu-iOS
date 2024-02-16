@@ -23,9 +23,9 @@ final class RecordCoordinatorImpl: RecordCoordinator {
     }
     
     func showRecordViewController() {
-        let adaptor = RecordAdaptor(coordinator: self)
         let manager = RecordManagerImpl()
-        let viewModel = RecordViewModelImpl(adaptor: adaptor, manager: manager)
+        let viewModel = RecordViewModelImpl(manager: manager)
+        viewModel.delegate = self
         let recordViewController = RecordViewController(viewModel: viewModel)
         self.navigationController?.pushViewController(recordViewController, animated: true)
     }
@@ -47,9 +47,25 @@ final class RecordCoordinatorImpl: RecordCoordinator {
     }
 }
 
+//TODO: 수정 필요
 extension RecordCoordinatorImpl: SelectMonthDelegate {
     func passYearAndMonth(date: FilterDate) {
         self.yearAndMonthSubject.send(date)
 //        self.delegate?.getYearAndMonth(year: year, month: month)
     }
+}
+
+extension RecordCoordinatorImpl: RecordNavigation {
+    func dateFilterButtonTapped() {
+        self.presentSelectMonthPopUpViewController()
+    }
+    
+    func tableViewCellTapped(id: Int) {
+        self.showAnswerDetailViewController(id: id)
+    }
+    
+    func navigationRightButtonTapped() {
+        self.showMyPageViewController()
+    }
+    
 }

@@ -12,13 +12,12 @@ final class MypageViewModelImpl: MyPageViewModel, MyPagePresentable {
     var tableData: [[MyPageSection]] = []
     let switchOnSubject = PassthroughSubject<Void, Never>()
     var cancelBag = Set<AnyCancellable>()
-    var adaptor: MyPageNavigation
+    weak var delegate: MyPageNavigation?
     let manager: MyPageManager
     
-    init(adaptor: MyPageNavigation, manager: MyPageManager) {
-        self.adaptor = adaptor
+    init(manager: MyPageManager) {
         self.manager = manager
-        setDelegate()
+//        setDelegate()
     }
     
     func transform(input: MypageInput) -> MypageOutput {
@@ -34,14 +33,14 @@ final class MypageViewModelImpl: MyPageViewModel, MyPagePresentable {
         
         input.alarmSwitchTapped.merge(with: input.backButtonTapped, input.faqCellTapped, input.headerTapped, input.openSourceCellTapped, input.privacyCellTapped, input.resignCellTapped)
             .sink { type in
-                self.adaptor.navigation(from: type)
+                self.delegate?.navigation(from: type)
             }
             .store(in: &cancelBag)
         
         input.logoutCellTapped
             .requestAPI(failure: print("gg")) { _ in
                 try await self.manager.logout()
-                self.adaptor.navigation(from: .logout)
+                self.delegate?.navigation(from: .logout)
             } errorHandler: { error in
                 print(error)
             }
@@ -56,9 +55,10 @@ final class MypageViewModelImpl: MyPageViewModel, MyPagePresentable {
         return MyPageSection.makeMypageData(alarmAccept, appVersion)
     }
     
-    private func setDelegate() {
-        self.adaptor.delegate = self
-    }
+    //TODO: 수정필요
+//    private func setDelegate() {
+//        self.adaptor.delegate = self
+//    }
 }
 
 extension MypageViewModelImpl: MyPageAdaptorDelegate {

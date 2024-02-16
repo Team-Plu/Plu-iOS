@@ -9,13 +9,12 @@ import Foundation
 import Combine
 
 final class ResignViewModelImpl: ResignViewModel {
-    private let adaptor: ResignNavigation
+    weak var delegate: ResignNavigation?
     private let manager: ResignManager
     
     private var cancelBag = Set<AnyCancellable>()
     
-    init(adaptor: ResignNavigation, manager: ResignManager) {
-        self.adaptor = adaptor
+    init(manager: ResignManager) {
         self.manager = manager
     }
     
@@ -23,7 +22,7 @@ final class ResignViewModelImpl: ResignViewModel {
         Publishers.Merge(input.navigationBackButtonTapped,
                          input.reuseButtonTapped)
         .sink { [weak self] _ in
-            self?.adaptor.pop()
+            self?.delegate?.pop()
         }
         .store(in: &cancelBag)
         
@@ -33,7 +32,7 @@ final class ResignViewModelImpl: ResignViewModel {
                     Task {
                         do {
                             try await self.manager.resign()
-                            self.adaptor.resignButtonTapped()
+                            self.delegate?.resignButtonTapped()
                         } catch {
                             promise(.failure(error as! NetworkError))
                         }

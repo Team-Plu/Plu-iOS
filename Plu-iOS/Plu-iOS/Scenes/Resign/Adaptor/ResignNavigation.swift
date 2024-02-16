@@ -8,7 +8,7 @@
 import Foundation
 
 
-protocol ResignNavigation {
+protocol ResignNavigation: AnyObject {
     func resignButtonTapped()
     func pop()
 }
