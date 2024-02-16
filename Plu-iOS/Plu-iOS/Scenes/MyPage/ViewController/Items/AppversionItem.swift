@@ -1,55 +1,68 @@
 //
-//  MyPageOtherTableViewCell.swift
+//  AppversionItem.swift
 //  Plu-iOS
 //
-//  Created by uiskim on 2023/12/05.
+//  Created by uiskim on 2/5/24.
 //
 
 import UIKit
 
+import Carbon
 import SnapKit
 
-final class MyPageAppVersionTableViewCell: UITableViewCell {
+struct AppversionItem: IdentifiableComponent {
+    var version: String
+    var id: String {
+        return version
+    }
+    
+    func render(in content: AppversionComponent) {
+        content.appVersion.text = version
+    }
+    
+    func renderContent() -> AppversionComponent {
+        .init()
+    }
+    
+    func referenceSize(in bounds: CGRect) -> CGSize? {
+        .init(width: bounds.width, height: 78)
+    }
+}
+
+final class AppversionComponent: UIView {
     
     private let cellTitle: UILabel = {
         let label = UILabel()
         label.font = .suite(.body1M)
+        label.text = "앱버전"
         label.textColor = .designSystem(.black)
         return label
     }()
     
-    private let appVersion: UILabel = {
+    let appVersion: UILabel = {
         let lable = UILabel()
         lable.font = .suite(.body3)
         lable.textColor = .designSystem(.gray300)
         return lable
     }()
-
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    
+    init() {
+        super.init(frame: .zero)
         setUI()
         setHierarchy()
         setLayout()
     }
     
-    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureUI(_ input: MypageAppVersionData) {
-        self.cellTitle.text = input.title
-        self.appVersion.text = input.appVersion
-    }
-}
-
-private extension MyPageAppVersionTableViewCell {
     func setUI() {
-        self.contentView.backgroundColor = .designSystem(.white)
+        self.backgroundColor = .designSystem(.white)
     }
     
     func setHierarchy() {
-        self.contentView.addSubviews(cellTitle, appVersion)
+        self.addSubviews(cellTitle, appVersion)
     }
     
     func setLayout() {
@@ -65,4 +78,3 @@ private extension MyPageAppVersionTableViewCell {
         }
     }
 }
-

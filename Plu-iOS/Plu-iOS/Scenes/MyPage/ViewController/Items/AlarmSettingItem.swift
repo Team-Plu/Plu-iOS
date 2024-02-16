@@ -1,26 +1,46 @@
 //
-//  MyPageAlarmTableViewCell.swift
+//  AlarmSettingItem.swift
 //  Plu-iOS
 //
-//  Created by uiskim on 2023/12/05.
-//  Copyright (c) 2023 MyPageAlarm. All rights reserved.
+//  Created by uiskim on 2/5/24.
 //
 
 import UIKit
-import Combine
 
+import Carbon
 import SnapKit
 
 enum MypageAlarmSwitchType {
     case alarmAccept, alarmReject
 }
 
-final class MyPageAlarmTableViewCell: UITableViewCell {
+struct AlarmSettingItem: IdentifiableComponent {
+    var title: String = "알림설정"
+    var isOn: Bool
+    var switchTapped: ((MypageAlarmSwitchType)->Void)
+    var id: String {
+        return title
+    }
     
-    let alarmSwitchTypeSubject = PassthroughSubject<MypageAlarmSwitchType, Never>()
-    var cancelBag = Set<AnyCancellable>()
+    func render(in content: AlarmSettingComponent) {
+        content.cellTitle.text = title
+        content.alarmSwitch.isOn = isOn
+        content.switchTapped = switchTapped
+    }
+    
+    func renderContent() -> AlarmSettingComponent {
+        .init()
+    }
+    func referenceSize(in bounds: CGRect) -> CGSize? {
+        .init(width: bounds.width, height: 62)
+    }
+}
 
-    private let cellTitle = PLULabel(type: .body1M, color: .black, backgroundColor: .white)
+final class AlarmSettingComponent: UIView {
+    var switchTapped: ((MypageAlarmSwitchType)->Void)?
+    
+    
+    let cellTitle = PLULabel(type: .body1M, color: .black, backgroundColor: .white)
     
     let alarmSwitch: UISwitch = {
         let `switch` = UISwitch()
@@ -29,38 +49,25 @@ final class MyPageAlarmTableViewCell: UITableViewCell {
     }()
     
     private let rightArrow = PLUImageView(ImageLiterals.MyPage.arrowRightSmall900)
-
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    
+    init() {
+        super.init(frame: .zero)
         setUI()
         setHierarchy()
         setLayout()
         setAddTarget()
     }
     
-    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureUI(_ input: MyPageAlarmData) {
-        self.alarmSwitch.isOn = input.acceptAlarm
-        self.cellTitle.text = input.title
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        self.cancelBag.removeAll()
-    }
-}
-
-private extension MyPageAlarmTableViewCell {
     func setUI() {
-        self.contentView.backgroundColor = .designSystem(.white)
+        self.backgroundColor = .designSystem(.white)
     }
     
     func setHierarchy() {
-        self.contentView.addSubviews(cellTitle, alarmSwitch)
+        self.addSubviews(cellTitle, alarmSwitch)
     }
     
     func setLayout() {
@@ -85,11 +92,11 @@ private extension MyPageAlarmTableViewCell {
             let setting = await notificationCenter.notificationSettings()
             if setting.authorizationStatus != .authorized {
                 self.alarmSwitch.setOn(self.alarmSwitch.isOn, animated: false)
-                self.alarmSwitchTypeSubject.send(.alarmReject)
+                switchTapped?(.alarmReject)
                 return
             }
             if !self.alarmSwitch.isOn {
-                self.alarmSwitchTypeSubject.send(.alarmAccept)
+                switchTapped?(.alarmAccept)
             }
         }
     }

@@ -9,9 +9,15 @@
 import UIKit
 import Combine
 
+import Carbon
 import SnapKit
 
 final class MyPageViewController: UIViewController {
+    
+    private enum MypageType { case profile, alarm, info, version, user }
+    
+    // 임시변수 추후 뷰모델로 이동
+    var isOn = false
     
     let headerTapped = PassthroughSubject<MypageNavigationType, Never>()
     let faqCellTapped = PassthroughSubject<MypageNavigationType, Never>()
@@ -21,7 +27,6 @@ final class MyPageViewController: UIViewController {
     let alarmSwitchTapped = PassthroughSubject<MypageNavigationType, Never>()
     let openSourceCellTapped = PassthroughSubject<MypageNavigationType, Never>()
     let privacyCellTapped = PassthroughSubject<MypageNavigationType, Never>()
-
     let viewWillAppearSubject = PassthroughSubject<Void, Never>()
     let switchOnSubject = PassthroughSubject<Void, Never>()
     var cancelBag = Set<AnyCancellable>()
@@ -32,7 +37,8 @@ final class MyPageViewController: UIViewController {
         .setTitle(text: StringConstant.Navibar.title.myPage)
         .setLeftButton(type: .back)
     
-    private let myPageTableView = MyPageTableView()
+    private let myPageTableView = UITableView(frame: .zero, style: .grouped)
+    private let renderer = Renderer(adapter: UITableViewAdapter(), updater: UITableViewUpdater())
     
     init(viewModel: some MyPageViewModel & MyPagePresentable) {
         self.viewModel = viewModel
@@ -46,11 +52,12 @@ final class MyPageViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
+        setTableView()
         setHierarchy()
         setLayout()
-        setDelegate()
         bindInput()
         bind()
+        render()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -59,8 +66,64 @@ final class MyPageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
         self.viewWillAppearSubject.send(())
     }
+    
+
+    func render() {
+        renderer.render {
+            Section(id: MypageType.profile) {
+                ProfileItem(nickname: "Plu님") {
+                    self.headerTapped.send(.header)
+                }
+            }
+            
+            Section(id: MypageType.alarm) {
+                RoundHeadItem()
+                AlarmSettingItem(isOn: self.isOn) { type in
+                    switch type {
+                    case .alarmAccept:
+                        self.alarmSwitchTapped.send(.alarm)
+                    case .alarmReject:
+                        self.goToSettingPage { _ in
+                            self.isOn = false
+                            self.render()
+                        }
+                    }
+                }
+            }
+            
+            Section(id: MypageType.info) {
+                SpaceItem(16)
+                MyPageItem(title: "FAQ") {
+                    self.faqCellTapped.send(.faq)
+                }
+                MyPageItem(title: "오픈소스 라이브러리") {
+                    self.openSourceCellTapped.send(.openSource)
+                }
+                MyPageItem(title: "개인정보 보호 및 약관") {
+                    self.privacyCellTapped.send(.privacy)
+                }
+            }
+            
+            Section(id: MypageType.version) {
+                SpaceItem(16)
+                AppversionItem(version: "1.0.0")
+            }
+            
+            Section(id: MypageType.user) {
+                SpaceItem(16)
+                MyPageItem(title: "로그아웃") {
+                    self.logoutCellTapped.send(())
+                }
+                MyPageItem(title: "탈퇴하기") {
+                    self.resignCellTapped.send(.resign)
+                }
+            }
+        }
+    }
+    
 }
 
 private extension MyPageViewController {
@@ -83,17 +146,6 @@ private extension MyPageViewController {
             make.top.equalTo(navigationBar.snp.bottom)
             make.leading.trailing.bottom.equalToSuperview()
         }
-    }
-    
-    func setDelegate() {
-        myPageTableView.dataSource = self
-        myPageTableView.delegate = self
-        myPageTableView.myPageHeaderDelgate = self
-    }
-    
-    func setMyPageFromUserData(input: MyPageUserData) {
-        myPageTableView.setTableHeader(nickName: input.nickName)
-        myPageTableView.reloadData()
     }
     
     func bindInput() {
@@ -120,7 +172,7 @@ private extension MyPageViewController {
         output.viewWillAppearPublisher
             .receive(on: DispatchQueue.main)
             .sink { userData in
-                self.setMyPageFromUserData(input: userData)
+                print(userData)
             }
             .store(in: &cancelBag)
         
@@ -130,109 +182,9 @@ private extension MyPageViewController {
             }
             .store(in: &cancelBag)
     }
-
-}
-
-extension MyPageViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return self.viewModel.tableData.count
-    }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel.tableData[section].count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch self.viewModel.tableData[indexPath.section][indexPath.row] {
-        case .alarm(let data):
-            let cell = MyPageAlarmTableViewCell.dequeueReusableCell(to: tableView)
-            
-            cell.alarmSwitchTypeSubject
-                .sink { [weak self] type in
-                    switch type {
-                    case .alarmAccept:
-                        self?.alarmSwitchTapped.send(.alarm)
-                    case .alarmReject:
-                        self?.goToSettingPage { _ in 
-                            cell.alarmSwitch.setOn(false, animated: false)
-                        }
-                    }
-                }
-                .store(in: &cell.cancelBag)
-            
-            self.switchOnSubject.sink {
-                cell.alarmSwitch.isOn = true
-            }
-            .store(in: &cell.cancelBag)
-            
-            cell.configureUI(data)
-            return cell
-        case .info(let type):
-            let cell = MyPageGeneralTableViewCell.dequeueReusableCell(to: tableView)
-            cell.configureUI(type.title)
-            return cell
-        case .appVersion(let data):
-            let cell = MyPageAppVersionTableViewCell.dequeueReusableCell(to: tableView)
-            cell.configureUI(data)
-            return cell
-        case .exit(let type):
-            let cell = MyPageGeneralTableViewCell.dequeueReusableCell(to: tableView)
-            cell.configureUI(type.title)
-            return cell
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch self.viewModel.tableData[indexPath.section][indexPath.row] {
-        case .alarm: return MyPageCellHeight.alarmCellHeight
-        case .info, .exit: return MyPageCellHeight.infoCellHeight
-        case .appVersion: return MyPageCellHeight.appVersionCellHeight
-        }
-    }
-}
-
-extension MyPageViewController: UITableViewDelegate, MyPageHeaderDelgate {
-    func headerDidTapped() {
-        self.headerTapped.send(.header)
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let section = self.viewModel.tableData[section].first else { return UIView() }
-        if case .alarm = section {
-            return MyPageRoundSectionHeaderView.dequeueReusableSectionHeaderView(to: tableView)
-        }
-        let seperateView = UIView()
-        seperateView.backgroundColor = .designSystem(.background)
-        return seperateView
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        guard let section = self.viewModel.tableData[section].first else { return 0 }
-        if case .alarm = section {
-            return MyPageSectionHeaderHeight.alarmSectionHeaderHeight
-        }
-        return MyPageSectionHeaderHeight.seperateSectionHeaderHeight
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cellType = self.viewModel.tableData[indexPath.section][indexPath.row]
-        if case .info(let type) = cellType {
-            switch type {
-            case .faq:
-                self.faqCellTapped.send(type.changeToMyPageNavigation)
-            case .openSource:
-                self.openSourceCellTapped.send(type.changeToMyPageNavigation)
-            case .privacy:
-                self.openSourceCellTapped.send(type.changeToMyPageNavigation)
-            }
-        }
-        if case .exit(let type) = cellType {
-            switch type {
-            case .logout:
-                self.logoutCellTapped.send(())
-            case .resign:
-                self.resignCellTapped.send(type.changeToMyPageNavigation)
-            }
-        }
+    func setTableView() {
+        myPageTableView.separatorStyle = .none
+        renderer.target = myPageTableView
     }
 }

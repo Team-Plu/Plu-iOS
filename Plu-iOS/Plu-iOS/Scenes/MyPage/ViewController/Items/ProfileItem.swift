@@ -1,16 +1,38 @@
 //
-//  MyPageHeaderView.swift
+//  ProfileItem.swift
 //  Plu-iOS
 //
-//  Created by uiskim on 2023/12/05.
-//  Copyright (c) 2023 MyPageHeader. All rights reserved.
+//  Created by uiskim on 2/5/24.
 //
 
 import UIKit
 
+import Carbon
 import SnapKit
 
-final class MyPageHeaderView: UIView {
+struct ProfileItem: IdentifiableComponent {
+    var nickname: String
+    var onTapped: () -> Void
+    var id: String {
+        return nickname
+    }
+    
+    func render(in content: ProfileComponent) {
+        content.nickNameLabel.text = nickname
+        content.onTapped = onTapped
+    }
+    func renderContent() -> ProfileComponent {
+        .init()
+    }
+    
+    func referenceSize(in bounds: CGRect) -> CGSize? {
+        .init(width: bounds.width, height: 110)
+    }
+}
+
+final class ProfileComponent: UIControl {
+    
+    var onTapped: (() -> Void)?
     
     private let profileImage: UIImageView = {
         let imageView = UIImageView(image: ImageLiterals.MyPage.profile60)
@@ -18,7 +40,7 @@ final class MyPageHeaderView: UIView {
         return imageView
     }()
     
-    private let nickNameLabel = PLULabel(type: .head2, color: .black)
+    let nickNameLabel = PLULabel(type: .head2, color: .black)
     
     private let rightArrow: UIImageView = {
         let imageView = UIImageView(image: ImageLiterals.MyPage.arrowRightSmall900)
@@ -27,24 +49,17 @@ final class MyPageHeaderView: UIView {
     }()
     
     init() {
-        super.init(frame: .init(x: 0, y: 0, width: ScreenConstant.Screen.width, height: 100))
+        super.init(frame: .zero)
         setUI()
         setHierarchy()
         setLayout()
+        addTarget(self, action: #selector(onTap), for: .touchUpInside)
     }
-    
-    @available(*, unavailable)
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureUI(_ input: String) {
-        self.nickNameLabel.text = input
-    }
-
-}
-
-private extension MyPageHeaderView {
     func setUI() {
         self.backgroundColor = .designSystem(.background)
     }
@@ -70,5 +85,9 @@ private extension MyPageHeaderView {
             make.trailing.equalToSuperview().inset(14)
             make.size.equalTo(24)
         }
+    }
+    
+    @objc func onTap() {
+        self.onTapped?()
     }
 }
