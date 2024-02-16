@@ -15,27 +15,27 @@ protocol SocialLogin {
     func getToken() async throws -> String
 }
 
-struct Kakao: SocialLogin {
+final class Kakao: SocialLogin {
     var type: LoginType = .kakao
+    
+    private let kakaoService = KakaoLoginService()
     
     var errorMessage: String = "카카오 로그인 오류"
     
     func getToken() async throws -> String {
-        return try await loginKakaoWithApp()
+        return try await loginKakao()
     }
     
-    private func loginKakaoWithApp() async throws -> String {
-        // login 로직
-        return "kakao app token"
+    private func loginKakao() async throws -> String {
+        return try await kakaoService.login()
     }
     
-    private func loginKakaoWithWeb() async throws -> String {
-        return "kakao web token"
-    }
 }
 
-struct Apple: SocialLogin {
+final class Apple: SocialLogin {
     var type: LoginType = .apple
+    
+    private let appleService = AppleLoginService()
     
     var errorMessage: String = "애플 로그인 실패" 
     
@@ -45,6 +45,6 @@ struct Apple: SocialLogin {
     
     private func loginApple() async throws -> String {
         // Apple 로직
-        return "apple token"
+        return try await appleService.login()
     }
 }

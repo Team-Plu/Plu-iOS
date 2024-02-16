@@ -26,7 +26,6 @@ extension Login {
         return Future<(type: LoginType, state: LoadingState), NetworkError> { promise in
             Task {
                 do {
-                    try await Task.sleep(nanoseconds: 100_000_000_0)
                     let token = try await socialLogin.getToken()
                     try await manager.login(type: socialLogin.type, token: token)
                     navigator.loginButtonTapped(type: .loginSuccess)

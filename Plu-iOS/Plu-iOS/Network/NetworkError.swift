@@ -16,6 +16,7 @@ enum NetworkError: Error, Equatable {
     case unAuthorizedError
     case clientError(code: String, message: String)
     case serverError
+    case kakaoError
 }
 
 extension NetworkError: LocalizedError {
@@ -35,6 +36,8 @@ extension NetworkError: LocalizedError {
             return "📱클라이언트 에러 code: \(code), message:\(message)"
         case .serverError:
             return "🖥️서버 에러"
+        case .kakaoError:
+            return "Kakao 에러"
         }
     }
 }

@@ -1,0 +1,12 @@
+//
+//  Development.xcconfig
+//  Plu-iOS
+//
+//  Created by 김민재 on 2/16/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+KAKAO_NATIVE_APP_KEY = bb98e0484e9fa39a5fbe9afea26de27b
+
