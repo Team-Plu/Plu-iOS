@@ -127,6 +127,7 @@
 		B5F1DD4A2B7F1E7200A2A5BA /* KakaoSDKTalk in Frameworks */ = {isa = PBXBuildFile; productRef = B5F1DD492B7F1E7200A2A5BA /* KakaoSDKTalk */; };
 		B5F1DD4C2B7F1E7200A2A5BA /* KakaoSDKTemplate in Frameworks */ = {isa = PBXBuildFile; productRef = B5F1DD4B2B7F1E7200A2A5BA /* KakaoSDKTemplate */; };
 		B5F1DD4E2B7F1E7200A2A5BA /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = B5F1DD4D2B7F1E7200A2A5BA /* KakaoSDKUser */; };
+		B5F1DD532B7F228900A2A5BA /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F1DD522B7F228900A2A5BA /* Config.swift */; };
 		C00113DA2B25359100B2C799 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00113D92B25359100B2C799 /* OnboardingViewModel.swift */; };
 		C0121A2C2B1347CA00D10EB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A2B2B1347CA00D10EB0 /* AppDelegate.swift */; };
 		C0121A2E2B1347CA00D10EB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0121A2D2B1347CA00D10EB0 /* SceneDelegate.swift */; };
@@ -362,6 +363,9 @@
 		B5B7451B2B35252400AF368A /* ResignManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignManager.swift; sourceTree = "<group>"; };
 		B5B7451D2B35255100AF368A /* ResignManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignManagerImpl.swift; sourceTree = "<group>"; };
 		B5CD675A2B7F0C0F00EE48A1 /* AppleLoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginService.swift; sourceTree = "<group>"; };
+		B5F1DD4F2B7F202600A2A5BA /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
+		B5F1DD512B7F215400A2A5BA /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		B5F1DD522B7F228900A2A5BA /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		C00113D92B25359100B2C799 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		C0121A282B1347CA00D10EB0 /* Plu-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plu-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0121A2B2B1347CA00D10EB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -879,6 +883,15 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		B5F1DD502B7F214600A2A5BA /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				B5F1DD4F2B7F202600A2A5BA /* Development.xcconfig */,
+				B5F1DD512B7F215400A2A5BA /* Release.xcconfig */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
 		C0121A1F2B1347CA00D10EB0 = {
 			isa = PBXGroup;
 			children = (
@@ -935,10 +948,12 @@
 		C05E26462B1D976700D91BFA /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				B5F1DD502B7F214600A2A5BA /* Configurations */,
 				C0121A2B2B1347CA00D10EB0 /* AppDelegate.swift */,
 				C0121A2D2B1347CA00D10EB0 /* SceneDelegate.swift */,
 				C0121A362B1347CB00D10EB0 /* LaunchScreen.storyboard */,
 				C0121A392B1347CB00D10EB0 /* Info.plist */,
+				B5F1DD522B7F228900A2A5BA /* Config.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -1695,6 +1710,7 @@
 				C0A256252B1EE0330059AA7E /* MyPageGeneralTableViewCell.swift in Sources */,
 				4AA7476E2B26119D004D0335 /* AnswerDetailViewController.swift in Sources */,
 				C05E26702B1D9B8C00D91BFA /* UIStackView+.swift in Sources */,
+				B5F1DD532B7F228900A2A5BA /* Config.swift in Sources */,
 				4AA7475D2B22E28F004D0335 /* PLUUnderLine.swift in Sources */,
 				C05E26942B1D9EF700D91BFA /* TodayQuestionViewController.swift in Sources */,
 				B5ACF7182B281530006D7641 /* MyAnswerCoordinator.swift in Sources */,
@@ -1883,6 +1899,7 @@
 /* Begin XCBuildConfiguration section */
 		C0121A502B1347CB00D10EB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5F1DD4F2B7F202600A2A5BA /* Development.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1943,6 +1960,7 @@
 		};
 		C0121A512B1347CB00D10EB0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5F1DD512B7F215400A2A5BA /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1997,6 +2015,7 @@
 		};
 		C0121A532B1347CB00D10EB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5F1DD4F2B7F202600A2A5BA /* Development.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -2032,6 +2051,7 @@
 		};
 		C0121A542B1347CB00D10EB0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5F1DD512B7F215400A2A5BA /* Release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -2067,6 +2087,7 @@
 		};
 		C0121A562B1347CB00D10EB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5F1DD4F2B7F202600A2A5BA /* Development.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2087,6 +2108,7 @@
 		};
 		C0121A572B1347CB00D10EB0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5F1DD512B7F215400A2A5BA /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2107,6 +2129,7 @@
 		};
 		C0121A592B1347CB00D10EB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5F1DD4F2B7F202600A2A5BA /* Development.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -2125,6 +2148,7 @@
 		};
 		C0121A5A2B1347CB00D10EB0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5F1DD512B7F215400A2A5BA /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
