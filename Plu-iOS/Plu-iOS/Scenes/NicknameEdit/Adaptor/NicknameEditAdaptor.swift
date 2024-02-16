@@ -7,19 +7,19 @@
 
 import Foundation
 
-final class NicknameEditAdaptor: NicknameEditNavigation {
-
-    let coordinator: MyPageCoordinator
-    
-    init(coordinator: MyPageCoordinator) {
-        self.coordinator = coordinator
-    }
-    
-    func backButtonTapped() {
-        self.coordinator.pop()
-    }
-    
-    func nicknameChangeCompleteButtonTapped() {
-        self.coordinator.pop()
-    }
-}
+//final class NicknameEditAdaptor: NicknameEditNavigation {
+//
+//    let coordinator: MyPageCoordinator
+//    
+//    init(coordinator: MyPageCoordinator) {
+//        self.coordinator = coordinator
+//    }
+//    
+//    func backButtonTapped() {
+//        self.coordinator.pop()
+//    }
+//    
+//    func nicknameChangeCompleteButtonTapped() {
+//        self.coordinator.pop()
+//    }
+//}

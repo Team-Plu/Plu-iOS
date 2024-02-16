@@ -7,27 +7,27 @@
 
 import Foundation
 
-final class TodayQuestionAdaptor: TodayQuestionNavigation {
-    
-    private let coordinator: TodayQuestionCoordinator
-
-    init(coordinator: TodayQuestionCoordinator) {
-        self.coordinator = coordinator
-    }
-    
-    func navigationRightButtonTapped() {
-        coordinator.showMyPageViewController()
-    }
-    
-    func myAnswerButtonTapped() {
-        coordinator.showMyAnswerViewController()
-    }
-    
-    func otherAnswerButtonTapped() {
-        coordinator.showOtherAnswersViewController()
-    }
-    
-    func presentAlarmPopUp() {
-        coordinator.presentAlarmPopUpViewController()
-    }
-}
+//final class TodayQuestionAdaptor: TodayQuestionNavigation {
+//    
+//    private let coordinator: TodayQuestionCoordinator
+//
+//    init(coordinator: TodayQuestionCoordinator) {
+//        self.coordinator = coordinator
+//    }
+//    
+//    func navigationRightButtonTapped() {
+//        coordinator.showMyPageViewController()
+//    }
+//    
+//    func myAnswerButtonTapped() {
+//        coordinator.showMyAnswerViewController()
+//    }
+//    
+//    func otherAnswerButtonTapped() {
+//        coordinator.showOtherAnswersViewController()
+//    }
+//    
+//    func presentAlarmPopUp() {
+//        coordinator.presentAlarmPopUpViewController()
+//    }
+//}

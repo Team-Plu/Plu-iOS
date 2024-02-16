@@ -8,20 +8,20 @@
 import Foundation
 
 
-
-final class ResignAdaptor: ResignNavigation {
-    
-    private let coordinator: MyPageCoordinator
-    
-    init(coordinator: MyPageCoordinator) {
-        self.coordinator = coordinator
-    }
-    
-    func resignButtonTapped() {
-        self.coordinator.exitUserToSplash()
-    }
-    
-    func pop() {
-        self.coordinator.pop()
-    }
-}
+//
+//final class ResignAdaptor: ResignNavigation {
+//    
+//    private let coordinator: MyPageCoordinator
+//    
+//    init(coordinator: MyPageCoordinator) {
+//        self.coordinator = coordinator
+//    }
+//    
+//    func resignButtonTapped() {
+//        self.coordinator.exitUserToSplash()
+//    }
+//    
+//    func pop() {
+//        self.coordinator.pop()
+//    }
+//}

@@ -8,21 +8,21 @@
 import Foundation
 
 
-final class LoginAdaptor: LoginNavigation {
-    
-    let coordinator: AuthCoordinator
-    
-    init(coordinator: AuthCoordinator) {
-        self.coordinator = coordinator
-    }
-    
-    func loginButtonTapped(type: LoginState) {
-        switch type {
-        case .loginSuccess:
-//            self.coordinator.showTabbarController()
-            self.coordinator.showOnboardingController()
-        case .userNotFound:
-            self.coordinator.showOnboardingController()
-        }
-    }    
-}
+//final class LoginAdaptor: LoginNavigation {
+//    
+//    let coordinator: AuthCoordinator
+//    
+//    init(coordinator: AuthCoordinator) {
+//        self.coordinator = coordinator
+//    }
+//    
+//    func loginButtonTapped(type: LoginState) {
+//        switch type {
+//        case .loginSuccess:
+////            self.coordinator.showTabbarController()
+//            self.coordinator.showOnboardingController()
+//        case .userNotFound:
+//            self.coordinator.showOnboardingController()
+//        }
+//    }    
+//}
