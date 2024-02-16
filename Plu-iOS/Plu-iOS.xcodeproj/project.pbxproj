@@ -115,6 +115,7 @@
 		B5B7451C2B35252400AF368A /* ResignManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7451B2B35252400AF368A /* ResignManager.swift */; };
 		B5B7451E2B35255100AF368A /* ResignManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7451D2B35255100AF368A /* ResignManagerImpl.swift */; };
 		B5CD675B2B7F0C0F00EE48A1 /* AppleLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CD675A2B7F0C0F00EE48A1 /* AppleLoginService.swift */; };
+		B5F1DD352B7F1ABD00A2A5BA /* KakaoLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F1DD342B7F1ABD00A2A5BA /* KakaoLoginService.swift */; };
 		B5F1DD382B7F1E7200A2A5BA /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = B5F1DD372B7F1E7200A2A5BA /* KakaoSDK */; };
 		B5F1DD3A2B7F1E7200A2A5BA /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B5F1DD392B7F1E7200A2A5BA /* KakaoSDKAuth */; };
 		B5F1DD3C2B7F1E7200A2A5BA /* KakaoSDKCert in Frameworks */ = {isa = PBXBuildFile; productRef = B5F1DD3B2B7F1E7200A2A5BA /* KakaoSDKCert */; };
@@ -363,6 +364,7 @@
 		B5B7451B2B35252400AF368A /* ResignManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignManager.swift; sourceTree = "<group>"; };
 		B5B7451D2B35255100AF368A /* ResignManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignManagerImpl.swift; sourceTree = "<group>"; };
 		B5CD675A2B7F0C0F00EE48A1 /* AppleLoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginService.swift; sourceTree = "<group>"; };
+		B5F1DD342B7F1ABD00A2A5BA /* KakaoLoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginService.swift; sourceTree = "<group>"; };
 		B5F1DD4F2B7F202600A2A5BA /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		B5F1DD512B7F215400A2A5BA /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		B5F1DD522B7F228900A2A5BA /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -879,6 +881,7 @@
 			isa = PBXGroup;
 			children = (
 				B5CD675A2B7F0C0F00EE48A1 /* AppleLoginService.swift */,
+				B5F1DD342B7F1ABD00A2A5BA /* KakaoLoginService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1695,6 +1698,7 @@
 				C0D813F42B312E7D00F1B180 /* OnboardingAdaptor.swift in Sources */,
 				B5ACF7042B26C807006D7641 /* RecordDiffableDataSource.swift in Sources */,
 				C0CFE1D52B33CF89001FB7A5 /* NicknameEditAdaptor.swift in Sources */,
+				B5F1DD352B7F1ABD00A2A5BA /* KakaoLoginService.swift in Sources */,
 				C04E4CF42B2A8DCF00ABDFAA /* SelectMonthPopUpViewModelImpl.swift in Sources */,
 				C0E93B4B2B20359B0098A822 /* MyPageUserExitType.swift in Sources */,
 				C05E26902B1D9ED300D91BFA /* TabbarViewController.swift in Sources */,

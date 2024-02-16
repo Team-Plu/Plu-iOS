@@ -18,20 +18,18 @@ protocol SocialLogin {
 final class Kakao: SocialLogin {
     var type: LoginType = .kakao
     
+    private let kakaoService = KakaoLoginService()
+    
     var errorMessage: String = "카카오 로그인 오류"
     
     func getToken() async throws -> String {
-        return try await loginKakaoWithApp()
+        return try await loginKakao()
     }
     
-    private func loginKakaoWithApp() async throws -> String {
-        // login 로직
-        return "kakao app token"
+    private func loginKakao() async throws -> String {
+        return try await kakaoService.login()
     }
     
-    private func loginKakaoWithWeb() async throws -> String {
-        return "kakao web token"
-    }
 }
 
 final class Apple: SocialLogin {
