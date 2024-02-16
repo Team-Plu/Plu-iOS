@@ -37,8 +37,9 @@ final class RecordCoordinatorImpl: RecordCoordinator {
     
     func presentSelectMonthPopUpViewController() {
         let popUpCoordinator = PopUpCoordinatorImpl(navigationController: self.navigationController)
-        popUpCoordinator.selectMonthDelegate = self
-        popUpCoordinator.show(type: .selectMonth(date: .empty))
+//        popUpCoordinator.selectMonthDelegate = self
+//        popUpCoordinator.show(type: .selectMonth(date: .empty))
+        popUpCoordinator.presentSelectYearAndMonthPopUp()
     }
     
     func showAnswerDetailViewController(id: Int) {

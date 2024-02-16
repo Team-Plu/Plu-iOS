@@ -9,6 +9,7 @@ import Foundation
 import Combine
 
 final class MypageViewModelImpl: MyPageViewModel, MyPagePresentable {
+
     var tableData: [[MyPageSection]] = []
     let switchOnSubject = PassthroughSubject<Void, Never>()
     var cancelBag = Set<AnyCancellable>()
@@ -17,7 +18,6 @@ final class MypageViewModelImpl: MyPageViewModel, MyPagePresentable {
     
     init(manager: MyPageManager) {
         self.manager = manager
-//        setDelegate()
     }
     
     func transform(input: MypageInput) -> MypageOutput {
@@ -47,22 +47,17 @@ final class MypageViewModelImpl: MyPageViewModel, MyPagePresentable {
             .sink { _ in }
             .store(in: &cancelBag)
             
-        
+        self.delegate?.delegate = self
         return MypageOutput(viewWillAppearPublisher: viewWillAppearPublisher, switchOnSubject: switchOnSubject)
     }
     
     private func setTableViewDataFromUserData(_ alarmAccept: Bool, _ appVersion: String?) -> [[MyPageSection]] {
         return MyPageSection.makeMypageData(alarmAccept, appVersion)
     }
-    
-    //TODO: 수정필요
-//    private func setDelegate() {
-//        self.adaptor.delegate = self
-//    }
 }
 
-extension MypageViewModelImpl: MyPageAdaptorDelegate {
-    func isAccept() {
+extension MypageViewModelImpl: MyPageDelegate {
+    func alarmAcceptTapped() {
         self.switchOnSubject.send(())
     }
 }

@@ -11,19 +11,13 @@ protocol SelectMonthDelegate: AnyObject {
     func passYearAndMonth(date: FilterDate)
 }
 
-protocol AlarmDelegate: AnyObject {
-    func isAccept()
+protocol PopUpAlarmDelegate: AnyObject {
+    func acceptButtonTapped()
 }
 
-protocol RegisterDelegate: AnyObject {
-    func register()
-}
-
-final class PopUpCoordinatorImpl: PopUpCoordinator {
+final class PopUpCoordinatorImpl {
     
-    weak var selectMonthDelegate: SelectMonthDelegate?
-    weak var alarmDelegate: AlarmDelegate?
-    weak var registerDelgate: RegisterDelegate?
+    weak var alaramDelegate: PopUpAlarmDelegate?
     
     weak var navigationController: UINavigationController?
     
@@ -31,41 +25,41 @@ final class PopUpCoordinatorImpl: PopUpCoordinator {
         self.navigationController = navigationController
     }
     
+    func presentRegisterPopUp() {
+        let manager = RegisterPopUpManagerImpl()
+        let viewModel = RegisterPopUpViewModelImpl(manager: manager)
+        viewModel.delegate = self
+        let registerPopUpViewController = RegisterPopUpViewController(viewModel: viewModel)
+        self.navigationController?.present(registerPopUpViewController, animated: true)
+    }
     
-    func show(type: PopUpType) {
-        switch type {
-        case .alarm(let type):
-            let viewModel = AlarmPopUpViewModelImpl(coordinator: self, type: type)
-            let alarmPopUpViewController = AlarmPopUpViewController(viewModel: viewModel)
-            self.navigationController?.present(alarmPopUpViewController, animated: true)
-        case .register(let answer):
-            let viewModel = RegisterPopUpViewModelImpl(adaptor: RegisterPopUpAdaptor(coordinator: self), manager: RegisterPopUpManagerImpl())
-            viewModel.setAnswer(answer: answer)
-            let registerPopUpViewController = RegisterPopUpViewController(viewModel: viewModel)
-            self.navigationController?.present(registerPopUpViewController, animated: true)
-        case .selectMonth:
-            let viewModel = SelectMonthPopUpViewModelImpl(coordinator: self)
-            let selectMonthPopUpViewController = SelectYearAndMonthPopUpViewController(viewModel: viewModel)
-            self.navigationController?.present(selectMonthPopUpViewController, animated: true)
-        }
+    func presentSelectYearAndMonthPopUp() {
+        let viewModel = SelectMonthPopUpViewModelImpl()
+        let selectedYearAndMonthViewController = SelectYearAndMonthPopUpViewController(viewModel: viewModel)
+        self.navigationController?.present(selectedYearAndMonthViewController, animated: true)
     }
     
     
-    func accept(type: PopUpType) {
-        self.navigationController?.dismiss(animated: true) {
-            switch type {
-            case .alarm:
-                self.alarmDelegate?.isAccept()
-            case .register:
-                self.registerDelgate?.register()
-            case .selectMonth(let date):
-                self.selectMonthDelegate?.passYearAndMonth(date: date)
-            }
-        }
+}
+
+extension PopUpCoordinatorImpl: RegisterPopUpNavigation {
+    func dismiss() {
         self.navigationController?.dismiss(animated: true)
     }
     
-    func dismiss() {
+    func completeButtonTapped() {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+}
+
+extension PopUpCoordinatorImpl: AlaramNavigation {
+    func alarmContinueButtonTapped() {
+        self.navigationController?.dismiss(animated: true) {
+            self.alaramDelegate?.acceptButtonTapped()
+        }
+    }
+    
+    func alarmCancelButtonTapped() {
         self.navigationController?.dismiss(animated: true)
     }
 }

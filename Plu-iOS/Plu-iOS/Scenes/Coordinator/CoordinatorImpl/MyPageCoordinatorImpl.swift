@@ -7,12 +7,13 @@
 
 import UIKit
 
-protocol MypageAlarmResultDelegate: AnyObject {
-    func isAccept()
+protocol MyPageDelegate: AnyObject {
+    func alarmAcceptTapped()
 }
 
 final class MyPageCoordinatorImpl: MyPageCoordinator {
-    weak var delegate: MypageAlarmResultDelegate?
+    
+    weak var delegate: MyPageDelegate?
     weak var navigationController: UINavigationController?
     
     init(navigationController: UINavigationController?) {
@@ -28,9 +29,10 @@ final class MyPageCoordinatorImpl: MyPageCoordinator {
     }
     
     func presentAlarmPopUpViewController() {
-        let popUpCoordinator = PopUpCoordinatorImpl(navigationController: self.navigationController)
-        popUpCoordinator.alarmDelegate = self
-        popUpCoordinator.show(type: .alarm(.mypage))
+        let viewModel = AlarmPopUpViewModelImpl()
+        viewModel.delegate = self
+        let alarmPopUp = AlarmPopUpViewController(viewModel: viewModel)
+        self.navigationController?.present(alarmPopUp, animated: true)
     }
     
     func showProfileEditViewController() {
@@ -54,18 +56,27 @@ final class MyPageCoordinatorImpl: MyPageCoordinator {
     }
 }
 
-extension MyPageCoordinatorImpl: AlarmDelegate {
-    func isAccept() {
-        self.delegate?.isAccept()
-    }
-}
-
 extension MyPageCoordinatorImpl: ResignNavigation {
     func resignButtonTapped() {
         self.exitUserToSplash()
     }
     
 }
+
+extension MyPageCoordinatorImpl: AlaramNavigation {
+    func alarmContinueButtonTapped() {
+        self.navigationController?.dismiss(animated: true) {
+            self.delegate?.alarmAcceptTapped()
+        }
+    }
+    
+    func alarmCancelButtonTapped() {
+        self.navigationController?.dismiss(animated: true)
+    }
+    
+    
+}
+
 
 extension MyPageCoordinatorImpl: MyPageNavigation {
     func navigation(from type: MypageNavigationType) {
@@ -98,6 +109,4 @@ extension MyPageCoordinatorImpl: NicknameEditNavigation {
     func nicknameChangeCompleteButtonTapped() {
         self.pop()
     }
-    
-    
 }

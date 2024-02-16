@@ -25,7 +25,7 @@
 		4A72FD1C2B386B5700CD1BF8 /* MyAnswerAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A72FD1B2B386B5700CD1BF8 /* MyAnswerAdaptor.swift */; };
 		4A72FD1E2B386B6200CD1BF8 /* MyAnswerNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A72FD1D2B386B6200CD1BF8 /* MyAnswerNavigation.swift */; };
 		4A72FD222B3A9FB300CD1BF8 /* RegisterPopUpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A72FD212B3A9FB300CD1BF8 /* RegisterPopUpManager.swift */; };
-		4A72FD242B3AA02400CD1BF8 /* RegisterPopUpAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A72FD232B3AA02400CD1BF8 /* RegisterPopUpAdaptor.swift */; };
+		4A72FD242B3AA02400CD1BF8 /* RegisterPopUpNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A72FD232B3AA02400CD1BF8 /* RegisterPopUpNavigation.swift */; };
 		4A8502D22B31275F00EC12DD /* TodayQuestionNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8502D12B31275F00EC12DD /* TodayQuestionNavigation.swift */; };
 		4A8502D42B312DCA00EC12DD /* TodayQuestionAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8502D32B312DCA00EC12DD /* TodayQuestionAdaptor.swift */; };
 		4AA747532B1CEF9C004D0335 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA747522B1CEF9C004D0335 /* UIColor+.swift */; };
@@ -272,7 +272,7 @@
 		4A72FD1B2B386B5700CD1BF8 /* MyAnswerAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnswerAdaptor.swift; sourceTree = "<group>"; };
 		4A72FD1D2B386B6200CD1BF8 /* MyAnswerNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnswerNavigation.swift; sourceTree = "<group>"; };
 		4A72FD212B3A9FB300CD1BF8 /* RegisterPopUpManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPopUpManager.swift; sourceTree = "<group>"; };
-		4A72FD232B3AA02400CD1BF8 /* RegisterPopUpAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPopUpAdaptor.swift; sourceTree = "<group>"; };
+		4A72FD232B3AA02400CD1BF8 /* RegisterPopUpNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPopUpNavigation.swift; sourceTree = "<group>"; };
 		4A8502D12B31275F00EC12DD /* TodayQuestionNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayQuestionNavigation.swift; sourceTree = "<group>"; };
 		4A8502D32B312DCA00EC12DD /* TodayQuestionAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayQuestionAdaptor.swift; sourceTree = "<group>"; };
 		4AA747522B1CEF9C004D0335 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
@@ -1337,7 +1337,7 @@
 				C083F62B2B27F20500808AE6 /* RegisterPopUpViewController.swift */,
 				C07CD88C2B2BCDAC0091DAAF /* RegisterPopUpViewModelImpl.swift */,
 				4A72FD212B3A9FB300CD1BF8 /* RegisterPopUpManager.swift */,
-				4A72FD232B3AA02400CD1BF8 /* RegisterPopUpAdaptor.swift */,
+				4A72FD232B3AA02400CD1BF8 /* RegisterPopUpNavigation.swift */,
 			);
 			path = RegisterPopUp;
 			sourceTree = "<group>";
@@ -1731,7 +1731,7 @@
 				B5ACF7122B2812E2006D7641 /* SplashCoordinator.swift in Sources */,
 				C0CFE1DE2B33D2F4001FB7A5 /* NicknameEditInput.swift in Sources */,
 				C0CFE1E32B3529AF001FB7A5 /* Publisher+.swift in Sources */,
-				4A72FD242B3AA02400CD1BF8 /* RegisterPopUpAdaptor.swift in Sources */,
+				4A72FD242B3AA02400CD1BF8 /* RegisterPopUpNavigation.swift in Sources */,
 				C0E93B402B2035370098A822 /* MyPageCell.swift in Sources */,
 				B5ACF71A2B28158E006D7641 /* OtherAnswersCoordinator.swift in Sources */,
 				B5ACF7252B2818D5006D7641 /* AppCoordinatorImpl.swift in Sources */,

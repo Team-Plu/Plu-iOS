@@ -24,21 +24,11 @@ final class MyAnswerCoordinatorImpl: MyAnswerCoordinator {
     
     func presentRegisterPopUpViewController(answer: String) {
         let popUpCoordinator = PopUpCoordinatorImpl(navigationController: self.navigationController)
-        popUpCoordinator.registerDelgate = self
-        popUpCoordinator.show(type: .register(answer: answer))
+        popUpCoordinator.presentRegisterPopUp()
     }
     
     func pop() {
         self.navigationController?.popViewController(animated: true)
-    }
-    
-}
-
-extension MyAnswerCoordinatorImpl: RegisterDelegate {
-    func register() {
-        print("나의답변을 등록한다고 합니다")
-        self.pop()
-        
     }
 }
 
@@ -46,6 +36,4 @@ extension MyAnswerCoordinatorImpl: MyAnswerNavigation {
     func completeButtonTapped(answer: String) {
         self.presentRegisterPopUpViewController(answer: answer)
     }
-    
-    
 }

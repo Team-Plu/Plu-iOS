@@ -7,9 +7,10 @@
 
 import Foundation
 
+
+
 protocol MyPageNavigation: AnyObject {
-    //TODO: 수정필요
-//    var delegate: MyPageAdaptorDelegate? { get set }
+    var delegate: MyPageDelegate? { get set }
     func navigation(from type: MypageNavigationType)
 }
 

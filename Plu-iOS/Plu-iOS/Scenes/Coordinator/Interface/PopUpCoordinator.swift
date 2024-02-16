@@ -18,9 +18,9 @@ enum PopUpType {
     case selectMonth(date: FilterDate)
 }
 
-protocol PopUpCoordinator: Coordinator {
-    func show(type: PopUpType)
-    func accept(type: PopUpType)
-    func dismiss()
-}
+//protocol PopUpCoordinator: Coordinator {
+//    func show(type: PopUpType)
+//    func accept(type: PopUpType)
+//    func dismiss()
+//}
 
