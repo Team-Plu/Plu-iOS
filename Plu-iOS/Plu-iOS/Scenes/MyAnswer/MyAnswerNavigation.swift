@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol MyAnswerNavigation {
+protocol MyAnswerNavigation: AnyObject {
     func pop()
     func completeButtonTapped(answer: String)
 }

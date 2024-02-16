@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol TodayQuestionNavigation {
+protocol TodayQuestionNavigation: AnyObject {
     func navigationRightButtonTapped()
     func myAnswerButtonTapped()
     func otherAnswerButtonTapped()

@@ -10,22 +10,18 @@ import UIKit
 
 import SnapKit
 
+protocol SplashNavigation: AnyObject {
+    func goToLogin()
+    func goToMain()
+}
+
 final class SplashViewController: UIViewController {
     
     private let eyeImageView = PLUImageView(nil)
     private let wordMarkView = PLUImageView(ImageLiterals.Splash.pluWordmarkLarge)
     
-    let coordinator: SplashCoordinator
-    
-    init(coordinator: SplashCoordinator) {
-        self.coordinator = coordinator
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 
+    weak var delegate: SplashNavigation?
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +30,7 @@ final class SplashViewController: UIViewController {
         setLayout()
         requestNotificationPermission()
         DispatchQueue.main.asyncAfter(wallDeadline: .now()+1) {
-            self.coordinator.showLoginViewController()
+            self.delegate?.goToLogin()
         }
     }
     

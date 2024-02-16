@@ -12,11 +12,7 @@ final class MyAnswerViewModelImpl: MyAnswerViewModel {
     
     private var cancelBag = Set<AnyCancellable>()
     
-    private let adaptor: MyAnswerNavigation
-    
-    init(adaptor: MyAnswerNavigation) {
-        self.adaptor = adaptor
-    }
+    weak var delegate: MyAnswerNavigation?
     
     func transform(input: MyAnswerInput) -> MyAnswerOutput {
         let keyboardTypeSubject = input.keyboardStateSubject
@@ -33,13 +29,13 @@ final class MyAnswerViewModelImpl: MyAnswerViewModel {
         
         input.backButtonTapped
             .sink { [weak self] _ in
-                self?.adaptor.pop()
+                self?.delegate?.pop()
             }
             .store(in: &cancelBag)
         
         input.completeButtonTapped
             .sink { [weak self] answer in
-                self?.adaptor.completeButtonTapped(answer: answer)
+                self?.delegate?.completeButtonTapped(answer: answer)
             }
             .store(in: &cancelBag)
         

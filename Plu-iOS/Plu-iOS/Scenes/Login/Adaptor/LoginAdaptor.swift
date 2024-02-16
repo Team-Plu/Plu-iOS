@@ -7,7 +7,7 @@
 
 import Foundation
 
-
+//
 //final class LoginAdaptor: LoginNavigation {
 //    
 //    let coordinator: AuthCoordinator

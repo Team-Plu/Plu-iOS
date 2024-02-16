@@ -16,7 +16,9 @@ final class MyAnswerCoordinatorImpl: MyAnswerCoordinator {
     }
     
     func showMyAnswerViewController() {
-        let myAnswerViewController = MyAnswerViewController(viewModel: MyAnswerViewModelImpl(adaptor: MyAnswerAdpator(codrdinator: MyAnswerCoordinatorImpl(navigationController: self.navigationController))))
+        let viewModel = MyAnswerViewModelImpl()
+        viewModel.delegate = self
+        let myAnswerViewController = MyAnswerViewController(viewModel: viewModel)
         self.navigationController?.pushViewController(myAnswerViewController, animated: true)
     }
     
@@ -38,4 +40,12 @@ extension MyAnswerCoordinatorImpl: RegisterDelegate {
         self.pop()
         
     }
+}
+
+extension MyAnswerCoordinatorImpl: MyAnswerNavigation {
+    func completeButtonTapped(answer: String) {
+        self.presentRegisterPopUpViewController(answer: answer)
+    }
+    
+    
 }
