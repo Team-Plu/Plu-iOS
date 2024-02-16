@@ -27,7 +27,7 @@ final class MyPageViewController: UIViewController {
     let viewWillAppearSubject = PassthroughSubject<Void, Never>()
     var cancelBag = Set<AnyCancellable>()
     
-    var viewModel: any MyPageViewModel & MyPagePresentable
+    var viewModel: MyPageViewModel
     
     private let navigationBar = PLUNavigationBarView()
         .setTitle(text: StringConstant.Navibar.title.myPage)
@@ -36,7 +36,7 @@ final class MyPageViewController: UIViewController {
     private let myPageTableView = UITableView(frame: .zero, style: .grouped)
     private let renderer = Renderer(adapter: UITableViewAdapter(), updater: UITableViewUpdater())
     
-    init(viewModel: some MyPageViewModel & MyPagePresentable) {
+    init(viewModel: MyPageViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -152,7 +152,7 @@ private extension MyPageViewController {
     }
     
     func bind() {
-        let input = MypageInput(headerTapped: self.headerTapped,
+        let input = MyPageViewModel.Input(headerTapped: self.headerTapped,
                                 faqCellTapped: self.faqCellTapped,
                                 backButtonTapped: self.backButtonTapped,
                                 resignCellTapped: self.resignCellTapped,

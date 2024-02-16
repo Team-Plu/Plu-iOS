@@ -22,7 +22,7 @@ final class MyPageCoordinatorImpl: MyPageCoordinator {
     
     func showMyPageViewController() {
         let manager = MyPageManagerStub()
-        let viewModel = MypageViewModelImpl(manager: manager)
+        let viewModel = MyPageViewModel(manager: manager)
         viewModel.delegate = self
         let mypageViewController = MyPageViewController(viewModel: viewModel)
         self.navigationController?.pushViewController(mypageViewController, animated: true)

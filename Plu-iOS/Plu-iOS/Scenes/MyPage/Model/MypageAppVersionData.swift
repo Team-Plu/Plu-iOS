@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MypageAppVersionData: MyPageCell {
+struct MypageAppVersionData {
     var title: String
     let appVersion: String?
     

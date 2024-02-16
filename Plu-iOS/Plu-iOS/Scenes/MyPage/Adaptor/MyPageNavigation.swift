@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 protocol MyPageNavigation: AnyObject {
     var delegate: MyPageDelegate? { get set }
     func navigation(from type: MypageNavigationType)
