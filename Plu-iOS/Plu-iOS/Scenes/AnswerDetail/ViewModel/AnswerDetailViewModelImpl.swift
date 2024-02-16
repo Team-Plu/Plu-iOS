@@ -10,7 +10,7 @@ import Combine
 
 final class AnswerDetailViewModelImpl: AnswerDetailViewModel, AnswerDetailPresentable {
 
-    weak var delegate: AnswerDetailNavigation?
+    var delegate: AnswerDetailNavigation?
     private let manager: AnswerDetailManager
     
     private var cancelBag = Set<AnyCancellable>()

@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 final class ResignViewModelImpl: ResignViewModel {
-    weak var delegate: ResignNavigation?
+    var delegate: ResignNavigation?
     private let manager: ResignManager
     
     private var cancelBag = Set<AnyCancellable>()

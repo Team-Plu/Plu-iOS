@@ -10,7 +10,7 @@ import Combine
 
 final class OthersAnswerViewModelImpl: OthersAnswerViewModel {
     
-    weak var delegate: OthersAnswerNavigation?
+    var delegate: OthersAnswerNavigation?
     
     private let manager: OthersAnswerManager
     

@@ -10,7 +10,7 @@ import Combine
 
 final class NicknameEditViewModelImpl: NicknameEditViewModel, NicknameCheck {
     var nickNameManager: NicknameManager
-    weak var delegate: NicknameEditNavigation?
+    var delegate: NicknameEditNavigation?
     
     var vaildNicknameSubject = textFieldVaildChecker()
     var cancelBag = Set<AnyCancellable>()

@@ -12,7 +12,7 @@ final class MyAnswerViewModelImpl: MyAnswerViewModel {
     
     private var cancelBag = Set<AnyCancellable>()
     
-    weak var delegate: MyAnswerNavigation?
+    var delegate: MyAnswerNavigation?
     
     func transform(input: MyAnswerInput) -> MyAnswerOutput {
         let keyboardTypeSubject = input.keyboardStateSubject

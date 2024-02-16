@@ -12,7 +12,7 @@ final class MypageViewModelImpl: MyPageViewModel, MyPagePresentable {
     var tableData: [[MyPageSection]] = []
     let switchOnSubject = PassthroughSubject<Void, Never>()
     var cancelBag = Set<AnyCancellable>()
-    weak var delegate: MyPageNavigation?
+    var delegate: MyPageNavigation?
     let manager: MyPageManager
     
     init(manager: MyPageManager) {

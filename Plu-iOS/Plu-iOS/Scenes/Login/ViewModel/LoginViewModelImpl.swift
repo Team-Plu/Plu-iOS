@@ -12,7 +12,7 @@ import Combine
 final class LoginViewModelImpl: LoginViewModel, Login {
     
     var manager: LoginManager
-    weak var delegate: LoginNavigation?
+    var delegate: LoginNavigation?
     
     private var cancelBag = Set<AnyCancellable>()
     

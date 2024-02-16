@@ -16,7 +16,7 @@ import Combine
 final class OnboardingViewModelImpl: OnboardingViewModel, NicknameCheck {
 
     var nickNameManager: NicknameManager
-    weak var delegate: OnboardingNavigation?
+    var delegate: OnboardingNavigation?
     var vaildNicknameSubject = textFieldVaildChecker()
     var cancelBag = Set<AnyCancellable>()
     

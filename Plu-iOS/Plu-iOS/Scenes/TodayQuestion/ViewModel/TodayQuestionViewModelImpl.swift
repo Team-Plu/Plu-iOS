@@ -14,7 +14,7 @@ final class TodayQuestionViewModelImpl: TodayQuestionViewModel {
         case myPage, myAnswer, otherAnswer, alarmPopUp
     }
     
-    weak var delegate: TodayQuestionNavigation?
+    var delegate: TodayQuestionNavigation?
     private let manager: TodayQuestionManagerStub
     private var cancelBag = Set<AnyCancellable>()
     

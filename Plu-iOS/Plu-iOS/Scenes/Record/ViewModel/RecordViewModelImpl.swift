@@ -10,7 +10,7 @@ import Combine
 
 final class RecordViewModelImpl: RecordViewModel {
     
-    weak var delegate: RecordNavigation?
+    var delegate: RecordNavigation?
     private let manager: RecordManager
     
     private var cancelBag = Set<AnyCancellable>()

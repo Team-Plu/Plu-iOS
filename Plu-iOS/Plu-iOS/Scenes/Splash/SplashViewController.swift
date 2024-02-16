@@ -21,7 +21,7 @@ final class SplashViewController: UIViewController {
     private let wordMarkView = PLUImageView(ImageLiterals.Splash.pluWordmarkLarge)
     
 
-    weak var delegate: SplashNavigation?
+    var delegate: SplashNavigation?
 
     public override func viewDidLoad() {
         super.viewDidLoad()
