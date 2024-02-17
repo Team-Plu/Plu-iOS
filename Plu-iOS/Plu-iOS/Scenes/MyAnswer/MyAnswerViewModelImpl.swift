@@ -40,7 +40,8 @@ final class MyAnswerViewModelImpl: MyAnswerViewModel {
             .store(in: &cancelBag)
         
         return MyAnswerOutput(keyboardStatePublisher: keyboardTypeSubject,
-                              textViewTextCountPublisher: textViewTextCountSubject)
+                              textViewTextCountPublisher: textViewTextCountSubject,
+                              popUpCheckPublisher: self.delegate?.myAnswerSubject)
     }
     
 }

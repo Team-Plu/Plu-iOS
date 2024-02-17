@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 final class SplashCoordinatorImpl {
 
     weak var navigationController: UINavigationController?

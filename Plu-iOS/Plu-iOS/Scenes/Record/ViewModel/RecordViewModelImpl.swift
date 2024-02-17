@@ -50,7 +50,8 @@ final class RecordViewModelImpl: RecordViewModel {
             }
             .eraseToAnyPublisher()
         
-        return RecordViewModelOutput(questions: questions)
+        return RecordViewModelOutput(questions: questions,
+                                     selectYearAndMonthPublisehr: self.delegate?.yearAndMonthSubject)
     }
     
     private func makeQuestionsFuture(date: FilterDate?) -> AnyPublisher<[Question], Never> {

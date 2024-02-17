@@ -19,5 +19,6 @@ struct RecordViewModelInput {
 
 struct RecordViewModelOutput {
     let questions: AnyPublisher<[Question], Never>
+    let selectYearAndMonthPublisehr: PassthroughSubject<FilterDate, Never>?
 }
 

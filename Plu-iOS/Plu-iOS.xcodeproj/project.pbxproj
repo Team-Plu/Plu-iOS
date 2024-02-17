@@ -22,7 +22,6 @@
 		4A72FD0F2B3480FE00CD1BF8 /* EmpthyCountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A72FD0E2B3480FE00CD1BF8 /* EmpthyCountRequest.swift */; };
 		4A72FD112B348C5200CD1BF8 /* CountType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A72FD102B348C5200CD1BF8 /* CountType.swift */; };
 		4A72FD1A2B386AA000CD1BF8 /* MyAnswerViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A72FD192B386AA000CD1BF8 /* MyAnswerViewModelImpl.swift */; };
-		4A72FD1C2B386B5700CD1BF8 /* MyAnswerAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A72FD1B2B386B5700CD1BF8 /* MyAnswerAdaptor.swift */; };
 		4A72FD1E2B386B6200CD1BF8 /* MyAnswerNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A72FD1D2B386B6200CD1BF8 /* MyAnswerNavigation.swift */; };
 		4A72FD222B3A9FB300CD1BF8 /* RegisterPopUpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A72FD212B3A9FB300CD1BF8 /* RegisterPopUpManager.swift */; };
 		4A72FD242B3AA02400CD1BF8 /* RegisterPopUpNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A72FD232B3AA02400CD1BF8 /* RegisterPopUpNavigation.swift */; };
@@ -71,7 +70,7 @@
 		B5ACF71C2B2815CB006D7641 /* AnswerDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF71B2B2815CB006D7641 /* AnswerDetailCoordinator.swift */; };
 		B5ACF71E2B2815EA006D7641 /* RecordCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF71D2B2815EA006D7641 /* RecordCoordinator.swift */; };
 		B5ACF7202B281622006D7641 /* MyPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF71F2B281622006D7641 /* MyPageCoordinator.swift */; };
-		B5ACF7222B2816C6006D7641 /* PopUpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF7212B2816C6006D7641 /* PopUpCoordinator.swift */; };
+		B5ACF7222B2816C6006D7641 /* AlarmType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF7212B2816C6006D7641 /* AlarmType.swift */; };
 		B5ACF7252B2818D5006D7641 /* AppCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF7242B2818D5006D7641 /* AppCoordinatorImpl.swift */; };
 		B5ACF7272B281928006D7641 /* SplashCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF7262B281928006D7641 /* SplashCoordinatorImpl.swift */; };
 		B5ACF7292B28196C006D7641 /* TabBarCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ACF7282B28196C006D7641 /* TabBarCoordinatorImpl.swift */; };
@@ -98,9 +97,7 @@
 		B5B744F12B33D62600AF368A /* RecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744F02B33D62600AF368A /* RecordManager.swift */; };
 		B5B744F32B33D6A200AF368A /* RecordManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744F22B33D6A200AF368A /* RecordManagerImpl.swift */; };
 		B5B744F62B34080400AF368A /* RecordNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744F52B34080400AF368A /* RecordNavigation.swift */; };
-		B5B744F82B3408A800AF368A /* RecordAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744F72B3408A800AF368A /* RecordAdaptor.swift */; };
 		B5B744FC2B348C5F00AF368A /* OthersAnswerNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744FB2B348C5F00AF368A /* OthersAnswerNavigation.swift */; };
-		B5B744FE2B348CD300AF368A /* OthersAnswerAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B744FD2B348CD300AF368A /* OthersAnswerAdaptor.swift */; };
 		B5B745012B348D7200AF368A /* OthersAnswerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B745002B348D7200AF368A /* OthersAnswerViewModel.swift */; };
 		B5B745032B348E5E00AF368A /* OthersAnswerViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B745022B348E5E00AF368A /* OthersAnswerViewModelImpl.swift */; };
 		B5B745062B348EA000AF368A /* OthersAnswerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B745052B348EA000AF368A /* OthersAnswerManager.swift */; };
@@ -109,7 +106,6 @@
 		B5B7450C2B34965E00AF368A /* AnswerFilterButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7450B2B34965E00AF368A /* AnswerFilterButtonType.swift */; };
 		B5B7450F2B349F4600AF368A /* GesturePublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7450E2B349F4600AF368A /* GesturePublisher.swift */; };
 		B5B745122B3512FC00AF368A /* ResignNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B745112B3512FC00AF368A /* ResignNavigation.swift */; };
-		B5B745142B35242000AF368A /* ResignAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B745132B35242000AF368A /* ResignAdaptor.swift */; };
 		B5B745172B35247100AF368A /* ResignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B745162B35247100AF368A /* ResignViewModel.swift */; };
 		B5B745192B3524F100AF368A /* ResignViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B745182B3524F100AF368A /* ResignViewModelImpl.swift */; };
 		B5B7451C2B35252400AF368A /* ResignManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7451B2B35252400AF368A /* ResignManager.swift */; };
@@ -187,7 +183,6 @@
 		C0771C8F2B706A7400780707 /* AppversionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0771C8E2B706A7400780707 /* AppversionItem.swift */; };
 		C0771C932B706BE700780707 /* AlarmSettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0771C922B706BE700780707 /* AlarmSettingItem.swift */; };
 		C07AB7272B2828A600C2E02C /* TabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07AB7262B2828A600C2E02C /* TabbarCoordinator.swift */; };
-		C07AB7292B282E2D00C2E02C /* PopUpCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07AB7282B282E2D00C2E02C /* PopUpCoordinatorImpl.swift */; };
 		C07AB72B2B28380200C2E02C /* MyAnswerCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07AB72A2B28380200C2E02C /* MyAnswerCoordinatorImpl.swift */; };
 		C07CD88D2B2BCDAC0091DAAF /* RegisterPopUpViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07CD88C2B2BCDAC0091DAAF /* RegisterPopUpViewModelImpl.swift */; };
 		C07CD88F2B2BD4C90091DAAF /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07CD88E2B2BD4C80091DAAF /* UIButton+.swift */; };
@@ -200,7 +195,6 @@
 		C0CEF3E02B267B3600682D1B /* NicknameCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CEF3DF2B267B3600682D1B /* NicknameCheck.swift */; };
 		C0CFE1D12B33CEA3001FB7A5 /* NicknameEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CFE1D02B33CEA3001FB7A5 /* NicknameEditViewModel.swift */; };
 		C0CFE1D32B33CF43001FB7A5 /* NicknameEditNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CFE1D22B33CF43001FB7A5 /* NicknameEditNavigation.swift */; };
-		C0CFE1D52B33CF89001FB7A5 /* NicknameEditAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CFE1D42B33CF89001FB7A5 /* NicknameEditAdaptor.swift */; };
 		C0CFE1D92B33D2B0001FB7A5 /* OnboardingInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CFE1D82B33D2B0001FB7A5 /* OnboardingInput.swift */; };
 		C0CFE1DB2B33D2BA001FB7A5 /* OnboardingOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CFE1DA2B33D2BA001FB7A5 /* OnboardingOutput.swift */; };
 		C0CFE1DE2B33D2F4001FB7A5 /* NicknameEditInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CFE1DD2B33D2F4001FB7A5 /* NicknameEditInput.swift */; };
@@ -263,7 +257,6 @@
 		4A72FD0E2B3480FE00CD1BF8 /* EmpthyCountRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmpthyCountRequest.swift; sourceTree = "<group>"; };
 		4A72FD102B348C5200CD1BF8 /* CountType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountType.swift; sourceTree = "<group>"; };
 		4A72FD192B386AA000CD1BF8 /* MyAnswerViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnswerViewModelImpl.swift; sourceTree = "<group>"; };
-		4A72FD1B2B386B5700CD1BF8 /* MyAnswerAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnswerAdaptor.swift; sourceTree = "<group>"; };
 		4A72FD1D2B386B6200CD1BF8 /* MyAnswerNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnswerNavigation.swift; sourceTree = "<group>"; };
 		4A72FD212B3A9FB300CD1BF8 /* RegisterPopUpManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPopUpManager.swift; sourceTree = "<group>"; };
 		4A72FD232B3AA02400CD1BF8 /* RegisterPopUpNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPopUpNavigation.swift; sourceTree = "<group>"; };
@@ -314,7 +307,7 @@
 		B5ACF71B2B2815CB006D7641 /* AnswerDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerDetailCoordinator.swift; sourceTree = "<group>"; };
 		B5ACF71D2B2815EA006D7641 /* RecordCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCoordinator.swift; sourceTree = "<group>"; };
 		B5ACF71F2B281622006D7641 /* MyPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCoordinator.swift; sourceTree = "<group>"; };
-		B5ACF7212B2816C6006D7641 /* PopUpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpCoordinator.swift; sourceTree = "<group>"; };
+		B5ACF7212B2816C6006D7641 /* AlarmType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmType.swift; sourceTree = "<group>"; };
 		B5ACF7242B2818D5006D7641 /* AppCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorImpl.swift; sourceTree = "<group>"; };
 		B5ACF7262B281928006D7641 /* SplashCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashCoordinatorImpl.swift; sourceTree = "<group>"; };
 		B5ACF7282B28196C006D7641 /* TabBarCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinatorImpl.swift; sourceTree = "<group>"; };
@@ -341,9 +334,7 @@
 		B5B744F02B33D62600AF368A /* RecordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordManager.swift; sourceTree = "<group>"; };
 		B5B744F22B33D6A200AF368A /* RecordManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordManagerImpl.swift; sourceTree = "<group>"; };
 		B5B744F52B34080400AF368A /* RecordNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordNavigation.swift; sourceTree = "<group>"; };
-		B5B744F72B3408A800AF368A /* RecordAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordAdaptor.swift; sourceTree = "<group>"; };
 		B5B744FB2B348C5F00AF368A /* OthersAnswerNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersAnswerNavigation.swift; sourceTree = "<group>"; };
-		B5B744FD2B348CD300AF368A /* OthersAnswerAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersAnswerAdaptor.swift; sourceTree = "<group>"; };
 		B5B745002B348D7200AF368A /* OthersAnswerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersAnswerViewModel.swift; sourceTree = "<group>"; };
 		B5B745022B348E5E00AF368A /* OthersAnswerViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersAnswerViewModelImpl.swift; sourceTree = "<group>"; };
 		B5B745052B348EA000AF368A /* OthersAnswerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersAnswerManager.swift; sourceTree = "<group>"; };
@@ -352,7 +343,6 @@
 		B5B7450B2B34965E00AF368A /* AnswerFilterButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerFilterButtonType.swift; sourceTree = "<group>"; };
 		B5B7450E2B349F4600AF368A /* GesturePublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GesturePublisher.swift; sourceTree = "<group>"; };
 		B5B745112B3512FC00AF368A /* ResignNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignNavigation.swift; sourceTree = "<group>"; };
-		B5B745132B35242000AF368A /* ResignAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignAdaptor.swift; sourceTree = "<group>"; };
 		B5B745162B35247100AF368A /* ResignViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignViewModel.swift; sourceTree = "<group>"; };
 		B5B745182B3524F100AF368A /* ResignViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignViewModelImpl.swift; sourceTree = "<group>"; };
 		B5B7451B2B35252400AF368A /* ResignManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignManager.swift; sourceTree = "<group>"; };
@@ -421,7 +411,6 @@
 		C0771C8E2B706A7400780707 /* AppversionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppversionItem.swift; sourceTree = "<group>"; };
 		C0771C922B706BE700780707 /* AlarmSettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmSettingItem.swift; sourceTree = "<group>"; };
 		C07AB7262B2828A600C2E02C /* TabbarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarCoordinator.swift; sourceTree = "<group>"; };
-		C07AB7282B282E2D00C2E02C /* PopUpCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpCoordinatorImpl.swift; sourceTree = "<group>"; };
 		C07AB72A2B28380200C2E02C /* MyAnswerCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnswerCoordinatorImpl.swift; sourceTree = "<group>"; };
 		C07CD88C2B2BCDAC0091DAAF /* RegisterPopUpViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPopUpViewModelImpl.swift; sourceTree = "<group>"; };
 		C07CD88E2B2BD4C80091DAAF /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
@@ -434,7 +423,6 @@
 		C0CEF3DF2B267B3600682D1B /* NicknameCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameCheck.swift; sourceTree = "<group>"; };
 		C0CFE1D02B33CEA3001FB7A5 /* NicknameEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameEditViewModel.swift; sourceTree = "<group>"; };
 		C0CFE1D22B33CF43001FB7A5 /* NicknameEditNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameEditNavigation.swift; sourceTree = "<group>"; };
-		C0CFE1D42B33CF89001FB7A5 /* NicknameEditAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameEditAdaptor.swift; sourceTree = "<group>"; };
 		C0CFE1D82B33D2B0001FB7A5 /* OnboardingInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingInput.swift; sourceTree = "<group>"; };
 		C0CFE1DA2B33D2BA001FB7A5 /* OnboardingOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingOutput.swift; sourceTree = "<group>"; };
 		C0CFE1DD2B33D2F4001FB7A5 /* NicknameEditInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameEditInput.swift; sourceTree = "<group>"; };
@@ -655,6 +643,7 @@
 		B5ACF70D2B27F180006D7641 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				B5ACF7212B2816C6006D7641 /* AlarmType.swift */,
 				B5ACF7232B2818C3006D7641 /* CoordinatorImpl */,
 				B5ACF70E2B27F18B006D7641 /* Interface */,
 			);
@@ -673,7 +662,6 @@
 				B5ACF71B2B2815CB006D7641 /* AnswerDetailCoordinator.swift */,
 				B5ACF71D2B2815EA006D7641 /* RecordCoordinator.swift */,
 				B5ACF71F2B281622006D7641 /* MyPageCoordinator.swift */,
-				B5ACF7212B2816C6006D7641 /* PopUpCoordinator.swift */,
 				C07AB7262B2828A600C2E02C /* TabbarCoordinator.swift */,
 				C0DBFB352B300EFF002F71A4 /* ExitUser.swift */,
 			);
@@ -689,7 +677,6 @@
 				B5ACF72A2B281A19006D7641 /* AuthCoordinatorImpl.swift */,
 				4A4466692B281F52002D5BF7 /* TodayQuestionCoordinatorImpl.swift */,
 				4A44666B2B28208D002D5BF7 /* RecordCoordinatorImpl.swift */,
-				C07AB7282B282E2D00C2E02C /* PopUpCoordinatorImpl.swift */,
 				C07AB72A2B28380200C2E02C /* MyAnswerCoordinatorImpl.swift */,
 				B5ACF72C2B283CD8006D7641 /* OtherAnswerCoordinatorImpl.swift */,
 				B5ACF72E2B283D23006D7641 /* AnswerDetailCoordinatorImpl.swift */,
@@ -769,15 +756,6 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
-		B5B744F42B3407FD00AF368A /* Adaptor */ = {
-			isa = PBXGroup;
-			children = (
-				B5B744F52B34080400AF368A /* RecordNavigation.swift */,
-				B5B744F72B3408A800AF368A /* RecordAdaptor.swift */,
-			);
-			path = Adaptor;
-			sourceTree = "<group>";
-		};
 		B5B744F92B3411DE00AF368A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -785,15 +763,6 @@
 				B5B744EB2B33CDEE00AF368A /* RecordViewModelImpl.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		B5B744FA2B348C5300AF368A /* Adaptor */ = {
-			isa = PBXGroup;
-			children = (
-				B5B744FB2B348C5F00AF368A /* OthersAnswerNavigation.swift */,
-				B5B744FD2B348CD300AF368A /* OthersAnswerAdaptor.swift */,
-			);
-			path = Adaptor;
 			sourceTree = "<group>";
 		};
 		B5B744FF2B348D6A00AF368A /* ViewModel */ = {
@@ -820,15 +789,6 @@
 				B5B7450E2B349F4600AF368A /* GesturePublisher.swift */,
 			);
 			path = Combine;
-			sourceTree = "<group>";
-		};
-		B5B745102B3512ED00AF368A /* Adaptor */ = {
-			isa = PBXGroup;
-			children = (
-				B5B745112B3512FC00AF368A /* ResignNavigation.swift */,
-				B5B745132B35242000AF368A /* ResignAdaptor.swift */,
-			);
-			path = Adaptor;
 			sourceTree = "<group>";
 		};
 		B5B745152B35246B00AF368A /* ViewModel */ = {
@@ -1175,7 +1135,6 @@
 				4ABEEDBB2B2733A60020DA86 /* MyAnswerViewModel.swift */,
 				4ABEEDBD2B27E7310020DA86 /* KeyboardType.swift */,
 				4A72FD192B386AA000CD1BF8 /* MyAnswerViewModelImpl.swift */,
-				4A72FD1B2B386B5700CD1BF8 /* MyAnswerAdaptor.swift */,
 				4A72FD1D2B386B6200CD1BF8 /* MyAnswerNavigation.swift */,
 			);
 			path = MyAnswer;
@@ -1192,9 +1151,9 @@
 		C05E267F2B1D9E4200D91BFA /* OthersAnswer */ = {
 			isa = PBXGroup;
 			children = (
+				B5B744FB2B348C5F00AF368A /* OthersAnswerNavigation.swift */,
 				B5B745042B348E9800AF368A /* Manager */,
 				B5B744FF2B348D6A00AF368A /* ViewModel */,
-				B5B744FA2B348C5300AF368A /* Adaptor */,
 				B5ACF6FD2B22E281006D7641 /* View */,
 				B5ACF6FC2B22E277006D7641 /* TableView */,
 				B5ACF6FB2B22E271006D7641 /* Model */,
@@ -1206,8 +1165,8 @@
 		C05E26802B1D9E4C00D91BFA /* Record */ = {
 			isa = PBXGroup;
 			children = (
+				B5B744F52B34080400AF368A /* RecordNavigation.swift */,
 				B5B744F92B3411DE00AF368A /* ViewModel */,
-				B5B744F42B3407FD00AF368A /* Adaptor */,
 				B5B744EF2B33D5B700AF368A /* Manager */,
 				B5ACF6FA2B22E044006D7641 /* View */,
 				B5ACF6F92B22E035006D7641 /* Model */,
@@ -1219,11 +1178,11 @@
 		C05E26812B1D9E5500D91BFA /* Resign */ = {
 			isa = PBXGroup;
 			children = (
+				B5B745112B3512FC00AF368A /* ResignNavigation.swift */,
 				B5B745202B352BE300AF368A /* ViewController */,
 				B5B7451F2B352BDD00AF368A /* View */,
 				B5B7451A2B35251B00AF368A /* Manager */,
 				B5B745152B35246B00AF368A /* ViewModel */,
-				B5B745102B3512ED00AF368A /* Adaptor */,
 			);
 			path = Resign;
 			sourceTree = "<group>";
@@ -1231,9 +1190,9 @@
 		C05E26822B1D9E5B00D91BFA /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				C0CFE1E92B37D274001FB7A5 /* MyPageNavigation.swift */,
 				C0CFE1F82B37D349001FB7A5 /* ViewModel */,
 				C0CFE1EF2B37D2CB001FB7A5 /* MangerImpl */,
-				C0CFE1E62B37D234001FB7A5 /* Adaptor */,
 				C0E93B582B20491C0098A822 /* ViewController */,
 				C0E93B4C2B2036DA0098A822 /* Enum */,
 				C0E93B412B2035450098A822 /* Model */,
@@ -1340,15 +1299,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		C0CFE1D62B33D283001FB7A5 /* Adaptor */ = {
-			isa = PBXGroup;
-			children = (
-				C0CFE1D22B33CF43001FB7A5 /* NicknameEditNavigation.swift */,
-				C0CFE1D42B33CF89001FB7A5 /* NicknameEditAdaptor.swift */,
-			);
-			path = Adaptor;
-			sourceTree = "<group>";
-		};
 		C0CFE1D72B33D28C001FB7A5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1373,14 +1323,6 @@
 				C0E0D4F62B26C7FC00840C0B /* NicknameEditViewController.swift */,
 			);
 			path = ViewController;
-			sourceTree = "<group>";
-		};
-		C0CFE1E62B37D234001FB7A5 /* Adaptor */ = {
-			isa = PBXGroup;
-			children = (
-				C0CFE1E92B37D274001FB7A5 /* MyPageNavigation.swift */,
-			);
-			path = Adaptor;
 			sourceTree = "<group>";
 		};
 		C0CFE1EF2B37D2CB001FB7A5 /* MangerImpl */ = {
@@ -1411,10 +1353,10 @@
 		C0E0D4F52B26C7C500840C0B /* NicknameEdit */ = {
 			isa = PBXGroup;
 			children = (
+				C0CFE1D22B33CF43001FB7A5 /* NicknameEditNavigation.swift */,
 				C0CFE1E12B33D31E001FB7A5 /* ViewController */,
 				C0CFE1DC2B33D2E4001FB7A5 /* Model */,
 				C0CFE1D72B33D28C001FB7A5 /* ViewModel */,
-				C0CFE1D62B33D283001FB7A5 /* Adaptor */,
 			);
 			path = NicknameEdit;
 			sourceTree = "<group>";
@@ -1633,7 +1575,7 @@
 				C05E26722B1D9BCF00D91BFA /* UILabel+.swift in Sources */,
 				C0771C932B706BE700780707 /* AlarmSettingItem.swift in Sources */,
 				B5B745012B348D7200AF368A /* OthersAnswerViewModel.swift in Sources */,
-				B5ACF7222B2816C6006D7641 /* PopUpCoordinator.swift in Sources */,
+				B5ACF7222B2816C6006D7641 /* AlarmType.swift in Sources */,
 				B5B744D42B312E7D00AF368A /* LoginViewModelImpl.swift in Sources */,
 				B5ACF6C92B1EE26C006D7641 /* ElementColor.swift in Sources */,
 				B5B744F12B33D62600AF368A /* RecordManager.swift in Sources */,
@@ -1652,7 +1594,6 @@
 				B5ACF7142B28133E006D7641 /* AuthCoordinator.swift in Sources */,
 				4AD85E132B32BCFB00558188 /* TodayQuestionManager.swift in Sources */,
 				C0E93B452B2035650098A822 /* MyPageAlarmData.swift in Sources */,
-				B5B745142B35242000AF368A /* ResignAdaptor.swift in Sources */,
 				4ABEEDBE2B27E7310020DA86 /* KeyboardType.swift in Sources */,
 				B5B745082B348F3D00AF368A /* OthersAnswerManagerImpl.swift in Sources */,
 				C05E263F2B1C4E1E00D91BFA /* UIFont+.swift in Sources */,
@@ -1663,7 +1604,6 @@
 				C0CFE1EC2B37D296001FB7A5 /* MyPageManager.swift in Sources */,
 				C0D813F42B312E7D00F1B180 /* OnboardingAdaptor.swift in Sources */,
 				B5ACF7042B26C807006D7641 /* RecordDiffableDataSource.swift in Sources */,
-				C0CFE1D52B33CF89001FB7A5 /* NicknameEditAdaptor.swift in Sources */,
 				B5F1DD352B7F1ABD00A2A5BA /* KakaoLoginService.swift in Sources */,
 				C04E4CF42B2A8DCF00ABDFAA /* SelectMonthPopUpViewModelImpl.swift in Sources */,
 				C0E93B4B2B20359B0098A822 /* MyPageUserExitType.swift in Sources */,
@@ -1674,7 +1614,6 @@
 				B5B745172B35247100AF368A /* ResignViewModel.swift in Sources */,
 				C0682A882B25862200AD4DB4 /* NicknameManagerStub.swift in Sources */,
 				C0E93B502B2037C20098A822 /* MyPageCellHeight.swift in Sources */,
-				B5B744F82B3408A800AF368A /* RecordAdaptor.swift in Sources */,
 				C0CEF3E02B267B3600682D1B /* NicknameCheck.swift in Sources */,
 				4AD85E112B32B70300558188 /* TodayQuestionResponse.swift in Sources */,
 				4AA7476E2B26119D004D0335 /* AnswerDetailViewController.swift in Sources */,
@@ -1691,7 +1630,6 @@
 				B5B744D82B31314F00AF368A /* LoginManagerImpl.swift in Sources */,
 				C00113DA2B25359100B2C799 /* OnboardingViewModel.swift in Sources */,
 				4AA747652B25B8C8004D0335 /* PLUExplanationView.swift in Sources */,
-				4A72FD1C2B386B5700CD1BF8 /* MyAnswerAdaptor.swift in Sources */,
 				C083F62C2B27F20500808AE6 /* RegisterPopUpViewController.swift in Sources */,
 				B5B7450A2B3491F400AF368A /* AnswerFilter.swift in Sources */,
 				C05E26982B1D9F1000D91BFA /* LoginViewController.swift in Sources */,
@@ -1717,7 +1655,6 @@
 				B5ACF7252B2818D5006D7641 /* AppCoordinatorImpl.swift in Sources */,
 				B5B744EE2B33D2BB00AF368A /* FilterDate.swift in Sources */,
 				4A4466712B2D8DB1002D5BF7 /* UserDefaultKey.swift in Sources */,
-				B5B744FE2B348CD300AF368A /* OthersAnswerAdaptor.swift in Sources */,
 				B5B744E42B32C87500AF368A /* Login.swift in Sources */,
 				C0CFE1D32B33CF43001FB7A5 /* NicknameEditNavigation.swift in Sources */,
 				C0E0D4F72B26C7FC00840C0B /* NicknameEditViewController.swift in Sources */,
@@ -1813,7 +1750,6 @@
 				B5B744F32B33D6A200AF368A /* RecordManagerImpl.swift in Sources */,
 				4A72FCFF2B3457BF00CD1BF8 /* AnswerDetailViewModel.swift in Sources */,
 				4A72FD072B345A4C00CD1BF8 /* AnswerDetailMananger.swift in Sources */,
-				C07AB7292B282E2D00C2E02C /* PopUpCoordinatorImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

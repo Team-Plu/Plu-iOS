@@ -8,10 +8,6 @@
 import UIKit
 import Combine
 
-protocol RecordCoordinatorDelegate: AnyObject {
-    func getYearAndMonth(year: Int, month: Int)
-}
-
 final class RecordCoordinatorImpl: RecordCoordinator {
 
     var yearAndMonthSubject = PassthroughSubject<FilterDate, Never>()
@@ -36,10 +32,10 @@ final class RecordCoordinatorImpl: RecordCoordinator {
     }
     
     func presentSelectMonthPopUpViewController() {
-        let popUpCoordinator = PopUpCoordinatorImpl(navigationController: self.navigationController)
-//        popUpCoordinator.selectMonthDelegate = self
-//        popUpCoordinator.show(type: .selectMonth(date: .empty))
-        popUpCoordinator.presentSelectYearAndMonthPopUp()
+        let viewModel = SelectMonthPopUpViewModelImpl()
+        viewModel.delegate = self
+        let selectedYearAndMonthViewController = SelectYearAndMonthPopUpViewController(viewModel: viewModel)
+        self.navigationController?.present(selectedYearAndMonthViewController, animated: true)
     }
     
     func showAnswerDetailViewController(id: Int) {
@@ -48,11 +44,11 @@ final class RecordCoordinatorImpl: RecordCoordinator {
     }
 }
 
-//TODO: 수정 필요
-extension RecordCoordinatorImpl: SelectMonthDelegate {
-    func passYearAndMonth(date: FilterDate) {
-        self.yearAndMonthSubject.send(date)
-//        self.delegate?.getYearAndMonth(year: year, month: month)
+extension RecordCoordinatorImpl: SelectYearAndMonthNavigation {
+    func confirmButtonTapped(input: FilterDate) {
+        self.navigationController?.dismiss(animated: true) {
+            self.yearAndMonthSubject.send(input)
+        }
     }
 }
 
@@ -68,5 +64,4 @@ extension RecordCoordinatorImpl: RecordNavigation {
     func navigationRightButtonTapped() {
         self.showMyPageViewController()
     }
-    
 }

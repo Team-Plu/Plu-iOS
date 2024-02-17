@@ -36,20 +36,7 @@ final class TodayQuestionCoordinatorImpl: TodayQuestionCoordinator {
         let otherAnswerCoordinator = OtherAnswerCoordinatorImpl(navigationController: self.navigationController)
         otherAnswerCoordinator.showOtherAnswersViewController()
     }
-    
-//    func presentAlarmPopUpViewController() {
-//        let popUpCoordinator = PopUpCoordinatorImpl(navigationController: self.navigationController)
-////        popUpCoordinator.alarmDelegate = self
-////        popUpCoordinator.show(type: .alarm(.todayQuestion))
-//
-//    }
 }
-
-//extension TodayQuestionCoordinatorImpl: AlarmDelegate {
-//    func isAccept() {
-//        print("알람 확인 버튼이 늘렸습니다")
-//    }
-//}
 
 extension TodayQuestionCoordinatorImpl: TodayQuestionNavigation {
     func navigationRightButtonTapped() {
@@ -63,8 +50,4 @@ extension TodayQuestionCoordinatorImpl: TodayQuestionNavigation {
     func otherAnswerButtonTapped() {
         self.showOtherAnswersViewController()
     }
-//    
-//    func presentAlarmPopUp() {
-//        self.presentAlarmPopUpViewController()
-//    }
 }

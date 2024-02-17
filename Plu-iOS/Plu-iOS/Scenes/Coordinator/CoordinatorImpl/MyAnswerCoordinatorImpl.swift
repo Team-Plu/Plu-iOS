@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import Combine
 
 final class MyAnswerCoordinatorImpl: MyAnswerCoordinator {
-    
+    var myAnswerSubject = PassthroughSubject<Void, Never>()
     weak var navigationController: UINavigationController?
     
     init(navigationController: UINavigationController?) {
@@ -23,8 +24,11 @@ final class MyAnswerCoordinatorImpl: MyAnswerCoordinator {
     }
     
     func presentRegisterPopUpViewController(answer: String) {
-        let popUpCoordinator = PopUpCoordinatorImpl(navigationController: self.navigationController)
-        popUpCoordinator.presentRegisterPopUp()
+        let manager = RegisterPopUpManagerImpl()
+        let viewModel = RegisterPopUpViewModelImpl(manager: manager)
+        viewModel.delegate = self
+        let registerPopUpViewController = RegisterPopUpViewController(viewModel: viewModel)
+        self.navigationController?.present(registerPopUpViewController, animated: true)
     }
     
     func pop() {
@@ -35,5 +39,18 @@ final class MyAnswerCoordinatorImpl: MyAnswerCoordinator {
 extension MyAnswerCoordinatorImpl: MyAnswerNavigation {
     func completeButtonTapped(answer: String) {
         self.presentRegisterPopUpViewController(answer: answer)
+    }
+}
+
+extension MyAnswerCoordinatorImpl: RegisterPopUpNavigation {
+    func dismiss() {
+        self.navigationController?.dismiss(animated: true)
+    }
+    
+    func completeButtonTapped() {
+        self.navigationController?.dismiss(animated: true) {
+            self.myAnswerSubject.send(())
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     }
 }

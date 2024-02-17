@@ -20,4 +20,5 @@ struct MyAnswerInput {
 struct MyAnswerOutput {
     let keyboardStatePublisher: AnyPublisher<Bool, Never>
     let textViewTextCountPublisher: AnyPublisher<Bool, Never>
+    let popUpCheckPublisher: PassthroughSubject<Void, Never>?
 }

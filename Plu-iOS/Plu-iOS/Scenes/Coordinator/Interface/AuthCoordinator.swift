@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 protocol AuthCoordinator: Coordinator {
     func showLoginViewController()
     func showTabbarController()

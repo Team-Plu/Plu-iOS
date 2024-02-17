@@ -116,6 +116,13 @@ final class MyAnswerViewController: UIViewController {
                 self?.navigationBar.setRightButtonState(isEnabled: state)
             }
             .store(in: &cancelBag)
+        
+        output.popUpCheckPublisher?
+            .sink { _ in
+                print("Myswer쪽 PopUp의 확인버튼이 눌렸습니다")
+            }
+            .store(in: &cancelBag)
+        
     }
     
     private func updateTextViewLayout(keyboardState: Bool) {

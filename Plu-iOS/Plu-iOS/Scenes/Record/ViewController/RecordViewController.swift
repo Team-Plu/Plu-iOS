@@ -106,6 +106,12 @@ final class RecordViewController: UIViewController {
             }
             .store(in: &cancelBag)
         
+        output.selectYearAndMonthPublisehr?
+            .sink { date in
+                print("\(date.year)년 \(date.month)월이 선택되었습니다")
+            }
+            .store(in: &cancelBag)
+        
     }
 }
 

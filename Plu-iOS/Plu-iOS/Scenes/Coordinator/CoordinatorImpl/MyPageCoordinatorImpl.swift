@@ -10,7 +10,7 @@ import Combine
 
 final class MyPageCoordinatorImpl: MyPageCoordinator {
     
-     var popUpCheckSubject = PassthroughSubject<Void, Never>()
+    var popUpCheckSubject = PassthroughSubject<Void, Never>()
     weak var navigationController: UINavigationController?
     
     init(navigationController: UINavigationController?) {
@@ -70,10 +70,7 @@ extension MyPageCoordinatorImpl: AlaramNavigation {
     func alarmCancelButtonTapped() {
         self.navigationController?.dismiss(animated: true)
     }
-    
-    
 }
-
 
 extension MyPageCoordinatorImpl: MyPageNavigation {
     func navigation(from type: MypageNavigationType) {
