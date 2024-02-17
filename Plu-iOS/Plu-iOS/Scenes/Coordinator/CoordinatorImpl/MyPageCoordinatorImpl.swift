@@ -6,14 +6,11 @@
 //
 
 import UIKit
-
-protocol MyPageDelegate: AnyObject {
-    func alarmAcceptTapped()
-}
+import Combine
 
 final class MyPageCoordinatorImpl: MyPageCoordinator {
     
-    weak var delegate: MyPageDelegate?
+     var popUpCheckSubject = PassthroughSubject<Void, Never>()
     weak var navigationController: UINavigationController?
     
     init(navigationController: UINavigationController?) {
@@ -66,7 +63,7 @@ extension MyPageCoordinatorImpl: ResignNavigation {
 extension MyPageCoordinatorImpl: AlaramNavigation {
     func alarmContinueButtonTapped() {
         self.navigationController?.dismiss(animated: true) {
-            self.delegate?.alarmAcceptTapped()
+            self.popUpCheckSubject.send(())
         }
     }
     

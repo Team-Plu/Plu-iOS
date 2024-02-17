@@ -171,7 +171,7 @@ private extension MyPageViewController {
             }
             .store(in: &cancelBag)
         
-        output.switchOnSubject
+        output.switchOnSubject?
             .sink { _ in
                 self.render(isOn: true)
             }

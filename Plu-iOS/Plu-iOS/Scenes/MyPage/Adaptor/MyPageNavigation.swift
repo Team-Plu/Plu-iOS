@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import Combine
 
 protocol MyPageNavigation: AnyObject {
-    var delegate: MyPageDelegate? { get set }
+    var popUpCheckSubject: PassthroughSubject<Void, Never> { get set }
     func navigation(from type: MypageNavigationType)
 }
 

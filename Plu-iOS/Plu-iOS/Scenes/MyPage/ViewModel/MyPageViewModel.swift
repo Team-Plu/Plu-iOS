@@ -24,10 +24,10 @@ final class MyPageViewModel {
     
     struct Output {
         var viewWillAppearPublisher: AnyPublisher<MyPageUserData, Never>
-        var switchOnSubject: PassthroughSubject<Void, Never>
+        var switchOnSubject: PassthroughSubject<Void, Never>?
     }
 
-    let switchOnSubject = PassthroughSubject<Void, Never>()
+//    let switchOnSubject = PassthroughSubject<Void, Never>()
     var cancelBag = Set<AnyCancellable>()
     var delegate: MyPageNavigation?
     let manager: MyPageManager
@@ -62,18 +62,8 @@ final class MyPageViewModel {
             }
             .sink { _ in }
             .store(in: &cancelBag)
-            
-        self.delegate?.delegate = self
-        return Output(viewWillAppearPublisher: viewWillAppearPublisher, switchOnSubject: switchOnSubject)
-    }
-    
-//    private func setTableViewDataFromUserData(_ alarmAccept: Bool, _ appVersion: String?) -> [[MyPageSection]] {
-//        return MyPageSection.makeMypageData(alarmAccept, appVersion)
-//    }
-}
-
-extension MyPageViewModel: MyPageDelegate {
-    func alarmAcceptTapped() {
-        self.switchOnSubject.send(())
+        
+        
+        return Output(viewWillAppearPublisher: viewWillAppearPublisher, switchOnSubject: self.delegate?.popUpCheckSubject)
     }
 }
