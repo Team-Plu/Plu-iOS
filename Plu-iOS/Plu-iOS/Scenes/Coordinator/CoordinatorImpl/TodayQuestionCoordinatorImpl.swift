@@ -16,7 +16,9 @@ final class TodayQuestionCoordinatorImpl: TodayQuestionCoordinator {
     }
     
     func showTodayQuestionViewController() {
-        let todayQuestionViewController = TodayQuestionViewController(viewModel: TodayQuestionViewModelImpl(adaptor: TodayQuestionAdaptor(coordinator: self), manager: TodayQuestionManagerStub()))
+        let viewModel = TodayQuestionViewModelImpl(manager: TodayQuestionManagerStub())
+        viewModel.delegate = self
+        let todayQuestionViewController = TodayQuestionViewController(viewModel: viewModel)
         self.navigationController?.pushViewController(todayQuestionViewController, animated: true)
     }
     
@@ -34,16 +36,18 @@ final class TodayQuestionCoordinatorImpl: TodayQuestionCoordinator {
         let otherAnswerCoordinator = OtherAnswerCoordinatorImpl(navigationController: self.navigationController)
         otherAnswerCoordinator.showOtherAnswersViewController()
     }
-    
-    func presentAlarmPopUpViewController() {
-        let popUpCoordinator = PopUpCoordinatorImpl(navigationController: self.navigationController)
-        popUpCoordinator.alarmDelegate = self
-        popUpCoordinator.show(type: .alarm(.todayQuestion))
-    }
 }
 
-extension TodayQuestionCoordinatorImpl: AlarmDelegate {
-    func isAccept() {
-        print("알람 확인 버튼이 늘렸습니다")
+extension TodayQuestionCoordinatorImpl: TodayQuestionNavigation {
+    func navigationRightButtonTapped() {
+        self.showMyPageViewController()
+    }
+    
+    func myAnswerButtonTapped() {
+        self.showMyAnswerViewController()
+    }
+    
+    func otherAnswerButtonTapped() {
+        self.showOtherAnswersViewController()
     }
 }

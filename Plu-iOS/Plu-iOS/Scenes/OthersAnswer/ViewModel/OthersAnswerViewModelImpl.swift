@@ -10,15 +10,15 @@ import Combine
 
 final class OthersAnswerViewModelImpl: OthersAnswerViewModel {
     
-    private let adaptor: OthersAnswerNavigation
+    var delegate: OthersAnswerNavigation?
+    
     private let manager: OthersAnswerManager
     
     private var answer: OthersAnswer?
     
     private var cancelBag = Set<AnyCancellable>()
     
-    init(adaptor: OthersAnswerNavigation, manager: OthersAnswerManager) {
-        self.adaptor = adaptor
+    init(manager: OthersAnswerManager) {
         self.manager = manager
     }
     
@@ -26,14 +26,14 @@ final class OthersAnswerViewModelImpl: OthersAnswerViewModel {
         
         input.navigationBackButtonTapped
             .sink { [weak self] _ in
-                self?.adaptor.navigationBackButtonTapped()
+                self?.delegate?.navigationBackButtonTapped()
             }
             .store(in: &cancelBag)
         
         input.tableViewCellTapped
             .sink { [weak self] row in
                 guard let id = self?.answer?.answers[row].id else { return }
-                self?.adaptor.tableViewCellTapped(id: id)
+                self?.delegate?.tableViewCellTapped(id: id)
             }
             .store(in: &cancelBag)
         

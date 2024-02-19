@@ -17,9 +17,9 @@ final class AuthCoordinatorImpl: AuthCoordinator {
     }
     
     func showLoginViewController() {
-        let adaptor = LoginAdaptor(coordinator: self)
         let manager = LoginManagerImpl()
-        let loginViewModelImpl = LoginViewModelImpl(adaptor: adaptor, manager: manager)
+        let loginViewModelImpl = LoginViewModelImpl(manager: manager)
+        loginViewModelImpl.delegate = self
         let loginViewController = LoginViewController(viewModel: loginViewModelImpl)
         self.navigationController?.pushViewController(loginViewController, animated: true)
     }
@@ -30,14 +30,36 @@ final class AuthCoordinatorImpl: AuthCoordinator {
     }
     
     func showOnboardingController() {
-        let adaptor = OnboardingAdaptor(coordinator: self)
         let manger = NicknameManagerStub()
-        let viewModel = OnboardingViewModelImpl(manager: manger, adaptor: adaptor)
+        let viewModel = OnboardingViewModelImpl(manager: manger)
+        viewModel.delegate = self
         let onboardingViewController = OnboardingViewController(viewModel: viewModel)
         self.navigationController?.pushViewController(onboardingViewController, animated: true)
     }
     
     func pop() {
         self.navigationController?.popViewController(animated: true)
+    }
+}
+
+extension AuthCoordinatorImpl: LoginNavigation {
+    func loginButtonTapped(type: LoginState) {
+        switch type {
+        case .loginSuccess:
+            self.showOnboardingController()
+        case .userNotFound:
+            self.showOnboardingController()
+        }
+
+    }
+}
+
+extension AuthCoordinatorImpl: OnboardingNavigation {
+    func backButtonTapped() {
+        self.pop()
+    }
+    
+    func signInButtonTapped() {
+        self.showTabbarController()
     }
 }

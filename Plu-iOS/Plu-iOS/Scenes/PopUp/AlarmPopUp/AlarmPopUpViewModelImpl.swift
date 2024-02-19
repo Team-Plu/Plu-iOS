@@ -43,32 +43,32 @@ struct AlarmDescription {
     }
 }
 
+protocol AlaramNavigation: AnyObject {
+    func alarmContinueButtonTapped()
+    func alarmCancelButtonTapped()
+    
+}
+
 final class AlarmPopUpViewModelImpl: AlarmPopUpViewModel {
     
-    let coordinator: PopUpCoordinator
+    var delegate: AlaramNavigation?
     var cancelBag = Set<AnyCancellable>()
-    let type: AlarmType
-    
-    init(coordinator: PopUpCoordinator, type: AlarmType) {
-        self.coordinator = coordinator
-        self.type = type
-    }
 
     func transform(input: AlarmPopUpInput) -> AlarmPopUpOutput {
         input.buttonSubject
             .sink { type in
                 switch type {
                 case .reject:
-                    self.coordinator.dismiss()
+                    self.delegate?.alarmCancelButtonTapped()
                 case .accept:
-                    self.coordinator.accept(type: .alarm(.mypage))
+                    self.delegate?.alarmContinueButtonTapped()
                 }
             }
             .store(in: &cancelBag)
         
         let viewDidLoadPublisher = input.viewDidLoadSubject
             .map { _ -> AlarmDescription in
-                return AlarmDescription(type: self.type)
+                return AlarmDescription(type: .mypage)
             }
             .eraseToAnyPublisher()
         return AlarmPopUpOutput(viewDidLoadPublisher: viewDidLoadPublisher)

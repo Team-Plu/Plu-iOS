@@ -12,6 +12,5 @@ protocol TodayQuestionCoordinator: Coordinator {
     func showMyPageViewController()
     func showMyAnswerViewController()
     func showOtherAnswersViewController()
-    func presentAlarmPopUpViewController()
 }
 

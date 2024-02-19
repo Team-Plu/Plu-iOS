@@ -8,7 +8,7 @@
 import Foundation
 
 
-protocol OthersAnswerNavigation {
+protocol OthersAnswerNavigation: AnyObject {
     func tableViewCellTapped(id: Int)
     func navigationBackButtonTapped()
 }

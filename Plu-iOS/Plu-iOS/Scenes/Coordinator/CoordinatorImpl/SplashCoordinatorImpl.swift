@@ -7,8 +7,7 @@
 
 import UIKit
 
-
-final class SplashCoordinatorImpl: SplashCoordinator {
+final class SplashCoordinatorImpl {
 
     weak var navigationController: UINavigationController?
     
@@ -17,7 +16,8 @@ final class SplashCoordinatorImpl: SplashCoordinator {
     }
     
     func showSplashViewController() {
-        let splashViewController = SplashViewController(coordinator: self)
+        let splashViewController = SplashViewController()
+        splashViewController.delegate = self
         self.navigationController?.pushViewController(splashViewController, animated: false)
     }
     
@@ -29,5 +29,15 @@ final class SplashCoordinatorImpl: SplashCoordinator {
     func showLoginViewController() {
         let authCoordinator = AuthCoordinatorImpl(navigationController: navigationController)
         authCoordinator.showLoginViewController()
+    }
+}
+
+extension SplashCoordinatorImpl: SplashNavigation {
+    func goToLogin() {
+        self.showLoginViewController()
+    }
+    
+    func goToMain() {
+        self.showTabbarViewContoller()
     }
 }

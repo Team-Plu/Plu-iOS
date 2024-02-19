@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MyPageAlarmData: MyPageCell {
+struct MyPageAlarmData {
     var title: String
     let acceptAlarm: Bool
     

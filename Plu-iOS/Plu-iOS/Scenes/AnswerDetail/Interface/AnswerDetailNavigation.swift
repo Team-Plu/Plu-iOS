@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol AnswerDetailNavigation {
-    func pop()
+protocol AnswerDetailNavigation: AnyObject {
+    func backButtonTapped()
 }

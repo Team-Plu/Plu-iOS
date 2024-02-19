@@ -24,14 +24,13 @@ struct RegisterPopUpOutput {}
 
 final class RegisterPopUpViewModelImpl: RegisterPopUpViewModel, RegisterPopUpPresentable {
 
-    private let adaptor: RegisterPopUpNavigation
+    var delegate: RegisterPopUpNavigation?
     private let manager: RegisterPopUpManager
     var cancelBag = Set<AnyCancellable>()
     
     private var answer: String?
     
-    init(adaptor: RegisterPopUpNavigation, manager: RegisterPopUpManager) {
-        self.adaptor = adaptor
+    init(manager: RegisterPopUpManager) {
         self.manager = manager
     }
 
@@ -41,7 +40,7 @@ final class RegisterPopUpViewModelImpl: RegisterPopUpViewModel, RegisterPopUpPre
             .sink { type in
                 switch type {
                 case .reCheck:
-                    self.adaptor.dismiss()
+                    self.delegate?.dismiss()
                 default:
                     break
                 }
@@ -70,8 +69,7 @@ final class RegisterPopUpViewModelImpl: RegisterPopUpViewModel, RegisterPopUpPre
             }
             .eraseToAnyPublisher()
             .sink { _ in
-                guard let answer = self.answer else { return }
-                self.adaptor.completeButtonTapped(answer: answer)
+                self.delegate?.completeButtonTapped()
             }
             .store(in: &cancelBag)
         

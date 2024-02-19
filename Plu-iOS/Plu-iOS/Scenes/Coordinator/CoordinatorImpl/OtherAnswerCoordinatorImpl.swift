@@ -16,9 +16,9 @@ final class OtherAnswerCoordinatorImpl: OtherAnswersCoordinator {
     }
     
     func showOtherAnswersViewController() {
-        let adaptor = OthersAnswerAdaptor(coordinator: self)
         let manager = OthersAnswerManagerImpl()
-        let viewModel = OthersAnswerViewModelImpl(adaptor: adaptor, manager: manager)
+        let viewModel = OthersAnswerViewModelImpl(manager: manager)
+        viewModel.delegate = self
         let otherAnswerViewController = OthersAnswerViewController(viewModel: viewModel)
         self.navigationController?.pushViewController(otherAnswerViewController, animated: true)
     }
@@ -31,4 +31,15 @@ final class OtherAnswerCoordinatorImpl: OtherAnswersCoordinator {
     func pop() {
         self.navigationController?.popViewController(animated: true)
     }
+}
+
+extension OtherAnswerCoordinatorImpl: OthersAnswerNavigation {
+    func tableViewCellTapped(id: Int) {
+        self.showAnswerDetailViewController(id: id)
+    }
+    
+    func navigationBackButtonTapped() {
+        self.pop()
+    }
+    
 }

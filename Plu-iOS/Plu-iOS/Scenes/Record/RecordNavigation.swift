@@ -9,10 +9,9 @@ import Foundation
 import Combine
 
 
-protocol RecordNavigation {
+protocol RecordNavigation: AnyObject {
+    var yearAndMonthSubject: PassthroughSubject<FilterDate, Never> { get set }
     func dateFilterButtonTapped()
     func tableViewCellTapped(id: Int)
     func navigationRightButtonTapped()
-    
-    var yearAndMonthSubject: PassthroughSubject<FilterDate?, Never> { get set }
 }

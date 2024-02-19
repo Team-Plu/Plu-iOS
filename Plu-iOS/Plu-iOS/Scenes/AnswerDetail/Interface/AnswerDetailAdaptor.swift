@@ -7,15 +7,15 @@
 
 import Foundation
 
-final class AnswerDetailAdaptor: AnswerDetailNavigation {
-
-    private let coordinator: AnswerDetailCoordinator
-    
-    init(coordinator: AnswerDetailCoordinator) {
-        self.coordinator = coordinator
-    }
-    
-    func pop() {
-        coordinator.pop()
-    }
-}
+//final class AnswerDetailAdaptor: AnswerDetailNavigation {
+//
+//    private let coordinator: AnswerDetailCoordinator
+//    
+//    init(coordinator: AnswerDetailCoordinator) {
+//        self.coordinator = coordinator
+//    }
+//    
+//    func pop() {
+//        coordinator.pop()
+//    }
+//}

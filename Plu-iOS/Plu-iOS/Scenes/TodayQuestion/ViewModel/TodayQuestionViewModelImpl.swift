@@ -14,12 +14,11 @@ final class TodayQuestionViewModelImpl: TodayQuestionViewModel {
         case myPage, myAnswer, otherAnswer, alarmPopUp
     }
     
-    private let adaptor: TodayQuestionNavigation
+    var delegate: TodayQuestionNavigation?
     private let manager: TodayQuestionManagerStub
     private var cancelBag = Set<AnyCancellable>()
     
-    init(adaptor: TodayQuestionNavigation, manager: TodayQuestionManagerStub) {
-        self.adaptor = adaptor
+    init(manager: TodayQuestionManagerStub) {
         self.manager = manager
     }
     
@@ -50,25 +49,25 @@ final class TodayQuestionViewModelImpl: TodayQuestionViewModel {
             }
             .filter { $0 }
             .sink { [weak self] _ in
-                self?.adaptor.presentAlarmPopUp()
+//                self?.delegate?.presentAlarmPopUp()
             }
             .store(in: &cancelBag)
         
         input.navigationRightButtonTapped
             .sink { [weak self] _ in
-                self?.adaptor.navigationRightButtonTapped()
+                self?.delegate?.navigationRightButtonTapped()
             }
             .store(in: &cancelBag)
         
         input.myAnswerButtonTapped
             .sink { [weak self] _ in
-                self?.adaptor.myAnswerButtonTapped()
+                self?.delegate?.myAnswerButtonTapped()
             }
             .store(in: &cancelBag)
         
         input.otherAnswerButtonTapped
             .sink { [weak self] _ in
-                self?.adaptor.otherAnswerButtonTapped()
+                self?.delegate?.otherAnswerButtonTapped()
             }
             .store(in: &cancelBag)
         

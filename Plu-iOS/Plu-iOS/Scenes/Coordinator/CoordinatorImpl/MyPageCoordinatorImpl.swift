@@ -6,13 +6,11 @@
 //
 
 import UIKit
-
-protocol MypageAlarmResultDelegate: AnyObject {
-    func isAccept()
-}
+import Combine
 
 final class MyPageCoordinatorImpl: MyPageCoordinator {
-    weak var delegate: MypageAlarmResultDelegate?
+    
+    var popUpCheckSubject = PassthroughSubject<Void, Never>()
     weak var navigationController: UINavigationController?
     
     init(navigationController: UINavigationController?) {
@@ -20,30 +18,32 @@ final class MyPageCoordinatorImpl: MyPageCoordinator {
     }
     
     func showMyPageViewController() {
-        let adaptor = MypageAdaptor(coorinator: self)
         let manager = MyPageManagerStub()
-        let mypageViewController = MyPageViewController(viewModel: MypageViewModelImpl(adaptor: adaptor, manager: manager))
+        let viewModel = MyPageViewModel(manager: manager)
+        viewModel.delegate = self
+        let mypageViewController = MyPageViewController(viewModel: viewModel)
         self.navigationController?.pushViewController(mypageViewController, animated: true)
     }
     
     func presentAlarmPopUpViewController() {
-        let popUpCoordinator = PopUpCoordinatorImpl(navigationController: self.navigationController)
-        popUpCoordinator.alarmDelegate = self
-        popUpCoordinator.show(type: .alarm(.mypage))
+        let viewModel = AlarmPopUpViewModelImpl()
+        viewModel.delegate = self
+        let alarmPopUp = AlarmPopUpViewController(viewModel: viewModel)
+        self.navigationController?.present(alarmPopUp, animated: true)
     }
     
     func showProfileEditViewController() {
-        let adaptor = NicknameEditAdaptor(coordinator: self)
         let manager = NicknameManagerStub()
-        let viewModel = NicknameEditViewModelImpl(nickNameManager: manager, adaptor: adaptor)
+        let viewModel = NicknameEditViewModelImpl(nickNameManager: manager)
+        viewModel.delegate = self
         let profileEditViewController = NicknameEditViewController(viewModel: viewModel)
         self.navigationController?.pushViewController(profileEditViewController, animated: true)
     }
     
     func showResignViewController() {
-        let adaptor = ResignAdaptor(coordinator: self)
         let manager = ResignManagerImpl()
-        let viewModel = ResignViewModelImpl(adaptor: adaptor, manager: manager)
+        let viewModel = ResignViewModelImpl(manager: manager)
+        viewModel.delegate = self
         let resignViewController = ResignViewController(viewModel: viewModel)
         self.navigationController?.pushViewController(resignViewController, animated: true)
     }
@@ -53,8 +53,54 @@ final class MyPageCoordinatorImpl: MyPageCoordinator {
     }
 }
 
-extension MyPageCoordinatorImpl: AlarmDelegate {
-    func isAccept() {
-        self.delegate?.isAccept()
+extension MyPageCoordinatorImpl: ResignNavigation {
+    func resignButtonTapped() {
+        self.exitUserToSplash()
+    }
+    
+}
+
+extension MyPageCoordinatorImpl: AlaramNavigation {
+    func alarmContinueButtonTapped() {
+        self.navigationController?.dismiss(animated: true) {
+            self.popUpCheckSubject.send(())
+        }
+    }
+    
+    func alarmCancelButtonTapped() {
+        self.navigationController?.dismiss(animated: true)
+    }
+}
+
+extension MyPageCoordinatorImpl: MyPageNavigation {
+    func navigation(from type: MypageNavigationType) {
+        switch type {
+        case .header:
+            self.showProfileEditViewController()
+        case .back:
+            self.pop()
+        case .resign:
+            self.showResignViewController()
+        case .logout:
+            print("로그아웃이 눌림")
+        case .alarm:
+            self.presentAlarmPopUpViewController()
+        case .faq:
+            print("faq가 눌림")
+        case .openSource:
+            print("오픈소스가 눌림")
+        case .privacy:
+            print("개인정보가 눌림")
+        }
+    }
+}
+
+extension MyPageCoordinatorImpl: NicknameEditNavigation {
+    func backButtonTapped() {
+        self.pop()
+    }
+    
+    func nicknameChangeCompleteButtonTapped() {
+        self.pop()
     }
 }

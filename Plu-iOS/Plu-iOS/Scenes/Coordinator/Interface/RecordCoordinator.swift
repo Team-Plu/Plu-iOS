@@ -8,12 +8,10 @@
 import Foundation
 import Combine
 
-
 protocol RecordCoordinator: Coordinator {
+    var yearAndMonthSubject: PassthroughSubject<FilterDate, Never> { get set }
     func showRecordViewController()
     func showMyPageViewController()
     func presentSelectMonthPopUpViewController()
     func showAnswerDetailViewController(id: Int)
-    
-    var yearAndMonthSubject: PassthroughSubject<FilterDate, Never> { get set }
 }

@@ -12,6 +12,9 @@ protocol Navigation {
     func navigation(from type: NavigationType)
 }
 
-protocol OnboardingNavigation: Navigation where NavigationType == OnboardingNavigationType {}
+protocol OnboardingNavigation: AnyObject {
+    func backButtonTapped()
+    func signInButtonTapped()
+}
 
 

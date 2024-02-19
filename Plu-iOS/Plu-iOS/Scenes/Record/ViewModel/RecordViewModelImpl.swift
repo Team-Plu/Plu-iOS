@@ -10,48 +10,48 @@ import Combine
 
 final class RecordViewModelImpl: RecordViewModel {
     
-    private let adaptor: RecordNavigation
+    var delegate: RecordNavigation?
     private let manager: RecordManager
     
     private var cancelBag = Set<AnyCancellable>()
     
     private var questions: [Question]?
     
-    init(adaptor: RecordNavigation, manager: RecordManager) {
-        self.adaptor = adaptor
+    init(manager: RecordManager) {
         self.manager = manager
     }
     
     func transform(input: RecordViewModelInput) -> RecordViewModelOutput {
         input.filterButtonTapped
             .sink { [weak self] _ in
-                self?.adaptor.dateFilterButtonTapped()
+                self?.delegate?.dateFilterButtonTapped()
             }
             .store(in: &cancelBag)
         
         input.tableViewCellTapped
             .sink { [weak self] row in
                 guard let id = self?.questions?[row].id else { return }
-                self?.adaptor.tableViewCellTapped(id: id)
+                self?.delegate?.tableViewCellTapped(id: id)
             }
             .store(in: &cancelBag)
         
         input.navigationRightButtonTapped
             .sink { [weak self] _ in
-                self?.adaptor.navigationRightButtonTapped()
+                self?.delegate?.navigationRightButtonTapped()
             }
             .store(in: &cancelBag)
         
         let viewWillAppear = input.viewWillAppear
-        let filterYearAndMonth = adaptor.yearAndMonthSubject
-        
-        let questions = viewWillAppear.merge(with: filterYearAndMonth)
+//        let filterYearAndMonth = self.delegate?.yearAndMonthSubject
+//            .merge(with: filterYearAndMonth)
+        let questions = viewWillAppear
             .flatMap { date -> AnyPublisher<[Question], Never> in
                 return self.makeQuestionsFuture(date: date)
             }
             .eraseToAnyPublisher()
         
-        return RecordViewModelOutput(questions: questions)
+        return RecordViewModelOutput(questions: questions,
+                                     selectYearAndMonthPublisehr: self.delegate?.yearAndMonthSubject)
     }
     
     private func makeQuestionsFuture(date: FilterDate?) -> AnyPublisher<[Question], Never> {

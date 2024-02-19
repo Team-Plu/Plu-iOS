@@ -24,6 +24,10 @@ struct SelectMonthPopUpOutput {
     let viewDidLoadPublisher: AnyPublisher<(yearRow: Int, monthRow: Int), Never>
 }
 
+protocol SelectYearAndMonthNavigation {
+    func confirmButtonTapped(input: FilterDate)
+}
+
 final class SelectMonthPopUpViewModelImpl: SelectMonthPopUpViewModel {
     
     var availableYear: [Int] = []
@@ -33,14 +37,10 @@ final class SelectMonthPopUpViewModelImpl: SelectMonthPopUpViewModel {
     var todayYear = "0"
     var todayMonth = "0"
     
-    var coordinator: PopUpCoordinator
+    var delegate: SelectYearAndMonthNavigation?
     
     var cancelBag = Set<AnyCancellable>()
     
-
-    init(coordinator: PopUpCoordinator) {
-        self.coordinator = coordinator
-    }
     
     func transform(input: SelectMonthPopUpInput) -> SelectMonthPopUpOutput {
         let viewDidLoadPublisher = input.viewWillAppearSubject
@@ -64,9 +64,8 @@ final class SelectMonthPopUpViewModelImpl: SelectMonthPopUpViewModel {
         input.registerButtonTapSubject
             .sink { [weak self] _ in
                 guard let selectedYear = self?.selectedYear, let selectedMonth = self?.selectedMonth else { return }
-                print("\(selectedYear)년 \(selectedMonth)월이 선택되었습니다")
                 let date = FilterDate(year: selectedYear, month: selectedMonth)
-                self?.coordinator.accept(type: .selectMonth(date: date))
+                self?.delegate?.confirmButtonTapped(input: date)
             }
             .store(in: &cancelBag)
         

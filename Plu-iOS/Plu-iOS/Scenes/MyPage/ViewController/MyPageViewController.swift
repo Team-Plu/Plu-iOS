@@ -16,9 +16,6 @@ final class MyPageViewController: UIViewController {
     
     private enum MypageType { case profile, alarm, info, version, user }
     
-    // 임시변수 추후 뷰모델로 이동
-    var isOn = false
-    
     let headerTapped = PassthroughSubject<MypageNavigationType, Never>()
     let faqCellTapped = PassthroughSubject<MypageNavigationType, Never>()
     let backButtonTapped = PassthroughSubject<MypageNavigationType, Never>()
@@ -28,10 +25,9 @@ final class MyPageViewController: UIViewController {
     let openSourceCellTapped = PassthroughSubject<MypageNavigationType, Never>()
     let privacyCellTapped = PassthroughSubject<MypageNavigationType, Never>()
     let viewWillAppearSubject = PassthroughSubject<Void, Never>()
-    let switchOnSubject = PassthroughSubject<Void, Never>()
     var cancelBag = Set<AnyCancellable>()
     
-    var viewModel: any MyPageViewModel & MyPagePresentable
+    var viewModel: MyPageViewModel
     
     private let navigationBar = PLUNavigationBarView()
         .setTitle(text: StringConstant.Navibar.title.myPage)
@@ -40,7 +36,7 @@ final class MyPageViewController: UIViewController {
     private let myPageTableView = UITableView(frame: .zero, style: .grouped)
     private let renderer = Renderer(adapter: UITableViewAdapter(), updater: UITableViewUpdater())
     
-    init(viewModel: some MyPageViewModel & MyPagePresentable) {
+    init(viewModel: MyPageViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -57,7 +53,7 @@ final class MyPageViewController: UIViewController {
         setLayout()
         bindInput()
         bind()
-        render()
+        render(isOn: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -71,7 +67,7 @@ final class MyPageViewController: UIViewController {
     }
     
 
-    func render() {
+    func render(isOn: Bool) {
         renderer.render {
             Section(id: MypageType.profile) {
                 ProfileItem(nickname: "Plu님") {
@@ -81,14 +77,13 @@ final class MyPageViewController: UIViewController {
             
             Section(id: MypageType.alarm) {
                 RoundHeadItem()
-                AlarmSettingItem(isOn: self.isOn) { type in
+                AlarmSettingItem(isOn: isOn) { type in
                     switch type {
                     case .alarmAccept:
                         self.alarmSwitchTapped.send(.alarm)
                     case .alarmReject:
                         self.goToSettingPage { _ in
-                            self.isOn = false
-                            self.render()
+                            self.render(isOn: false)
                         }
                     }
                 }
@@ -157,7 +152,7 @@ private extension MyPageViewController {
     }
     
     func bind() {
-        let input = MypageInput(headerTapped: self.headerTapped,
+        let input = MyPageViewModel.Input(headerTapped: self.headerTapped,
                                 faqCellTapped: self.faqCellTapped,
                                 backButtonTapped: self.backButtonTapped,
                                 resignCellTapped: self.resignCellTapped,
@@ -172,13 +167,13 @@ private extension MyPageViewController {
         output.viewWillAppearPublisher
             .receive(on: DispatchQueue.main)
             .sink { userData in
-                print(userData)
+                self.render(isOn: userData.acceptAlarm)
             }
             .store(in: &cancelBag)
         
-        output.switchOnSubject
+        output.switchOnSubject?
             .sink { _ in
-                self.switchOnSubject.send(())
+                self.render(isOn: true)
             }
             .store(in: &cancelBag)
     }

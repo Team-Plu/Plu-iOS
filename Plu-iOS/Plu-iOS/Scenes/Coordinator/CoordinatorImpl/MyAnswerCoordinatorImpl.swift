@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import Combine
 
 final class MyAnswerCoordinatorImpl: MyAnswerCoordinator {
-    
+    var myAnswerSubject = PassthroughSubject<Void, Never>()
     weak var navigationController: UINavigationController?
     
     init(navigationController: UINavigationController?) {
@@ -16,26 +17,40 @@ final class MyAnswerCoordinatorImpl: MyAnswerCoordinator {
     }
     
     func showMyAnswerViewController() {
-        let myAnswerViewController = MyAnswerViewController(viewModel: MyAnswerViewModelImpl(adaptor: MyAnswerAdpator(codrdinator: MyAnswerCoordinatorImpl(navigationController: self.navigationController))))
+        let viewModel = MyAnswerViewModelImpl()
+        viewModel.delegate = self
+        let myAnswerViewController = MyAnswerViewController(viewModel: viewModel)
         self.navigationController?.pushViewController(myAnswerViewController, animated: true)
     }
     
     func presentRegisterPopUpViewController(answer: String) {
-        let popUpCoordinator = PopUpCoordinatorImpl(navigationController: self.navigationController)
-        popUpCoordinator.registerDelgate = self
-        popUpCoordinator.show(type: .register(answer: answer))
+        let manager = RegisterPopUpManagerImpl()
+        let viewModel = RegisterPopUpViewModelImpl(manager: manager)
+        viewModel.delegate = self
+        let registerPopUpViewController = RegisterPopUpViewController(viewModel: viewModel)
+        self.navigationController?.present(registerPopUpViewController, animated: true)
     }
     
     func pop() {
         self.navigationController?.popViewController(animated: true)
     }
-    
 }
 
-extension MyAnswerCoordinatorImpl: RegisterDelegate {
-    func register() {
-        print("나의답변을 등록한다고 합니다")
-        self.pop()
-        
+extension MyAnswerCoordinatorImpl: MyAnswerNavigation {
+    func completeButtonTapped(answer: String) {
+        self.presentRegisterPopUpViewController(answer: answer)
+    }
+}
+
+extension MyAnswerCoordinatorImpl: RegisterPopUpNavigation {
+    func dismiss() {
+        self.navigationController?.dismiss(animated: true)
+    }
+    
+    func completeButtonTapped() {
+        self.navigationController?.dismiss(animated: true) {
+            self.myAnswerSubject.send(())
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     }
 }
