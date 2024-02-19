@@ -9,7 +9,13 @@ import UIKit
 
 final class ResignDescriptionView: UIView {
     
-    private var descriptionLabel = PLULabel(type: .body3, color: .gray700, backgroundColor: .gray10, alignment: .center, lines: 3, text: StringConstant.Resign.resignDescriptionText)
+    private var descriptionLabel = PLULabel(type: .body3,
+                                            color: .gray700,
+                                            backgroundColor: .gray10,
+                                            alignment: .left,
+                                            lines: 4,
+                                            text: StringConstant.Resign.resignDescriptionText)
+        .setLineSpacing(10)
 
     override init(frame: CGRect) {
         super.init(frame: frame)

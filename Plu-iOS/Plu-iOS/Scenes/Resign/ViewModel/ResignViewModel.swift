@@ -12,11 +12,11 @@ protocol ResignViewModel: ViewModel where Input == ResignViewModelInput, Output 
 
 struct ResignViewModelInput {
     let navigationBackButtonTapped: PassthroughSubject<Void, Never>
-    let reuseButtonTapped: PassthroughSubject<Void, Never>
+    let checkBoxButtonTapped: PassthroughSubject<Bool, Never>
     let resignButtonTapped: PassthroughSubject<Void, Never>
 }
 
 struct ResignViewModelOutput {
-    let resignResult: AnyPublisher<LoadingState, Never>
+    let resignButtonStatePublisher: AnyPublisher<Bool, Never>
 }
 
