@@ -8,23 +8,21 @@
 import Foundation
 import Combine
 
-protocol RegisterPopUpPresentable {
-    func setAnswer(answer: String)
+
+protocol CheckPopUpViewModel: ViewModel {
+    func transform(input: CheckPopUpInput) -> CheckPopUpOutput
 }
 
-protocol RegisterPopUpViewModel: ViewModel {
-    func transform(input: RegisterPopUpInput) -> RegisterPopUpOutput
+struct CheckPopUpInput {
+    let leftButtonSubject: PassthroughSubject<Void, Never>
+    let rightButtonSubject: PassthroughSubject<Void, Never>
 }
 
-struct RegisterPopUpInput {
-    let buttonSubject: PassthroughSubject<RegisterPopUpViewController.ButtonType, Never>
-}
+struct CheckPopUpOutput {}
 
-struct RegisterPopUpOutput {}
+final class RegisterPopUpViewModelImpl: CheckPopUpViewModel {
 
-final class RegisterPopUpViewModelImpl: RegisterPopUpViewModel, RegisterPopUpPresentable {
-
-    var delegate: RegisterPopUpNavigation?
+    var delegate: CheckPopUpNavigation?
     private let manager: RegisterPopUpManager
     var cancelBag = Set<AnyCancellable>()
     
@@ -34,23 +32,13 @@ final class RegisterPopUpViewModelImpl: RegisterPopUpViewModel, RegisterPopUpPre
         self.manager = manager
     }
 
-    func transform(input: RegisterPopUpInput) -> RegisterPopUpOutput {
+    func transform(input: CheckPopUpInput) -> CheckPopUpOutput {
         
-        input.buttonSubject
-            .sink { type in
-                switch type {
-                case .reCheck:
-                    self.delegate?.dismiss()
-                default:
-                    break
-                }
-            }
+        input.leftButtonSubject
+            .sink { [weak self] _ in self?.delegate?.leftButtonTapped() }
             .store(in: &cancelBag)
         
-        input.buttonSubject
-            .filter { type -> Bool in
-                type == .register
-            }
+        input.rightButtonSubject
             .flatMap { type -> AnyPublisher<String, Never> in
                 return Future<String, Error> { promise in
                     Task {
@@ -69,12 +57,12 @@ final class RegisterPopUpViewModelImpl: RegisterPopUpViewModel, RegisterPopUpPre
             }
             .eraseToAnyPublisher()
             .sink { _ in
-                self.delegate?.completeButtonTapped()
+                self.delegate?.rightButtonTapped()
             }
             .store(in: &cancelBag)
         
         
-        return RegisterPopUpOutput()
+        return CheckPopUpOutput()
     }
 }
 

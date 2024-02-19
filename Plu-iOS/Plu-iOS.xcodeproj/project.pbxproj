@@ -24,7 +24,7 @@
 		4A72FD1A2B386AA000CD1BF8 /* MyAnswerViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A72FD192B386AA000CD1BF8 /* MyAnswerViewModelImpl.swift */; };
 		4A72FD1E2B386B6200CD1BF8 /* MyAnswerNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A72FD1D2B386B6200CD1BF8 /* MyAnswerNavigation.swift */; };
 		4A72FD222B3A9FB300CD1BF8 /* RegisterPopUpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A72FD212B3A9FB300CD1BF8 /* RegisterPopUpManager.swift */; };
-		4A72FD242B3AA02400CD1BF8 /* RegisterPopUpNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A72FD232B3AA02400CD1BF8 /* RegisterPopUpNavigation.swift */; };
+		4A72FD242B3AA02400CD1BF8 /* CheckPopUpNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A72FD232B3AA02400CD1BF8 /* CheckPopUpNavigation.swift */; };
 		4A8502D22B31275F00EC12DD /* TodayQuestionNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8502D12B31275F00EC12DD /* TodayQuestionNavigation.swift */; };
 		4A8502D42B312DCA00EC12DD /* TodayQuestionAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8502D32B312DCA00EC12DD /* TodayQuestionAdaptor.swift */; };
 		4AA747532B1CEF9C004D0335 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA747522B1CEF9C004D0335 /* UIColor+.swift */; };
@@ -184,12 +184,12 @@
 		C0771C932B706BE700780707 /* AlarmSettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0771C922B706BE700780707 /* AlarmSettingItem.swift */; };
 		C07AB7272B2828A600C2E02C /* TabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07AB7262B2828A600C2E02C /* TabbarCoordinator.swift */; };
 		C07AB72B2B28380200C2E02C /* MyAnswerCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07AB72A2B28380200C2E02C /* MyAnswerCoordinatorImpl.swift */; };
-		C07CD88D2B2BCDAC0091DAAF /* RegisterPopUpViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07CD88C2B2BCDAC0091DAAF /* RegisterPopUpViewModelImpl.swift */; };
+		C07CD88D2B2BCDAC0091DAAF /* CheckPopUpViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07CD88C2B2BCDAC0091DAAF /* CheckPopUpViewModelImpl.swift */; };
 		C07CD88F2B2BD4C90091DAAF /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07CD88E2B2BD4C80091DAAF /* UIButton+.swift */; };
 		C07CD8912B2BD9E20091DAAF /* AlarmPopUpViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07CD8902B2BD9E20091DAAF /* AlarmPopUpViewModelImpl.swift */; };
 		C083F6262B27EDBA00808AE6 /* PopUpDimmedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C083F6252B27EDBA00808AE6 /* PopUpDimmedViewController.swift */; };
 		C083F62A2B27EE4400808AE6 /* AlarmPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C083F6292B27EE4400808AE6 /* AlarmPopUpViewController.swift */; };
-		C083F62C2B27F20500808AE6 /* RegisterPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C083F62B2B27F20500808AE6 /* RegisterPopUpViewController.swift */; };
+		C083F62C2B27F20500808AE6 /* CheckPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C083F62B2B27F20500808AE6 /* CheckPopUpViewController.swift */; };
 		C083F6302B27F30200808AE6 /* SelectYearAndMonthPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C083F62F2B27F30200808AE6 /* SelectYearAndMonthPopUpViewController.swift */; };
 		C0CEF3DE2B267A4B00682D1B /* NicknameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CEF3DD2B267A4B00682D1B /* NicknameState.swift */; };
 		C0CEF3E02B267B3600682D1B /* NicknameCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CEF3DF2B267B3600682D1B /* NicknameCheck.swift */; };
@@ -211,6 +211,8 @@
 		C0D813F22B312E4200F1B180 /* OnboardingNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D813F12B312E4200F1B180 /* OnboardingNavigation.swift */; };
 		C0D813F42B312E7D00F1B180 /* OnboardingAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D813F32B312E7D00F1B180 /* OnboardingAdaptor.swift */; };
 		C0DBFB362B300EFF002F71A4 /* ExitUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DBFB352B300EFF002F71A4 /* ExitUser.swift */; };
+		C0DCA6AE2B82E6E800A622F4 /* ResignPopUpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCA6AD2B82E6E800A622F4 /* ResignPopUpManager.swift */; };
+		C0DCA6B02B82E7BA00A622F4 /* ResignPopUpViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCA6AF2B82E7BA00A622F4 /* ResignPopUpViewModelImpl.swift */; };
 		C0E0D4F72B26C7FC00840C0B /* NicknameEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E0D4F62B26C7FC00840C0B /* NicknameEditViewController.swift */; };
 		C0E0D4F92B26C81700840C0B /* NicknameEditViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E0D4F82B26C81700840C0B /* NicknameEditViewModelImpl.swift */; };
 		C0E0D4FB2B26CC4C00840C0B /* PLUImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E0D4FA2B26CC4C00840C0B /* PLUImageView.swift */; };
@@ -259,7 +261,7 @@
 		4A72FD192B386AA000CD1BF8 /* MyAnswerViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnswerViewModelImpl.swift; sourceTree = "<group>"; };
 		4A72FD1D2B386B6200CD1BF8 /* MyAnswerNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnswerNavigation.swift; sourceTree = "<group>"; };
 		4A72FD212B3A9FB300CD1BF8 /* RegisterPopUpManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPopUpManager.swift; sourceTree = "<group>"; };
-		4A72FD232B3AA02400CD1BF8 /* RegisterPopUpNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPopUpNavigation.swift; sourceTree = "<group>"; };
+		4A72FD232B3AA02400CD1BF8 /* CheckPopUpNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPopUpNavigation.swift; sourceTree = "<group>"; };
 		4A8502D12B31275F00EC12DD /* TodayQuestionNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayQuestionNavigation.swift; sourceTree = "<group>"; };
 		4A8502D32B312DCA00EC12DD /* TodayQuestionAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayQuestionAdaptor.swift; sourceTree = "<group>"; };
 		4AA747522B1CEF9C004D0335 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
@@ -412,12 +414,12 @@
 		C0771C922B706BE700780707 /* AlarmSettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmSettingItem.swift; sourceTree = "<group>"; };
 		C07AB7262B2828A600C2E02C /* TabbarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarCoordinator.swift; sourceTree = "<group>"; };
 		C07AB72A2B28380200C2E02C /* MyAnswerCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnswerCoordinatorImpl.swift; sourceTree = "<group>"; };
-		C07CD88C2B2BCDAC0091DAAF /* RegisterPopUpViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPopUpViewModelImpl.swift; sourceTree = "<group>"; };
+		C07CD88C2B2BCDAC0091DAAF /* CheckPopUpViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPopUpViewModelImpl.swift; sourceTree = "<group>"; };
 		C07CD88E2B2BD4C80091DAAF /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		C07CD8902B2BD9E20091DAAF /* AlarmPopUpViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmPopUpViewModelImpl.swift; sourceTree = "<group>"; };
 		C083F6252B27EDBA00808AE6 /* PopUpDimmedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpDimmedViewController.swift; sourceTree = "<group>"; };
 		C083F6292B27EE4400808AE6 /* AlarmPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmPopUpViewController.swift; sourceTree = "<group>"; };
-		C083F62B2B27F20500808AE6 /* RegisterPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPopUpViewController.swift; sourceTree = "<group>"; };
+		C083F62B2B27F20500808AE6 /* CheckPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPopUpViewController.swift; sourceTree = "<group>"; };
 		C083F62F2B27F30200808AE6 /* SelectYearAndMonthPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectYearAndMonthPopUpViewController.swift; sourceTree = "<group>"; };
 		C0CEF3DD2B267A4B00682D1B /* NicknameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameState.swift; sourceTree = "<group>"; };
 		C0CEF3DF2B267B3600682D1B /* NicknameCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameCheck.swift; sourceTree = "<group>"; };
@@ -439,6 +441,8 @@
 		C0D813F12B312E4200F1B180 /* OnboardingNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNavigation.swift; sourceTree = "<group>"; };
 		C0D813F32B312E7D00F1B180 /* OnboardingAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAdaptor.swift; sourceTree = "<group>"; };
 		C0DBFB352B300EFF002F71A4 /* ExitUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitUser.swift; sourceTree = "<group>"; };
+		C0DCA6AD2B82E6E800A622F4 /* ResignPopUpManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignPopUpManager.swift; sourceTree = "<group>"; };
+		C0DCA6AF2B82E7BA00A622F4 /* ResignPopUpViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignPopUpViewModelImpl.swift; sourceTree = "<group>"; };
 		C0E0D4F62B26C7FC00840C0B /* NicknameEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameEditViewController.swift; sourceTree = "<group>"; };
 		C0E0D4F82B26C81700840C0B /* NicknameEditViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameEditViewModelImpl.swift; sourceTree = "<group>"; };
 		C0E0D4FA2B26CC4C00840C0B /* PLUImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLUImageView.swift; sourceTree = "<group>"; };
@@ -1253,7 +1257,7 @@
 			children = (
 				C083F6252B27EDBA00808AE6 /* PopUpDimmedViewController.swift */,
 				C04E4CF52B2AAE0A00ABDFAA /* PLUPopUpContainerView.swift */,
-				C0ABCA6B2B2BC01A00D05079 /* RegisterPopUp */,
+				C0ABCA6B2B2BC01A00D05079 /* CheckPopUp */,
 				C0ABCA6A2B2BBFEF00D05079 /* AlarmPopUp */,
 				C0ABCA692B2BBFB900D05079 /* SelectYearAndMonthPopUp */,
 			);
@@ -1278,15 +1282,17 @@
 			path = AlarmPopUp;
 			sourceTree = "<group>";
 		};
-		C0ABCA6B2B2BC01A00D05079 /* RegisterPopUp */ = {
+		C0ABCA6B2B2BC01A00D05079 /* CheckPopUp */ = {
 			isa = PBXGroup;
 			children = (
-				C083F62B2B27F20500808AE6 /* RegisterPopUpViewController.swift */,
-				C07CD88C2B2BCDAC0091DAAF /* RegisterPopUpViewModelImpl.swift */,
+				C083F62B2B27F20500808AE6 /* CheckPopUpViewController.swift */,
+				C07CD88C2B2BCDAC0091DAAF /* CheckPopUpViewModelImpl.swift */,
 				4A72FD212B3A9FB300CD1BF8 /* RegisterPopUpManager.swift */,
-				4A72FD232B3AA02400CD1BF8 /* RegisterPopUpNavigation.swift */,
+				4A72FD232B3AA02400CD1BF8 /* CheckPopUpNavigation.swift */,
+				C0DCA6AD2B82E6E800A622F4 /* ResignPopUpManager.swift */,
+				C0DCA6AF2B82E7BA00A622F4 /* ResignPopUpViewModelImpl.swift */,
 			);
-			path = RegisterPopUp;
+			path = CheckPopUp;
 			sourceTree = "<group>";
 		};
 		C0CEF3DC2B267A3E00682D1B /* Model */ = {
@@ -1583,6 +1589,7 @@
 				4A72FD112B348C5200CD1BF8 /* CountType.swift in Sources */,
 				C0E93B5A2B20518B0098A822 /* TableSectionViewRegisterDequeueProtocol.swift in Sources */,
 				C0771C8D2B70690300780707 /* ProfileItem.swift in Sources */,
+				C0DCA6B02B82E7BA00A622F4 /* ResignPopUpViewModelImpl.swift in Sources */,
 				C0CFE1F12B37D2D9001FB7A5 /* MyPageManagerStub.swift in Sources */,
 				C012FFF62B2F06FA00433211 /* PLUIndicator.swift in Sources */,
 				C05E26782B1D9D2900D91BFA /* StringConstant.swift in Sources */,
@@ -1630,7 +1637,7 @@
 				B5B744D82B31314F00AF368A /* LoginManagerImpl.swift in Sources */,
 				C00113DA2B25359100B2C799 /* OnboardingViewModel.swift in Sources */,
 				4AA747652B25B8C8004D0335 /* PLUExplanationView.swift in Sources */,
-				C083F62C2B27F20500808AE6 /* RegisterPopUpViewController.swift in Sources */,
+				C083F62C2B27F20500808AE6 /* CheckPopUpViewController.swift in Sources */,
 				B5B7450A2B3491F400AF368A /* AnswerFilter.swift in Sources */,
 				C05E26982B1D9F1000D91BFA /* LoginViewController.swift in Sources */,
 				4A44666F2B2B2035002D5BF7 /* UserDefaultsManager.swift in Sources */,
@@ -1650,7 +1657,7 @@
 				B5ACF7122B2812E2006D7641 /* SplashCoordinator.swift in Sources */,
 				C0CFE1DE2B33D2F4001FB7A5 /* NicknameEditInput.swift in Sources */,
 				C0CFE1E32B3529AF001FB7A5 /* Publisher+.swift in Sources */,
-				4A72FD242B3AA02400CD1BF8 /* RegisterPopUpNavigation.swift in Sources */,
+				4A72FD242B3AA02400CD1BF8 /* CheckPopUpNavigation.swift in Sources */,
 				B5ACF71A2B28158E006D7641 /* OtherAnswersCoordinator.swift in Sources */,
 				B5ACF7252B2818D5006D7641 /* AppCoordinatorImpl.swift in Sources */,
 				B5B744EE2B33D2BB00AF368A /* FilterDate.swift in Sources */,
@@ -1700,7 +1707,8 @@
 				B5ACF6D82B2086A9006D7641 /* PLUButton.swift in Sources */,
 				C05E268A2B1D9EAE00D91BFA /* ResignViewController.swift in Sources */,
 				C07AB72B2B28380200C2E02C /* MyAnswerCoordinatorImpl.swift in Sources */,
-				C07CD88D2B2BCDAC0091DAAF /* RegisterPopUpViewModelImpl.swift in Sources */,
+				C07CD88D2B2BCDAC0091DAAF /* CheckPopUpViewModelImpl.swift in Sources */,
+				C0DCA6AE2B82E6E800A622F4 /* ResignPopUpManager.swift in Sources */,
 				4A44666C2B28208D002D5BF7 /* RecordCoordinatorImpl.swift in Sources */,
 				B5ACF7062B26D47C006D7641 /* TutorialCollectionViewCell.swift in Sources */,
 				B5ACF71E2B2815EA006D7641 /* RecordCoordinator.swift in Sources */,

@@ -17,31 +17,29 @@ struct AlarmPopUpInput {
     let buttonSubject: PassthroughSubject<AlarmPopUpViewController.ButtonType, Never>
 }
 
-struct AlarmPopUpOutput {
-    let viewDidLoadPublisher: AnyPublisher<AlarmDescription, Never>
-}
+struct AlarmPopUpOutput {}
 
-struct AlarmDescription {
-    let title: String
-    let subTitle: String
-    let acceptButtonTitle: String
-    let rejectButtonTitle: String
-    
-    init(type: AlarmType) {
-        switch type {
-        case .todayQuestion:
-            self.title = StringConstant.PopUp.TodayQuestionAlarm.title
-            self.subTitle = StringConstant.PopUp.TodayQuestionAlarm.subTitle
-            self.acceptButtonTitle = StringConstant.PopUp.TodayQuestionAlarm.acceptButtonTitle
-            self.rejectButtonTitle = StringConstant.PopUp.TodayQuestionAlarm.rejectButtonTitle
-        case .mypage:
-            self.title = StringConstant.PopUp.MypageAlarm.title
-            self.subTitle = StringConstant.PopUp.MypageAlarm.subTitle
-            self.acceptButtonTitle = StringConstant.PopUp.MypageAlarm.acceptButtonTitle
-            self.rejectButtonTitle = StringConstant.PopUp.MypageAlarm.rejectButtonTitle
-        }
-    }
-}
+//struct AlarmDescription {
+//    let title: String
+//    let subTitle: String
+//    let acceptButtonTitle: String
+//    let rejectButtonTitle: String
+//    
+//    init(type: AlarmType) {
+//        switch type {
+//        case .todayQuestion:
+//            self.title = StringConstant.PopUp.TodayQuestionAlarm.title
+//            self.subTitle = StringConstant.PopUp.TodayQuestionAlarm.subTitle
+//            self.acceptButtonTitle = StringConstant.PopUp.TodayQuestionAlarm.acceptButtonTitle
+//            self.rejectButtonTitle = StringConstant.PopUp.TodayQuestionAlarm.rejectButtonTitle
+//        case .mypage:
+//            self.title = StringConstant.PopUp.MypageAlarm.title
+//            self.subTitle = StringConstant.PopUp.MypageAlarm.subTitle
+//            self.acceptButtonTitle = StringConstant.PopUp.MypageAlarm.acceptButtonTitle
+//            self.rejectButtonTitle = StringConstant.PopUp.MypageAlarm.rejectButtonTitle
+//        }
+//    }
+//}
 
 protocol AlaramNavigation: AnyObject {
     func alarmContinueButtonTapped()
@@ -66,11 +64,6 @@ final class AlarmPopUpViewModelImpl: AlarmPopUpViewModel {
             }
             .store(in: &cancelBag)
         
-        let viewDidLoadPublisher = input.viewDidLoadSubject
-            .map { _ -> AlarmDescription in
-                return AlarmDescription(type: .mypage)
-            }
-            .eraseToAnyPublisher()
-        return AlarmPopUpOutput(viewDidLoadPublisher: viewDidLoadPublisher)
+        return AlarmPopUpOutput()
     }
 }

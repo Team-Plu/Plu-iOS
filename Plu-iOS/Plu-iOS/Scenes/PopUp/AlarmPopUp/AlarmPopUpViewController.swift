@@ -30,14 +30,14 @@ final class AlarmPopUpViewController: PopUpDimmedViewController {
                                       backgroundColor: .white,
                                       alignment: .center,
                                       lines: 2,
-                                      text: StringConstant.PopUp.TodayQuestionAlarm.title)
+                                      text: StringConstant.PopUp.MypageAlarm.title)
     
     private let popUpSubTitle = PLULabel(type: .body2M,
                                          color: .gray500,
                                          backgroundColor: .white,
                                          alignment: .center,
                                          lines: 2,
-                                         text: StringConstant.PopUp.TodayQuestionAlarm.subTitle)
+                                         text: StringConstant.PopUp.MypageAlarm.subTitle)
     
     private let alarmImage = PLUImageView(ImageLiterals.PopUp.alarm)
 
@@ -47,11 +47,13 @@ final class AlarmPopUpViewController: PopUpDimmedViewController {
                                 foregroundColor: .white)
         .setLayer(cornerRadius: 8,
                   borderColor: .gray600)
+        .setText(text: StringConstant.PopUp.MypageAlarm.acceptButtonTitle, font: .title1)
     
     
     private let rejectButton = PLUButton(config: .plain())
         .setBackForegroundColor(backgroundColor: .white,
                                 foregroundColor: .gray500)
+        .setText(text: StringConstant.PopUp.MypageAlarm.rejectButtonTitle, font: .body2M)
     
     init(viewModel: AlarmPopUpViewModel) {
         self.viewModel = viewModel
@@ -136,14 +138,6 @@ private extension AlarmPopUpViewController {
     
     func bind() {
         let input = AlarmPopUpInput(viewDidLoadSubject: viewDidLoadSubject, buttonSubject: buttonSubject)
-        let output = viewModel.transform(input: input)
-        output.viewDidLoadPublisher
-            .sink { des in
-                self.popUpTitle.text = des.title
-                self.popUpSubTitle.text = des.subTitle
-                self.acceptButton.setText(text: des.acceptButtonTitle, font: .title1)
-                _ = self.rejectButton.underLine(title: des.rejectButtonTitle)
-            }
-            .store(in: &cancelBag)
+        _ = viewModel.transform(input: input)
     }
 }

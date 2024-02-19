@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol RegisterPopUpNavigation: AnyObject {
-    func dismiss()
-    func completeButtonTapped()
+protocol CheckPopUpNavigation: AnyObject {
+    func rightButtonTapped()
+    func leftButtonTapped()
 }
