@@ -48,6 +48,14 @@ final class MyPageCoordinatorImpl: MyPageCoordinator {
         self.navigationController?.pushViewController(resignViewController, animated: true)
     }
     
+    func presentResignPopUp() {
+        let manager = ResignManagerImpl()
+        let viewModel = ResignPopUpViewModelImpl(manager: manager)
+        viewModel.delegate = self
+        let resignPopUp = CheckPopUpViewController(viewModel: viewModel, type: .resign)
+        self.navigationController?.present(resignPopUp, animated: true)
+    }
+    
     func pop() {
         self.navigationController?.popViewController(animated: true)
     }
@@ -55,9 +63,19 @@ final class MyPageCoordinatorImpl: MyPageCoordinator {
 
 extension MyPageCoordinatorImpl: ResignNavigation {
     func resignButtonTapped() {
+        self.presentResignPopUp()
+    }
+    
+}
+
+extension MyPageCoordinatorImpl: CheckPopUpNavigation {
+    func rightButtonTapped() {
         self.exitUserToSplash()
     }
     
+    func leftButtonTapped() {
+        self.navigationController?.dismiss(animated: true)
+    }
 }
 
 extension MyPageCoordinatorImpl: AlaramNavigation {
@@ -83,6 +101,7 @@ extension MyPageCoordinatorImpl: MyPageNavigation {
             self.showResignViewController()
         case .logout:
             print("로그아웃이 눌림")
+            self.exitUserToSplash()
         case .alarm:
             self.presentAlarmPopUpViewController()
         case .faq:
