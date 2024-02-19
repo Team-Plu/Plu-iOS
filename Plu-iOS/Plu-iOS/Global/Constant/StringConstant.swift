@@ -98,6 +98,13 @@ enum StringConstant {
             static let checkButtonTitle = "확인"
         }
         
+        enum Resign {
+            static let title = "Plu를 탈퇴할까요?"
+            static let subTitle = "여태껏 내가 작성한\n소중한 일기 기록이 영구적으로 사라져요!"
+            static let resignButtonTitle = "탈퇴하기"
+            static let cancelButtonTitle = "취소하기"
+        }
+        
         enum Register {
             static let title = "이대로 글을 등록할까요?"
             static let subTitle = "한번 글을 등록하고 나면\n글의 내용과 공개여부 수정이 불가능해요."

@@ -54,20 +54,8 @@ final class CheckPopUpViewController: PopUpDimmedViewController {
         .setLayer(cornerRadius: 8,
                   borderColor: .gray50)
     
-    init(viewModel: some CheckPopUpViewModel, type: CheckPopUpType) {
+    init(viewModel: some CheckPopUpViewModel) {
         self.viewModel = viewModel
-        switch type {
-        case .register:
-            self.popUpTitle.text = StringConstant.PopUp.Register.title
-            self.popUpSubTitle.text = StringConstant.PopUp.Register.subTitle
-            self.rightButton.setText(text: StringConstant.PopUp.Register.registerButtonTitle, font: .title1)
-            self.leftButton.setText(text: StringConstant.PopUp.Register.checkButtonTitle, font: .title1)
-        case .resign:
-            self.popUpTitle.text = "탈퇴"
-            self.popUpSubTitle.text = "탈퇴"
-            self.rightButton.setText(text: "ㅇㅇ", font: .title1)
-            self.leftButton.setText(text: "ㄴㄴ", font: .title1)
-        }
         super.init()
     }
     
@@ -139,6 +127,14 @@ private extension CheckPopUpViewController {
     
     func bind() {
         let input = CheckPopUpInput(leftButtonSubject: self.leftButtonSubject, rightButtonSubject: self.rightButtonSubject)
-        _ = viewModel.transform(input: input)
+        let output = viewModel.transform(input: input)
+        output.viewDidLoadPublisher
+            .sink { [weak self] text in
+                self?.popUpTitle.text = text.title
+                self?.popUpSubTitle.text = text.subTitle
+                self?.leftButton.setText(text: text.leftButtonTitle, font: .title1)
+                self?.rightButton.setText(text: text.rightButtonTitle, font: .title1)
+            }
+            .store(in: &cancelBag)
     }
 }

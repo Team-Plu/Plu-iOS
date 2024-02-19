@@ -8,18 +8,6 @@
 import Foundation
 import Combine
 
-
-protocol CheckPopUpViewModel: ViewModel {
-    func transform(input: CheckPopUpInput) -> CheckPopUpOutput
-}
-
-struct CheckPopUpInput {
-    let leftButtonSubject: PassthroughSubject<Void, Never>
-    let rightButtonSubject: PassthroughSubject<Void, Never>
-}
-
-struct CheckPopUpOutput {}
-
 final class RegisterPopUpViewModelImpl: CheckPopUpViewModel {
 
     var delegate: CheckPopUpNavigation?
@@ -61,8 +49,12 @@ final class RegisterPopUpViewModelImpl: CheckPopUpViewModel {
             }
             .store(in: &cancelBag)
         
+        let viewDidLoadPublisher = Just(CheckPopUpText(title: StringConstant.PopUp.Register.title,
+                                                       subTitle: StringConstant.PopUp.Register.subTitle,
+                                                       leftButtonTitle: StringConstant.PopUp.Register.checkButtonTitle,
+                                                       rightButtonTitle: StringConstant.PopUp.Register.registerButtonTitle))
         
-        return CheckPopUpOutput()
+        return CheckPopUpOutput(viewDidLoadPublisher: viewDidLoadPublisher.eraseToAnyPublisher())
     }
 }
 

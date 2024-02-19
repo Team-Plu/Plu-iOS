@@ -49,7 +49,11 @@ final class ResignPopUpViewModelImpl: CheckPopUpViewModel {
             }
             .store(in: &cancelBag)
         
+        let viewDidLoadPublisher = Just(CheckPopUpText(title: StringConstant.PopUp.Resign.title,
+                                                       subTitle: StringConstant.PopUp.Resign.subTitle,
+                                                       leftButtonTitle: StringConstant.PopUp.Resign.cancelButtonTitle,
+                                                       rightButtonTitle: StringConstant.PopUp.Resign.resignButtonTitle))
         
-        return CheckPopUpOutput()
+        return CheckPopUpOutput(viewDidLoadPublisher: viewDidLoadPublisher.eraseToAnyPublisher())
     }
 }

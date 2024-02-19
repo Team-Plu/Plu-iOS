@@ -52,7 +52,7 @@ final class MyPageCoordinatorImpl: MyPageCoordinator {
         let manager = ResignManagerImpl()
         let viewModel = ResignPopUpViewModelImpl(manager: manager)
         viewModel.delegate = self
-        let resignPopUp = CheckPopUpViewController(viewModel: viewModel, type: .resign)
+        let resignPopUp = CheckPopUpViewController(viewModel: viewModel)
         self.navigationController?.present(resignPopUp, animated: true)
     }
     

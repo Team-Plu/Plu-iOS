@@ -27,7 +27,7 @@ final class MyAnswerCoordinatorImpl: MyAnswerCoordinator {
         let manager = RegisterPopUpManagerImpl()
         let viewModel = RegisterPopUpViewModelImpl(manager: manager)
         viewModel.delegate = self
-        let registerPopUpViewController = CheckPopUpViewController(viewModel: viewModel, type: .register)
+        let registerPopUpViewController = CheckPopUpViewController(viewModel: viewModel)
         self.navigationController?.present(registerPopUpViewController, animated: true)
     }
     

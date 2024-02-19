@@ -184,7 +184,7 @@
 		C0771C932B706BE700780707 /* AlarmSettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0771C922B706BE700780707 /* AlarmSettingItem.swift */; };
 		C07AB7272B2828A600C2E02C /* TabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07AB7262B2828A600C2E02C /* TabbarCoordinator.swift */; };
 		C07AB72B2B28380200C2E02C /* MyAnswerCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07AB72A2B28380200C2E02C /* MyAnswerCoordinatorImpl.swift */; };
-		C07CD88D2B2BCDAC0091DAAF /* CheckPopUpViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07CD88C2B2BCDAC0091DAAF /* CheckPopUpViewModelImpl.swift */; };
+		C07CD88D2B2BCDAC0091DAAF /* RegisterPopUpViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07CD88C2B2BCDAC0091DAAF /* RegisterPopUpViewModelImpl.swift */; };
 		C07CD88F2B2BD4C90091DAAF /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07CD88E2B2BD4C80091DAAF /* UIButton+.swift */; };
 		C07CD8912B2BD9E20091DAAF /* AlarmPopUpViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07CD8902B2BD9E20091DAAF /* AlarmPopUpViewModelImpl.swift */; };
 		C083F6262B27EDBA00808AE6 /* PopUpDimmedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C083F6252B27EDBA00808AE6 /* PopUpDimmedViewController.swift */; };
@@ -213,6 +213,8 @@
 		C0DBFB362B300EFF002F71A4 /* ExitUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DBFB352B300EFF002F71A4 /* ExitUser.swift */; };
 		C0DCA6AE2B82E6E800A622F4 /* ResignPopUpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCA6AD2B82E6E800A622F4 /* ResignPopUpManager.swift */; };
 		C0DCA6B02B82E7BA00A622F4 /* ResignPopUpViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCA6AF2B82E7BA00A622F4 /* ResignPopUpViewModelImpl.swift */; };
+		C0DCA6B22B830D3500A622F4 /* CheckPopUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCA6B12B830D3500A622F4 /* CheckPopUpViewModel.swift */; };
+		C0DCA6B42B830D4B00A622F4 /* CheckPopUpText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCA6B32B830D4B00A622F4 /* CheckPopUpText.swift */; };
 		C0E0D4F72B26C7FC00840C0B /* NicknameEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E0D4F62B26C7FC00840C0B /* NicknameEditViewController.swift */; };
 		C0E0D4F92B26C81700840C0B /* NicknameEditViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E0D4F82B26C81700840C0B /* NicknameEditViewModelImpl.swift */; };
 		C0E0D4FB2B26CC4C00840C0B /* PLUImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E0D4FA2B26CC4C00840C0B /* PLUImageView.swift */; };
@@ -414,7 +416,7 @@
 		C0771C922B706BE700780707 /* AlarmSettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmSettingItem.swift; sourceTree = "<group>"; };
 		C07AB7262B2828A600C2E02C /* TabbarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarCoordinator.swift; sourceTree = "<group>"; };
 		C07AB72A2B28380200C2E02C /* MyAnswerCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnswerCoordinatorImpl.swift; sourceTree = "<group>"; };
-		C07CD88C2B2BCDAC0091DAAF /* CheckPopUpViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPopUpViewModelImpl.swift; sourceTree = "<group>"; };
+		C07CD88C2B2BCDAC0091DAAF /* RegisterPopUpViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPopUpViewModelImpl.swift; sourceTree = "<group>"; };
 		C07CD88E2B2BD4C80091DAAF /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		C07CD8902B2BD9E20091DAAF /* AlarmPopUpViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmPopUpViewModelImpl.swift; sourceTree = "<group>"; };
 		C083F6252B27EDBA00808AE6 /* PopUpDimmedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpDimmedViewController.swift; sourceTree = "<group>"; };
@@ -443,6 +445,8 @@
 		C0DBFB352B300EFF002F71A4 /* ExitUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitUser.swift; sourceTree = "<group>"; };
 		C0DCA6AD2B82E6E800A622F4 /* ResignPopUpManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignPopUpManager.swift; sourceTree = "<group>"; };
 		C0DCA6AF2B82E7BA00A622F4 /* ResignPopUpViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignPopUpViewModelImpl.swift; sourceTree = "<group>"; };
+		C0DCA6B12B830D3500A622F4 /* CheckPopUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPopUpViewModel.swift; sourceTree = "<group>"; };
+		C0DCA6B32B830D4B00A622F4 /* CheckPopUpText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPopUpText.swift; sourceTree = "<group>"; };
 		C0E0D4F62B26C7FC00840C0B /* NicknameEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameEditViewController.swift; sourceTree = "<group>"; };
 		C0E0D4F82B26C81700840C0B /* NicknameEditViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameEditViewModelImpl.swift; sourceTree = "<group>"; };
 		C0E0D4FA2B26CC4C00840C0B /* PLUImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLUImageView.swift; sourceTree = "<group>"; };
@@ -1285,12 +1289,11 @@
 		C0ABCA6B2B2BC01A00D05079 /* CheckPopUp */ = {
 			isa = PBXGroup;
 			children = (
-				C083F62B2B27F20500808AE6 /* CheckPopUpViewController.swift */,
-				C07CD88C2B2BCDAC0091DAAF /* CheckPopUpViewModelImpl.swift */,
-				4A72FD212B3A9FB300CD1BF8 /* RegisterPopUpManager.swift */,
-				4A72FD232B3AA02400CD1BF8 /* CheckPopUpNavigation.swift */,
-				C0DCA6AD2B82E6E800A622F4 /* ResignPopUpManager.swift */,
-				C0DCA6AF2B82E7BA00A622F4 /* ResignPopUpViewModelImpl.swift */,
+				C0DCA6B92B830D8E00A622F4 /* ViewModels */,
+				C0DCA6B82B830D8300A622F4 /* Navigation */,
+				C0DCA6B72B830D7900A622F4 /* Managers */,
+				C0DCA6B62B830D5B00A622F4 /* ViewController */,
+				C0DCA6B52B830D5400A622F4 /* Model */,
 			);
 			path = CheckPopUp;
 			sourceTree = "<group>";
@@ -1354,6 +1357,49 @@
 				C0D813F32B312E7D00F1B180 /* OnboardingAdaptor.swift */,
 			);
 			path = Adaptor;
+			sourceTree = "<group>";
+		};
+		C0DCA6B52B830D5400A622F4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C0DCA6B32B830D4B00A622F4 /* CheckPopUpText.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C0DCA6B62B830D5B00A622F4 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C083F62B2B27F20500808AE6 /* CheckPopUpViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C0DCA6B72B830D7900A622F4 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				4A72FD212B3A9FB300CD1BF8 /* RegisterPopUpManager.swift */,
+				C0DCA6AD2B82E6E800A622F4 /* ResignPopUpManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		C0DCA6B82B830D8300A622F4 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				4A72FD232B3AA02400CD1BF8 /* CheckPopUpNavigation.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		C0DCA6B92B830D8E00A622F4 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C07CD88C2B2BCDAC0091DAAF /* RegisterPopUpViewModelImpl.swift */,
+				C0DCA6AF2B82E7BA00A622F4 /* ResignPopUpViewModelImpl.swift */,
+				C0DCA6B12B830D3500A622F4 /* CheckPopUpViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		C0E0D4F52B26C7C500840C0B /* NicknameEdit */ = {
@@ -1641,6 +1687,7 @@
 				B5B7450A2B3491F400AF368A /* AnswerFilter.swift in Sources */,
 				C05E26982B1D9F1000D91BFA /* LoginViewController.swift in Sources */,
 				4A44666F2B2B2035002D5BF7 /* UserDefaultsManager.swift in Sources */,
+				C0DCA6B22B830D3500A622F4 /* CheckPopUpViewModel.swift in Sources */,
 				B5CD675B2B7F0C0F00EE48A1 /* AppleLoginService.swift in Sources */,
 				C05E268E2B1D9EC800D91BFA /* OthersAnswerViewController.swift in Sources */,
 				B5ACF6F12B22D116006D7641 /* RecordQuestionTableViewCell.swift in Sources */,
@@ -1707,7 +1754,7 @@
 				B5ACF6D82B2086A9006D7641 /* PLUButton.swift in Sources */,
 				C05E268A2B1D9EAE00D91BFA /* ResignViewController.swift in Sources */,
 				C07AB72B2B28380200C2E02C /* MyAnswerCoordinatorImpl.swift in Sources */,
-				C07CD88D2B2BCDAC0091DAAF /* CheckPopUpViewModelImpl.swift in Sources */,
+				C07CD88D2B2BCDAC0091DAAF /* RegisterPopUpViewModelImpl.swift in Sources */,
 				C0DCA6AE2B82E6E800A622F4 /* ResignPopUpManager.swift in Sources */,
 				4A44666C2B28208D002D5BF7 /* RecordCoordinatorImpl.swift in Sources */,
 				B5ACF7062B26D47C006D7641 /* TutorialCollectionViewCell.swift in Sources */,
@@ -1752,6 +1799,7 @@
 				C0DBFB362B300EFF002F71A4 /* ExitUser.swift in Sources */,
 				C0CFE1D92B33D2B0001FB7A5 /* OnboardingInput.swift in Sources */,
 				4A44666A2B281F52002D5BF7 /* TodayQuestionCoordinatorImpl.swift in Sources */,
+				C0DCA6B42B830D4B00A622F4 /* CheckPopUpText.swift in Sources */,
 				B5ACF70C2B26EC48006D7641 /* se+.swift in Sources */,
 				4A72FD092B345A6F00CD1BF8 /* AnswerDetailResponse.swift in Sources */,
 				B5ACF7392B2A8ADC006D7641 /* PLUNavigationBarView.swift in Sources */,
