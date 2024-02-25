@@ -10,5 +10,5 @@ import Foundation
 
 protocol ResignNavigation: AnyObject {
     func resignButtonTapped()
-    func pop()
+    func backButtonTapped()
 }

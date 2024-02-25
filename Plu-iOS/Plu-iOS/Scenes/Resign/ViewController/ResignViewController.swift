@@ -14,7 +14,7 @@ import SnapKit
 final class ResignViewController: UIViewController {
     
     private let navigationBackButtonTapped = PassthroughSubject<Void, Never>()
-    private let reuseButtonTapped = PassthroughSubject<Void, Never>()
+    private let checkBoxButtonTapped = PassthroughSubject<Bool, Never>()
     private let resignButtonTapped = PassthroughSubject<Void, Never>()
     
     private let viewModel: any ResignViewModel
@@ -31,10 +31,21 @@ final class ResignViewController: UIViewController {
     
     private let descriptionView = ResignDescriptionView()
     
-    private let reuseButton = PLUButton(config: .filled())
-        .setText(text: StringConstant.Resign.reuseText, font: .title1)
-        .setBackForegroundColor(backgroundColor: .gray600, foregroundColor: .white)
-        .setLayer(cornerRadius: 8, borderColor: .gray600)
+    private let checkBoxButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "btn_checkbox"), for: .normal)
+        button.isSelected = false
+        return button
+    }()
+    
+    private let checkBoxDescription: UILabel = {
+        let label = UILabel()
+        label.font = .suite(.body3)
+        label.textColor = .designSystem(.gray700)
+        label.text = "(필수) 위 유의 사항을 모두 확인했으며 이에 동의합니다."
+        label.textAlignment = .left
+        return label
+    }()
     
     private let resignButton = PLUButton(config: .filled())
         .setText(text: StringConstant.Resign.resignText, font: .title1)
@@ -66,38 +77,41 @@ final class ResignViewController: UIViewController {
     
     private func bindInput() {
         navigationBar.leftButtonTapSubject
-            .sink { [weak self] _ in
-                guard let self else { return }
-                self.navigationBackButtonTapped.send(())
-            }
+            .subscribe(self.navigationBackButtonTapped)
             .store(in: &cancelBag)
         
-        reuseButton.tapPublisher
+        checkBoxButton.tapPublisher
             .sink { [weak self] _ in
                 guard let self else { return }
-                self.reuseButtonTapped.send(())
+                self.checkBoxButton.isSelected.toggle()
+                self.checkBoxButtonTapped.send(self.checkBoxButton.isSelected)
             }
             .store(in: &cancelBag)
         
         resignButton.tapPublisher
-            .sink { [weak self] _ in
-                guard let self else { return }
-                self.resignButtonTapped.send(())
-            }
+            .filter { self.checkBoxButton.isSelected }
+            .subscribe(self.resignButtonTapped)
             .store(in: &cancelBag)
     }
     
     private func bind() {
         let input = ResignViewModelInput(
             navigationBackButtonTapped: navigationBackButtonTapped,
-            reuseButtonTapped: reuseButtonTapped,
+            checkBoxButtonTapped: checkBoxButtonTapped,
             resignButtonTapped: resignButtonTapped
         )
         let output = viewModel.transform(input: input)
-        output.resignResult
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] _ in }
+        output.resignButtonStatePublisher
+            .subscribe(on: DispatchQueue.main)
+            .sink { [weak self] in
+                self?.setButtonState(isChecked: $0)
+            }
             .store(in: &cancelBag)
+    }
+    
+    private func setButtonState(isChecked: Bool) {
+        self.checkBoxButton.setImage(UIImage(named: isChecked ? "btn_checkbox_fill" : "btn_checkbox"), for: .normal)
+        self.resignButton.setBackForegroundColor(backgroundColor: isChecked ? .gray600 : .gray50, foregroundColor: isChecked ? .white : .gray300)
     }
 }
 
@@ -114,7 +128,8 @@ private extension ResignViewController {
         self.view.addSubviews(airElementImageView,
                               resignTitleLabel,
                               descriptionView,
-                              reuseButton,
+                              checkBoxButton,
+                              checkBoxDescription,
                               resignButton,
                               navigationBar)
         
@@ -142,27 +157,23 @@ private extension ResignViewController {
             make.leading.trailing.equalToSuperview().inset(36)
         }
         
-        reuseButton.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(44)
+        checkBoxButton.snp.makeConstraints { make in
+            make.leading.equalTo(descriptionView.snp.leading)
+            make.top.equalTo(descriptionView.snp.bottom).offset(20)
+            make.size.equalTo(20)
+        }
+        
+        checkBoxDescription.snp.makeConstraints { make in
+            make.centerY.equalTo(checkBoxButton.snp.centerY)
+            make.leading.equalTo(checkBoxButton.snp.trailing).offset(10)
+            make.trailing.equalTo(descriptionView.snp.trailing)
         }
         
         resignButton.snp.makeConstraints { make in
-            make.top.equalTo(reuseButton.snp.bottom).offset(12)
-            make.leading.trailing.equalTo(reuseButton)
+            make.top.equalTo(checkBoxButton.snp.bottom).offset(70)
+            make.leading.trailing.equalToSuperview().inset(20)
             make.height.equalTo(44)
-            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(24)
         }
-        
-    }
-    
-    @objc func resignButton2Tapped() {
-        guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else { return }
-        let navigationController = UINavigationController()
-        sceneDelegate.appCoordinator = AppCoordinatorImpl(navigationController: navigationController)
-        sceneDelegate.appCoordinator?.startSplashCoordinator()
-        sceneDelegate.window?.rootViewController = navigationController
-        sceneDelegate.window?.makeKeyAndVisible()
     }
 }
 

@@ -14,12 +14,13 @@ extension UILabel {
         self.attributedText = attributedStr
      }
     
-    func setLineSpacing(_ spacing: CGFloat) {
+    func setLineSpacing(_ spacing: CGFloat) -> Self {
         let attrString = NSMutableAttributedString(string: self.text ?? "")
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = spacing
         attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attrString.length))
         self.attributedText = attrString
+        return self
     }
 
     func setTextWithLineHeight(lineHeight: CGFloat) {

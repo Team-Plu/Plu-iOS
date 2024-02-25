@@ -33,9 +33,8 @@ enum StringConstant {
     }
     
     enum Resign {
-        static let resignDescriptionText = "회원 탈퇴 시 기존에 등록한 게시글, 공감 등\n모든 활동 정보가 삭제되며 복구가 불가능합니다.\n정말 탈퇴하실 건가요?"
+        static let resignDescriptionText = "• 나의 답변에 작성한 일기가 영구적으로 삭제됩니다.\n• 회원 정보가 영구적으로 삭제됩니다.\n• 모두의 답변에 공개된 일기와 회원이 누른 공감은 회원 탈퇴와 무관하게 유지됩니다."
         static let resignTitleText = "Plu님과 이별인가요?\n너무 아쉬워요."
-        static let reuseText = "다시 사용하기"
         static let resignText = "탈퇴하기"
     }
   
@@ -96,6 +95,13 @@ enum StringConstant {
     enum PopUp {
         enum YearAndMonth {
             static let checkButtonTitle = "확인"
+        }
+        
+        enum Resign {
+            static let title = "Plu를 탈퇴할까요?"
+            static let subTitle = "여태껏 내가 작성한\n소중한 일기 기록이 영구적으로 사라져요!"
+            static let resignButtonTitle = "탈퇴하기"
+            static let cancelButtonTitle = "취소하기"
         }
         
         enum Register {

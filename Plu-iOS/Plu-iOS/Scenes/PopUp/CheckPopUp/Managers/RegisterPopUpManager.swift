@@ -12,7 +12,6 @@ protocol RegisterPopUpManager {
 }
 
 final class RegisterPopUpManagerImpl: RegisterPopUpManager {
-    
     func resgisterAnswer() async throws {
         print("답변 등록에 성공했어요")
     }

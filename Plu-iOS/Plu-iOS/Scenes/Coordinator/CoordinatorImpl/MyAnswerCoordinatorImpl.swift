@@ -27,7 +27,7 @@ final class MyAnswerCoordinatorImpl: MyAnswerCoordinator {
         let manager = RegisterPopUpManagerImpl()
         let viewModel = RegisterPopUpViewModelImpl(manager: manager)
         viewModel.delegate = self
-        let registerPopUpViewController = RegisterPopUpViewController(viewModel: viewModel)
+        let registerPopUpViewController = CheckPopUpViewController(viewModel: viewModel)
         self.navigationController?.present(registerPopUpViewController, animated: true)
     }
     
@@ -42,12 +42,12 @@ extension MyAnswerCoordinatorImpl: MyAnswerNavigation {
     }
 }
 
-extension MyAnswerCoordinatorImpl: RegisterPopUpNavigation {
-    func dismiss() {
+extension MyAnswerCoordinatorImpl: CheckPopUpNavigation {
+    func leftButtonTapped() {
         self.navigationController?.dismiss(animated: true)
     }
     
-    func completeButtonTapped() {
+    func rightButtonTapped() {
         self.navigationController?.dismiss(animated: true) {
             self.myAnswerSubject.send(())
             self.navigationController?.popToRootViewController(animated: true)

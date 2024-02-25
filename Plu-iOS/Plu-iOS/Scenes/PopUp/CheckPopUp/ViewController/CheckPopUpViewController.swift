@@ -10,16 +10,17 @@ import Combine
 
 import SnapKit
 
-final class RegisterPopUpViewController: PopUpDimmedViewController {
+enum CheckPopUpType {
+    case register, resign
+}
+
+final class CheckPopUpViewController: PopUpDimmedViewController {
     
-    enum ButtonType {
-        case reCheck, register
-    }
-    
-    let viewModel: any RegisterPopUpViewModel
+    let viewModel: any CheckPopUpViewModel
     var cancelBag = Set<AnyCancellable>()
     
-    let buttonSubject = PassthroughSubject<ButtonType, Never>()
+    let leftButtonSubject = PassthroughSubject<Void, Never>()
+    let rightButtonSubject = PassthroughSubject<Void, Never>()
     
     private let popUpBackgroundView = PLUPopUpContainerView()
     
@@ -36,7 +37,7 @@ final class RegisterPopUpViewController: PopUpDimmedViewController {
                                          lines: 2,
                                          text: StringConstant.PopUp.Register.subTitle)
     
-    private let registerButton = PLUButton(config: .bordered())
+    private let rightButton = PLUButton(config: .bordered())
         .setText(text: StringConstant.PopUp.Register.registerButtonTitle,
                  font: .title1)
         .setBackForegroundColor(backgroundColor: .gray600,
@@ -45,7 +46,7 @@ final class RegisterPopUpViewController: PopUpDimmedViewController {
                   borderColor: .gray600)
     
     
-    private let reCheckButton = PLUButton(config: .bordered())
+    private let leftButton = PLUButton(config: .bordered())
         .setText(text: StringConstant.PopUp.Register.checkButtonTitle,
                  font: .title1)
         .setBackForegroundColor(backgroundColor: .gray50,
@@ -53,7 +54,7 @@ final class RegisterPopUpViewController: PopUpDimmedViewController {
         .setLayer(cornerRadius: 8,
                   borderColor: .gray50)
     
-    init(viewModel: some RegisterPopUpViewModel) {
+    init(viewModel: some CheckPopUpViewModel) {
         self.viewModel = viewModel
         super.init()
     }
@@ -70,11 +71,11 @@ final class RegisterPopUpViewController: PopUpDimmedViewController {
     }
 }
 
-private extension RegisterPopUpViewController {
+private extension CheckPopUpViewController {
     
     func setHierarchy() {
         view.addSubview(popUpBackgroundView)
-        popUpBackgroundView.addSubviews(popUpTitle, popUpSubTitle, registerButton, reCheckButton)
+        popUpBackgroundView.addSubviews(popUpTitle, popUpSubTitle, rightButton, leftButton)
     }
     
     func setLayout() {
@@ -98,38 +99,42 @@ private extension RegisterPopUpViewController {
             make.leading.trailing.equalToSuperview()
         }
         
-        reCheckButton.snp.makeConstraints { make in
+        leftButton.snp.makeConstraints { make in
             make.top.equalTo(popUpSubTitle.snp.bottom).offset(20)
             make.bottom.equalToSuperview().inset(24)
             make.leading.equalToSuperview().inset(16)
-            make.trailing.equalTo(registerButton.snp.leading).offset(-7)
-            make.width.equalTo(registerButton.snp.width)
+            make.trailing.equalTo(rightButton.snp.leading).offset(-7)
+            make.width.equalTo(rightButton.snp.width)
         }
         
-        registerButton.snp.makeConstraints { make in
+        rightButton.snp.makeConstraints { make in
             make.top.equalTo(popUpSubTitle.snp.bottom).offset(20)
             make.bottom.equalToSuperview().inset(24)
             make.trailing.equalToSuperview().inset(16)
-            make.width.equalTo(reCheckButton.snp.width)
+            make.width.equalTo(leftButton.snp.width)
         }
     }
     
     func bindInput() {
-        registerButton.tapPublisher
-            .sink { _ in
-                self.buttonSubject.send(.register)
-            }
+        rightButton.tapPublisher
+            .subscribe(self.rightButtonSubject)
             .store(in: &cancelBag)
         
-        reCheckButton.tapPublisher
-            .sink { _ in
-                self.buttonSubject.send(.reCheck)
-            }
+        leftButton.tapPublisher
+            .subscribe(self.leftButtonSubject)
             .store(in: &cancelBag)
     }
     
     func bind() {
-        let input = RegisterPopUpInput(buttonSubject: buttonSubject)
-        _ = viewModel.transform(input: input)
+        let input = CheckPopUpInput(leftButtonSubject: self.leftButtonSubject, rightButtonSubject: self.rightButtonSubject)
+        let output = viewModel.transform(input: input)
+        output.viewDidLoadPublisher
+            .sink { [weak self] text in
+                self?.popUpTitle.text = text.title
+                self?.popUpSubTitle.text = text.subTitle
+                self?.leftButton.setText(text: text.leftButtonTitle, font: .title1)
+                self?.rightButton.setText(text: text.rightButtonTitle, font: .title1)
+            }
+            .store(in: &cancelBag)
     }
 }
